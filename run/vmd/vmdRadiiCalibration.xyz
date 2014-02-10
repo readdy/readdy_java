@@ -1,0 +1,14 @@
+12
+ParticleDynamics by Johannes Seibert, Run on Wed Mar 02 08:57:24 CET 2011
+C_1			0.			0			0
+C_1			0			0			1
+C_2			0			5			0
+C_2			0			5			5
+C_3			0			10			0
+C_3			0			10			3.5		
+C_4			0			15			0
+C_4			0			15			4
+C_5			0			20			0			# vdw sphere scale 0.25
+C_5			0			20			0.6		
+C_6			0			25			0			# vdw sphere scale 1.5
+C_6			0			25			4.270	

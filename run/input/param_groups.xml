@@ -1,0 +1,22 @@
+<param_groups version="0.0.1">
+<particleGroup>
+<type>Syntaxin</type>
+<templateOrigin>[0,0,0]</templateOrigin>
+<templateNormal>[0,0,1] </templateNormal>
+<buildingBlocks>
+<particle internalId="0" type="syx0" templateC="0,0,0" />
+<particle internalId="1" type="syx1" templateC="0,1,0" />
+<particle internalId="2" type="syx2" templateC="1,0,0" />
+<particle internalId="3" type="syx3" templateC="1,1,0" />
+</buildingBlocks>
+<potentials>
+<pot type="HARMONIC" subtype="attractive" forceConst="1" affectedInternalIdPairs="[[0,1]]"/>
+<pot type="HARMONIC" subtype="attractive" forceConst="1" affectedInternalIdPairs="[[0,2]]"/>
+<pot type="HARMONIC" subtype="attractive" forceConst="1" affectedInternalIdPairs="[[0,3]]"/>
+<pot type="HARMONIC" subtype="attractive" forceConst="1" affectedInternalIdPairs="[[1,2]]"/>
+<pot type="HARMONIC" subtype="attractive" forceConst="1" affectedInternalIdPairs="[[1,3]]"/>
+<pot type="HARMONIC" subtype="attractive" forceConst="1" affectedInternalIdPairs="[[2,3]]"/>
+</potentials>
+<maxNumberOfGroupAssignmentsPerParticle>1</maxNumberOfGroupAssignmentsPerParticle>
+</particleGroup>
+</param_groups>

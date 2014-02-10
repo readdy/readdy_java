@@ -1,0 +1,29 @@
+<param_potentialTemplates version="0.0.1">
+	<potential>
+		<potentialType>HARMONIC</potentialType>
+		<potentialOrder>2</potentialOrder>
+		<parameters>
+			<param name="name" type="String" default="HARMONIC"/>
+			<!-- type = ["spring", "attractive", "repulsive"] -->
+			<param name="subtype" type="String" default="spring" />
+			<param name="forceConst" type="double" default="1" />
+			<param name="affectedParticleTypeIdPairs" type="int[][]" default="null" />
+			<param name="affectedParticleIdPairs" type="int[][]" default="null" />
+		</parameters>
+	</potential>
+	<potential>
+		<potentialType>DISK</potentialType>
+		<potentialOrder>1</potentialOrder>
+		<parameters>			
+			<param name="name" type="String" default="DISK"/>
+			<!-- type = [ "attractive","repulsive",] -->
+			<param name="subtype" type="String" default="attractive" />
+			<param name="forceConst" type="double" default="1" />
+			<param name="center" type="double[]" default="[0.0,0.0,0.0]" />
+			<param name="normal" type="double[]" default="[0.0,0.0,1.0]" />
+			<param name="radius" type="double" default="1" />
+			<param name="affectedParticleTypeIds" type="int[]" default="null" />
+			<param name="affectedParticleIds" type="int[]" default="null" />
+		</parameters>
+	</potential>
+</param_potentialTemplates>

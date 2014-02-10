@@ -1,0 +1,95 @@
+<param_reactions version="1.0">
+
+			<reaction> 
+				<name>R*_meta1==R*_meta2</name> 
+				<type>typeConversion</type>
+				<educts> 
+					<educt 		type="particle">R*_meta1</educt> 
+				</educts> 
+				<products> 
+					<product 		type="particle">R*_meta2</product> 
+				</products>
+				<k_forward>35.4</k_forward> 			
+				<k_backward>14.4</k_backward> 		
+			</reaction> 
+
+			<reaction> 
+				<name>act_R_G==act_R_act_G_complex</name> 
+				<type>fusion</type>
+				<educts> 
+					<educt 		type="particle">R*_meta2</educt> 
+					<educt 		type="particle">G</educt> 
+				</educts> 
+				<products> 
+					<product 	type="particle">R*_Ggdp_cplx</product> 
+				</products> 
+				<k_forward>1e12</k_forward> 		
+				<k_backward>200</k_backward> 		
+			</reaction>  
+
+			<reaction> 
+				<name>act_R_G_GDP_complex==act_R_G_complex</name> 
+				<type>typeConversion</type> 
+				<educts> 
+					<educt 		type="particle">R*_Ggdp_cplx</educt> 
+				</educts> 
+				<products> 
+					<product 	type="particle">R*_G0_cplx</product> 
+				</products> 
+				<k_forward>600</k_forward> 			
+				<k_backward>2.2</k_backward> 		
+			</reaction>
+			<reaction> 
+				<name>act_R_G_complex==act_R_G_GTP</name> 
+				<type>typeConversion</type> 
+				<educts> 
+					<educt 		type="particle">R*_G0_cplx</educt> 
+				</educts> 
+				<products> 
+					<product 	type="particle">R*_Ggtp_cplx</product> 
+				</products> 
+				<k_forward>7800</k_forward> 		
+				<k_backward>1000</k_backward> 		
+			</reaction>
+			<reaction> 
+				<name>act_R_G_GTP_complex==act_R_act_G</name>
+				<type>idConservingActRAndActGCplxFission</type> 
+				<educts> 
+					<educt 		type="particle">R*_Ggtp_cplx</educt> 
+				</educts> 
+				<products> 
+					<product 	type="particle">R*_meta2</product> 
+					<product 	type="particle">G*</product> 
+				</products> 
+				<k_forward>60000</k_forward> 	
+				<k_backward>0</k_backward> 		
+			</reaction>
+			<reaction> 
+				<name>ACT_TRANSDUCIN_MEMBRANE_DISSOCIATION</name>
+				<type>decay</type> 
+				<educts> 
+					<educt type="particle">G*</educt> 
+				</educts> 
+				<products>  
+				</products> 
+				<k_forward>10000</k_forward> 	
+				<k_backward>0</k_backward> 		
+			</reaction>
+
+<!--^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->			
+			<!--    Pre Complex Reaction -->
+			<reaction> 
+				<name>R_G==R_G_pre_complex</name> 
+				<type>fusion</type>
+				<educts> 
+					<educt 		type="particle">R</educt> 
+					<educt 		type="particle">G</educt> 
+				</educts> 
+				<products> 
+					<product 	type="particle">R_Ggdp_preCplx</product> 
+				</products> 
+				<k_forward>1e12</k_forward> 		
+				<k_backward>1e7</k_backward> 		
+			</reaction>
+
+</param_reactions>

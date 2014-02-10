@@ -1,0 +1,42 @@
+	<!--
+	Things like this are defined in a parser, that will once generate a topology out of a file that is more high level than the topology file which only knows atomistic potential definitions that are all converted into single potential objects
+
+			<pot type="XYDISK" forceConst="5" typeId="all">
+			
+			such keywords like all are not allowed here
+			
+			
+							radius="236.3"
+-->
+
+<tplgy_potentials version="0.0.1">
+	<!--geometry defining potentials!
+	
+		POTENTIAL ORDER 1
+	-->
+		<pot 	name="attractiveDisk_1"
+				type="DISK"
+				subtype="attractive" 
+				forceConst="5"
+				center="[0.0,0.0,0.0]"
+				normal="[0.0,0.0,1.0]"
+				radius="236.3"
+				affectedParticleTypeIds="[0,1,2,3]"
+				affectedParticleIds="" />
+				
+			
+	<!--particle interaction potentials!
+	
+		POTENTIAL ORDER 2
+	-->
+
+		<pot 	name="harmonic_particleRepulsion"
+				type="HARMONIC"
+				subtype="repulsive" 
+				forceConst="0.25" 
+				affectedParticleTypeIdPairs="all"
+				affectedParticleIdPairs="" />
+				
+
+		
+</tplgy_potentials>
