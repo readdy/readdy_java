@@ -30,50 +30,20 @@
 * POSSIBILITY OF SUCH DAMAGE.                                                 *
 *                                                                             *
 \*===========================================================================*/
-package readdy.impl.assembly;
+package readdy.api.sim.core_mc;
 
-import readdy.api.assembly.ICoreFactory;
-import readdy.api.sim.core.ICore;
-import readdy.api.sim.core.bd.IDiffusionEngine;
-import readdy.api.sim.core.config.IParticleConfiguration;
-import readdy.api.sim.core.rk.IReactionObserver;
-import readdy.impl.sim.core.Core;
+import readdy.api.sim.core.particle.IParticle;
+import readdy.api.sim.core.pot.IPotentialManager;
 
 /**
  *
- * @author schoeneberg
+ * @author johannesschoeneberg
  */
-public class CoreFactory implements ICoreFactory {
+public interface IPotentialEnergyComputer {
 
-    IParticleConfiguration particleConfig = null;
-    IDiffusionEngine diffusionEngine = null;
-    IReactionObserver reactionObserver = null;
+    public double computeEnergy(IParticle p);
 
-    public void set_ParticleConfiguration(IParticleConfiguration particleConfig) {
-        this.particleConfig = particleConfig;
-    }
+    public double computeEnergy(IParticle p1, IParticle p2);
 
-    public void set_DiffusionEngine(IDiffusionEngine diffusionEngine) {
-        this.diffusionEngine = diffusionEngine;
-    }
-
-    public void set_ReactionObserver(IReactionObserver reactionObserver) {
-        this.reactionObserver = reactionObserver;
-    }
-
-    public ICore createCore() {
-        if (particleConfig != null
-                && diffusionEngine != null
-                && reactionObserver != null) {
-            Core core = new Core();
-            core.set_ParticleConfiguration(particleConfig);
-            core.set_DiffusionEngine(diffusionEngine);
-            core.set_ReactionObserver(reactionObserver);
-
-            return core;
-        } else {
-            throw new RuntimeException("necessary building blocks not present for assembly."
-                    + "construction cancelled!");
-        }
-    }
+    public IPotentialManager get_potentialManager();
 }

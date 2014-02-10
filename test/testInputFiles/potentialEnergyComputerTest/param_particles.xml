@@ -1,0 +1,18 @@
+<param_particles version="1.0">
+<particle>
+	<type>A</type>
+	<diffusionConstant>143.1e+6</diffusionConstant>
+	<collisionRadiusMap>
+		<collisionRadius>
+		<partnerType>default</partnerType>
+		<radius>2</radius>
+		</collisionRadius>
+	</collisionRadiusMap>
+	<reactionRadiusMap>
+		<reactionRadius>
+		<partnerType>default</partnerType>
+		<radius>2</radius>
+		</reactionRadius>
+	</reactionRadiusMap>
+</particle>
+</param_particles>

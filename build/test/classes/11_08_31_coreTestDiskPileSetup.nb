@@ -1,0 +1,394 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     12501,        385]
+NotebookOptionsPosition[     11825,        358]
+NotebookOutlinePosition[     12165,        373]
+CellTagsIndexPosition[     12122,        370]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+ /*=== === === === === === === === === === === === === === === === === === \
+=== *\\
+ *          ReaDDy - The Library for Reaction Diffusion Dynamics              \
+ *
+ * === === === === === === === === === === === === === === === === === === \
+=== *
+ *Copyright (c) 2010 - 2013, Johannes Sch\[ODoubleDot]neberg, Frank No\
+\[EAcute], FU Berlin         *
+ *All rights reserved.                                                        \
+ *
+ *                                                                            \
+ *
+ *Redistribution and use in source and binary forms, with or without          \
+ *
+ *modification, are permitted provided that the following conditions are met \
+: *
+ *                                                                            \
+ *
+ *     *Redistributions of source code must retain the above copyright        \
+ *
+ *      notice, this list of conditions and the following disclaimer.         \
+ *
+ *     *Redistributions in binary form must reproduce the above copyright     \
+ *
+ *      notice, this list of conditions and the following disclaimer in the   \
+ *
+ *      documentation and/or other materials provided with the distribution.  \
+ *
+ *     *Neither the name of Johannes Sch\[ODoubleDot]neberg or Frank No\
+\[EAcute] or the FU Berlin  *
+ *      nor the names of its contributors may be used to endorse or promote   \
+ *
+ *      products derived from this software without specific prior written    \
+ *
+ *      permission.                                                           \
+ *
+ *                                                                            \
+ *
+ *THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\
+\"  *
+ *AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE   \
+ *
+ *IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE  \
+ *
+ *ARE DISCLAIMED.IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE    \
+ *
+ *LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR         \
+ *
+ *CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF        \
+ *
+ *SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS    \
+ *
+ *INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN     \
+ *
+ *CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)     \
+ *
+ *ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE  \
+ *
+ *POSSIBILITY OF SUCH DAMAGE.                                                 \
+ *
+ *\\=== === === === === === === === === === === === === === === === === === \
+=== */\
+\>", "Program"],
+
+Cell[CellGroupData[{
+
+Cell["Definition", "Subtitle"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"n1", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c1", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+
+ RowBox[{
+  RowBox[{
+   RowBox[{"r1", "=", "1"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n2", "=", 
+   RowBox[{"Normalize", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "0.2"}], ",", "0.2", ",", "0.8"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c2", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0.8"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"r2", "=", "1"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n3", "=", 
+   RowBox[{"Normalize", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "0.4"}], ",", 
+      RowBox[{"-", "0.4"}], ",", "1.8"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c3", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "1.8"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"r3", "=", "1"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n4", "=", 
+   RowBox[{"Normalize", "[", 
+    RowBox[{"{", 
+     RowBox[{"0.4", ",", 
+      RowBox[{"-", "0.4"}], ",", "1"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c4", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "2.9"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"r4", "=", "1"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n5", "=", 
+   RowBox[{"Normalize", "[", 
+    RowBox[{"{", 
+     RowBox[{"0.4", ",", 
+      RowBox[{"-", "0.4"}], ",", "0.2"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c5", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"-", "1.2"}], ",", "1"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"r5", "=", "1"}], ";"}], "\[IndentingNewLine]"}], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Visualization", "Subtitle"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"k", " ", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"normals", "=", 
+  RowBox[{"k", 
+   RowBox[{"{", 
+    RowBox[{"n1", ",", "n2", ",", "n3", ",", "n4", ",", "n5"}], 
+    "}"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"centers", "=", 
+  RowBox[{"k", 
+   RowBox[{"{", 
+    RowBox[{"c1", ",", "c2", ",", "c3", ",", "c4", ",", "c5"}], 
+    "}"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"radii", "=", 
+  RowBox[{"k", 
+   RowBox[{"{", 
+    RowBox[{"r1", ",", "r2", ",", "r3", ",", "r4", ",", "r5"}], 
+    "}"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"discs", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"normalVecs", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "\[LessEqual]", 
+     RowBox[{"Length", "[", "normals", "]"}]}], ",", 
+    RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"discs", ",", 
+       RowBox[{"Cylinder", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"centers", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], ",", 
+           RowBox[{
+            RowBox[{"centers", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "+", 
+            RowBox[{"0.001", 
+             RowBox[{"normals", "[", 
+              RowBox[{"[", "i", "]"}], "]"}]}]}]}], "}"}], ",", 
+         RowBox[{"radii", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"normalVecs", ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"Yellow", ",", 
+         RowBox[{"Arrow", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"centers", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], ",", 
+            RowBox[{
+             RowBox[{"centers", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "+", 
+             RowBox[{"normals", "[", 
+              RowBox[{"[", "i", "]"}], "]"}]}]}], "}"}], "]"}]}], "}"}]}], 
+      "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"coordSystem", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Red", ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"Green", ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "}"}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], "]"}]}], 
+      "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Graphics3D", "[", 
+  RowBox[{"{", 
+   RowBox[{"coordSystem", ",", "discs", ",", "normalVecs"}], "}"}], 
+  "]"}], "\[IndentingNewLine]"}], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "10"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "2.3570226039551585`"}], ",", "2.3570226039551585`", ",", 
+     "9.428090415820634`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "2.11999576001272`"}], ",", 
+     RowBox[{"-", "2.11999576001272`"}], ",", "9.539980920057241`"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"3.481553119113957`", ",", 
+     RowBox[{"-", "3.481553119113957`"}], ",", "8.703882797784892`"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"6.666666666666666`", ",", 
+     RowBox[{"-", "6.666666666666666`"}], ",", "3.333333333333333`"}], 
+    "}"}]}], "}"}]], "Output"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "8.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "18.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "29.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10", ",", 
+     RowBox[{"-", "12.`"}], ",", "10"}], "}"}]}], "}"}]], "Output"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"10", ",", "10", ",", "10", ",", "10", ",", "10"}], "}"}]], "Output"],
+
+Cell[BoxData[
+ Graphics3DBox[{{
+    {RGBColor[1, 0, 0], Arrow3DBox[{{0, 0, 0}, {1, 0, 0}}]}, 
+    {RGBColor[0, 1, 0], Arrow3DBox[{{0, 0, 0}, {0, 1, 0}}]}, 
+    {RGBColor[0, 0, 1], Arrow3DBox[{{0, 0, 0}, {0, 0, 1}}]}}, {
+    CylinderBox[{{0, 0, 0}, {0, 0, 0.01}}, 10], 
+    CylinderBox[{{0, 0, 8.}, {-0.0023570226039551587`, 0.0023570226039551587`,
+       8.00942809041582}}, 10], 
+    CylinderBox[{{
+      0, 0, 18.}, {-0.0021199957600127202`, -0.0021199957600127202`, 
+      18.009539980920056`}}, 10], 
+    CylinderBox[{{0, 0, 29.}, {0.003481553119113957, -0.003481553119113957, 
+      29.008703882797786`}}, 10], 
+    CylinderBox[{{10, -12., 10}, {10.006666666666666`, -12.006666666666666`, 
+      10.003333333333334`}}, 10]}, {
+    {RGBColor[1, 1, 0], Arrow3DBox[{{0, 0, 0}, {0, 0, 10}}]}, 
+    {RGBColor[1, 1, 0], 
+     Arrow3DBox[{{0, 0, 8.}, {-2.3570226039551585`, 2.3570226039551585`, 
+       17.428090415820634`}}]}, 
+    {RGBColor[1, 1, 0], 
+     Arrow3DBox[{{0, 0, 18.}, {-2.11999576001272, -2.11999576001272, 
+       27.53998092005724}}]}, 
+    {RGBColor[1, 1, 0], 
+     Arrow3DBox[{{0, 0, 29.}, {3.481553119113957, -3.481553119113957, 
+       37.70388279778489}}]}, 
+    {RGBColor[1, 1, 0], 
+     Arrow3DBox[{{10, -12., 10}, {16.666666666666664`, -18.666666666666664`, 
+       13.333333333333332`}}]}}},
+  AutomaticImageSize->True,
+  ImageSize->{402.4944451147914, 434.42251973454586`},
+  ViewPoint->{-1.692748411054063, -2.9285448113134347`, 0.09070890255731553},
+  ViewVertical->{-0.6262409191680977, -1.063556208845719, 
+   0.3184059798315963}]], "Output"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{739, 751},
+WindowMargins->{{Automatic, 54}, {27, Automatic}},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 2645, 63, 427, "Program"],
+Cell[CellGroupData[{
+Cell[3215, 87, 30, 0, 46, "Subtitle"],
+Cell[3248, 89, 2154, 78, 313, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5439, 172, 33, 0, 46, "Subtitle"],
+Cell[CellGroupData[{
+Cell[5497, 176, 3449, 102, 268, "Input"],
+Cell[8949, 280, 727, 21, 43, "Output"],
+Cell[9679, 303, 432, 13, 27, "Output"],
+Cell[10114, 318, 108, 2, 27, "Output"],
+Cell[10225, 322, 1572, 32, 449, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

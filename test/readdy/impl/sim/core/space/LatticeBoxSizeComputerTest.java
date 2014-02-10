@@ -32,7 +32,7 @@ import readdy.api.sim.core.particle.IParticleParameters;
 import readdy.api.sim.core.pot.IPotentialInventory;
 import readdy.api.sim.core.pot.IPotentialManager;
 import readdy.api.sim.core.rk.IElementalReactionManager;
-import readdy.impl.assembly.CoreFactory;
+import readdy.impl.assembly.Core_Default_Factory;
 import readdy.impl.assembly.DiffusionEngineFactory;
 import readdy.impl.assembly.ElementalReactionManagerFactory_externalFile;
 import readdy.impl.assembly.ParticleConfigurationFactory;

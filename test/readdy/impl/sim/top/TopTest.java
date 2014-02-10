@@ -34,7 +34,7 @@ package readdy.impl.sim.top;
 
 import readdy.api.analysis.IAnalysisAndOutputManager;
 import readdy.api.sim.top.ITop;
-import readdy.impl.assembly.CoreFactory;
+import readdy.impl.assembly.Core_Default_Factory;
 import readdy.api.assembly.IDiffusionEngineFactory;
 import readdy.impl.assembly.DiffusionEngineFactory;
 import readdy.api.assembly.IReactionObserverFactory;
@@ -403,7 +403,7 @@ public class TopTest {
         IReactionObserver reactionObserver = reactionObserverFactory.createReactionObserver();
 
 
-        CoreFactory coreFactory = new CoreFactory();
+        Core_Default_Factory coreFactory = new Core_Default_Factory();
 
         coreFactory.set_ParticleConfiguration(particleConfiguration);
         coreFactory.set_DiffusionEngine(diffusionEngine);

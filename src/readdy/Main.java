@@ -37,6 +37,7 @@ import java.util.HashSet;
 import readdy.api.assembly.IReaDDySimulatorFactory;
 import readdy.api.sim.IReaDDySimulator;
 import readdy.impl.assembly.ReaDDySimulatorFactory;
+import readdy.impl.sim.ReaDDySimulator;
 
 /**
  * @author schoeneberg
@@ -66,7 +67,7 @@ public class Main {
     // 3. in {0,1,2,3} meaning alpha, beta, release candidate, release
     // 4. maintainance, increasing number for every bug fix or submission given 1.,2., and 3.
     // the official version number consists of the first two numbers only.
-    final static int[] ReaDDy_Version = new int[]{1, 0, 3, 0};
+    final static int[] ReaDDy_Version = ReaDDySimulator.version;
 
     public static void main(String[] args) {
 
@@ -186,6 +187,7 @@ public class Main {
         System.out.println("-react_elmtlRk [react_elmtlRk.xml]                          input the elemental,");
         System.out.println("                                                            particle based");
         System.out.println("                                                            reactions directly.");
+        System.out.println("-implementation [default,monteCarlo,readdyMM]               available cores.");    
         System.out.println("");
         System.out.println("other:");
         System.out.println("-help                                                       display this help");

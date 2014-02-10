@@ -1,0 +1,83 @@
+<param_reactions version="1.1">
+	
+	<reaction> 
+		<name>A_dimerization</name> 
+		<type>group</type>
+		<educts> 
+			<educt 		type="particle">A</educt> 
+			<educt 		type="particle">A</educt> 
+		</educts> 
+		<products> 
+			<product 	type="group" reactiveInternalIds="all">A_DIMER</product> 
+		</products>
+		<k_forward>1e7</k_forward>
+		<k_backward>15</k_backward> 		
+	</reaction> 
+	<reaction> 
+		<name>A_twoDimers_2_tetramer</name> 
+		<type>gFusion</type>
+		<educts> 
+			<educt		type="group" reactiveInternalIds="all">A_DIMER</educt> 
+			<educt 		type="group" reactiveInternalIds="all">A_DIMER</educt> 
+		</educts> 
+		<products> 
+			<product	type="group" reactiveInternalIds="[[0,1];[2,3]]">A_TETRAMER</product> 
+		</products> 
+		<k_forward>12</k_forward> 		
+		<k_backward>1</k_backward> 		
+	</reaction>  
+	<reaction> 
+		<name>A1_2_A2</name> 
+		<type>typeConversion</type> 
+		<educts> 
+			<educt 		type="particle">A1</educt> 
+		</educts> 
+		<products> 
+			<product 	type="particle">A2</product> 
+		</products> 
+		<k_forward>15</k_forward> 			<!-- microscopic rate, in [s^-1] --> 
+		<k_backward>5</k_backward> 		<!-- microscopic rate, in [s^-1] -->  
+	</reaction>
+	
+	<reaction> 
+		<name>dummyFission</name>
+		<type>fission</type> 
+		<educts> 
+			<educt 		type="particle">dummyFissile</educt> 
+		</educts> 
+		<products> 
+			<product 	type="particle">dummyFissionProduct1</product> 
+			<product 	type="particle">dummyFissionProduct2</product> 
+		</products> 
+		<k_forward>16</k_forward> 			<!-- microscopic rate, in [s^-1] --> 
+		<k_backward>6</k_backward> 		<!-- microscopic rate, in [s^-1] -->  
+	</reaction>
+	
+	<reaction> 
+		<name>dummyEnzymatic</name>
+		<type>enzymatic</type> 
+		<educts> 
+			<educt type="particle">dummyEnzyme</educt> 
+			<educt type="particle">dummyLigand</educt> 
+		</educts> 
+		<products> 
+			<product type="particle">dummyEnzyme</product> 
+			<product type="particle">dummyProduct</product> 
+		</products> 
+		<k_forward>17</k_forward> 			<!-- microscopic rate, in [s^-1] --> 
+		<k_backward>7</k_backward> 		<!-- microscopic rate, in [s^-1] -->  
+	</reaction>
+	
+	<reaction> 
+		<name>dummyCreation</name>
+		<type>creation</type> 
+		<educts> 
+		</educts> 
+		<products> 
+			<product type="particle">dummyProduct</product> 
+		</products> 
+		<k_forward>17</k_forward> 			<!-- microscopic rate, in [s^-1] --> 
+		<k_backward>7</k_backward> 		<!-- microscopic rate, in [s^-1] -->  
+	</reaction>
+	
+</param_reactions>

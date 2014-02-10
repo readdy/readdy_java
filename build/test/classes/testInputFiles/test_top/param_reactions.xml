@@ -1,0 +1,16 @@
+<param_reactions version="1.1">
+<!--^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+	<reaction> 
+		<name>A+B->AB_cplx</name> 
+		<type>fusion</type>
+		<educts> 
+			<educt 		type="particle">A</educt> 
+			<educt 		type="particle">B</educt> 
+		</educts> 
+		<products> 
+			<product 		type="particle">AB_cplx</product> 
+		</products>
+		<k_forward>100000</k_forward> 			
+		<k_backward>5000</k_backward> 		
+	</reaction> 
+</param_reactions>

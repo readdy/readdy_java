@@ -71,7 +71,7 @@ import readdy.api.sim.core.rk.IOccurredElementalReaction;
 import readdy.api.sim.core.rk.IReactionObserver;
 import readdy.api.sim.core.space.ILatticeBoxSizeComputer;
 import readdy.api.sim.core.space.INeighborListEntry;
-import readdy.impl.assembly.CoreFactory;
+import readdy.impl.assembly.Core_Default_Factory;
 import readdy.impl.assembly.DiffusionEngineFactory;
 import readdy.impl.assembly.ElementalReactionManagerFactory_externalFile;
 import readdy.impl.assembly.ParticleConfigurationFactory;
@@ -268,7 +268,7 @@ public class CoreTest {
 
         //-------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------
-        CoreFactory coreFactory = new CoreFactory();
+        Core_Default_Factory coreFactory = new Core_Default_Factory();
 
         coreFactory.set_ParticleConfiguration(particleConfiguration);
         coreFactory.set_DiffusionEngine(diffusionEngine);
