@@ -106,6 +106,8 @@ public class Core_MCTest {
     private static IParticleParameters particleParameters;
     private static IPotentialManager potentialManager;
     private static ICore core;
+    
+    private static String folder = "./test/testInputFiles/test_MonteCarlo_potentialEnergyComputer";
 
     public Core_MCTest() {
     }
@@ -120,7 +122,7 @@ public class Core_MCTest {
 
         System.out.println();
         System.out.println("parse globalParameters...");
-        String paramGlobalFilename = "./test/testInputFiles/potentialEnergyComputerTest/param_global.xml";
+        String paramGlobalFilename = folder+"/param_global.xml";
         IParamGlobalFileParser paramGlobalFileParser = new ParamGlobalFileParser();
         paramGlobalFileParser.parse(paramGlobalFilename);
         globalParameters = paramGlobalFileParser.get_globalParameters();
@@ -128,7 +130,7 @@ public class Core_MCTest {
 
         System.out.println("parse ParamParticles...");
         IParamParticlesFileParser paramParticlesFileParser = new ParamParticlesFileParser();
-        String paramParticlesFilename = "./test/testInputFiles/potentialEnergyComputerTest/param_particles.xml";
+        String paramParticlesFilename = folder+"/param_particles.xml";
         paramParticlesFileParser.parse(paramParticlesFilename);
         IParamParticlesFileData paramParticlesFileData = paramParticlesFileParser.get_paramParticlesFileData();
 
@@ -150,7 +152,7 @@ public class Core_MCTest {
         IPotentialInventory potentialInventory = potInvFactory.createPotentialInventory();
 
         TplgyPotentialsFileParser tplgyPotentialsFileParser = new TplgyPotentialsFileParser();
-        String filename_tplgyPotentials = "./test/testInputFiles/potentialEnergyComputerTest/tplgy_potentials.xml";
+        String filename_tplgyPotentials = folder+"/tplgy_potentials.xml";
         tplgyPotentialsFileParser.parse(filename_tplgyPotentials);
         ITplgyPotentialsFileData potFileData = tplgyPotentialsFileParser.get_tplgyPotentialsFileData();
 
@@ -182,7 +184,7 @@ public class Core_MCTest {
 
         System.out.println("parse tplgyCoordinatesFile...");
         TplgyCoordinatesFileParser tplgyCoordsParser = new TplgyCoordinatesFileParser();
-        String tplgyCoordinatesFilename = "./test/testInputFiles/potentialEnergyComputerTest/tplgy_coordinates.xml";
+        String tplgyCoordinatesFilename = folder+"/tplgy_coordinates.xml";
         tplgyCoordsParser.parse(tplgyCoordinatesFilename);
         ITplgyCoordinatesFileData tplgyCoordsFileData = tplgyCoordsParser.get_coodinatesFileData();
 
@@ -207,7 +209,7 @@ public class Core_MCTest {
         //##############################################################################
 
         IParamGroupsFileParser paramGroupsFileParser = new ParamGroupsFileParser();
-        String filename_paramGroups = "./test/testInputFiles/potentialEnergyComputerTest/param_groups.xml";
+        String filename_paramGroups = folder+"/param_groups.xml";
         paramGroupsFileParser.parse(filename_paramGroups);
         IParamGroupsFileData paramGroupsFileData = paramGroupsFileParser.get_paramGroupsFileData();
 
@@ -229,7 +231,7 @@ public class Core_MCTest {
         //----------------------------------------------------------------------------------------
 
         ITplgyGroupsFileParser tplgyGroupsFileParser = new TplgyGroupsFileParser();
-        String filename_tplgyGroups = "./test/testInputFiles/potentialEnergyComputerTest/tplgy_groups.xml";
+        String filename_tplgyGroups = folder+"/tplgy_groups.xml";
         tplgyGroupsFileParser.parse(filename_tplgyGroups);
         ITplgyGroupsFileData tplgyGroupsFileData = tplgyGroupsFileParser.get_groupsFileData();
 
@@ -326,7 +328,7 @@ public class Core_MCTest {
         //----------------------------------------------------------------------------------------
 
         IParamReactionsFileParser paramReactionsFileParser = new ParamReactionsFileParser();
-        String filename_paramReactions = "./test/testInputFiles/potentialEnergyComputerTest/param_reactions.xml";
+        String filename_paramReactions = folder+"/param_reactions.xml";
         paramReactionsFileParser.parse(filename_paramReactions);
         IParamReactionsFileData paramReactionsFileData = paramReactionsFileParser.get_paramReactionsFileData();
 
@@ -371,7 +373,6 @@ public class Core_MCTest {
         // CORE
         //##############################################################################
 
-        // MONTE CARLO RELATED CHANGES HERE
         Core_MC_Factory coreFactory = new Core_MC_Factory();
 
         coreFactory.set_GlobalParameters(globalParameters);

@@ -34,7 +34,7 @@ public class MetropolisDeciderTest {
 
         System.out.println();
         System.out.println("parse globalParameters...");
-        String paramGlobalFilename = "./test/testInputFiles/potentialEnergyComputerTest/param_global.xml";
+        String paramGlobalFilename = "./test/testInputFiles/test_MonteCarlo_potentialEnergyComputer/param_global.xml";
         IParamGlobalFileParser paramGlobalFileParser = new ParamGlobalFileParser();
         paramGlobalFileParser.parse(paramGlobalFilename);
         globalParameters = paramGlobalFileParser.get_globalParameters();
@@ -85,17 +85,5 @@ public class MetropolisDeciderTest {
         
     }
 
-    /**
-     * Test of set_GlobalParameters method, of class MetropolisDecider.
-     */
-    @Test
-    public void testSet_GlobalParameters() {
-        System.out.println("set_GlobalParameters");
-        IGlobalParameters globalParameters = null;
-        MetropolisDecider instance = new MetropolisDecider();
-        instance.set_GlobalParameters(globalParameters);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
 }
