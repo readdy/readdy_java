@@ -1,0 +1,103 @@
+<param_global version="1.0"> 
+
+	<!-- total number of simulation steps --> 
+	<nSimulationSteps>1000000</nSimulationSteps>
+
+	<!--simulation timestep in nanoseconds = 10^-9 seconds!	--> 
+	<dt>1e-7</dt>
+	
+	<!-- simulation temperature in Kelvin (K=C+273.16)!--> 
+	<T>293.15</T>
+
+	<!--Boltzmann constant in kJ/(Mol x K)!--> 
+	<Kb>0.0083144621</Kb>
+	
+	<!-- LATTICE RELATED PARAMETERS unit is nanometer -->
+	<latticeBounds>[[-60,60];[-60,60];[-60,60]]</latticeBounds>
+			
+
+<!-- 
+possible methods | supported formats | special flags: 
+		TRAJ_WRITER					| CSV, PACSV
+		XYZ_WRITER					| XYZ			
+		XYZ_VMDCAPABLE_WRITER		| XYZ
+		MSD_CALCULATOR				| CSV, PACSV 		| BYTYPE, BYID, ONLYID_id, ONLYTYPE_type
+ 
+		  ...!-->
+		<analysis>
+			<analyser>
+				<method>standard_traj</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_traj.xml</outputFile>
+				<outputFormat>tplgyCoords</outputFormat>
+				<specialFlags></specialFlags>
+			</analyser>
+			
+			<analyser>
+				<method>vmdReadable_traj_tutorial</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_traj_vmdCapable.xyz</outputFile>
+				<outputFormat>xyz</outputFormat>
+				<specialFlags></specialFlags>
+			</analyser>	
+			
+			<analyser>
+				<method>msd_gnuplot</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_msd.csv</outputFile>
+				<outputFormat>csv</outputFormat>
+				<specialFlags></specialFlags>
+			</analyser>
+
+			<analyser>
+				<method>rdf_gnuplot</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_rdf.csv</outputFile>
+				<outputFormat>csv</outputFormat>
+				<specialFlags>[0],[0],1000</specialFlags>
+			</analyser>
+								<!--
+			 flag explanation:
+						[0;1;2],[3;4],1000,sphere:118.2
+						[0;1;2],[3;4],1000,disk:178.412
+						typeIdsToCheckFrom, typeIdsToBeChecked, numberOfBinsOfRdf, geometryOfTheUsedComputation:radiusOfTheGeometry
+						* which we compute our rdf from.
+						* E.G. We only sit on meta1,meta2 and R to check all G's and G* around it
+						* the Type Id of meta1,meta2 and R (0,1,2) would be in typeIdsToCheckFrom
+						* the type Id of G and G* (3,4) would be in the typeIdsToBeChecked
+								-->
+
+			<analyser>
+				<method>particleNumbers</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_particleNumbers.csv</outputFile>
+				<outputFormat>csv</outputFormat>
+				<specialFlags></specialFlags>
+			</analyser>
+            
+			<analyser>
+				<method>standardReactionReporting</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_reactions.csv</outputFile>
+				<outputFormat>csv</outputFormat>
+				<!-- the flag means, that after one analysis of that kind, 
+				the list of reports of happened reactions is cleared 
+				in the next step -->
+				<specialFlags>RESET_REACTION_REPORTS</specialFlags>
+			</analyser>
+
+<!--
+right now this method is only available in the ReaDDy version with Monte Carlo core. 
+-->
+			<analyser>
+				<method>potentialEnergy</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_potentialEnergy.csv</outputFile>
+				<outputFormat>csv</outputFormat>
+				<specialFlags></specialFlags>
+			</analyser>
+
+
+	</analysis>
+		
+</param_global>
