@@ -43,4 +43,5 @@ import readdy.api.sim.core.ICore;
 public interface ICoreFactory {
 
     public ICore createCore();
+    public ICore createCoreMM();
 }

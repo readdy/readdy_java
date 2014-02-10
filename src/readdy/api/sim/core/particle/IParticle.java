@@ -57,4 +57,17 @@ public interface IParticle {
     public double[] get_coords();
 
     public void print();
+
+    /**
+     * Sets the particles position in c-array
+     * @return
+     */
+    public void setIndex(int pos);
+    
+    /**
+     * Gets the particles position in c-array
+     * @return
+     */
+    public int getIndex();
+    
 }

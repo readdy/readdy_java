@@ -39,6 +39,7 @@ import readdy.api.sim.core.ICore;
 import readdy.api.sim.top.ITop;
 import readdy.api.sim.top.rkHandle.IReactionHandler;
 import readdy.impl.sim.top.Top;
+import readdy.impl.sim.top.TopMM;
 
 /**
  *
@@ -69,6 +70,20 @@ public class TopFactory implements ITopFactory {
     public ITop createTop() {
         if (allInputPresent()) {
             Top top = new Top();
+            top.set_Core(core);
+            top.set_AnalysisManager(analysisManager);
+            top.set_GlobalParameters(globalParameters);
+            top.set_ReactionHandler(reactionHandler);
+
+            return top;
+        } else {
+            throw new RuntimeException("not all input present");
+        }
+    }
+
+    public ITop createTopMM() {
+        if (allInputPresent()) {
+            TopMM top = new TopMM();
             top.set_Core(core);
             top.set_AnalysisManager(analysisManager);
             top.set_GlobalParameters(globalParameters);

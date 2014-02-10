@@ -53,4 +53,6 @@ public interface ITopFactory {
     public void setReactionHandler(IReactionHandler reactionHandler);
 
     ITop createTop();
+    
+   ITop createTopMM();
 }

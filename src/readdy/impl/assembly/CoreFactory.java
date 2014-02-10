@@ -38,6 +38,7 @@ import readdy.api.sim.core.bd.IDiffusionEngine;
 import readdy.api.sim.core.config.IParticleConfiguration;
 import readdy.api.sim.core.rk.IReactionObserver;
 import readdy.impl.sim.core.Core;
+import readdy.impl.sim.core.CoreMM;
 
 /**
  *
@@ -66,6 +67,22 @@ public class CoreFactory implements ICoreFactory {
                 && diffusionEngine != null
                 && reactionObserver != null) {
             Core core = new Core();
+            core.set_ParticleConfiguration(particleConfig);
+            core.set_DiffusionEngine(diffusionEngine);
+            core.set_ReactionObserver(reactionObserver);
+
+            return core;
+        } else {
+            throw new RuntimeException("necessary building blocks not present for assembly."
+                    + "construction cancelled!");
+        }
+    }
+
+    public ICore createCoreMM() {
+        if (particleConfig != null
+                && diffusionEngine != null
+                && reactionObserver != null) {
+            CoreMM core = new CoreMM();
             core.set_ParticleConfiguration(particleConfig);
             core.set_DiffusionEngine(diffusionEngine);
             core.set_ReactionObserver(reactionObserver);

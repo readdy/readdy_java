@@ -49,7 +49,8 @@ public interface ICore {
      * propagate the reaction diffusion process for one step
      */
     void step(int stepId) throws ReactionsOccurredExeption;
-
+    
+   
     IParticleConfiguration get_ParticleConfiguration();
 
     ArrayList<IOccurredElementalReaction> get_OccurredElementalReactions();

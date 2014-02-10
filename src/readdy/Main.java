@@ -36,6 +36,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import readdy.api.assembly.IReaDDySimulatorFactory;
 import readdy.api.sim.IReaDDySimulator;
+import readdy.impl.assembly.ReaDDyMMSimulatorFactory;
 import readdy.impl.assembly.ReaDDySimulatorFactory;
 
 /**
@@ -76,7 +77,9 @@ public class Main {
         args = Main.args;
         }
 
-        IReaDDySimulatorFactory readdySimulatorFactory = new ReaDDySimulatorFactory();
+        
+        /// attention! readdymm test
+        IReaDDySimulatorFactory readdySimulatorFactory = new ReaDDyMMSimulatorFactory();
         String[] essentialInputFileKeys = readdySimulatorFactory.getEssentialInputFileKeys();
         String[] optionalInputFileKeys = readdySimulatorFactory.getOptionalInputFileKeys();
         String[] softwareInputKeys = readdySimulatorFactory.getSoftwareInputKeys();
