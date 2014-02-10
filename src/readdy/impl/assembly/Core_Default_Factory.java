@@ -38,6 +38,7 @@ import readdy.api.sim.core.bd.IDiffusionEngine;
 import readdy.api.sim.core.config.IParticleConfiguration;
 import readdy.api.sim.core.rk.IReactionObserver;
 import readdy.impl.sim.core.Core;
+import readdy.impl.sim.core.CoreMM;
 
 /**
  *
@@ -76,4 +77,6 @@ public class Core_Default_Factory implements ICoreFactory {
                     + "construction cancelled!");
         }
     }
+
+ 
 }

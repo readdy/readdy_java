@@ -44,7 +44,7 @@ import readdy.api.sim.core.bd.IDiffusionEngine;
 import readdy.api.sim.core.rk.IElementalReactionManager;
 import readdy.api.sim.core.rk.IReactionObserver;
 import readdy.impl.assembly.ReactionObserverFactory;
-import readdy.impl.assembly.TopFactory;
+import readdy.impl.assembly.Top_Default_Factory;
 import readdy.api.sim.top.rkHandle.IReactionConflictResolver;
 import readdy.api.sim.top.rkHandle.IReactionHandler;
 import readdy.api.sim.top.rkHandle.IReactionValidator;
@@ -481,7 +481,7 @@ public class TopTest {
         //##############################################################################
 
 
-        ITopFactory topFactory = new TopFactory();
+        ITopFactory topFactory = new Top_Default_Factory();
         topFactory.setAnalysisManager(analysisAndOutputManager);
         topFactory.setCore(core);
         topFactory.setGlobalParameters(globalParameters);

@@ -128,10 +128,9 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
      *    we have readdyMM:       ReaDDy with its core replaced by OpenMM (to be published)
      *  * @author johannesschoeneberg
      */
-    
+
     private static String reaDDyImplementation = "default";
     private String[] possibleValuesForImplementationKey = new String[]{"BD", "MC", "BD_OpenMM"};
-
     private static IAnalysisAndOutputManager analysisAndOutputManager;
     private ICore core;
     private IGlobalParameters globalParameters;
@@ -157,7 +156,6 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
         "version",
         "license"
     };
-    
 
     public String[] getEssentialInputFileKeys() {
         return essentialInputFileKeys;
@@ -185,17 +183,17 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
             String impl = inputValues.get("core");
             if (impl.contentEquals(possibleValuesForImplementationKey[0])) {
                 // Default
-                System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[0]+" (default Broanian dynamics).");
+                System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[0] + " (default Broanian dynamics).");
                 reaDDyImplementation = possibleValuesForImplementationKey[0];
             } else {
                 if (impl.contentEquals(possibleValuesForImplementationKey[1])) {
                     // Monte Carlo
-                    System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[1]+" (Monte Carlo integrator).");
+                    System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[1] + " (Monte Carlo integrator).");
                     reaDDyImplementation = possibleValuesForImplementationKey[1];
                 } else {
                     if (impl.contentEquals(possibleValuesForImplementationKey[2])) {
                         // ReaDDy MM
-                        System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[2]+" (Brownian dynamics via OpenMM");
+                        System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[2] + " (Brownian dynamics via OpenMM");
                         reaDDyImplementation = possibleValuesForImplementationKey[2];
                     } else {
 
@@ -208,10 +206,10 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
                     }
                 }
             }
-        }else{
+        } else {
             System.out.println("No core implementation specified. Use default Brownian Dynamics.");
-                        reaDDyImplementation = possibleValuesForImplementationKey[0];
-            
+            reaDDyImplementation = possibleValuesForImplementationKey[0];
+
         }
 
 
@@ -561,14 +559,27 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
 
             core = coreFactory.createCore();
         } else {
+            if (reaDDyImplementation.contentEquals(possibleValuesForImplementationKey[2])) {
+                // ReaDDy MM
+                Core_ReaDDyMM_Factory coreFactory = new Core_ReaDDyMM_Factory();
 
-            Core_Default_Factory coreFactory = new Core_Default_Factory();
+                coreFactory.set_ParticleConfiguration(particleConfiguration);
+                coreFactory.set_DiffusionEngine(diffusionEngine);
+                coreFactory.set_ReactionObserver(reactionObserver);
 
-            coreFactory.set_ParticleConfiguration(particleConfiguration);
-            coreFactory.set_DiffusionEngine(diffusionEngine);
-            coreFactory.set_ReactionObserver(reactionObserver);
+                core = coreFactory.createCore();
 
-            core = coreFactory.createCore();
+            } else {
+                // default
+
+                Core_Default_Factory coreFactory = new Core_Default_Factory();
+
+                coreFactory.set_ParticleConfiguration(particleConfiguration);
+                coreFactory.set_DiffusionEngine(diffusionEngine);
+                coreFactory.set_ReactionObserver(reactionObserver);
+
+                core = coreFactory.createCore();
+            }
         }
         //##############################################################################
         // reactionParameters
@@ -635,16 +646,27 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
         //##############################################################################
         // assemble everything
         //##############################################################################
-        ITopFactory topFactory = new TopFactory();
 
-        topFactory.setAnalysisManager(analysisAndOutputManager);
+        if (reaDDyImplementation.contentEquals(possibleValuesForImplementationKey[2])) {
+            // ReaDDy MM
+            ITopFactory topFactory = new Top_ReaDDyMM_Factory();
+            topFactory.setAnalysisManager(analysisAndOutputManager);
+            topFactory.setCore(core);
+            topFactory.setGlobalParameters(globalParameters);
+            topFactory.setReactionHandler(reactionHandler);
+            top = topFactory.createTop();
 
-        topFactory.setCore(core);
+        } else {
+            // default
 
-        topFactory.setGlobalParameters(globalParameters);
+            ITopFactory topFactory = new Top_Default_Factory();
+            topFactory.setAnalysisManager(analysisAndOutputManager);
+            topFactory.setCore(core);
+            topFactory.setGlobalParameters(globalParameters);
+            topFactory.setReactionHandler(reactionHandler);
+            top = topFactory.createTop();
+        }
 
-        topFactory.setReactionHandler(reactionHandler);
-        top = topFactory.createTop();
     }
 
     public IReaDDySimulator createReaDDySimulator() {
