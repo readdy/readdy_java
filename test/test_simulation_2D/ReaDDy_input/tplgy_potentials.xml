@@ -1,0 +1,40 @@
+<tplgy_potentials version="1.1">
+	<!-- geometry defining potentials!
+
+		POTENTIAL ORDER 1 -->
+
+
+	<pot 	name="disk"
+			type="DISK"
+			subtype="attractive" 
+			forceConst="10"
+			center="[0,0,0]"
+			radius="239.365"
+			affectedParticleTypeIds="all"
+			affectedParticleIds="" />
+			<!--
+		<pot 	name="attractiveCube_1"
+				type="CUBE"
+				subtype="attractive" 
+				forceConst="10"
+				origin="[0,0,0]"
+				extension="[100,100,100]"
+				affectedParticleTypeIds="all"
+				affectedParticleIds="" />
+			-->
+
+
+	<!--particle interaction potentials!						
+	
+		POTENTIAL ORDER 2 
+-->
+
+		<pot 	name="harmonic_particleRepulsion"
+				type="HARMONIC"
+				subtype="repulsive" 
+				forceConst="10" 
+				affectedParticleTypeIdPairs="all"
+				affectedParticleIdPairs="" />
+
+		
+</tplgy_potentials>

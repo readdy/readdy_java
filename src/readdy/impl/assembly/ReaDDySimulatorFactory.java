@@ -130,7 +130,7 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
      */
     
     private static String reaDDyImplementation = "default";
-    private String[] possibleValuesForImplementationKey = new String[]{"default", "monteCarlo", "readdyMM"};
+    private String[] possibleValuesForImplementationKey = new String[]{"BD", "MC", "BD_OpenMM"};
 
     private static IAnalysisAndOutputManager analysisAndOutputManager;
     private ICore core;
@@ -150,7 +150,7 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
     private String[] optionalInputFileKeys = new String[]{
         "react_elmtlRk",
         "output_path",
-        "implementation", // default, monteCarlo, readdyMM
+        "core", // BD, MC, BD_OpenMM
     };
     private String[] softwareInputKeys = new String[]{
         "help",
@@ -181,33 +181,37 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
          *  * @author johannesschoeneberg
          *  * 
          */
-        if (inputValues.containsKey("implementation")) {
-            String impl = inputValues.get("implementation");
+        if (inputValues.containsKey("core")) {
+            String impl = inputValues.get("core");
             if (impl.contentEquals(possibleValuesForImplementationKey[0])) {
                 // Default
-                System.out.println("Use ReaDDy Implementation: " + possibleValuesForImplementationKey[0]);
+                System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[0]+" (default Broanian dynamics).");
                 reaDDyImplementation = possibleValuesForImplementationKey[0];
             } else {
                 if (impl.contentEquals(possibleValuesForImplementationKey[1])) {
                     // Monte Carlo
-                    System.out.println("Use ReaDDy Implementation: " + possibleValuesForImplementationKey[1]);
+                    System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[1]+" (Monte Carlo integrator).");
                     reaDDyImplementation = possibleValuesForImplementationKey[1];
                 } else {
                     if (impl.contentEquals(possibleValuesForImplementationKey[2])) {
                         // ReaDDy MM
-                        System.out.println("Use ReaDDy Implementation: " + possibleValuesForImplementationKey[2]);
+                        System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[2]+" (Brownian dynamics via OpenMM");
                         reaDDyImplementation = possibleValuesForImplementationKey[2];
                     } else {
 
-                        System.out.println("ATTENTION: implementation key '" + impl + "' not recognized. Supported are "
+                        System.out.println("ATTENTION: core implementation key '" + impl + "' not recognized. Supported are "
                                 + possibleValuesForImplementationKey[0] + ","
                                 + possibleValuesForImplementationKey[1] + "and"
-                                + possibleValuesForImplementationKey[2] + ". Resolved by setting to DEFAULT.");
+                                + possibleValuesForImplementationKey[2] + ". Resolved by setting to BD.");
                         reaDDyImplementation = possibleValuesForImplementationKey[0];
 
                     }
                 }
             }
+        }else{
+            System.out.println("No core implementation specified. Use default Brownian Dynamics.");
+                        reaDDyImplementation = possibleValuesForImplementationKey[0];
+            
         }
 
 

@@ -184,10 +184,11 @@ public class Main {
         System.out.println("");
         System.out.println("optional input:");
         System.out.println("-output_path [path]                                         output path");
-        System.out.println("-react_elmtlRk [react_elmtlRk.xml]                          input the elemental,");
-        System.out.println("                                                            particle based");
-        System.out.println("                                                            reactions directly.");
-        System.out.println("-implementation [default,monteCarlo,readdyMM]               available cores.");    
+        System.out.println("-react_elmtlRk [react_elmtlRk.xml]                          input the elemental, particle ");
+        System.out.println("                                                            based reactions directly.");
+        System.out.println("-core [BD, MC]                                              available cores:");    
+        System.out.println("                                                            BD: Default Brownian dynamics");
+        System.out.println("                                                            MC: Monte Carlo core");
         System.out.println("");
         System.out.println("other:");
         System.out.println("-help                                                       display this help");

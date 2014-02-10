@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : param.particles.xml
+    Created on : 17. October 2011, 10:23
+    Author     : Schoeneberg
+    Description:
+    
+	space dimension is nm = 10^-9 m
+	time dimension is s = s
+
+	D = x mum^2 s^-1 = 10^+6 nm^2 s^-1
+	
+-->
+
+<param_particles version="0.0.1">
+	<particle>		
+        <type>syx</type>
+		<diffusionConstant>1.5e+6</diffusionConstant>		
+		<collisionRadiusMap>
+			<collisionRadius>
+				<partnerType>default</partnerType>
+				<radius>2.0</radius>
+			</collisionRadius>
+		</collisionRadiusMap>		
+		<reactionRadiusMap>
+			<reactionRadius>
+				<partnerType>default</partnerType>
+				<radius>2.0</radius>
+			</reactionRadius>
+		</reactionRadiusMap>
+	</particle>
+	<particle>
+	<type>syx_closed</type>
+		<diffusionConstant>1.5e+6</diffusionConstant>		
+		<collisionRadiusMap>
+			<collisionRadius>
+				<partnerType>default</partnerType>
+				<radius>2.0</radius>
+			</collisionRadius>
+		</collisionRadiusMap>		
+		<reactionRadiusMap>
+			<reactionRadius>
+				<partnerType>default</partnerType>
+				<radius>2.0</radius>
+			</reactionRadius>
+		</reactionRadiusMap>
+	</particle>
+	<particle>
+	<type>snap</type>
+		<diffusionConstant>1.5e+6</diffusionConstant>		
+		<collisionRadiusMap>
+			<collisionRadius>
+				<partnerType>default</partnerType>
+				<radius>2.0</radius>
+			</collisionRadius>
+		</collisionRadiusMap>		
+		<reactionRadiusMap>
+			<reactionRadius>
+				<partnerType>default</partnerType>
+				<radius>2.0</radius>
+			</reactionRadius>
+		</reactionRadiusMap>
+	</particle>
+	<particle>
+	<type>binaryComplex</type>
+		<diffusionConstant>1.0e+6</diffusionConstant>		
+		<collisionRadiusMap>
+			<collisionRadius>
+				<partnerType>default</partnerType>
+				<radius>3.0</radius>
+			</collisionRadius>
+		</collisionRadiusMap>		
+		<reactionRadiusMap>
+			<reactionRadius>
+				<partnerType>default</partnerType>
+				<radius>3.0</radius>
+			</reactionRadius>
+		</reactionRadiusMap>
+	</particle>
+	<particle>
+	<type>calciumChannel</type>
+		<diffusionConstant>0.15e+6</diffusionConstant>		
+		<collisionRadiusMap>
+			<collisionRadius>
+				<partnerType>default</partnerType>
+				<radius>4.0</radius>
+			</collisionRadius>
+		</collisionRadiusMap>		
+		<reactionRadiusMap>
+			<reactionRadius>
+				<partnerType>default</partnerType>
+				<radius>4.0</radius>
+			</reactionRadius>
+		</reactionRadiusMap>
+	</particle>
+	<particle>
+	<type>calciumChannel_open</type>
+		<diffusionConstant>0.15e+6</diffusionConstant>		
+		<collisionRadiusMap>
+			<collisionRadius>
+				<partnerType>default</partnerType>
+				<radius>4.0</radius>
+			</collisionRadius>
+		</collisionRadiusMap>		
+		<reactionRadiusMap>
+			<reactionRadius>
+				<partnerType>default</partnerType>
+				<radius>4.0</radius>
+			</reactionRadius>
+		</reactionRadiusMap>
+	</particle>
+	<particle>
+	<type>calcium</type>
+		<diffusionConstant>5.5e+6</diffusionConstant>		
+		<collisionRadiusMap>
+			<collisionRadius>
+				<partnerType>default</partnerType>
+				<radius>0.5</radius>
+			</collisionRadius>
+		</collisionRadiusMap>		
+		<reactionRadiusMap>
+			<reactionRadius>
+				<partnerType>default</partnerType>
+				<radius>0.5</radius>
+			</reactionRadius>
+		</reactionRadiusMap>
+	</particle>
+	<particle>
+	<type>vesicle</type>
+		<diffusionConstant>0.5e+6</diffusionConstant>		
+		<collisionRadiusMap>
+			<collisionRadius>
+				<partnerType>default</partnerType>
+				<radius>7.5</radius>
+			</collisionRadius>
+		</collisionRadiusMap>		
+		<reactionRadiusMap>
+			<reactionRadius>
+				<partnerType>default</partnerType>
+				<radius>7.5</radius>
+			</reactionRadius>
+		</reactionRadiusMap>
+	</particle>
+</param_particles>

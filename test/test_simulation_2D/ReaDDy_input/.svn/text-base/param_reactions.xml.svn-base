@@ -1,0 +1,76 @@
+<param_reactions version="0.0.1">
+<reaction> 
+		<name>syntaxin_open_2_close</name> 
+		<type>typeConversion</type> 
+		<educts> 
+			<educt 		type="particle">syx</educt> 
+		</educts> 
+		<products> 
+			<product 	type="particle">syx_closed</product> 
+		</products> 
+		<k_forward>50</k_forward> 			<!-- microscopic rate, in [s^-1] --> 
+		<k_backward>150</k_backward> 		<!-- microscopic rate, in [s^-1] -->  
+	</reaction>
+<reaction> 
+		<name>syntaxin_snap_fusion</name> 
+		<type>fusion</type> 
+		<educts> 
+			<educt 		type="particle">syx</educt> 
+			<educt 		type="particle">snap</educt>
+		</educts> 
+		<products> 
+			<product 	type="particle">binaryComplex</product> 
+		</products> 
+		<k_forward>10000</k_forward> 			<!-- microscopic rate, in [s^-1] --> 
+		<k_backward>150</k_backward> 		<!-- microscopic rate, in [s^-1] -->  
+	</reaction>
+<reaction> 
+		<name>calciumRelease</name> 
+		<type>birth</type> 
+		<educts> 
+			<educt 		type="particle">calciumChannel_open</educt> 
+		</educts> 
+		<products> 
+			<product 	type="particle">calciumChannel_open</product>
+			<product 	type="particle">calcium</product> 
+		</products> 
+		<k_forward>2000000</k_forward> 			<!-- microscopic rate, in [s^-1] --> 
+		<k_backward>0</k_backward> 		<!-- microscopic rate, in [s^-1] -->  
+	</reaction>
+<reaction> 
+		<name>calciumDecay</name> 
+		<type>decay</type> 
+		<educts> 
+			<educt 		type="particle">calcium</educt> 
+		</educts> 
+		<products>  
+		</products> 
+		<k_forward>2000</k_forward> 			<!-- microscopic rate, in [s^-1] --> 
+		<k_backward>0</k_backward> 		<!-- microscopic rate, in [s^-1] -->  
+	</reaction>
+<reaction> 
+		<name>calcium_open_2_close</name> 
+		<type>typeConversion</type> 
+		<educts> 
+			<educt 		type="particle">calciumChannel</educt> 
+		</educts> 
+		<products> 
+			<product 	type="particle">calciumChannel_open</product>
+		</products> 
+		<k_forward>500</k_forward> 			<!-- microscopic rate, in [s^-1] --> 
+		<k_backward>100000</k_backward> 		<!-- microscopic rate, in [s^-1] -->  
+	</reaction>
+<reaction> 
+		<name>vesicle_fusion</name> 
+		<type>fusion</type> 
+		<educts> 
+			<educt 		type="particle">vesicle</educt> 
+			<educt 		type="particle">binaryComplex</educt>
+		</educts> 
+		<products> 
+			<product 	type="particle">binaryComplex</product> 
+		</products> 
+		<k_forward>500000</k_forward> 			<!-- microscopic rate, in [s^-1] --> 
+		<k_backward>0</k_backward> 		<!-- microscopic rate, in [s^-1] -->  
+	</reaction>
+</param_reactions>
