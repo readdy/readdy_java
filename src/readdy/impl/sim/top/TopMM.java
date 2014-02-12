@@ -43,11 +43,8 @@ import readdy.api.sim.top.rkHandle.IReactionExecutionReport;
 import readdy.impl.sim.core.rk.ReactionsOccurredExeption;
 import readdy.impl.tools.ProcessorStopWatch;
 import java.util.List;
-import java.util.Arrays;
-import java.util.Iterator;
 import readdy.api.sim.core.particle.IParticle;
 import readdy.api.sim.core.config.IParticleConfiguration;
-import sun.org.mozilla.javascript.tools.shell.Main;
 /**
  * This is the top layer around the particle based simulation core.
  * It's three purposes are
@@ -337,14 +334,15 @@ public class TopMM implements ITop {
         String tplgyDir = "/home/mi/biederj/programs/NetBeansProjects/readdy2/test/SyxTest/ReaDDy_input";
         //double simulationtime = 1000;
         //double OpenMMDT=1E-10; /// in sceonds
-        double OpenMMDT=1E-10; /// in sceonds  /// TODO: parameter
+        double OpenMMDT=globalParameters.get_dtO();
+        //double OpenMMDT=1E-10; /// in sceonds  /// TODO: parameter
         //double OpenMMDT=5E-9; /// in sceonds  /// TODO: parameter
         double stepSize = OpenMMDT/1E-12; /// in picoseconds
         double stepsPerFrame = dt/OpenMMDT;
         System.out.println("steps in ReaDDy: "+nSteps);
         System.out.println("reaction dt: "+dt);
-        System.out.println("OpenMMdt:"+stepSize);
-        System.out.println("dynamicsteps per Frame: "+stepsPerFrame);
+        System.out.println("OpenMMdt:"+OpenMMDT);
+        System.out.println("steps per Frame: "+stepsPerFrame);
         //double simulationtime = dt;
         
         this.cCreateSimulation(Pos, testmode, tplgyDir, nSteps, stepSize, stepsPerFrame, cReactions );

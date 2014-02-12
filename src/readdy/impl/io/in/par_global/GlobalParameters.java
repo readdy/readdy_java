@@ -44,7 +44,7 @@ public class GlobalParameters implements IGlobalParameters {
 
     long nSimulationSteps;
     int outputEveryXSteps;
-    double dt, T;
+    double dt, T, dtO;
     double latticeBoxSize = -1;
     boolean latticeBoxSizeSet = false;
     double Kb = 0.0083144621; // Boltzmann constant in kJ/mol/K
@@ -63,6 +63,10 @@ public class GlobalParameters implements IGlobalParameters {
     public void set_dt(double dt) {
         this.dt = dt;
     }
+    
+    public void set_dtO(double dtO) {
+        this.dtO = dtO;
+    }
 
     public void set_T(double T) {
         this.T = T;
@@ -79,6 +83,10 @@ public class GlobalParameters implements IGlobalParameters {
 
     public double get_dt() {
         return dt;
+    }
+    
+    public double get_dtO() {
+        return dtO;
     }
 
     public double get_T() {

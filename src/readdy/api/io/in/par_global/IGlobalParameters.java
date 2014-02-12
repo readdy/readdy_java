@@ -46,6 +46,8 @@ public interface IGlobalParameters {
     public int get_outputEveryXSteps();
 
     public double get_dt();
+    
+    public double get_dtO();
 
     public double get_T();
 
