@@ -52,6 +52,8 @@ public interface IGlobalParameters {
     public double get_T();
 
     public double get_Kb();
+    
+    public int get_cuda();
 
     public void print();
 

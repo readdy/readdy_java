@@ -36,7 +36,12 @@ import readdy.api.analysis.IAnalysisAndOutputManager;
 import readdy.api.assembly.ITopFactory;
 import readdy.api.io.in.par_global.IGlobalParameters;
 import readdy.api.sim.core.ICore;
+import readdy.api.sim.core.particle.IParticleParameters;
+import readdy.api.sim.core.pot.IPotentialInventory;
+import readdy.api.sim.core.pot.IPotentialManager;
 import readdy.api.sim.top.ITop;
+import readdy.api.sim.top.group.IGroupConfiguration;
+import readdy.api.sim.top.group.IGroupParameters;
 import readdy.api.sim.top.rkHandle.IReactionHandler;
 import readdy.impl.sim.top.Top;
 import readdy.impl.sim.top.TopMM;
@@ -46,6 +51,14 @@ import readdy.impl.sim.top.TopMM;
  * @author schoeneberg
  */
 public class Top_ReaDDyMM_Factory implements ITopFactory {
+    IParticleParameters particleParameters;
+    IPotentialInventory potentialInventory;
+    IPotentialManager potentialManager;
+    String tplg_grp;
+    String tplg_crd;
+    IGroupParameters groupParameters;
+    IGroupConfiguration groupConfiguration;
+    
 
     public void setAnalysisManager(IAnalysisAndOutputManager analysisManager) {
         this.analysisManager = analysisManager;
@@ -59,6 +72,35 @@ public class Top_ReaDDyMM_Factory implements ITopFactory {
         this.globalParameters = globalParameters;
     }
 
+    public void setParticleParameters(IParticleParameters particleParameters){
+        this.particleParameters=particleParameters;
+    }
+    
+    public void setPotentialManager(IPotentialManager potentialManager){
+        this.potentialManager=potentialManager;
+    }
+    
+    public void setPotentialInventory(IPotentialInventory potentialInventory){
+        this.potentialInventory=potentialInventory;
+    }
+    
+    public void setGroupParameters( IGroupParameters groupParameters){
+        this.groupParameters=groupParameters;
+    }
+    
+    public void setGroupConfiguration( IGroupConfiguration groupConfiguration){
+        this.groupConfiguration=groupConfiguration;
+    }
+    
+    public void setPathTplgyGrp(String tpgl_grp){
+        this.tplg_grp=tpgl_grp;
+    }
+    
+    public void setPathTplgyCrd(String tplg_crd){
+        this.tplg_crd=tplg_crd;
+    }
+    
+    
     public void setReactionHandler(IReactionHandler reactionHandler) {
         this.reactionHandler = reactionHandler;
     }
@@ -76,6 +118,13 @@ public class Top_ReaDDyMM_Factory implements ITopFactory {
             top.set_AnalysisManager(analysisManager);
             top.set_GlobalParameters(globalParameters);
             top.set_ReactionHandler(reactionHandler);
+            top.setParticleParameters(particleParameters);
+            top.setPotentialInventory(potentialInventory);
+            top.setPotentialManager(potentialManager);
+            top.setGroupParameters(groupParameters);
+            top.setGroupConfiguration(groupConfiguration);
+            top.setPathTplgyGrp(tplg_grp);
+            top.setPathTplgyCrd(tplg_crd);
 
             return top;
         } else {

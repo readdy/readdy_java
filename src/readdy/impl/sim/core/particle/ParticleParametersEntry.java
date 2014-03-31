@@ -44,6 +44,7 @@ public class ParticleParametersEntry implements IParticleParametersEntry {
 
     private String typeName;
     private int typeId;
+    private int numberOfDummyParticles;
     // diffusion constant
     private double D, defaultCollR, defaultRctR;
     // particle Radius, depending on interaction partner typ id
@@ -54,6 +55,7 @@ public class ParticleParametersEntry implements IParticleParametersEntry {
     public ParticleParametersEntry(IParticleData particleData){
         this.typeName = particleData.getType();
         this.typeId = particleData.getId();
+        this.numberOfDummyParticles = particleData.getNumberOfDummyParticles();
         this.D=particleData.getD();
         this.defaultCollR=particleData.get_defaultCollR();
         this.defaultRctR=particleData.get_defaultRctR();
@@ -67,6 +69,10 @@ public class ParticleParametersEntry implements IParticleParametersEntry {
 
     public double get_D() {
         return D;
+    }
+    
+    public int get_NumberOfDummyParticles() {
+        return numberOfDummyParticles;
     }
 
     public double get_collisionRadiusWithPartnerType(int partnerTypeId) {

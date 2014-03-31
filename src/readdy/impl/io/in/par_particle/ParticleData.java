@@ -44,6 +44,7 @@ public class ParticleData implements IParticleData {
     private int id;
     private String type;
     private int typeId;
+    private int numberOfDummyParticles;
     // diffusion constant
     private double D, defaultCollR, defaultRctR;
     // particle Radius, depending on interaction partner typ id
@@ -66,6 +67,10 @@ public class ParticleData implements IParticleData {
     public void setD(double D) {
         this.D = D;
     }
+    
+    public void setNumberOfDummyParticles(int nD) {
+        this.numberOfDummyParticles = nD;
+    }
 
     public HashMap<Integer, Double> getCollisionRadiusMap() {
         return collisionRadiusMap;
@@ -77,6 +82,10 @@ public class ParticleData implements IParticleData {
 
     public int getId() {
         return id;
+    }
+    
+    public int getNumberOfDummyParticles() {
+        return numberOfDummyParticles;
     }
 
     public void setId(int id) {

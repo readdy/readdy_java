@@ -1,0 +1,52 @@
+<param_reactions version="1.1">
+
+	<reaction> 
+			<name>A+B->C</name> 
+			<type>fusion</type> 
+			<educts> 
+				<educt 		type="particle">A</educt> 
+				<educt 		type="particle">B</educt>
+			</educts> 
+			<products> 
+				<product 	type="particle">C</product> 
+			</products> 
+                        <k_forward>1000000</k_forward>
+                        <k_backward>50000</k_backward>
+        </reaction>
+
+        <!--
+<reaction>
+                <name>Del</name>
+                <type>decay</type>
+                <educts>
+                        <educt 		type="particle">A</educt>
+                </educts>
+                <products>
+                </products>
+                <k_forward>10000000</k_forward>
+                <k_backward>50</k_backward>
+</reaction>
+<reaction>
+                <name>Del2</name>
+                <type>decay</type>
+                <educts>
+                        <educt 		type="particle">B</educt>
+                </educts>
+                <products>
+                </products>
+                <k_forward>10000000</k_forward>
+                <k_backward>50</k_backward>
+</reaction>
+<reaction>
+                <name>Del3</name>
+                <type>decay</type>
+                <educts>
+                        <educt 		type="particle">C</educt>
+                </educts>
+                <products>
+                </products>
+                <k_forward>10000000</k_forward>
+                <k_backward>50</k_backward>
+</reaction>
+!-->
+</param_reactions>

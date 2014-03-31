@@ -264,6 +264,7 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
 
         particleParamFactory.set_paramParticlesFileData(paramParticlesFileData);
         IParticleParameters particleParameters = particleParamFactory.createParticleParameters();
+        
         //##############################################################################
         // get the potential parameters as input
         //##############################################################################
@@ -352,6 +353,8 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
 
         tplgyGroupsFileParser.parse(inputValues.get("tplgy_groups"));
         ITplgyGroupsFileData tplgyGroupsFileData = tplgyGroupsFileParser.get_groupsFileData();
+        
+        
         //----------------------------------------------------------------------------------------
         IGroupFactory groupFactory = new GroupFactory();
 
@@ -649,7 +652,16 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
 
         if (reaDDyImplementation.contentEquals(possibleValuesForImplementationKey[2])) {
             // ReaDDy MM
-            ITopFactory topFactory = new Top_ReaDDyMM_Factory();
+            Top_ReaDDyMM_Factory topFactory = new Top_ReaDDyMM_Factory();
+            
+            topFactory.setParticleParameters(particleParameters);
+            topFactory.setPotentialInventory(potentialInventory);
+            topFactory.setPotentialManager(potentialManager);
+            topFactory.setGroupParameters(groupParameters);
+            topFactory.setGroupConfiguration(groupConfiguration);
+            topFactory.setPathTplgyGrp(inputValues.get("tplgy_groups"));
+            topFactory.setPathTplgyCrd(inputValues.get("tplgy_coordinates"));
+            
             topFactory.setAnalysisManager(analysisAndOutputManager);
             topFactory.setCore(core);
             topFactory.setGlobalParameters(globalParameters);
