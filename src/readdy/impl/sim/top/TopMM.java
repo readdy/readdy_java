@@ -59,21 +59,20 @@ import readdy.api.sim.top.group.IGroup;
 import readdy.api.sim.top.group.IGroupParameters;
 
 /**
- * This is the top layer around the particle based simulation core. It's three
- * purposes are
+ * edited by Johann Biedermann. Particle dynamic is calculated in OpenMM. 
+ * Analysis and Reactions are still done in ReaDDy
+ * 
+ * 1) calling a new OpenMM simulation, transfer all necessary parameter
  *
- * 1) to contain the main iteration loop and perform the whole simulation by
- * triggering the Core.step() method which advances the dynamics of the system
- * by one timestep.
- *
- * 2) to catch the reaction exceptions that are thrown by the Core during a
+ * 2) after each defined frame OpenMM interface calls the "callback" method. 
+ * it calles the part of the Core, which handles reactions, and the analysis part
+ * to catch the reaction exceptions that are thrown by the Core during a
  * timestep. If it catches such exceptions, the top hands these exceptions,
  * together with the information contained within them, to the reaction handler
  * who handles the reactions and changes the particle configuration accordingly.
  *
- * 3) to trigger a runtime analysis when it is necessary.
  *
- * @author Schoeneberg
+ * @author Schoeneberg, Biedermann
  */
 public class TopMM implements ITop {
 
@@ -94,6 +93,9 @@ public class TopMM implements ITop {
     String tplg_grp;
     String tplg_crd;
 
+    /* methods to obtain simulation parameter, which are necessary for the 
+     * dynamic simulation. Later handed over to OpenMM
+     */
     public void setParticleParameters(IParticleParameters particleParameters) {
         this.particleParameters = particleParameters;
     }
@@ -138,30 +140,24 @@ public class TopMM implements ITop {
         this.analysisAndOutputManager = analysisManager;
     }
 
-    //public native void cCreateSimulation(float[] Pos);
+    /* this native function is defined in the C++-library, which contains the 
+     * OpenMM-interface. This function creates a new OpenMM simulation, runs it,
+     * and calls back the Java-method for reactions and analysis.
+     */
     public native void cCreateSimulation(boolean testmode, String tplgyDir, String grpDir, int cuda, double nSteps, double stepSize, double stepsPerFrame, double kB, double T, double[] periodicBoundaries, int nTypes, double[] diffusion, double[] collisionRadii, double[] paramPot1, double[] paramPot2, float[] cReactions, int groupforce, int[] numberOfDummyParticles);
 
-    /**
-     * possible parameter: timestep time(step) per frame(if one) = per callback
-     * input file, or partcle positions, masses and evtl. else parameter
-     * particle types, Ds, whitch plugin, forces (pariwise, external etc...) +
-     * force parameter (global, per particle, cutoff, box size) integrator evtl.
-     * output (file, what...)
-     *
-     */
-    /// maybe easier to write a file as interface... (runtime overhead is okay, since it is called just once)
-    ///private native void cSimulate(int stepsPerFrame, float[] newPos);
-    /**
-     * possible parameter: time(step) per frame(if one)
-     *
+    /*
+     * this method is called from native C++-library. It handles the reactions
+     * and the analysis part. Its input is an array with the new (in OpenMM 
+     * calculated) positions. Output is an array with all occured reactions.
      */
     public boolean frameCallback(int step, float[] JPos) {
 
-        System.out.println("JAVA");
+        System.out.println("JAVA, step: "+ step);
         //if(computeTime){stopWatch.measureTime(9, System.nanoTime());}
 
         //if(i%1000 ==0){System.out.println("\ntop: 'step " + i + "'");}
-        System.out.println("top: 'step " + step + "'");
+        //System.out.println("top: 'step " + step + "'");
 
         //if(computeTime){stopWatch.measureTime(10, System.nanoTime());}
 
@@ -171,6 +167,10 @@ public class TopMM implements ITop {
         try {
             //---------------------------------------------------------------
             // Advance particle dynamics
+            // old: call core method
+            // new: dynamics are handled in OpenMM
+            // core now just handles reactions
+            // later check whether analysis is requested
             //---------------------------------------------------------------
 
             //if(computeTime){stopWatch.measureTime(0, System.nanoTime());}
@@ -178,10 +178,11 @@ public class TopMM implements ITop {
             ///core.step(i);
             IParticleConfiguration particleConfig = this.core.get_ParticleConfiguration();
 
-            //System.out.println("particles Java: " + particleConfig.getNParticles() + " particles C++: " +JPos[0] );
+            // the amount of particles should not change whithin the OpenMM-step
             if (particleConfig.getNParticles() != JPos[0]) {
                 return (false);
             }
+            // apply new positions for all particles
             for (int i = 0; i < JPos[0]; i++) {
                 double[] newPos = new double[3];
                 /// ID
@@ -203,10 +204,10 @@ public class TopMM implements ITop {
                 newPos = null;
             }
 
+            // ReaDDyMM-core just handles reactions
             this.core.step(step);
             //if(computeTime){stopWatch.measureTime(1, System.nanoTime());}
 
-            /// ?? unnötig an dieser Stelle. wird auskommentiert
             //this.core.get_ParticleConfiguration().updateNeighborListDistances();
 
             //if(computeTime){stopWatch.measureTime(2, System.nanoTime());}
@@ -241,7 +242,7 @@ public class TopMM implements ITop {
                 rkReports.addAll(newRkReports);
 
 
-                // reactions for C/OpenMM
+                // document reactions for C/OpenMM
                 for (IReactionExecutionReport report : newRkReports) {
                     ArrayList<IParticle> removedParticle = report.getRemovedParticles();
                     for (IParticle particle : removedParticle) {
@@ -285,7 +286,6 @@ public class TopMM implements ITop {
         //---------------------------------------------------------------
 
         //if(computeTime){stopWatch.measureTime(20, System.nanoTime());}
-        //if (analysisAndOutputManager.analysisRequested(i)) {
         if (analysisAndOutputManager.analysisRequested(step - 1)) {
             System.out.println("analysis...");
             analysisAndOutputManager.analyseAndOutput(step, core.get_ParticleConfiguration(), rkReports);
@@ -295,11 +295,6 @@ public class TopMM implements ITop {
             }
         }
 
-        //System.out.println("cArray");
-        //List<Float> list = new ArrayList<Float>();
-        //float[] floatArray = ArrayUtils.toPrimitive(list.toArray(new Float[0]), 0.0F);
-        //cReactions = reactions.toArray(new Float[reactions.size()]);
-        //cReactions = ArrayUtils.toPrimitive(reactions.toArray(new Float[reactions.size()]));
         cReactions = new float[reactions.size()];
         for (int j = 0; j < reactions.size(); j++) {
             //cReactions[j] = reactions.get(j);
@@ -307,23 +302,6 @@ public class TopMM implements ITop {
             cReactions[j] = (f != null ? f : Float.NaN);
         }
 
-        /*
-         * 
-         reactions.set(0, reactions.get(0)+1.0f);
-         reactions.add((float)newParticle.get_id()); /// particle number
-         reactions.add((float)newParticle.get_type()); /// particle Type
-         reactions.add((float)newParticle.get_coords()[0]); /// particle Pos x
-         reactions.add((float)newParticle.get_coords()[1]); /// particle Pos y
-         reactions.add((float)newParticle.get_coords()[2]); /// particle Pos z
-         reactions.add((float)-1); /// Particle index in c
-         * 
-         * cReactions = new float[6];
-         cReactions[0] = 1.0f; // # Reactions
-         cReactions[1] = 0.0f; // Particle#
-         cReactions[2] = 2.0f; // new Type
-         cReactions[3] = 0.0f; // pos
-         cReactions[4] = 0.0f;
-         cReactions[5] = 0.0f;*/
 
         //if(computeTime){stopWatch.measureTime(30, System.nanoTime());}
         //if(computeTime){stopWatch.accumulateTime(3,10, 20);}
@@ -332,6 +310,13 @@ public class TopMM implements ITop {
         return true;
     }
 
+    /*
+     * this method collects important parameter for the dynamic simulation
+     * the are handed over the the OpenMM interface in the native C++-library
+     * there a new OpenMM simulation is created and runned.
+     * after each defined frame the java reaction and anaylsis method is called
+     * back
+     */
     public void runSimulation() {
 
         ProcessorStopWatch stopWatch = new ProcessorStopWatch();
@@ -344,44 +329,33 @@ public class TopMM implements ITop {
         analysisAndOutputManager.analyseAndOutput(-1, core.get_ParticleConfiguration(), rkReports);
         //if(computeTime){stopWatch.measureTime(3,System.nanoTime());}
 
-        /*for (int i = 0; i < nSteps; i++) {
-         }*/
-        /*
-         * List<T> list = new ArrayList<T>();
-         * T [] countries = list.toArray(new T[list.size()]);
+        /*for (int i = 0; i < nSteps; i++) 
+         * previously this was the loop over the simulation steps
          */
+    
+        // initialize reactions-array
         reactions.add(0.0f);
-        //cReactions = reactions.toArray(new Float[reactions.size()]);
         cReactions = new float[reactions.size()];
         for (int i = 0; i < reactions.size(); ++i) {
-            //cReactions[i] = reactions.get(i);
             Float f = reactions.get(i);
             cReactions[i] = (f != null ? f : Float.NaN);
         }
 
-        /*IParticleConfiguration particleConfig = null;
-         Iterator<IParticle> singleParticleIterator1 = particleConfig.particleIterator();
-         while (singleParticleIterator1.hasNext()) {
-         IParticle p = singleParticleIterator1.next();
-         int i = p.get_id();
-         p.setPos(i);
-         }*/
-
         System.out.println("run simulation...");
 
+        // defines the amout of output in C++
         boolean testmode = true;
-        /*TODO:
-         * take coordinates-topology form global parameters
-         * hand over timestep (integrationtime)!
-         */
-        /// global parameter + file directories
-        String tplgyDir = "/home/mi/biederj/programs/NetBeansProjects/readdy2/test/SyxTest/ReaDDy_input";
+        // obtain various simulations parameter
+        // timestep and framesize in OpenMM: 
         double OpenMMDT = globalParameters.get_dtO();
         double stepSize = OpenMMDT / 1E-12; /// in picoseconds
         double stepsPerFrame = dt / OpenMMDT;
+        // number of cuda device to use
         int cudaDevNr = globalParameters.get_cuda();
+        // Boltzmann constant and temperature
         double kB = globalParameters.get_Kb();
         double T = globalParameters.get_T();
+        // size of periodic boundary box
         double[][] periodicBoundariesReaDDy = globalParameters.get_latticeBounds();
         double[] periodicBoundaries = new double[3];
         periodicBoundaries[0] = periodicBoundariesReaDDy[0][0] - periodicBoundariesReaDDy[0][1];
@@ -393,7 +367,7 @@ public class TopMM implements ITop {
             System.out.println("OpenMMdt:" + OpenMMDT);
             System.out.println("steps per Frame: " + stepsPerFrame);
         }
-        /// particle parameter
+        /// particle parameter ( diffusion constant and collision radii )
         HashSet<Integer> particleTypes = particleParameters.getAllParticleTypes();
         double[] diffusion = new double[particleTypes.size()];
         int[] numberOfDummyParticles = new int[particleTypes.size()];
@@ -412,12 +386,16 @@ public class TopMM implements ITop {
             }
         }
         /// potential parameters
-        ArrayList<Double> potParam1 = new ArrayList<Double>();
-        potParam1.add(0.0);
-        potParam1.add(0.0);
-        ArrayList<Double> potParam2 = new ArrayList<Double>();
-        potParam2.add(0.0);
-        potParam2.add(0.0);
+        // array for documenting parameters for potentials of order one (external forces)
+        ArrayList<Double> potParam1 = new ArrayList<>();
+        potParam1.add(0.0); // amount of forces
+        potParam1.add(0.0); // length of this array
+        // array for documenting parameters for potentials of order two (pairwise forces)        
+        ArrayList<Double> potParam2 = new ArrayList<>();
+        potParam2.add(0.0); // amount of forces
+        potParam2.add(0.0); // length of this array
+        // encode all parameters in an array(double)
+        // every parameter has it unique number, after which the respective value(s) follow
         Set<Integer> potentialIds = potentialInventory.getPotentialIds();
         Iterator<Integer> potentialIterator = potentialIds.iterator();
         while (potentialIterator.hasNext()) {
@@ -776,9 +754,9 @@ public class TopMM implements ITop {
             paramPot2[i] = potParam2.get(i);
         }
 
-        // TODO: gropu potentials
-        // gropu potentials
-        //groupParameters;
+        // groupParameters
+        // the group forces are also stored in the list with potentials of order two
+        // obtain now how much different group potentials exist
         System.out.println("***********************************");
         System.out.println("groups:");
         int nGroups = groupConfiguration.getNGroups();
@@ -800,12 +778,12 @@ public class TopMM implements ITop {
                 //System.out.println(entry.getKey() + ": " + entry.getValue()[0][0] + " " + entry.getValue()[0][1] );// + " " + entry.getValue()[1][0] + " " + entry.getValue()[1][1]); 
             }
         }
-        //groupParameters.
+        // document the number of group forces, if non exist, set the value to MAX_INT
         if (groupforce == 0) {
             groupforce = Integer.MAX_VALUE;
         }
 
-
+        // first analysis before
         if (analysisAndOutputManager.analysisRequested(9)) {
             System.out.println("analysis...");
             analysisAndOutputManager.analyseAndOutput(0, core.get_ParticleConfiguration(), rkReports);
@@ -814,7 +792,7 @@ public class TopMM implements ITop {
             }
         }
 
-
+        // call the native C++-library -> create and run new OpenMM simulation
         this.cCreateSimulation(testmode, tplg_crd, tplg_grp, cudaDevNr, nSteps, stepSize, stepsPerFrame, kB, T, periodicBoundaries, (int) particleTypes.size(), diffusion, collisionRadii, paramPot1, paramPot2, cReactions, groupforce, numberOfDummyParticles);
         //System.out.println("end");
 
