@@ -433,6 +433,12 @@ public class TopMM implements ITop {
                         potParam1.add(1004.0);
                         break;
                     }
+                    /*
+                     * add your own potential here
+                    case "MY_POTENTIAL": {
+                        potParam1.add(1234.0); // your own potentialID, >1000
+                        break;
+                    }*/
                     default: {
                         System.err.println("Force for CUDA not supportet! Please try a different core");
                         return;
@@ -589,6 +595,14 @@ public class TopMM implements ITop {
                             }
                             break;
                         }
+                        /*
+                         * add your own parameter here
+                        case "myParameter": {
+                            potParam1.add(123.0);   // your unique parameter Key (<1000)
+                            potParam1.add(Double.parseDouble(entry.getValue()));
+                            // if you use more than one parametervalue, than don't forget to note down the length of your values 
+                            break;
+                        }*/
                         default: {
                             System.out.println(entry.getKey() + ":" + entry.getValue());
                             System.err.println("Force parameter not supportet on CUDA. Please try a different core.");
@@ -620,6 +634,12 @@ public class TopMM implements ITop {
                         potParam2.add(2003.0);
                         break;
                     }
+                    /*
+                     * add your own potential here
+                    case "MY_POTENTIAL": {
+                        potParam1.add(2345.0); // your own potentialID, >1000
+                        break;
+                    }*/
                     default: {
                         System.err.println("Force for CUDA not supportet! Please try a different core");
                         return;
@@ -729,6 +749,14 @@ public class TopMM implements ITop {
                             }
                             break;
                         }
+                        /*
+                         * add your own parameter here
+                        case "myParameter": {
+                            potParam1.add(123.0);   // your unique parameter Key (<1000)
+                            potParam1.add(Double.parseDouble(entry.getValue()));
+                            // if you use more than one parametervalue, than don't forget to note down the length of your values 
+                            break;
+                        }*/
                         default: {
                             System.out.println(entry.getKey() + ":" + entry.getValue());
                             System.err.println("Force parameter not supportet on CUDA. Please try a different core.");

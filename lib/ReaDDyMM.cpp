@@ -248,6 +248,9 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
         double *extension = new double[3];
         vector<int> localAffectedParticleTypeIds;
         vector<int> localAffectedParticleIds;
+        /// define youre own parameter variables here...
+        // double myParameterVariable;
+        // vector<int> myParameterVariablesArray;
 
         /// bools for usage of parameters
         bool useO = false;
@@ -405,6 +408,25 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                 cout << "extension: [" << extension[0] << "," << extension[1] << "," << extension[2] << "]" << endl;
                 i++;
             }
+            /* /// you can ad your own parameter here (after defining it in ReaDDy)
+            else if(paramPot1[i]==yourUniqueParameterKey){
+                i++;
+                yourParameterVariable= paramPot1[i];
+                if(testmode)
+                cout << "myParameterValue: "<< yourParameterVariable << endl;
+                i++;
+            }
+            /// you may want to read more than one Value
+            else if(paramPot1[i]==yourUniqueParameterKey){
+                i++;
+                int numberOfMyParameterValues = paramPot1[i];
+                i++;
+                for(int j=0; j< numberOfMyParameterValues; j++){
+                    myParameterVariablesArray.push_back((int)paramPot1[i]);
+                    i++;
+                }
+            }
+            */
             else if(paramPot1[i]>=1000){
                 /// -> next force definition begins
                 break;
@@ -526,6 +548,29 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                 return;
             }
         }
+        /* /// add your own potential here
+        else if(type==yourPotentialID){
+            if(testmode)
+                cout << "myPotential" <<endl;
+            /// you can define subtypes
+            if(subtype==1){
+                // define here a OpenMM-style algebraic expression for your potential
+                // use youre varables directly or as OpenMMs per-particle-parameter
+                ss << "O*0.5*" << K << "*min(0," << radius <<"-sqrt((x-)^2+(y-)^2+(z-)^2))^2";
+                useO = true;    // you may want to use the predefined per-particle-parameters
+                useR = true;    // the usage of "O" is recommendet for the usage with reaction
+                // or add own per-particle-parameter
+                force->addPerParticleParameter("myParam");
+                for(int type=0; type<nTypes; type++){
+                    // add a value for every particle-type
+                    localParametersCustomExternalForces[type].push_back(myParameterValue);
+                }
+            }
+            if(subtype==2){
+                cout << "TODO: a second subtype" <<endl;
+                return;
+            }
+        }*/
 
         /// save all affected particle type ID s
         for(int t=0; t<localAffectedParticleTypeIds.size(); t++){
@@ -620,6 +665,9 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
             double length;
             vector<int> affectedParticleTypeIdPairs;
             vector<int> affectedParticleIdPairs;
+            /// define youre own parameter variables here...
+            // double myParameterVariable;
+            // vector<int> myParameterVariablesArray;
 
             /// first value indicates the force type
             double type = paramPot2[i];
@@ -710,6 +758,25 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                     if(testmode)
                     cout << endl;
                 }
+                /* /// you can ad your own parameter here (after defining it in ReaDDy)
+                else if(paramPot1[i]==yourUniqueParameterKey){
+                    i++;
+                    yourParameterVariable= paramPot1[i];
+                    if(testmode)
+                    cout << "myParameterValue: "<< yourParameterVariable << endl;
+                    i++;
+                }
+                /// you may want to read more than one Value
+                else if(paramPot1[i]==yourUniqueParameterKey){
+                    i++;
+                    int numberOfMyParameterValues = paramPot1[i];
+                    i++;
+                    for(int j=0; j< numberOfMyParameterValues; j++){
+                        myParameterVariablesArray.push_back((int)paramPot1[i]);
+                        i++;
+                    }
+                }
+                */
                 else if(paramPot2[i]>=1000){
                     /// -> next force definition begins
                     break;
@@ -777,6 +844,29 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                 useO = true;
                 useR = true;
             }
+            /* /// add your own potential here
+            else if(type==yourPotentialID){
+                if(testmode)
+                    cout << "myPotential" <<endl;
+                /// you can define subtypes
+                if(subtype==1){
+                    // define here a OpenMM-style algebraic expression for your potential
+                    // use youre varables directly or as OpenMMs per-particle-parameter
+                    ss << "O*0.5*" << K << "*min(0," << radius <<"-sqrt((x-)^2+(y-)^2+(z-)^2))^2";
+                    useO = true;    // you may want to use the predefined per-particle-parameters
+                    useR = true;    // the usage of "O" is recommendet for the usage with reaction
+                    // or add own per-particle-parameter
+                    force->addPerParticleParameter("myParam");
+                    for(int type=0; type<nTypes; type++){
+                        // add a value for every particle-type
+                        localParametersCustomExternalForces[type].push_back(myParameterValue);
+                    }
+                }
+                if(subtype==2){
+                    cout << "TODO: a second subtype" <<endl;
+                    return;
+                }
+            }*/
 
             forceFormula=ss.str();
             if(testmode)
@@ -849,6 +939,9 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
             double length;
             vector<int> affectedParticleTypeIds;
             vector<int> affectedParticleIds;
+            /// define youre own parameter variables here...
+            // double myParameterVariable;
+            // vector<int> myParameterVariablesArray;
 
             /// first value indicates the force type
             double type = paramPot2[i];
@@ -922,6 +1015,25 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                         i++;
                     }
                 }
+                /* /// you can ad your own parameter here (after defining it in ReaDDy)
+                else if(paramPot1[i]==yourUniqueParameterKey){
+                    i++;
+                    yourParameterVariable= paramPot1[i];
+                    if(testmode)
+                    cout << "myParameterValue: "<< yourParameterVariable << endl;
+                    i++;
+                }
+                /// you may want to read more than one Value
+                else if(paramPot1[i]==yourUniqueParameterKey){
+                    i++;
+                    int numberOfMyParameterValues = paramPot1[i];
+                    i++;
+                    for(int j=0; j< numberOfMyParameterValues; j++){
+                        myParameterVariablesArray.push_back((int)paramPot1[i]);
+                        i++;
+                    }
+                }
+                */
                 else if(paramPot2[i]>=1000){
                     /// -> next force definition begins
                     break;
@@ -977,6 +1089,23 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                     cout << "WEAK_INTERACTION_PIECEWISE_HARMONIC" << endl;
                 ss << "( ((1-step(r-(R)))*(0.5*" << K << "*(r-(R))^2-" << depth << ") ) + ( (step(r-(R))*(1-step(r-(R+0.5*" << length << "))))* (0.5*" << depth << "*(2/" << length << ")^2*(r-(R))^2-" << depth << ") ) + ( (step(r-(R+0.5*" << length << "))*(1-step(r-(R+" << length << "))))*(-0.5*" << depth << "*(2/" << length << ")^2*(r-(R+" << length << "))^2) ) )";
             }
+            /* /// add your own potential here
+            else if(type==yourPotentialID){
+                if(testmode)
+                    cout << "myPotential" <<endl;
+                /// you can define subtypes
+                if(subtype==1){
+                    // define here a OpenMM-style algebraic expression for your potential
+                    // use youre varables directly or as OpenMMs per-particle-parameter
+                    ss << "O*0.5*" << K << "*min(0," << radius <<"-sqrt((x-)^2+(y-)^2+(z-)^2))^2";
+                    // add per-bond-parameter here
+                    force->addPerBondParameter("yourParameter");
+                }
+                if(subtype==2){
+                    cout << "TODO: a second subtype" <<endl;
+                    return;
+                }
+            }*/
 
             forceFormula=ss.str();
             if(testmode)
