@@ -1,0 +1,93 @@
+	<!--
+	Things like this are defined in a parser, that will once generate a topology out of a file that is more high level than the topology file which only knows atomistic potential definitions that are all converted into single potential objects
+
+			<pot type="XYDISK" forceConst="5" typeId="all">
+			
+			such keywords like all are not allowed here
+			
+							forceConst= 2.5
+							radius="236.3"
+-->
+
+<tplgy_potentials version="0.0.1">
+	<!--geometry defining potentials!
+
+		POTENTIAL ORDER 1
+			-->	
+				
+		<pot 	name="attractiveDisk_1"
+				type="DISK"
+				subtype="attractive" 
+				forceConst="100"
+				center="[0.0,0.0,0]"
+				normal="[0.0,0.0,1.0]"
+				radius="100"
+				affectedParticleTypeIds="[0,1,2,3,4,5]"
+				affectedParticleIds="" />
+
+<!--		
+	   <pot 	name="attractiveSphere_1"
+	   	   		type="SPHERE"
+	   	   		subtype="membrane" 
+	   	   		forceConst="5"
+	   	   		center="[0.0,0.0,0.0]"
+	   	   		radius="118.2"
+	   	   		affectedParticleTypeIds="[0,1,2,3,4,5,6,7]"
+	   	   		affectedParticleIds="" />
+								
+							
+		<pot 	name="repulsiveCube_1"
+		   	   	type="CUBE"
+		   	   	subtype="repulsive" 
+		   	   	forceConst="100"
+		   	   	origin="[-25.0,-25.0,-10.0]"
+		   	   	extension="[50.0,50.0,100.0]"
+				cutoff="5"
+		   	   	affectedParticleTypeIds="[0]"
+		   	   	affectedParticleIds="" />-->
+
+	<pot 	name="repulsiveCube_1"
+		   	   	type="CUBE"
+		   	   	subtype="repulsive" 
+		   	   	forceConst="100"
+		   	   	origin="[-100.0, -100.0,-10.0]"
+		   	   	extension="[200.0, 200.0, 200.0]"
+				cutoff="5"
+		   	   	affectedParticleTypeIds="[0,1,2,3,4,5,6,7]"
+		   	   	affectedParticleIds="" />
+
+	
+        
+
+	<!--particle interaction potentials!						
+	
+		POTENTIAL ORDER 2 
+
+-->
+		<pot 	name="harmonic_particleRepulsion"
+				type="HARMONIC"
+				subtype="repulsive" 
+				forceConst="1" 
+				affectedParticleTypeIdPairs="all"
+				affectedParticleIdPairs="" />
+
+		<pot 	name="weakInteraction_particleAttraction_syx"
+				type="WEAK_INTERACTION"
+				forceConst="100.0" 
+				interactionradius="6.0"
+				affectedParticleTypeIdPairs="[0,0]"
+				affectedParticleIdPairs="" />
+
+		<pot 	name="weakInteraction_particleAttraction_snap"
+				type="WEAK_INTERACTION"
+				forceConst="100.0" 
+				interactionradius="5.0"
+				affectedParticleTypeIdPairs="[2,2]"
+				affectedParticleIdPairs="" />
+
+
+
+
+
+		
+</tplgy_potentials>

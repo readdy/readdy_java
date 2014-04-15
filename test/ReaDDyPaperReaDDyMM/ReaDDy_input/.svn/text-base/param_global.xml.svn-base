@@ -1,0 +1,111 @@
+<param_global version="0.0.1"> 
+
+	<!-- total number of simulation steps 
+	at dt=7.5 ns
+	133 steps 		-> 1 x 10^-6 s 	= 	1 mu s
+	6666 steps		-> 				= 	50 mu s
+	133333 steps 	-> 1 x 10^-3 s 	= 	1 ms
+	!--> 
+	<nSimulationSteps>10000000</nSimulationSteps>
+
+	<!--simulation timestep in nanoseconds = 10^-9 seconds!
+	<dt>7.5e-9</dt>
+	--> 
+	<dt>5e-9</dt>
+	
+
+	<!-- simulation temperature in Kelvin (K=C+273.16)!--> 
+	<T>295.15</T>
+
+	<!--Boltzmann constant in kJ/(Mol x K)!--> 
+	<Kb>0.0083144621</Kb>
+	
+	<!-- LATTICE RELATED PARAMETERS unit is nanometer 
+	<minLatticeBoxSize>5</minLatticeBoxSize>
+	!-->
+		<minLatticeBoxSize>11</minLatticeBoxSize>
+		
+    <!-- LATTICE RELATED PARAMETERS unit is nanometer 
+	<latticeBounds>[[-240,240];[-240,240];[-9,9]]</latticeBounds>
+				!-->
+			<latticeBounds>[[-110,110];[-110,110];[-10,210]]</latticeBounds>
+			
+	<outputPath>.</outputPath>
+		
+
+<!-- 
+possible methods | supported formats | special flags: 
+		TRAJ_WRITER					| CSV, PACSV
+		XYZ_WRITER					| XYZ			
+		XYZ_VMDCAPABLE_WRITER		| XYZ
+		MSD_CALCULATOR				| CSV, PACSV 		| BYTYPE, BYID, ONLYID_id, ONLYTYPE_type
+ 
+		  ...!-->
+		<analysis><!--
+			<analyser>
+				<method>standard_traj</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_traj.csv</outputFile>
+				<outputFormat>csv</outputFormat>
+				<specialFlags></specialFlags>
+			</analyser>
+
+			<analyser>
+				<method>standard_traj</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_traj.xyz</outputFile>
+				<outputFormat>xyz</outputFormat>
+				<specialFlags></specialFlags>
+			</analyser>
+			<analyser>
+				<method>standard_traj</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_traj_firstMiddleLast.xyz</outputFile>
+				<outputFormat>xyz</outputFormat>
+				<specialFlags></specialFlags>
+			</analyser>
+					-->
+			<analyser>
+				<method>vmdReadable_traj</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_traj_vmdCapable.xyz</outputFile>
+				<outputFormat>xyz</outputFormat>
+				<specialFlags></specialFlags>
+			</analyser>	
+			<analyser>
+				<method>msd_gnuplot</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_msd.csv</outputFile>
+				<outputFormat>csv</outputFormat>
+				<specialFlags></specialFlags>
+			</analyser>
+
+			<analyser>
+				<method>rdf_gnuplot</method>
+				<everyXStep>1000</everyXStep>
+				<outputFile>out_rdf.csv</outputFile>
+				<outputFormat>csv</outputFormat>
+				<specialFlags>[0],[0],100,disk:10.0</specialFlags>
+			</analyser>
+						<!--
+	 flag explanation:
+				[0;1;2],[3;4],1000,sphere:118.2
+				[0;1;2],[3;4],1000,disk:178.412
+				typeIdsToCheckFrom, typeIdsToBeChecked, numberOfBinsOfRdf, geometryOfTheUsedComputation:radiusOfTheGeometry
+				* which we compute our rdf from.
+				* E.G. We only sit on meta1,meta2 and R to check all G's and G* around it
+				* the Type Id of meta1,meta2 and R (0,1,2) would be in typeIdsToCheckFrom
+				* the type Id of G and G* (3,4) would be in the typeIdsToBeChecked
+				
+								<specialFlags>[0;1;2],[3;4],sphere:118.2</specialFlags>
+
+				<specialFlags>[2],[2],1000,disk:120</specialFlags>
+								-->
+<!--								
+			</analyser>
+							-->
+		</analysis>
+		
+
+-->
+</param_global>
