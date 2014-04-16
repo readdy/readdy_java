@@ -54,12 +54,12 @@
 using namespace std;
 using namespace OpenMM;
 
-void writePdbFrame(int frameNum, const OpenMM::State&, FILE* myOfile, char* typeList, vector<int> partTypes);
+/// declaration of auxillary funciton, more informations at their definition in the end
 string* split(string s, string c);
 double string_to_double( const std::string& s );
 double getTime(timeval start);
-void simulate(double stepNum, double stepSize);
 
+/// main function. is called from ReaDDy. Creates and runs the simulation.
 JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *env, jobject obj, jboolean testmode, jstring tplgyDir, jstring grpDir, jint cudaDevNr, jdouble jstepNum, jdouble jstepSize, jdouble jstepsPerFrame, jdouble jkB, jdouble jT, jdoubleArray jperiodicBoundaries, jint jnTypes, jdoubleArray jDiff, jdoubleArray jcollRadii, jdoubleArray jparamPot1, jdoubleArray jparamPot2, jfloatArray jReactions, jint groupforce, jintArray jNumberOfDummyParticles){
 
     /// Timer
@@ -128,7 +128,7 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
     double  temperature     = (double)jT;              /// kelvin
     float  friction        = 1  ;              /// picoseconds
 
-/// obtain number of different types //////////////////////////////////////////////////////////////////////////
+/// obtain number of different particletypes //////////////////////////////////////////////////////////////////////////
     int nTypes=jnTypes;
     if(testmode)
         cout << "nTypes: " << nTypes << endl;
@@ -253,8 +253,8 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
         // vector<int> myParameterVariablesArray;
 
         /// bools for usage of parameters
-        bool useO = false;
-        bool useR = false;
+        bool useO = true;
+        bool useR = true;
 
         /// first value indicates the force type
         double type=paramPot1[i];
@@ -448,8 +448,6 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
             /// example: 0.5*K2D*((z)^2 + min(200-sqrt(x^2+y^2),0)^2)
             ss << "O*0.5*" << K << "*((" << center[2] << "+z)^2 + min(200-sqrt((x-" << center[0]<<")^2 + (y-" << center[1] << ")^2),0)^2)" ;
             cout << "TODO: consider particle radius" << endl;
-            useO = true;
-            useR = true;
         }
         /// CYLINDER
         if(type==1001){
@@ -459,8 +457,6 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
             if(subtype==1){
                 /// example: "0.5*K*( (min(0,z-3.2)+min(5.2-z,0))^2 + min(200-sqrt(x       ^2+y^2),0)^2)";
                 ss << "O*0.5*" << K << "*((min(0,z-" << center[2]  - 0.5*height<<"-"<<  (considerParticleRadius ? "R" : "0") << ")+min(0," << center[2]+0.5*height << "+" << (considerParticleRadius ? "R" : "0" ) << "-z))^2 + min(" << radius <<"-sqrt((x-" << center[0] << "-" << (considerParticleRadius ?    "R" : "0") << ")^2+(y-" << center[1] << "-" << (considerParticleRadius ? "R" : "0") << ")^2),0)^2)";
-                useO = true;
-                useR = true;
                 /// TODO: not sure with consider particle radius ...
             }
             /// "repulsive"stringstream ss;
@@ -474,8 +470,6 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                 ss << "O*0.5*" << K << "*(((z-" << center[2] <<"-"<<  (considerParticleRadius ? "R" : "0") << ")+(" << center[2]+height << "-" << (considerParticleRadius ? "R" : "0" ) << "-z))^2 + (" << radius <<"-sqrt((x-" << center[0] << "-" << (considerParticleRadius ? radius : 0) << ")^2+(y-" << center[1] << "-" << (considerParticleRadius ? "R" : "0") << ")^2))^2)";
                 cout << ss <<endl;
                 cout << "TODO test CYLINDER membrane" <<endl;
-                useO = true;
-                useR = true;
                 return;
             }
         }
@@ -488,8 +482,6 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                 /// example:"0.5*Kw*( (min(0, x))^2+(min(0, boxSize[0]-x))^2+(min(0, y))^2+(min(0, boxSize[1]-y))^2+(min(0, z))^2+(min(0, boxSize[2]-z))^2 )"
                 ss << "O*0.5*" << K << "*( min(0,(x-"<< (considerParticleRadius ? "R" : "0") << ")-"<< origin[0] << ")^2+min(0,(-x-" << (considerParticleRadius ? "R" : "0")<< ")+" << origin[0]+extension[0]<<")^2" /* */ << "+ min(0,(y-"<< (considerParticleRadius ? "R" : "0") << ")-"<< origin[1] << ")^2+min(0,(-y-" << (considerParticleRadius ? "R" : "0")<< ")+" << origin[1]+extension[1]<<")^2" /* */ << "+ min(0,(z-"<< (considerParticleRadius ? "R" : "0") << ")-"<< origin[2] << ")^2+min(0,(-z-" << (considerParticleRadius ? "R" : "0")<< ")+" << origin[2]+extension[2]<<")^2 )" ;
                 /// TODO not sure about particle radius...
-                useO = true;
-                useR = true;
             }
             /// "repulsive"
             if(subtype==2){
@@ -520,8 +512,6 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
             if(subtype==3){
                 /// example: "0.5*K2D*((min(0,z)^2+(1-step(z+2-20))*((sqrt(x^2+y^2)-10-2)^2)+step(z+2-20)*(sqrt(x^2+y^2+(z-20-sqrt(50^2-10^2))^2)-50-2)^2))"
                 ss << "O*0.5*" << K << "*((min(0,z)^2+(1-step(z+" << (considerParticleRadius ? "R" : "0") << "-"<< height<<"))*((sqrt(x^2+y^2)-" << cylinderRadius << "-" << (considerParticleRadius ? "R": "0")<< ")^2)+step(z+"<< (considerParticleRadius? "R" :"0") << "-" << height <<")*(sqrt(x^2+y^2+(z-" << height << "-sqrt("<< sphereRadius << "^2-" << cylinderRadius << "^2))^2)-" << sphereRadius <<"-" << (considerParticleRadius ? "R" : "0") << ")^2))";
-                useO = true;
-                useR = true;
             }
 
         }
@@ -533,8 +523,6 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
             if(subtype==1){
                 ss << "O*0.5*" << K << "*min(0," << radius <<"-sqrt((x-)^2+(y-)^2+(z-)^2))^2";
                 cout << "TODO test sphere attractive" << endl;
-                useO = true;
-                useR = true;
                 return;
             }
             /// "repulsive"
@@ -557,8 +545,7 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                 // define here a OpenMM-style algebraic expression for your potential
                 // use youre varables directly or as OpenMMs per-particle-parameter
                 ss << "O*0.5*" << K << "*min(0," << radius <<"-sqrt((x-)^2+(y-)^2+(z-)^2))^2";
-                useO = true;    // you may want to use the predefined per-particle-parameters
-                useR = true;    // the usage of "O" is recommendet for the usage with reaction
+                    // for help see https://simtk.org/api_docs/openmm/api5_2/c++/classOpenMM_1_1CustomNonbondedForce.html#details
                 // or add own per-particle-parameter
                 force->addPerParticleParameter("myParam");
                 for(int type=0; type<nTypes; type++){
@@ -583,6 +570,9 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
         force->setEnergyFunction(forceFormula);
         customExternalForces.push_back(force);
 
+        // useO = true;    // you may want to use the predefined per-particle-parameters
+        // useR = true;    // the usage of "O" is recommendet for the usage with reaction
+        //  R is the particle radius. Very often used in this kind of potentials.
         if(useO){
             /// "O" artificial parameter, which is used by every force. It is boolean and indicates, whether a particle is currently active or inactive (force actson it or not). This is important for possible reactions, to make particles to dummy particles
             force->addPerParticleParameter("O");
@@ -674,8 +664,8 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
             i++;
 
             /// bools for usage of parameters
-            bool useO = false;
-            bool useR = false;
+            bool useO = true;
+            bool useR = true;
 
             /// read in the force parameters
             while(paramPot2[i]<1000 && i<paramPot2[1]){
@@ -797,21 +787,15 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                 /// "attractive"
                 if(subtype==1){
                     ss << "O1*O2*0.5*" << K << "*(min(0, (R1+R2)-r)^2)";
-                    useO = true;
-                    useR = true;
 
                 }
                 /// "repulsive"
                 if(subtype==2){
                     ss << "O1*O2*0.5*" << K << "*(min(0, r-(R1+R2))^2)";
-                    useO = true;
-                    useR = true;
                 }
                 /// "spring"
                 if(subtype==3){
                     ss << "O1*O2*0.5*" << K << "*(r-(R1+R2))^2";
-                    useO = true;
-                    useR = true;
                 }
                 //cutoff=max();
             }
@@ -833,16 +817,12 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                             // (K3N2*K3N1*K3K+K2N2*K2N1*K2K)*step(r-(R2+R1))*step(I2R-r)*(-0.5*I2R*(R1+R2)*r*r+(1/3)*r*r*r*(R2+R1)+(1/3)*I2R*r*r*r-0.25*r*r*r*r)")
                 cout << "carefull, differences between ReaDDy WEAK_INTERACTION gradient and energy!!"<<endl;
                 ss << K << "*O1*O2*(step(r-(R2+R1))*step(" << radius << "-r)*(-0.5*" << radius << "*(R1+R2)*r*r+(1/3)*r*r*r*(R1+R2)+(1/3)*" << radius << "*r*r*r-0.25*r*r*r*r))";
-                useO = true;
-                useR = true;
             }
             /// WEAK_INTERACTION_PIECEWISE_HARMONIC
             if(type==2003){
                 if(testmode)
                     cout << "WEAK_INTERACTION_PIECEWISE_HARMONIC" << endl;
                 ss << "O1*O2*( ((1-step(r-(R1+R2)))*(0.5*" << K << "*(r-(R1+R2))^2-" << depth << ") ) + ( (step(r-(R1+R2))*(1-step(r-(R1+R2+0.5*" << length << "))))* (0.5*" << depth << "*(2/" << length << ")^2*(r-(R1+R2))^2-" << depth << ") ) + ( (step(r-(R1+R2+0.5*" << length << "))*(1-step(r-(R1+R2+" << length << "))))*(-0.5*" << depth << "*(2/" << length << ")^2*(r-(R1+R2+" << length << "))^2) ) )";
-                useO = true;
-                useR = true;
             }
             /* /// add your own potential here
             else if(type==yourPotentialID){
@@ -853,8 +833,7 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                     // define here a OpenMM-style algebraic expression for your potential
                     // use youre varables directly or as OpenMMs per-particle-parameter
                     ss << "O*0.5*" << K << "*min(0," << radius <<"-sqrt((x-)^2+(y-)^2+(z-)^2))^2";
-                    useO = true;    // you may want to use the predefined per-particle-parameters
-                    useR = true;    // the usage of "O" is recommendet for the usage with reaction
+                    // for help see https://simtk.org/api_docs/openmm/api5_2/c++/classOpenMM_1_1CustomNonbondedForce.html#details
                     // or add own per-particle-parameter
                     force->addPerParticleParameter("myParam");
                     for(int type=0; type<nTypes; type++){
@@ -874,6 +853,9 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
             force->setEnergyFunction(forceFormula);
             customNonbondForces.push_back(force);
 
+            // useO = true;    // you may want to use the predefined per-particle-parameters
+            // useR = true;    // the usage of "O" is recommendet for the usage with reaction
+            //  R is the particle radius. Very often used in this kind of potentials.
             if(useO){
                 /// "O" artificial parameter, which is used by every force. It is boolean and indicates, whether a particle is currently active or inactive (force actson it or not). This is important for possible reactions, to make particles to dummy particles
                 force->addPerParticleParameter("O");
@@ -1098,6 +1080,7 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                     // define here a OpenMM-style algebraic expression for your potential
                     // use youre varables directly or as OpenMMs per-particle-parameter
                     ss << "O*0.5*" << K << "*min(0," << radius <<"-sqrt((x-)^2+(y-)^2+(z-)^2))^2";
+                    // for help see https://simtk.org/api_docs/openmm/api5_2/c++/classOpenMM_1_1CustomNonbondedForce.html#details
                     // add per-bond-parameter here
                     force->addPerBondParameter("yourParameter");
                 }

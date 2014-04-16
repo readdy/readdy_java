@@ -3,9 +3,10 @@
 	<!-- total number of simulation steps --> 
         <nSimulationSteps>100</nSimulationSteps>
 
-        <!--simulation timestep in nanoseconds = 10^-9 seconds!	-->
+        <!--simulation timesteps in nanoseconds = 10^-9 seconds!	-->
+        <!-- reaction timestep	-->
         <dt>1e-7</dt>
-
+        <!-- dynamic timestep	-->
         <dtO>1e-10</dtO>
 
         <cuda>0</cuda>

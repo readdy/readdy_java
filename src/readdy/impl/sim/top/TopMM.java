@@ -344,7 +344,8 @@ public class TopMM implements ITop {
         System.out.println("run simulation...");
 
         // defines the amout of output in C++
-        boolean testmode = true;
+        //boolean testmode = true;
+        boolean testmode = false;
         // obtain various simulations parameter
         // timestep and framesize in OpenMM: 
         double OpenMMDT = globalParameters.get_dtO();
@@ -401,6 +402,9 @@ public class TopMM implements ITop {
         while (potentialIterator.hasNext()) {
             IPotential potential = potentialInventory.getPotential(potentialIterator.next());
             int _order = potential.get_order();
+            // #######################################################################################################################################
+            // ################# Poterntials Order One ###############################################################################################
+            // #######################################################################################################################################
             if (_order == 1) {
                 potParam1.set(0, potParam1.get(0) + 1);
                 String _type = potential.get_type();
@@ -611,6 +615,10 @@ public class TopMM implements ITop {
                     }
                 }
             }// end order1
+            
+            // #######################################################################################################################################
+            // ################# Poterntials Order Two ###############################################################################################
+            // #######################################################################################################################################
             else if (_order == 2) {
                 potParam2.set(0, potParam2.get(0) + 1);
                 String _type = potential.get_type();
