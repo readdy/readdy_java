@@ -203,12 +203,12 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
 
 
 /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-/// Forces ////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Forces/Potentials /////////////////////////////////////////////////////////////////////////////////////////
 /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     if(testmode){
         cout << "creating forces" << endl;
     }
-/// External Forces ///////////////////////////////////////////////////////////////////////////////////////////
+/// External Forces / Potentials order one /////////////////////////////////////////////////////////////////////
 
     if(testmode)
         cout << "external forces" << endl;
@@ -441,6 +441,7 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
         stringstream ss;
         string forceFormula="";
 
+        /// note the parameter O 'Oh' that is introduced to switch forces on or off.
         /// DISK
         if(type==1000){
             if(testmode)
@@ -614,7 +615,7 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
     }
     (env)->ReleasePrimitiveArrayCritical( jparamPot1, paramPot1, 0);
 
-/// Pairwise Forces ///////////////////////////////////////////////////////////////////////////////////////////
+/// Pairwise Forces / Potentials order two ///////////////////////////////////////////////////////////////////////////////////////////
 
     if(testmode)
         cout << endl << "pairwise forces" <<endl;
@@ -1256,7 +1257,7 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
     /// choose integrator and timestep -> chose Brownian (OpenMM Users Guide page 189, ReaDDy paper page 3), timestep-> see parameters
     OpenMM::BrownianIntegrator integrator = OpenMM::BrownianIntegrator(temperature, friction, stepSizeInPs);
 
-    /// decide for one platform. we choose CUDA
+    /// decide for one platform. we choose CUDA, could also be OpenCL
     OpenMM::Platform& platform = OpenMM::Platform::getPlatformByName("CUDA");
     /// set Nr of used CUDA device
     map<string, string> properties;
@@ -1362,6 +1363,10 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                 return;
             }
 
+            /// IMPORTANT: There is a distinct ReaDDyParticleId and a OpenMMParticleId.
+            /// In every communication between ReaDDy and OpenMM, they have to be converted into
+            /// one another. This is what the following code snippet does.
+            ///
             /// first value: number of particles, than add [x,y,z,id(OpenMM), id(ReaDDy)] for each particle
             Pos[0]=NumOfParticles;
             int currentPos=0;
@@ -1423,8 +1428,9 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
         jfloat *reactions = (jfloat*)(env)->GetPrimitiveArrayCritical( *jReactions, NULL);
 
         if(testmode){
-            cout << reactions[0] << " reactions" << endl;
+            cout << reactions[0] << " changes " << endl;
         }
+        /// note: index means in the context of this file "particleId" in OpenMM
         /// reaction-code:  if index==-1 -> create new particle
         ///                 if newType==-1 -> delete particle
         ///                 else -> modify particle (first delete, and than create)
@@ -1535,12 +1541,15 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
             cout << "context.setPositions(posInNm2)" << endl;
 
         /// set new Positions
+        /// all positions were done already, this is to convert them in a
+        /// OpenMM digestable way (they need a const).
         const std::vector<OpenMM::Vec3>& posInNm2 (posInNmUnlocked);
         context.setPositions(posInNm2);
 
         if(testmode)
             cout << "updateParametersInContext(context)"<< endl;
 
+        /// The parameters for the forces that we compiled above are here given to the OpenMM context.
         for(int force=0; force<customExternalForces.size(); force++){
             customExternalForces[force]->updateParametersInContext(context);
         }
@@ -1555,7 +1564,7 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                     (1.-frameNumber/totalNumberOfFrames)*(getTime(startSimulationClock)/(frameNumber/totalNumberOfFrames))<< endl;
         }
 
-    }
+    }/// end main simulation loop
 
     if(testmode){
         cout << "END, total runtime: "<<getTime(startClock)<<endl;

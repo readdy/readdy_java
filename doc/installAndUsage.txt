@@ -1,23 +1,56 @@
+--- Installation ---
+
+The installation involves two parts:
+First, the third party software OpenMM has to be installed on the system
+Second, ReaDDyMM has to interface with this OpenMM distribution on the system.
+
 Installation:
-a) install OpenMM (or use "module load compiler/4.6.3 openmm/git" in our system)
-b) install currend ReaDDy version (with ReaDDyMM extension)
-c) make
-        - set OPENMM_PLUGIN_DIR (part of OpenMM instal)
+a) install OpenMM
+    # for CMB @ FU Berlin: use "module load compiler/4.6.3 openmm/git" instead
+    https://simtk.org/project/xml/downloads.xml?group_id=161
+    # make sure that OpenMM runs properly
+    # If you want to use GPU acceleration, sometimes specific compilers are required (GCC 4.6.3 works)
+
+# prepare ReaDDyMM make execution
+b) set system variables
+        - set OPENMM_PLUGIN_DIR system variable (part of OpenMM instal)
         - set JAVA_HOME system variable
-        - make
-d) set in runSimulation.sh
+# ReaDDyMM make execution
+c)  # change directory /lib
+    cd /lib
+    # run makefile
+    make
+
+
+--- Run first simulation ---
+ # use template in /test/ReaDDyPaperReaDDyMM/
+ # set parameters in the readdy simulation run script
+d) edit /test/ReaDDyPaperReaDDyMM/_run/runSimulation.sh
+        # edit the following line
         PROGRAMPATH=/path/to/your/ReaDDy/
-        -Djava.library.path="/path/to/your/ReaDDyMM/library/" (the one you just complied)
-        (we could use here the PROGRAMPATH variable, if we put the ReaDDyMM library somwere in the 	ReaDDy directory)
-        -core BD_OpenMM
-e) set ReaDDyMM specific parameter
-        - in param_global.xml:
-        <dtO>1e-10</dtO>	// the diffusion timestep in OpenMM
-        <cuda>0</cuda>		// the CUDA device index
 
-        - in param_particles.xml
-        <numberOfDummyParticles>2358</numberOfDummyParticles>   // the number of dummy particles for the respective particle
+d) edit ReaDDyMM specific parameter in /test/ReaDDyPaperReaDDyMM/ReaDDy_input/
+        # in param_global.xml:
+        # the diffusion timestep in OpenMM
+        <dtOpenMM>1e-10</dtOpenMM>
+
+    # Optional Parameters
+        # in param_global.xml:
+        # the CUDA device index, default 0
+        <cudaDeviceIndex>0</cudaDeviceIndex>
+
+        # in param_particles.xml
+        # the number of dummy particles for the respective particle
+        # default: 0
+        # these particles are necessary since OpenMM can not add or remove particles
+        # upon a reaction. Dummy particles are used to catch this.
+        <numberOfDummyParticles>1234</numberOfDummyParticles>
 
 
-f) run ReaDDy
+e) run ReaDDyMM
+    # for CMB @ FU Berlin: login into GPU node
+    # for CMB @ FU Berlin: type "module load compiler/4.6.3 openmm/git"
+    # change to test folder
+    cd /test/ReaDDyPaperReaDDyMM/
+    ./run.sh
 

@@ -185,10 +185,13 @@ public class TopMM implements ITop {
             // apply new positions for all particles
             for (int i = 0; i < JPos[0]; i++) {
                 double[] newPos = new double[3];
-                /// ID
+                // magic numbers:
+                // the first entry in the whole array is its length (therefore 1+ i...
+                // there are 5 entries per particle               
+                /// ReaDDy-ID
                 IParticle p = particleConfig.getParticle((int) JPos[1 + i * 5 + 4]);
                 //System.out.println("id: "+((int)JPos[1+i*5+4])+" Pos: "+);
-                /// index
+                /// OpenMM-ID (index)
                 p.setIndex((int) JPos[1 + i * 5 + 3]);
                 /// xyz coordinates Position
                 newPos[0] = JPos[1 + i * 5];
@@ -295,6 +298,8 @@ public class TopMM implements ITop {
             }
         }
 
+        // since Java does not support primitives in its objects, we have
+        // to convert our List<Float> to float[] manually
         cReactions = new float[reactions.size()];
         for (int j = 0; j < reactions.size(); j++) {
             //cReactions[j] = reactions.get(j);
@@ -388,6 +393,9 @@ public class TopMM implements ITop {
         }
         /// potential parameters
         // array for documenting parameters for potentials of order one (external forces)
+        // structure: [numberOfForces, numberOfDoublesInArray, 
+        //  potential0_id, potential0_param0, potential0_value0, potential0_param1,..., 
+        //  potential1_id,...]
         ArrayList<Double> potParam1 = new ArrayList<>();
         potParam1.add(0.0); // amount of forces
         potParam1.add(0.0); // length of this array

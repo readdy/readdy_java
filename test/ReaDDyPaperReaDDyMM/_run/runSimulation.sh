@@ -4,7 +4,7 @@ echo "start simulation..."
 
 
 
-PROGRAMPATH=/../../../dist/
+PROGRAMPATH=../../../dist/
 PROGRAM=$PROGRAMPATH/ReaDDy.jar
 
 INPUTFOLDER=../ReaDDy_input/
@@ -28,7 +28,7 @@ STARTDATE=`date`
 echo $STARTDATE > $OUTPUTFOLDER/$LOGFILENAME
 
 time java -Xmx2048m \
--Djava.library.path="/../../../lib/" \
+-Djava.library.path="$PROGRAMPATH/../lib/" \
 -jar $PROGRAM 	\
 -core BD_OpenMM \
 -param_global $INPUTFOLDER/$PARAMGLOBAL 	\
