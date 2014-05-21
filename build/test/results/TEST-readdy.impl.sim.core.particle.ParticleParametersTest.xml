@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Johanness-MacBook-Pro-4.local" name="readdy.impl.sim.core.particle.ParticleParametersTest" tests="13" time="0.092" timestamp="2014-02-10T16:36:31">
+<testsuite errors="0" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.core.particle.ParticleParametersTest" tests="13" time="0.103" timestamp="2014-05-21T15:10:21">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -45,7 +45,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.core.particle.ParticleParametersTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.core.particle.ParticleParametersTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher7619983386037662068.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit1402656249703387722.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.core.particle.ParticleParametersTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.core.particle.ParticleParametersTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher8353703146894978890.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit6344500076187675030.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -291,7 +291,7 @@
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar" />
-    <property name="os.version" value="10.9.1" />
+    <property name="os.version" value="10.9.2" />
     <property name="application.args" value="" />
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="/Applications/NetBeans/NetBeans 6.9.app/Contents/Resources/NetBeans/enterprise/docs/javaee6-doc-api.zip" />
     <property name="main.class.available" value="true" />
@@ -327,17 +327,17 @@
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
   </properties>
   <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGet_maxPInteractionRadius_int" time="0.003" />
-  <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGet_maxPInteractionRadius_int_int" time="0.001" />
+  <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGet_maxPInteractionRadius_int_int" time="0.0" />
   <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGetMaxParticleInteractionRadiusByType_typeNotExistent" time="0.0" />
-  <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGetMaxParticleInteractionRadiusByType_typeNotExistent2" time="0.0" />
+  <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGetMaxParticleInteractionRadiusByType_typeNotExistent2" time="0.001" />
   <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGet_DFactorNoise" time="0.0" />
   <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGet_DFactorPot" time="0.0" />
   <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGet_pCollisionRadius_int_int" time="0.001" />
   <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGet_pReactionRadius_int_int" time="0.0" />
   <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGet_pCollisionRadius_int" time="0.0" />
   <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="testGet_pReactionRadius_int" time="0.0" />
-  <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="test_doesParticleTypeExist" time="0.0" />
-  <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="test_getParticleTypeIdFromTypeName" time="0.001" />
+  <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="test_doesParticleTypeExist" time="0.001" />
+  <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="test_getParticleTypeIdFromTypeName" time="0.0" />
   <testcase classname="readdy.impl.sim.core.particle.ParticleParametersTest" name="test_getParticleTypeNameFromTypeId" time="0.0" />
   <system-out><![CDATA[ParticleParametersTEST...:
 

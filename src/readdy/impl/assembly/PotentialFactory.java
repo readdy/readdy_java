@@ -117,6 +117,7 @@ public class PotentialFactory implements IPotentialFactory {
                             P1_Lollipop.defaultParameterValues, 
                             userGivenParameters);
                     potential.set_parameterMap(potentialParameters);
+                    
                     return potential;
                 }
                  

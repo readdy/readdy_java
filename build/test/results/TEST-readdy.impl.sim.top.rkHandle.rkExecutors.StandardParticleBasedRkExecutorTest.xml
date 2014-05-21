@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="1" failures="0" hostname="Johanness-MacBook-Pro-4.local" name="readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest" tests="2" time="0.153" timestamp="2014-02-10T16:36:51">
+<testsuite errors="0" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest" tests="2" time="0.159" timestamp="2014-05-21T15:10:46">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -45,7 +45,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher1308471941883479741.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit8299493884658113339.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher9126983981847812362.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit3917765058975352533.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -291,7 +291,7 @@
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar" />
-    <property name="os.version" value="10.9.1" />
+    <property name="os.version" value="10.9.2" />
     <property name="application.args" value="" />
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="/Applications/NetBeans/NetBeans 6.9.app/Contents/Resources/NetBeans/enterprise/docs/javaee6-doc-api.zip" />
     <property name="main.class.available" value="true" />
@@ -327,17 +327,7 @@
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
   </properties>
   <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest" name="testSetup" time="0.002" />
-  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest" name="testExecuteReaction" time="0.008">
-    <error message="index out of lattice bounds!" type="java.lang.RuntimeException">java.lang.RuntimeException: index out of lattice bounds!
-	at readdy.impl.sim.core.space.NeighborLattice.crd2box(NeighborLattice.java:203)
-	at readdy.impl.sim.core.space.NeighborLattice.addParticle(NeighborLattice.java:236)
-	at readdy.impl.sim.core.space.NeighborLattice.updateAdd(NeighborLattice.java:220)
-	at readdy.impl.sim.core.config.ParticleConfiguration.createParticle(ParticleConfiguration.java:96)
-	at readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutor.execute_doubleCreation(StandardParticleBasedRkExecutor.java:191)
-	at readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutor.executeReaction(StandardParticleBasedRkExecutor.java:91)
-	at readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest.testExecuteReaction(StandardParticleBasedRkExecutorTest.java:402)
-</error>
-  </testcase>
+  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest" name="testExecuteReaction" time="0.011" />
   <system-out><![CDATA[parse globalParameters...
 parsing param_global file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/param_global.xml
 ... done.
@@ -369,35 +359,150 @@ executeReaction
 CREATION
 ---------------------------------------------------------------------------
 nParticles before: 12
-coordinates 20.28833621704237,42.488260282575965,-29.422449099134358created but do they match?
+coordinates 24.628576496380603,1.6341177789885464,48.65361694253528created but do they match?
 check potentials...
 check potential "attractiveCylinder_1" for having 0 gradient
 forces acting on particle! Reject Coordinates!.
-coordinates -33.11446290415527,10.456838690929082,-34.4754858039696created but do they match?
+coordinates -41.999187618924324,-27.24722849586535,-20.506805097971874created but do they match?
 check potentials...
 check potential "attractiveCylinder_1" for having 0 gradient
 forces acting on particle! Reject Coordinates!.
-coordinates 8.963275010962576,19.791462519707252,1.5495969953698037created but do they match?
+coordinates -30.859129451880687,-41.15161825887289,21.80784312102857created but do they match?
+check potentials...
+check potential "attractiveCylinder_1" for having 0 gradient
+forces acting on particle! Reject Coordinates!.
+coordinates -18.445618920560996,-7.280042771019474,-8.727096235489931created but do they match?
+doesNewParticleCollideWithOtherParticles: yes!
+coordinates 6.56368898894668,4.3582561244245355,-30.19705191720431created but do they match?
+check potentials...
+check potential "attractiveCylinder_1" for having 0 gradient
+forces acting on particle! Reject Coordinates!.
+coordinates 16.178201120122026,-33.840198020785245,43.32588032334647created but do they match?
+check potentials...
+check potential "attractiveCylinder_1" for having 0 gradient
+forces acting on particle! Reject Coordinates!.
+coordinates -12.931085632521388,28.29679195276745,16.17953562651617created but do they match?
+check potentials...
+check potential "attractiveCylinder_1" for having 0 gradient
+forces acting on particle! Reject Coordinates!.
+coordinates -47.26199319691789,-39.225199149821954,1.715524100425057created but do they match?
+check potentials...
+check potential "attractiveCylinder_1" for having 0 gradient
+forces acting on particle! Reject Coordinates!.
+coordinates -43.00434990575506,31.472235122282385,-39.310851563472966created but do they match?
+check potentials...
+check potential "attractiveCylinder_1" for having 0 gradient
+forces acting on particle! Reject Coordinates!.
+coordinates -6.651647092030601,45.10409205308525,-39.9538407662711created but do they match?
+check potentials...
+check potential "attractiveCylinder_1" for having 0 gradient
+forces acting on particle! Reject Coordinates!.
+coordinates -19.436686328047802,-16.135218289551084,14.119374098039408created but do they match?
 check potentials...
 check potential "attractiveCylinder_1" for having 0 gradient
 createdParticle:
-<p id=12 typeId=1 c=8.963275010962576,19.791462519707252,1.5495969953698037 \>
+<p id=12 typeId=1 c=-19.436686328047802,-16.135218289551084,14.119374098039408 \>
 nParticles after: 13
 ---------------------------------------------------------------------------
 DECAY
 ---------------------------------------------------------------------------
 nParticles before: 13
 removedParticle:
-<p id=12 typeId=1 c=8.963275010962576,19.791462519707252,1.5495969953698037 \>
+<p id=12 typeId=1 c=-19.436686328047802,-16.135218289551084,14.119374098039408 \>
 nParticles after: 12
 ---------------------------------------------------------------------------
 DOUBLE CREATION
 ---------------------------------------------------------------------------
 nParticles before: 12
-index out of lattice bounds:
-mindex.getMin(dim) [inclusive] 0, 0, 0
-mindex.getMax(dim) [exclusive] 7, 7, 7
-index tried to evaluate in the grid:  4, 7, 5
+createdParticles:
+<p id=13 typeId=1 c=18.815613923829375,-43.875060077242594,-30.277308959582978 \>
+<p id=14 typeId=1 c=20.85902799782893,-42.7987717813358,-29.745366832773502 \>
+nParticles after: 14
+---------------------------------------------------------------------------
+ANNIHILATION
+---------------------------------------------------------------------------
+nParticles before: 14
+createdParticles:
+<p id=13 typeId=1 c=18.815613923829375,-43.875060077242594,-30.277308959582978 \>
+<p id=14 typeId=1 c=20.85902799782893,-42.7987717813358,-29.745366832773502 \>
+nParticles after: 12
+---------------------------------------------------------------------------
+TYPE CONVERSION
+---------------------------------------------------------------------------
+nParticles before: 12
+particle to convert to 2
+<p id=0 typeId=0 c=5.441379295706454,-23.411381253272392,0.0 \>
+typeConvertedParticle after conversion:
+<p id=0 typeId=2 c=5.441379295706454,-23.411381253272392,0.0 \>
+nParticles after: 12
+---------------------------------------------------------------------------
+BIRTH
+---------------------------------------------------------------------------
+nParticles before: 12
+bornPaticle:
+<p id=15 typeId=1 c=6.305197934506304,-19.830633738376754,-1.9865270181476746 \>
+nParticles after: 13
+---------------------------------------------------------------------------
+DEATH
+---------------------------------------------------------------------------
+nParticles before: 13
+deathEducts:
+<p id=0 typeId=2 c=5.441379295706454,-23.411381253272392,0.0 \>
+<p id=15 typeId=1 c=6.305197934506304,-19.830633738376754,-1.9865270181476746 \>
+deathProducts:
+<ExtendedIdAndType group=false id=0 type=2/>
+diedParticle:
+<p id=15 typeId=1 c=6.305197934506304,-19.830633738376754,-1.9865270181476746 \>
+nParticles after: 12
+---------------------------------------------------------------------------
+FISSION
+---------------------------------------------------------------------------
+nParticles before: 12
+cleavedParticle:
+<p id=0 typeId=2 c=5.441379295706454,-23.411381253272392,0.0 \>
+both fission products:
+<p id=16 typeId=0 c=4.521515567980442,-23.72000250215144,-0.24208190174885125 \>
+<p id=17 typeId=1 c=10.040697934336517,-21.868275008877152,1.2104095087442563 \>
+nParticles after: 13
+---------------------------------------------------------------------------
+FUSION
+---------------------------------------------------------------------------
+nParticles before: 13
+removed fusion educts:
+<p id=17 typeId=1 c=10.040697934336517,-21.868275008877152,1.2104095087442563 \>
+<p id=16 typeId=0 c=4.521515567980442,-23.72000250215144,-0.24208190174885125 \>
+fusion product:
+<p id=18 typeId=2 c=9.996894899682896,-21.882971258823776,1.198881799137168 \>
+nParticles after: 12
+---------------------------------------------------------------------------
+ENZYMATIC
+---------------------------------------------------------------------------
+nParticles before: 12
+enzyme:
+<p id=1 typeId=0 c=7.852670129898662,-24.83464388291621,0.0 \>
+ligand:
+<p id=18 typeId=2 c=9.996894899682896,-21.882971258823776,1.198881799137168 \>
+C
+typeChanged enzymeLigand:
+<p id=18 typeId=1 c=9.996894899682896,-21.882971258823776,1.198881799137168 \>
+typeChange from: 2 to: 1
+nParticles after: 12
+---------------------------------------------------------------------------
+DOUBLE TYPE CONVERSION
+---------------------------------------------------------------------------
+nParticles before: 12
+educts:
+<p id=18 typeId=1 c=9.996894899682896,-21.882971258823776,1.198881799137168 \>
+<p id=1 typeId=0 c=7.852670129898662,-24.83464388291621,0.0 \>
+products:
+<ExtendedIdAndType group=false id=-1 type=2/>
+<ExtendedIdAndType group=false id=-1 type=1/>
+typeChanged enzymeLigands:
+<p id=18 typeId=2 c=9.996894899682896,-21.882971258823776,1.198881799137168 \>
+<p id=1 typeId=1 c=7.852670129898662,-24.83464388291621,0.0 \>
+typeChange from: 1 to: 2
+typeChange from: 0 to: 1
+nParticles after: 12
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

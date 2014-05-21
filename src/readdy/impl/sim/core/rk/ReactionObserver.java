@@ -48,6 +48,8 @@ import readdy.impl.tools.AdvancedSystemOut;
  * @author schoeneberg
  */
 public class ReactionObserver implements IReactionObserver {
+    
+    boolean outputHittingEvents = true;
 
     IElementalReactionManager elementalReactionManger = null;
     IParticleParameters particleParameters = null;
@@ -110,6 +112,10 @@ public class ReactionObserver implements IReactionObserver {
                     AdvancedSystemOut.print("p1="+p2.get_id()+";"+p2.get_type()+";", p2.get_coords(),"");
                     System.out.println("");
                 
+                }
+                
+                if(outputHittingEvents){
+                    System.out.println("hit: step="+stepId+" p0id="+p1.get_id()+" p0type="+p1.get_type()+" p1id="+p2.get_id()+" p1type="+p2.get_type());
                 }
                 
                 boolean decision = decideUponReactOrNotToReact(elmtlRkToCheck);

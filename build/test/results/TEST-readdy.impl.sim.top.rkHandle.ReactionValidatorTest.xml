@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Johanness-MacBook-Pro-4.local" name="readdy.impl.sim.top.rkHandle.ReactionValidatorTest" tests="2" time="0.149" timestamp="2014-02-10T16:36:47">
+<testsuite errors="0" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.top.rkHandle.ReactionValidatorTest" tests="2" time="0.164" timestamp="2014-05-21T15:10:42">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -45,7 +45,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.ReactionValidatorTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.ReactionValidatorTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher9102451392681826136.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit5609925413946629090.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.ReactionValidatorTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.ReactionValidatorTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher7055950591177252681.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit5289728146942143672.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -291,7 +291,7 @@
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar" />
-    <property name="os.version" value="10.9.1" />
+    <property name="os.version" value="10.9.2" />
     <property name="application.args" value="" />
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="/Applications/NetBeans/NetBeans 6.9.app/Contents/Resources/NetBeans/enterprise/docs/javaee6-doc-api.zip" />
     <property name="main.class.available" value="true" />
@@ -327,7 +327,7 @@
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
   </properties>
   <testcase classname="readdy.impl.sim.top.rkHandle.ReactionValidatorTest" name="testValidateReaction" time="0.003" />
-  <testcase classname="readdy.impl.sim.top.rkHandle.ReactionValidatorTest" name="testValidateReactions" time="0.0" />
+  <testcase classname="readdy.impl.sim.top.rkHandle.ReactionValidatorTest" name="testValidateReactions" time="0.001" />
   <system-out><![CDATA[parsing tplgy_groups file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/tplgy_groups.xml
 ... done.
 parse globalParameters...
@@ -354,14 +354,14 @@ total num boxes:         343
 ... lattice ready.
 ---------------------------------------
 validateReaction
-59997172 expValid false result false
-1202639361 expValid true result true
+643654763 expValid false result false
+1030471802 expValid true result true
 validateReactions
 inputListSize() 2
 inputListSize() 2
 resultListSize() 1
-791868477 977332480
-977332480 977332480
+2072059104 1502541176
+1502541176 1502541176
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

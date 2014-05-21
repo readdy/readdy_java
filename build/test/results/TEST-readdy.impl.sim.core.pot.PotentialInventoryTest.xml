@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Johanness-MacBook-Pro-4.local" name="readdy.impl.sim.core.pot.PotentialInventoryTest" tests="5" time="0.092" timestamp="2014-02-10T16:36:32">
+<testsuite errors="0" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.core.pot.PotentialInventoryTest" tests="5" time="0.101" timestamp="2014-05-21T15:10:22">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -45,7 +45,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.core.pot.PotentialInventoryTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.core.pot.PotentialInventoryTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher3133048332999321526.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit5220605061330527045.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.core.pot.PotentialInventoryTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.core.pot.PotentialInventoryTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher6508957387762951598.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit3070458529775078330.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -291,7 +291,7 @@
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar" />
-    <property name="os.version" value="10.9.1" />
+    <property name="os.version" value="10.9.2" />
     <property name="application.args" value="" />
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="/Applications/NetBeans/NetBeans 6.9.app/Contents/Resources/NetBeans/enterprise/docs/javaee6-doc-api.zip" />
     <property name="main.class.available" value="true" />
@@ -329,7 +329,7 @@
   <testcase classname="readdy.impl.sim.core.pot.PotentialInventoryTest" name="testCreatePotential" time="0.008" />
   <testcase classname="readdy.impl.sim.core.pot.PotentialInventoryTest" name="testDoesPotentialExist" time="0.0" />
   <testcase classname="readdy.impl.sim.core.pot.PotentialInventoryTest" name="testGetPotential" time="0.0" />
-  <testcase classname="readdy.impl.sim.core.pot.PotentialInventoryTest" name="testGetPotential_wronCast" time="0.0" />
+  <testcase classname="readdy.impl.sim.core.pot.PotentialInventoryTest" name="testGetPotential_wronCast" time="0.001" />
   <testcase classname="readdy.impl.sim.core.pot.PotentialInventoryTest" name="testGetPotentialOrder" time="0.0" />
   <system-out><![CDATA[parse globalParameters...
 parsing param_global file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/param_global.xml

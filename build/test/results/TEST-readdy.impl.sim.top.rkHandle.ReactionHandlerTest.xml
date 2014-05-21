@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Johanness-MacBook-Pro-4.local" name="readdy.impl.sim.top.rkHandle.ReactionHandlerTest" tests="1" time="0.18" timestamp="2014-02-10T16:36:45">
+<testsuite errors="0" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.top.rkHandle.ReactionHandlerTest" tests="1" time="0.203" timestamp="2014-05-21T15:10:40">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -45,7 +45,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.ReactionHandlerTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.ReactionHandlerTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher5161460613145846677.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit5276245026878428338.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.ReactionHandlerTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.ReactionHandlerTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher6359548572750496272.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit891744371449990547.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -291,7 +291,7 @@
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar" />
-    <property name="os.version" value="10.9.1" />
+    <property name="os.version" value="10.9.2" />
     <property name="application.args" value="" />
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="/Applications/NetBeans/NetBeans 6.9.app/Contents/Resources/NetBeans/enterprise/docs/javaee6-doc-api.zip" />
     <property name="main.class.available" value="true" />
@@ -326,7 +326,7 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
   </properties>
-  <testcase classname="readdy.impl.sim.top.rkHandle.ReactionHandlerTest" name="testHandleOccurredReactions" time="0.01" />
+  <testcase classname="readdy.impl.sim.top.rkHandle.ReactionHandlerTest" name="testHandleOccurredReactions" time="0.013" />
   <system-out><![CDATA[parse globalParameters...
 parsing param_global file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/param_global.xml
 ... done.
@@ -666,9 +666,9 @@ testing elmtlRkId 14 ...
 GROUP
 ---------------------------------------------------------------------------
 testing elmtlRkId 0 ...
-coordinates 23.344244296223394,-4.682822231724167,4.9032270370765545created but do they match?
+coordinates 35.625752349903834,28.243424520364258,35.35698856057584created but do they match?
 check potentials...
-coordinates -41.0864780210461,-29.920247743739946,-34.52544199751389created but do they match?
+coordinates -28.139334567657457,32.23233301999851,-23.31902363201151created but do they match?
 check potentials...
 action
 <ExtendedIdAndType group=false id=0 type=0/>
@@ -700,7 +700,7 @@ execution comment:
 	--- particle based ---
 	 removedParticles:
 	 createdParticles:
-<p id=12 typeId=10 c=23.344244296223394,-4.682822231724167,4.9032270370765545 \>
+<p id=12 typeId=10 c=35.625752349903834,28.243424520364258,35.35698856057584 \>
 	 typeChangedParticles:
 
 	--- group based ---
@@ -731,7 +731,7 @@ execution comment:
 	--- particle based ---
 	 removedParticles:
 	 createdParticles:
-<p id=13 typeId=10 c=-41.0864780210461,-29.920247743739946,-34.52544199751389 \>
+<p id=13 typeId=10 c=-28.139334567657457,32.23233301999851,-23.31902363201151 \>
 	 typeChangedParticles:
 
 	--- group based ---
@@ -809,8 +809,8 @@ execution comment:
 	 id: 3
 	 typeId: 0
 	 positionedParticles: 
-<p id=7 typeId=0 c=-12.569801948456954,-17.19172732671429,0.0 \>
 <p id=6 typeId=0 c=1.5589068809620485,5.855870896717365,0.0 \>
+<p id=7 typeId=0 c=-12.569801948456954,-17.19172732671429,0.0 \>
 </group>
 	 typeChangedGroups:
 </ReactionExecutionReport>
