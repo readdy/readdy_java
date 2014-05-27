@@ -284,10 +284,20 @@ public class PotentialEnergyComputerTest {
         // create standardParticleBasedRkExecutor
         //----------------------------------------------------------------------------------------
 
-        IStandardParticleBasedRkExecutorFactory standardParticleBasedRkExecutorFactory = new StandardParticleBasedRkExecutorFactory();
-        standardParticleBasedRkExecutorFactory.set_particleCoordinateCreator(particleCoordinateCreator);
-        standardParticleBasedRkExecutorFactory.set_particleParameters(particleParameters);
+        MetropolisDecider metropolisDecider = new MetropolisDecider();
+        metropolisDecider.set_GlobalParameters(globalParameters);
 
+        PotentialEnergyComputer potentialEnergyComputer2 = new PotentialEnergyComputer();
+        potentialEnergyComputer2.set_particleParameters(particleParameters);
+        potentialEnergyComputer2.set_potentialManager(potentialManager);
+
+        IStandardParticleBasedRkExecutorFactory standardParticleBasedRkExecutorFactory = new StandardParticleBasedRkExecutorFactory();
+
+        standardParticleBasedRkExecutorFactory.set_particleCoordinateCreator(particleCoordinateCreator);
+        standardParticleBasedRkExecutorFactory.set_PotentialEnergyComputer(potentialEnergyComputer2);
+        standardParticleBasedRkExecutorFactory.set_MetropolisDecider(metropolisDecider);
+
+        standardParticleBasedRkExecutorFactory.set_particleParameters(particleParameters);
         IReactionExecutor standardParticleBasedRkExecutor = standardParticleBasedRkExecutorFactory.createStandardParticleBasedRkExecutor();
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.top.rkHandle.ReactionHandlerTest" tests="1" time="0.203" timestamp="2014-05-21T15:10:40">
+<testsuite errors="0" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.top.rkHandle.ReactionHandlerTest" tests="1" time="0.181" timestamp="2014-05-21T19:13:25">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -45,7 +45,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.ReactionHandlerTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.ReactionHandlerTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher6359548572750496272.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit891744371449990547.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.ReactionHandlerTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.ReactionHandlerTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher559477375384221265.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit7648210161895105389.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -195,6 +195,7 @@
     <property name="meta.inf.dir" value="src/META-INF" />
     <property name="javadoc.encoding.used" value="UTF-8" />
     <property name="dist.jar" value="dist/ReaDDy.jar" />
+    <property name="netbeans.automatic.build" value="true" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="ReaDDy" />
     <property name="netbeans.hash.code" value="unique=NB_JAVA056e4f842-5fe4-4f9b-9400-70920d741659_f13b8425-b6a4-4f8b-97bd-90bd6ef862dd" />
@@ -306,8 +307,8 @@
     <property name="libs.spring-framework300.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/org-apache-commons-logging.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/cglib-2.2.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-aop-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-asm-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-aspects-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-beans-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-context-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-context-support-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-core-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-expression-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-instrument-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-instrument-tomcat-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-jdbc-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-jms-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-orm-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-oxm-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-test-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-tx-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-web-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-webmvc-portlet-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-webmvc-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-struts-3.1.1.RELEASE.jar" />
     <property name="run.jvmargs" value="" />
     <property name="libs.ejb3-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/ejb3-persistence.jar" />
-    <property name="libs.spring-framework.javadoc" value="" />
     <property name="libs.JAXB-ENDORSED.src" value="" />
+    <property name="libs.spring-framework.javadoc" value="" />
     <property name="libs.testng.javadoc" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/docs/testng-6.5.1-javadoc.zip" />
     <property name="libs.PostgreSQLDriver.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/postgresql-9.1-901.jdbc4.jar" />
     <property name="ant.file.type.ReaDDy" value="file" />
@@ -326,7 +327,7 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
   </properties>
-  <testcase classname="readdy.impl.sim.top.rkHandle.ReactionHandlerTest" name="testHandleOccurredReactions" time="0.013" />
+  <testcase classname="readdy.impl.sim.top.rkHandle.ReactionHandlerTest" name="testHandleOccurredReactions" time="0.011" />
   <system-out><![CDATA[parse globalParameters...
 parsing param_global file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/param_global.xml
 ... done.
@@ -666,9 +667,9 @@ testing elmtlRkId 14 ...
 GROUP
 ---------------------------------------------------------------------------
 testing elmtlRkId 0 ...
-coordinates 35.625752349903834,28.243424520364258,35.35698856057584created but do they match?
+coordinates 24.389562947917554,-42.601994984673965,43.86061998441781created but do they match?
 check potentials...
-coordinates -28.139334567657457,32.23233301999851,-23.31902363201151created but do they match?
+coordinates 3.298121045218977,38.29969911296003,40.83235520833286created but do they match?
 check potentials...
 action
 <ExtendedIdAndType group=false id=0 type=0/>
@@ -700,7 +701,7 @@ execution comment:
 	--- particle based ---
 	 removedParticles:
 	 createdParticles:
-<p id=12 typeId=10 c=35.625752349903834,28.243424520364258,35.35698856057584 \>
+<p id=12 typeId=10 c=24.389562947917554,-42.601994984673965,43.86061998441781 \>
 	 typeChangedParticles:
 
 	--- group based ---
@@ -731,7 +732,7 @@ execution comment:
 	--- particle based ---
 	 removedParticles:
 	 createdParticles:
-<p id=13 typeId=10 c=-28.139334567657457,32.23233301999851,-23.31902363201151 \>
+<p id=13 typeId=10 c=3.298121045218977,38.29969911296003,40.83235520833286 \>
 	 typeChangedParticles:
 
 	--- group based ---
@@ -809,8 +810,8 @@ execution comment:
 	 id: 3
 	 typeId: 0
 	 positionedParticles: 
-<p id=6 typeId=0 c=1.5589068809620485,5.855870896717365,0.0 \>
 <p id=7 typeId=0 c=-12.569801948456954,-17.19172732671429,0.0 \>
+<p id=6 typeId=0 c=1.5589068809620485,5.855870896717365,0.0 \>
 </group>
 	 typeChangedGroups:
 </ReactionExecutionReport>

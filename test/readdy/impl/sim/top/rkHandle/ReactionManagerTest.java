@@ -58,22 +58,29 @@ import readdy.api.assembly.IGroupParametersFactory;
 import readdy.api.assembly.IParticleParametersFactory;
 import readdy.api.assembly.IPotentialFactory;
 import readdy.api.assembly.IPotentialInventoryFactory;
+import readdy.api.assembly.IPotentialManagerFactory;
 import readdy.api.io.in.par_global.IGlobalParameters;
 import readdy.api.io.in.par_global.IParamGlobalFileParser;
 import readdy.api.io.in.par_group.IParamGroupsFileData;
 import readdy.api.io.in.par_group.IParamGroupsFileParser;
 import readdy.api.io.in.par_particle.IParamParticlesFileData;
 import readdy.api.io.in.par_particle.IParamParticlesFileParser;
+import readdy.api.io.in.tpl_pot.ITplgyPotentialsFileData;
 import readdy.api.sim.core.particle.IParticleParameters;
 import readdy.api.sim.core.pot.IPotentialInventory;
+import readdy.api.sim.core.pot.IPotentialManager;
 import readdy.api.sim.top.group.IGroupParameters;
 import readdy.impl.assembly.GroupParametersFactory;
 import readdy.impl.assembly.ParticleParametersFactory;
 import readdy.impl.assembly.PotentialFactory;
 import readdy.impl.assembly.PotentialInventoryFactory;
+import readdy.impl.assembly.PotentialManagerFactory;
 import readdy.impl.io.in.par_global.ParamGlobalFileParser;
 import readdy.impl.io.in.par_group.ParamGroupsFileParser;
 import readdy.impl.io.in.par_particle.ParamParticlesFileParser;
+import readdy.impl.io.in.tpl_pot.TplgyPotentialsFileParser;
+import readdy.impl.sim.core_mc.MetropolisDecider;
+import readdy.impl.sim.core_mc.PotentialEnergyComputer;
 
 /**
  *
@@ -115,10 +122,30 @@ public class ReactionManagerTest {
         // potentialInventory
         //##############################################################################
 
+         //IParamPotTplFileParser parser = new ParamPotTplFileParser();
+        //parser.parse(inputValues.get("param_potentialTemplates"));
+        //IParamPotTplFileData parPotTplFileData = parser.get_paramPotTplFileData();
         IPotentialFactory potentialFactory = new PotentialFactory();
+        //potentialFactory.set_paramPotTplFileData(parPotTplFileData);
         IPotentialInventoryFactory potInvFactory = new PotentialInventoryFactory();
+
         potInvFactory.set_potentialFactory(potentialFactory);
+        //potInvFactory.set_paramPotTplFileData(parPotTplFileData);
         IPotentialInventory potentialInventory = potInvFactory.createPotentialInventory();
+        TplgyPotentialsFileParser tplgyPotentialsFileParser = new TplgyPotentialsFileParser();
+
+        System.out.println("parse tplgy_potentials");
+        String tplgyPotentials = "./test/testInputFiles/test_default/tplgy_potentials.xml";
+        tplgyPotentialsFileParser.parse(tplgyPotentials);
+        ITplgyPotentialsFileData potFileData = tplgyPotentialsFileParser.get_tplgyPotentialsFileData();
+        IPotentialManagerFactory potentialManagerFactory = new PotentialManagerFactory();
+
+        potentialManagerFactory.set_potentialInventory(potentialInventory);
+
+        potentialManagerFactory.set_tplgyPotentialsFileData(potFileData);
+
+        potentialManagerFactory.set_particleParameters(particleParameters);
+        IPotentialManager potentialManager = potentialManagerFactory.createPotentialManager();
 
 
 
@@ -169,10 +196,24 @@ public class ReactionManagerTest {
         //##############################################################################
         // create standardParticleBasedRkExecutor
         //##############################################################################
+        
+        MetropolisDecider metropolisDecider = new MetropolisDecider();
+        metropolisDecider.set_GlobalParameters(globalParameters);
+
+        PotentialEnergyComputer potentialEnergyComputer = new PotentialEnergyComputer();
+        potentialEnergyComputer.set_particleParameters(particleParameters);
+        potentialEnergyComputer.set_potentialManager(potentialManager);
 
         IStandardParticleBasedRkExecutorFactory standardParticleBasedRkExecutorFactory = new StandardParticleBasedRkExecutorFactory();
+
         standardParticleBasedRkExecutorFactory.set_particleCoordinateCreator(particleCoordinateCreator);
+        standardParticleBasedRkExecutorFactory.set_PotentialEnergyComputer(potentialEnergyComputer);
+        standardParticleBasedRkExecutorFactory.set_MetropolisDecider(metropolisDecider);
+
+        standardParticleBasedRkExecutorFactory.set_particleParameters(particleParameters);
         IReactionExecutor standardParticleBasedRkExecutor = standardParticleBasedRkExecutorFactory.createStandardParticleBasedRkExecutor();
+
+        
 
 
         //----------------------------------------------------------------------------------------

@@ -13,7 +13,7 @@
 	<Kb>0.0083144621</Kb>
 	
 	<!-- LATTICE RELATED PARAMETERS unit is nanometer -->
-	<latticeBounds>[[-50,50];[-50,50];[-50,50]]</latticeBounds>
+	<latticeBounds>[[-100,100];[-100,100];[-100,100]]</latticeBounds>
 			
 
 <!-- 

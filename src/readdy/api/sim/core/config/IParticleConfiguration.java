@@ -112,12 +112,9 @@ public interface IParticleConfiguration {
 
     public void changeParticleType(int particleId, int from, int to);
 
-    // This is Monte Carlo Extension related and docks an external
-    // potential energy computation method to ReaDDy.
-    // via this interface the computed value can enter the classical
-    // particleConfiguration which allows the value to be used in the
-    // classical runtimeAnalyser scheme.
+    
     public void setSystemPotentialEnergy(double E0);
 
     public double getSystemPotentialEnergy();
+    
 }

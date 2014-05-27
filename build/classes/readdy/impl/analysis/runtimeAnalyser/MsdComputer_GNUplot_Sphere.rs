@@ -1,0 +1,2 @@
+readdy.impl.analysis.runtimeAnalyser.MsdComputer_GNUplot_Sphere
+readdy.impl.analysis.runtimeAnalyser.MSD_Computer_Sphere_Special_Flags

@@ -103,6 +103,8 @@ import readdy.api.sim.top.rkHandle.rkExecutors.IParticleCoordinateCreator;
 import readdy.api.sim.top.rkHandle.rkExecutors.IReactionExecutor;
 import readdy.api.assembly.IReactionConflictResolverFactory;
 import readdy.api.sim.core.space.ILatticeBoxSizeComputer;
+import readdy.api.sim.core_mc.IMetropolisDecider;
+import readdy.api.sim.core_mc.IPotentialEnergyComputer;
 import readdy.api.sim.top.rkHandle.rkExecutors.ICustomReactionExecutor;
 import readdy.impl.io.in.par_global.ParamGlobalFileParser;
 import readdy.impl.io.in.par_group.ParamGroupsFileParser;
@@ -111,6 +113,8 @@ import readdy.impl.io.in.par_rk.ParamReactionsFileParser;
 import readdy.impl.io.in.tpl_coord.TplgyCoordinatesFileParser;
 import readdy.impl.sim.ReaDDySimulator;
 import readdy.impl.sim.core.space.LatticeBoxSizeComputer;
+import readdy.impl.sim.core_mc.MetropolisDecider;
+import readdy.impl.sim.core_mc.PotentialEnergyComputer;
 import readdy.impl.sim.top.rkHandle.rkExecutors.custom.ParticleIdConservingRhodopsinRkExecutor;
 import readdy.impl.sim.top.rkHandle.rkExecutors.custom.PositionConservingBimolecularRkExecutor;
 import readdy.impl.sim.top.rkHandle.rkExecutors.custom.PositionDependentUnimolecularRkExecutor;
@@ -128,10 +132,9 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
      *    we have readdyMM:       ReaDDy with its core replaced by OpenMM (to be published)
      *  * @author johannesschoeneberg
      */
-    
+
     private static String reaDDyImplementation = "default";
     private String[] possibleValuesForImplementationKey = new String[]{"BD", "MC", "BD_OpenMM"};
-
     private static IAnalysisAndOutputManager analysisAndOutputManager;
     private ICore core;
     private IGlobalParameters globalParameters;
@@ -157,7 +160,6 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
         "version",
         "license"
     };
-    
 
     public String[] getEssentialInputFileKeys() {
         return essentialInputFileKeys;
@@ -185,17 +187,17 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
             String impl = inputValues.get("core");
             if (impl.contentEquals(possibleValuesForImplementationKey[0])) {
                 // Default
-                System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[0]+" (default Broanian dynamics).");
+                System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[0] + " (default Broanian dynamics).");
                 reaDDyImplementation = possibleValuesForImplementationKey[0];
             } else {
                 if (impl.contentEquals(possibleValuesForImplementationKey[1])) {
                     // Monte Carlo
-                    System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[1]+" (Monte Carlo integrator).");
+                    System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[1] + " (Monte Carlo integrator).");
                     reaDDyImplementation = possibleValuesForImplementationKey[1];
                 } else {
                     if (impl.contentEquals(possibleValuesForImplementationKey[2])) {
                         // ReaDDy MM
-                        System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[2]+" (Brownian dynamics via OpenMM");
+                        System.out.println("Use ReaDDy core: " + possibleValuesForImplementationKey[2] + " (Brownian dynamics via OpenMM");
                         reaDDyImplementation = possibleValuesForImplementationKey[2];
                     } else {
 
@@ -208,10 +210,10 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
                     }
                 }
             }
-        }else{
+        } else {
             System.out.println("No core implementation specified. Use default Brownian Dynamics.");
-                        reaDDyImplementation = possibleValuesForImplementationKey[0];
-            
+            reaDDyImplementation = possibleValuesForImplementationKey[0];
+
         }
 
 
@@ -406,9 +408,20 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
         //----------------------------------------------------------------------------------------
         // create standardParticleBasedRkExecutor
         //----------------------------------------------------------------------------------------
+
+
+        MetropolisDecider metropolisDecider = new MetropolisDecider();
+        metropolisDecider.set_GlobalParameters(globalParameters);
+
+        PotentialEnergyComputer potentialEnergyComputer = new PotentialEnergyComputer();
+        potentialEnergyComputer.set_particleParameters(particleParameters);
+        potentialEnergyComputer.set_potentialManager(potentialManager);
+
         IStandardParticleBasedRkExecutorFactory standardParticleBasedRkExecutorFactory = new StandardParticleBasedRkExecutorFactory();
 
         standardParticleBasedRkExecutorFactory.set_particleCoordinateCreator(particleCoordinateCreator);
+        standardParticleBasedRkExecutorFactory.set_PotentialEnergyComputer(potentialEnergyComputer);
+        standardParticleBasedRkExecutorFactory.set_MetropolisDecider(metropolisDecider);
 
         standardParticleBasedRkExecutorFactory.set_particleParameters(particleParameters);
         IReactionExecutor standardParticleBasedRkExecutor = standardParticleBasedRkExecutorFactory.createStandardParticleBasedRkExecutor();

@@ -132,6 +132,8 @@ import readdy.impl.io.in.par_particle.ParamParticlesFileParser;
 import readdy.impl.io.in.par_rk.ParamReactionsFileParser;
 import readdy.impl.io.in.tpl_coord.TplgyCoordinatesFileParser;
 import readdy.impl.sim.core.space.LatticeBoxSizeComputer;
+import readdy.impl.sim.core_mc.MetropolisDecider;
+import readdy.impl.sim.core_mc.PotentialEnergyComputer;
 import readdy.impl.sim.top.rkHandle.rkExecutors.custom.ParticleIdConservingDimerRkExecutor;
 
 /**
@@ -329,8 +331,20 @@ public class TopTest {
         // create standardParticleBasedRkExecutor
         //----------------------------------------------------------------------------------------
 
+        
+        MetropolisDecider metropolisDecider = new MetropolisDecider();
+        metropolisDecider.set_GlobalParameters(globalParameters);
+
+        PotentialEnergyComputer potentialEnergyComputer = new PotentialEnergyComputer();
+        potentialEnergyComputer.set_particleParameters(particleParameters);
+        potentialEnergyComputer.set_potentialManager(potentialManager);
+
         IStandardParticleBasedRkExecutorFactory standardParticleBasedRkExecutorFactory = new StandardParticleBasedRkExecutorFactory();
+
         standardParticleBasedRkExecutorFactory.set_particleCoordinateCreator(particleCoordinateCreator);
+        standardParticleBasedRkExecutorFactory.set_PotentialEnergyComputer(potentialEnergyComputer);
+        standardParticleBasedRkExecutorFactory.set_MetropolisDecider(metropolisDecider);
+
         standardParticleBasedRkExecutorFactory.set_particleParameters(particleParameters);
         IReactionExecutor standardParticleBasedRkExecutor = standardParticleBasedRkExecutorFactory.createStandardParticleBasedRkExecutor();
 

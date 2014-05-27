@@ -34,6 +34,7 @@ package readdy.impl.sim.top.rkHandle.rkExecutors;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -93,6 +94,8 @@ import readdy.impl.io.in.tpl_group.TplgyGroupsFileParser;
 import readdy.impl.io.in.tpl_pot.TplgyPotentialsFileParser;
 import readdy.impl.sim.core.particle.Particle;
 import readdy.impl.sim.core.space.LatticeBoxSizeComputer;
+import readdy.impl.sim.core_mc.MetropolisDecider;
+import readdy.impl.sim.core_mc.PotentialEnergyComputer;
 import readdy.impl.sim.top.group.ExtendedIdAndType;
 import readdy.impl.sim.top.rkHandle.ExecutableReaction;
 
@@ -137,12 +140,9 @@ public class StandardParticleBasedRkExecutorTest {
         particleCoordinateCreatorFactory.set_globalParameters(globalParameters);
         IParticleCoordinateCreator particleCoordinateCreator = particleCoordinateCreatorFactory.createParticleCoordinateCreator();
 
-        //----------------------------------------------------------------------------------------
-
-        IStandardParticleBasedRkExecutorFactory standardParticleBasedRkExecutorFactory = new StandardParticleBasedRkExecutorFactory();
-        standardParticleBasedRkExecutorFactory.set_particleCoordinateCreator(particleCoordinateCreator);
-        standardParticleBasedRkExecutorFactory.set_particleParameters(particleParameters);
-        standardParticleBasedRkExecutor = standardParticleBasedRkExecutorFactory.createStandardParticleBasedRkExecutor();
+        
+        
+       
 
         //########################################################################################
         // generate testing suite
@@ -249,7 +249,26 @@ public class StandardParticleBasedRkExecutorTest {
         groupConfigurationFactory.set_particleConfiguration(particleConfiguration);
         groupConfiguration = groupConfigurationFactory.createGroupConfiguration();
 
+        //----------------------------------------------------------------------------------------
 
+        
+        MetropolisDecider metropolisDecider = new MetropolisDecider();
+        metropolisDecider.set_GlobalParameters(globalParameters);
+
+        PotentialEnergyComputer potentialEnergyComputer = new PotentialEnergyComputer();
+        potentialEnergyComputer.set_particleParameters(particleParameters);
+        potentialEnergyComputer.set_potentialManager(potentialManager);
+
+        IStandardParticleBasedRkExecutorFactory standardParticleBasedRkExecutorFactory = new StandardParticleBasedRkExecutorFactory();
+
+        standardParticleBasedRkExecutorFactory.set_particleCoordinateCreator(particleCoordinateCreator);
+        standardParticleBasedRkExecutorFactory.set_PotentialEnergyComputer(potentialEnergyComputer);
+        standardParticleBasedRkExecutorFactory.set_MetropolisDecider(metropolisDecider);
+        standardParticleBasedRkExecutorFactory.set_particleParameters(particleParameters);
+        
+        standardParticleBasedRkExecutor = standardParticleBasedRkExecutorFactory.createStandardParticleBasedRkExecutor();
+        standardParticleBasedRkExecutor.setup(particleConfiguration, groupConfiguration, potentialManager);
+        
     }
 
     @AfterClass
@@ -488,7 +507,7 @@ public class StandardParticleBasedRkExecutorTest {
         rkTypeId = 4; // typeConversion
         derivedFromElmtlRkId = 0;
 
-        IParticle particleToConvert = particleConfiguration.getParticle(0);
+        IParticle particleToConvert = particleConfiguration.getParticle(11);
         int typeIdToConvertInto = 2;
         System.out.println("particle to convert to " + typeIdToConvertInto);
         particleToConvert.print();
@@ -648,6 +667,13 @@ public class StandardParticleBasedRkExecutorTest {
         nParticlesBefore = particleConfiguration.getNParticles();
         System.out.println("nParticles before: " + nParticlesBefore);
 
+        /*
+        Iterator<IParticle> particleIterator = particleConfiguration.particleIterator();
+        while(particleIterator.hasNext()){
+            particleIterator.next().print();
+        }
+        */
+        
 
         rkId = 0;
         rkTypeId = 7; // fission
@@ -662,7 +688,7 @@ public class StandardParticleBasedRkExecutorTest {
 
         products = new ArrayList();
         products.add(new ExtendedIdAndType(false, -1, 0));
-        products.add(new ExtendedIdAndType(false, -1, 1));
+        products.add(new ExtendedIdAndType(false, -1, 0));
 
 
         executableReaction = new ExecutableReaction(rkId, rkTypeId, derivedFromElmtlRkId, educts, products);
@@ -695,6 +721,58 @@ public class StandardParticleBasedRkExecutorTest {
         nParticlesAfter = particleConfiguration.getNParticles();
         System.out.println("nParticles after: " + nParticlesAfter);
         assertEquals(nParticlesBefore + 1, nParticlesAfter);
+        
+        
+        
+        // ---------------------------------------------------------------------------
+        // FISSION
+        // ---------------------------------------------------------------------------
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("FISSION, in crowded teritory");
+        System.out.println("---------------------------------------------------------------------------");
+
+
+        nParticlesBefore = particleConfiguration.getNParticles();
+        System.out.println("nParticles before: " + nParticlesBefore);
+
+        
+        
+
+        rkId = 0;
+        rkTypeId = 7; // fission
+        derivedFromElmtlRkId = 0;
+
+
+
+        educts = new HashMap();
+        educts.put(particleConfiguration.getParticle(0), new ExtendedIdAndType(particleAfterTypeConversion));
+
+
+
+        products = new ArrayList();
+        products.add(new ExtendedIdAndType(false, -1, 0));
+        products.add(new ExtendedIdAndType(false, -1, 0));
+
+
+        executableReaction = new ExecutableReaction(rkId, rkTypeId, derivedFromElmtlRkId, educts, products);
+
+        report = standardParticleBasedRkExecutor.executeReaction(0, executableReaction);
+        removedParticles = report.getRemovedParticles();
+        createdParticles = report.getCreatedParticles();
+        typeChangedParticles = report.getTypeChangedParticles();
+        typeChangeParticles_from = report.getTypeChangeParticles_from();
+        typeChangeParticles_to = report.getTypeChangeParticles_to();
+
+        assertEquals(0, removedParticles.size());
+        assertEquals(0, createdParticles.size());
+        assertEquals(0, typeChangedParticles.size());
+        assertEquals(0, typeChangeParticles_from.size());
+        assertEquals(0, typeChangeParticles_to.size());
+
+
+        nParticlesAfter = particleConfiguration.getNParticles();
+        System.out.println("nParticles after: " + nParticlesAfter);
+        assertEquals(nParticlesBefore, nParticlesAfter);
 
 
         // ---------------------------------------------------------------------------

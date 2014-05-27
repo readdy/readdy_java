@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest" tests="2" time="0.184" timestamp="2014-05-21T15:10:45">
+<testsuite errors="0" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest" tests="2" time="0.167" timestamp="2014-05-21T19:13:30">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -45,7 +45,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher1808999422341131004.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit8080992917223166854.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher6599899914337082169.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit8154249450958477052.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -195,6 +195,7 @@
     <property name="meta.inf.dir" value="src/META-INF" />
     <property name="javadoc.encoding.used" value="UTF-8" />
     <property name="dist.jar" value="dist/ReaDDy.jar" />
+    <property name="netbeans.automatic.build" value="true" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="ReaDDy" />
     <property name="netbeans.hash.code" value="unique=NB_JAVA056e4f842-5fe4-4f9b-9400-70920d741659_f13b8425-b6a4-4f8b-97bd-90bd6ef862dd" />
@@ -306,8 +307,8 @@
     <property name="libs.spring-framework300.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/org-apache-commons-logging.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/cglib-2.2.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-aop-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-asm-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-aspects-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-beans-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-context-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-context-support-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-core-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-expression-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-instrument-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-instrument-tomcat-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-jdbc-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-jms-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-orm-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-oxm-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-test-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-tx-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-web-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-webmvc-portlet-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-webmvc-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-struts-3.1.1.RELEASE.jar" />
     <property name="run.jvmargs" value="" />
     <property name="libs.ejb3-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/ejb3-persistence.jar" />
-    <property name="libs.spring-framework.javadoc" value="" />
     <property name="libs.JAXB-ENDORSED.src" value="" />
+    <property name="libs.spring-framework.javadoc" value="" />
     <property name="libs.testng.javadoc" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/docs/testng-6.5.1-javadoc.zip" />
     <property name="libs.PostgreSQLDriver.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/postgresql-9.1-901.jdbc4.jar" />
     <property name="ant.file.type.ReaDDy" value="file" />
@@ -327,7 +328,7 @@
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
   </properties>
   <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest" name="testSetup" time="0.002" />
-  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest" name="testExecuteReaction" time="0.018" />
+  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest" name="testExecuteReaction" time="0.021" />
   <system-out><![CDATA[parse globalParameters...
 parsing param_global file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/param_global.xml
 ... done.
@@ -445,44 +446,119 @@ matching trial 0 ...
 >>>toBePlacedBlocks length:4
 match found
 templateBlock.get_id()0 particle
-<p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
+<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 >>>toBePlacedBlocks length:3
 match found
 templateBlock.get_id()1 particle
-<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
+<p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
 >>>toBePlacedBlocks length:2
 check distance constraints...
-distNewConfig 2.8
+distNewConfig 3.7883130034241477
 distTemplate 2.8
-frac: 1.0
+frac: 1.3529689297943386
 check distance constraints...
-distNewConfig 2.8
+distNewConfig 3.7883130034241477
 distTemplate 2.8
-frac: 1.0
-match found
-templateBlock.get_id()2 particle
-<p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+frac: 1.3529689297943386
+check distance constraints...
+distNewConfig 3.7883130034241477
+distTemplate 2.8
+frac: 1.3529689297943386
+check distance constraints...
+distNewConfig 3.7883130034241477
+distTemplate 2.8
+frac: 1.3529689297943386
 >>>toBePlacedBlocks length:1
 check distance constraints...
-distNewConfig 2.8
+distNewConfig 3.7883130034241477
 distTemplate 2.8
-frac: 1.0
+frac: 1.3529689297943386
+check distance constraints...
+distNewConfig 3.7883130034241477
+distTemplate 2.8
+frac: 1.3529689297943386
+check distance constraints...
+distNewConfig 3.7883130034241477
+distTemplate 2.8
+frac: 1.3529689297943386
+check distance constraints...
+distNewConfig 3.7883130034241477
+distTemplate 2.8
+frac: 1.3529689297943386
+--------------------------------------
+matching trial 1 ...
+>>>toBePlacedBlocks length:4
+match found
+templateBlock.get_id()2 particle
+<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
+>>>toBePlacedBlocks length:3
+match found
+templateBlock.get_id()3 particle
+<p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+>>>toBePlacedBlocks length:2
+check distance constraints...
+distNewConfig 2.800005279620201
+distTemplate 2.8
+frac: 1.0000018855786432
+check distance constraints...
+distNewConfig 2.800005279620201
+distTemplate 2.8
+frac: 1.0000018855786432
+match found
+templateBlock.get_id()0 particle
+<p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
+>>>toBePlacedBlocks length:1
+check distance constraints...
+distNewConfig 3.7883130034241477
+distTemplate 2.8
+frac: 1.3529689297943386
+check distance constraints...
+distNewConfig 3.7883130034241477
+distTemplate 2.8
+frac: 1.3529689297943386
 check distance constraints...
 distNewConfig 2.7202959995225213
-distTemplate 2.8
-frac: 0.9715342855437576
+distTemplate 3.959797974644666
+frac: 0.6869784814632186
 check distance constraints...
-distNewConfig 2.8
+distNewConfig 3.7883130034241477
 distTemplate 2.8
-frac: 1.0
+frac: 1.3529689297943386
+check distance constraints...
+distNewConfig 3.7883130034241477
+distTemplate 2.8
+frac: 1.3529689297943386
+check distance constraints...
+distNewConfig 2.7202959995225213
+distTemplate 3.959797974644666
+frac: 0.6869784814632186
+check distance constraints...
+distNewConfig 3.7883130034241477
+distTemplate 2.8
+frac: 1.3529689297943386
+check distance constraints...
+distNewConfig 3.7883130034241477
+distTemplate 2.8
+frac: 1.3529689297943386
+check distance constraints...
+distNewConfig 2.7202959995225213
+distTemplate 3.959797974644666
+frac: 0.6869784814632186
+--------------------------------------
+matching trial 2 ...
+>>>toBePlacedBlocks length:4
+match found
+templateBlock.get_id()1 particle
+<p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+>>>toBePlacedBlocks length:3
+match found
+templateBlock.get_id()2 particle
+<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
+>>>toBePlacedBlocks length:2
 check distance constraints...
 distNewConfig 4.016060459233184
 distTemplate 3.959797974644666
 frac: 1.0142084229924804
-check distance constraints...
-distNewConfig 2.7202959995225213
-distTemplate 2.8
-frac: 0.9715342855437576
 check distance constraints...
 distNewConfig 4.016060459233184
 distTemplate 3.959797974644666
@@ -490,14 +566,42 @@ frac: 1.0142084229924804
 match found
 templateBlock.get_id()3 particle
 <p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
+>>>toBePlacedBlocks length:1
+check distance constraints...
+distNewConfig 4.016060459233184
+distTemplate 3.959797974644666
+frac: 1.0142084229924804
+check distance constraints...
+distNewConfig 2.800005279620201
+distTemplate 2.8
+frac: 1.0000018855786432
+check distance constraints...
+distNewConfig 4.016060459233184
+distTemplate 3.959797974644666
+frac: 1.0142084229924804
+check distance constraints...
+distNewConfig 2.7202972508973753
+distTemplate 2.8
+frac: 0.9715347324633484
+check distance constraints...
+distNewConfig 2.800005279620201
+distTemplate 2.8
+frac: 1.0000018855786432
+check distance constraints...
+distNewConfig 2.7202972508973753
+distTemplate 2.8
+frac: 0.9715347324633484
+match found
+templateBlock.get_id()0 particle
+<p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
 ===================================
 match found!
 key:0 value 
 <p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
 key:1 value 
-<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
-key:2 value 
 <p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+key:2 value 
+<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 key:3 value 
 <p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 created groups
@@ -506,8 +610,8 @@ created groups
 	 typeId: 1
 	 positionedParticles: 
 <p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
-<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 <p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 <p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 </group>
 nGroups after: 3
@@ -555,8 +659,8 @@ current Group Config Status
 	 typeId: 1
 	 positionedParticles: 
 <p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
-<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 <p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 <p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 </group>
 <group>
@@ -653,8 +757,8 @@ double typeChange
 	 typeId: 3
 	 positionedParticles: 
 <p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
-<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 <p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 <p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 </group>
 
@@ -705,8 +809,8 @@ typeChange from: 3 to 1
 	 typeId: 3
 	 positionedParticles: 
 <p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
-<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 <p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 <p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 </group>
 typeChange from: 1 to 3
@@ -737,8 +841,8 @@ Final GroupConfiguration ...
 	 typeId: 3
 	 positionedParticles: 
 <p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
-<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 <p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 <p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 </group>
 <group>
