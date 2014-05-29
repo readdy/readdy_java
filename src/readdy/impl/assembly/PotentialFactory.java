@@ -43,6 +43,7 @@ import readdy.impl.sim.core.pot.potentials.P1_Disk;
 import readdy.impl.sim.core.pot.potentials.P1_Lollipop;
 import readdy.impl.sim.core.pot.potentials.P1_Sphere;
 import readdy.impl.sim.core.pot.potentials.P2_Harmonic;
+import readdy.impl.sim.core.pot.potentials.P2_PiecewiseHarmonicAttraction_Snx9Wing;
 import readdy.impl.sim.core.pot.potentials.P2_WeakInteraction;
 import readdy.impl.sim.core.pot.potentials.P2_WeakInteractionPiecewiseHarmonic;
 import readdy.impl.sim.core.pot.potentials.P2_WeakInteractionPiecewiseHarmonic_onlyXY;
@@ -186,6 +187,19 @@ public class PotentialFactory implements IPotentialFactory {
                             userGivenParameters);
                     potential.set_parameterMap(potentialParameters);
                     return potential;
+                    
+                }
+                 
+                 if (potentialType.contentEquals("PIECEWISE_HARMONIC_ATTRACTION_SNX9WING")) {
+                    IPotential2 potential = new P2_PiecewiseHarmonicAttraction_Snx9Wing();
+                    HashMap<String, String> potentialParameters = 
+                            matchDefaultAndUserParameters(newPotentialId, 
+                            P2_PiecewiseHarmonicAttraction_Snx9Wing.essentialParameterKeys, 
+                            P2_PiecewiseHarmonicAttraction_Snx9Wing.defaultParameterValues, 
+                            userGivenParameters);
+                    potential.set_parameterMap(potentialParameters);
+                    return potential;
+                    
                 }
                 
                 throw new RuntimeException("no availalbe potential type matched \'"+potentialType+"'. Abort.");
