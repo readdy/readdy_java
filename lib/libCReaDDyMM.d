@@ -15,6 +15,7 @@ libCReaDDyMM.so: ReaDDyMM.cpp \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/CMMotionRemover.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/CustomBondForce.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/CustomCompoundBondForce.h \
+ /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/TabulatedFunction.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/CustomAngleForce.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/CustomTorsionForce.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/CustomExternalForce.h \
@@ -32,6 +33,7 @@ libCReaDDyMM.so: ReaDDyMM.cpp \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/LocalEnergyMinimizer.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/Context.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/System.h \
+ /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/internal/OSRngSeed.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/MonteCarloAnisotropicBarostat.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/MonteCarloBarostat.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/NonbondedForce.h \
@@ -41,12 +43,14 @@ libCReaDDyMM.so: ReaDDyMM.cpp \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/RBTorsionForce.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/State.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/System.h \
+ /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/TabulatedFunction.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/Units.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/VariableLangevinIntegrator.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/VariableVerletIntegrator.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/Vec3.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/VerletIntegrator.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/VirtualSite.h \
+ /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/Vec3.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/Platform.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/serialization/XmlSerializer.h \
  /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/serialization/SerializationNode.h \
@@ -87,6 +91,8 @@ libCReaDDyMM.so: ReaDDyMM.cpp \
 
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/CustomCompoundBondForce.h:
 
+/group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/TabulatedFunction.h:
+
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/CustomAngleForce.h:
 
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/CustomTorsionForce.h:
@@ -121,6 +127,8 @@ libCReaDDyMM.so: ReaDDyMM.cpp \
 
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/System.h:
 
+/group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/internal/OSRngSeed.h:
+
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/MonteCarloAnisotropicBarostat.h:
 
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/MonteCarloBarostat.h:
@@ -139,6 +147,8 @@ libCReaDDyMM.so: ReaDDyMM.cpp \
 
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/System.h:
 
+/group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/TabulatedFunction.h:
+
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/Units.h:
 
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/VariableLangevinIntegrator.h:
@@ -150,6 +160,8 @@ libCReaDDyMM.so: ReaDDyMM.cpp \
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/VerletIntegrator.h:
 
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/VirtualSite.h:
+
+/group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/Vec3.h:
 
 /group/ag_cmb/software//openmm-git/openmm/lib/plugins/../../include/openmm/Platform.h:
 

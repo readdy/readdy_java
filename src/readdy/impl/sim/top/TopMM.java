@@ -289,12 +289,25 @@ public class TopMM implements ITop {
         //---------------------------------------------------------------
 
         //if(computeTime){stopWatch.measureTime(20, System.nanoTime());}
-        if (analysisAndOutputManager.analysisRequested(step - 1)) {
-            System.out.println("analysis...");
-            analysisAndOutputManager.analyseAndOutput(step, core.get_ParticleConfiguration(), rkReports);
-            if (analysisAndOutputManager.get_resetReactionReportsList()) {
-                //System.out.println("clear reactionReport list");
-                rkReports.clear();
+        
+        if (analysisAndOutputManager.analysisRequested(-1)) {
+            if (analysisAndOutputManager.analysisRequested(step)) {
+                System.out.println("analysis... step" + step);
+                analysisAndOutputManager.analyseAndOutput(step, core.get_ParticleConfiguration(), rkReports);
+                if (analysisAndOutputManager.get_resetReactionReportsList()) {
+                    //System.out.println("clear reactionReport list");
+                    rkReports.clear();
+                }
+            }
+        }
+        else{
+            if (analysisAndOutputManager.analysisRequested(step - 1)) {
+                System.out.println("analysis... step" + step);
+                analysisAndOutputManager.analyseAndOutput(step-1, core.get_ParticleConfiguration(), rkReports);
+                if (analysisAndOutputManager.get_resetReactionReportsList()) {
+                    //System.out.println("clear reactionReport list");
+                    rkReports.clear();
+                }
             }
         }
 
@@ -331,7 +344,7 @@ public class TopMM implements ITop {
         long nSteps = globalParameters.get_nSimulationSteps();
         double dt = globalParameters.get_dt();
         System.out.println("analyse before first step...");
-        analysisAndOutputManager.analyseAndOutput(-1, core.get_ParticleConfiguration(), rkReports);
+        /// analysisAndOutputManager.analyseAndOutput(0, core.get_ParticleConfiguration(), rkReports);
         //if(computeTime){stopWatch.measureTime(3,System.nanoTime());}
 
         /*for (int i = 0; i < nSteps; i++) 
@@ -353,11 +366,11 @@ public class TopMM implements ITop {
         boolean testmode = false;
         // obtain various simulations parameter
         // timestep and framesize in OpenMM: 
-        double OpenMMDT = globalParameters.get_dtO();
+        double OpenMMDT = globalParameters.get_dtOpenMM();
         double stepSize = OpenMMDT / 1E-12; /// in picoseconds
         double stepsPerFrame = dt / OpenMMDT;
         // number of cuda device to use
-        int cudaDevNr = globalParameters.get_cuda();
+        int cudaDevNr = globalParameters.get_cudaDeviceIndex();
         // Boltzmann constant and temperature
         double kB = globalParameters.get_Kb();
         double T = globalParameters.get_T();
@@ -828,13 +841,13 @@ public class TopMM implements ITop {
         }
 
         // first analysis before
-        if (analysisAndOutputManager.analysisRequested(9)) {
+        /*if (analysisAndOutputManager.analysisRequested(9)) {
             System.out.println("analysis...");
             analysisAndOutputManager.analyseAndOutput(0, core.get_ParticleConfiguration(), rkReports);
             if (analysisAndOutputManager.get_resetReactionReportsList()) {
                 rkReports.clear();
             }
-        }
+        }*/
 
         // call the native C++-library -> create and run new OpenMM simulation
         this.cCreateSimulation(testmode, tplg_crd, tplg_grp, cudaDevNr, nSteps, stepSize, stepsPerFrame, kB, T, periodicBoundaries, (int) particleTypes.size(), diffusion, collisionRadii, paramPot1, paramPot2, cReactions, groupforce, numberOfDummyParticles);

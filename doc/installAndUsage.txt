@@ -14,7 +14,12 @@ a) install OpenMM
 # prepare ReaDDyMM make execution
 b) set system variables
         - set OPENMM_PLUGIN_DIR system variable (part of OpenMM instal)
+        (export OPENMM_PLUGIN_DIR=$OpenMMDIR/lib/plugins)
         - set JAVA_HOME system variable
+        ( e.g. export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64)
+        - add your OpenMM library dircetory to the LD_LIBRARY_PATH system variable
+        (e.g. export LD_LIBRARY_PATH=$OpenMMDIR/lib:$LD_LIBRARY_PATH
+        or export LD_LIBRARY_PATH=$OPENMM_PLUGIN_DIR/../../lib:$LD_LIBRARY_PATH)
 # ReaDDyMM make execution
 c)  # change directory /lib
     cd /lib
@@ -29,7 +34,7 @@ d) edit /test/ReaDDyPaperReaDDyMM/_run/runSimulation.sh
         # edit the following line
         PROGRAMPATH=/path/to/your/ReaDDy/
 
-d) edit ReaDDyMM specific parameter in /test/ReaDDyPaperReaDDyMM/ReaDDy_input/
+e) edit ReaDDyMM specific parameter in /test/ReaDDyPaperReaDDyMM/ReaDDy_input/
         # in param_global.xml:
         # the diffusion timestep in OpenMM
         <dtOpenMM>1e-10</dtOpenMM>
@@ -47,7 +52,7 @@ d) edit ReaDDyMM specific parameter in /test/ReaDDyPaperReaDDyMM/ReaDDy_input/
         <numberOfDummyParticles>1234</numberOfDummyParticles>
 
 
-e) run ReaDDyMM
+f) run ReaDDyMM
     # for CMB @ FU Berlin: login into GPU node
     # for CMB @ FU Berlin: type "module load compiler/4.6.3 openmm/git"
     # change to test folder

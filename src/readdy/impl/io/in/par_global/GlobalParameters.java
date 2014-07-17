@@ -44,8 +44,8 @@ public class GlobalParameters implements IGlobalParameters {
 
     long nSimulationSteps;
     int outputEveryXSteps;
-    double dt, T, dtO;
-    int cuda;
+    double dt, T, dtOpenMM;
+    int cudaDeviceIndex;
     double latticeBoxSize = -1;
     boolean latticeBoxSizeSet = false;
     double Kb = 0.0083144621; // Boltzmann constant in kJ/mol/K
@@ -61,16 +61,16 @@ public class GlobalParameters implements IGlobalParameters {
         this.outputEveryXSteps = m;
     }
 
-    public void set_cuda(int cuda) {
-        this.cuda = cuda;
+    public void set_cudaDeviceIndex(int cudadeviceIndex) {
+        this.cudaDeviceIndex = cudadeviceIndex;
     }
     
     public void set_dt(double dt) {
         this.dt = dt;
     }
     
-    public void set_dtO(double dtO) {
-        this.dtO = dtO;
+    public void set_dtOpenMM(double dtOpenMM) {
+        this.dtOpenMM = dtOpenMM;
     }
 
     public void set_T(double T) {
@@ -90,12 +90,12 @@ public class GlobalParameters implements IGlobalParameters {
         return dt;
     }
     
-    public double get_dtO() {
-        return dtO;
+    public double get_dtOpenMM() {
+        return dtOpenMM;
     }
 
-    public int get_cuda() {
-        return cuda;
+    public int get_cudaDeviceIndex() {
+        return cudaDeviceIndex;
     }
 
     public double get_T() {

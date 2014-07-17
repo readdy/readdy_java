@@ -66,6 +66,7 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
     timeval startClock;
     gettimeofday(&startClock, 0);
 
+    testmode=true;
     /// in testmode the program gives serveral outputs for simulation progress and for debugging
     if(testmode){
         printf("c code\n");
@@ -193,7 +194,8 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
                 /// D=kB*T/(friction*m) -> m=kB*T/(friction*D)
                 system.addParticle(kB*temperature/(friction*D[type]));
                 /// save ID for ReaDDy/Java (should initially be same as in OpenMM)
-                jID.push_back(i);
+                jID.push_back(string_to_double(split(line,"\"")[1]));
+                //jID.push_back(i);
                 i++;
                 NumOfParticles++;
             }
@@ -1160,8 +1162,10 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
 
     /// set cutoff value (must be same for all forces)
     /// TODO for all nonbond forces (Forces) (max)
-    //nonbound->setCutoffDistance(R[0]+R[1]+l);
-
+    /*for(i=0; i<customNonbondForces.size(); ++i){
+        //nonbound->setCutoffDistance(R[0]+R[1]+l);
+        customNonbondForces.at(i)->setCutoffDistance(6.24);
+    }*/
 
 /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Forces End ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1259,11 +1263,16 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
 
     /// decide for one platform. we choose CUDA, could also be OpenCL
     OpenMM::Platform& platform = OpenMM::Platform::getPlatformByName("CUDA");
+
     /// set Nr of used CUDA device
     map<string, string> properties;
     if(testmode)
-        cout << cudaDevNr << endl;
-    properties["CudaDeviceIndex"] = (int) cudaDevNr;
+        cout << "use Cuda Device Nr.: " << (int) cudaDevNr << endl;
+    stringstream ssCudaDevNr;
+    ssCudaDevNr << (int) cudaDevNr;
+    string strCudaDevNr = ssCudaDevNr.str();
+    properties["CudaDeviceIndex"] = strCudaDevNr;
+    //properties["CudaDeviceIndex"] = "0,1";
     OpenMM::Context context(system, integrator, platform, properties);
 
     /// alternatively:
@@ -1322,7 +1331,7 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
     }
 /// Simulate ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     int frameNumber=0;
-    for (; frameNumber<=totalNumberOfFrames; frameNumber++) {
+    for (; frameNumber<totalNumberOfFrames; frameNumber++) {
 
         /// integrate ///////////////////////////////////////////////////////////////////////////////////////////////
         if(testmode){
@@ -1557,12 +1566,12 @@ JNIEXPORT void JNICALL Java_readdy_impl_sim_top_TopMM_cCreateSimulation(JNIEnv *
             customNonbondForces[force]->updateParametersInContext(context);
         }
 
-        if(testmode){
+        //if(testmode){
             timeCReactions+=(float)getTime(timeX);
             cout << "runtime: " << getTime(startSimulationClock) << endl;
             cout << frameNumber/totalNumberOfFrames*100 << "%" << " approximate residual runtime: " <<
                     (1.-frameNumber/totalNumberOfFrames)*(getTime(startSimulationClock)/(frameNumber/totalNumberOfFrames))<< endl;
-        }
+        //}
 
     }/// end main simulation loop
 

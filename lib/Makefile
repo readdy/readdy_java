@@ -49,7 +49,7 @@ all : $(ALL_PROGS)
 	g++ $(CFLAGS) -I$(INCLUDE_DIR) $< -L$(LIB_DIR) $(LIBS) -o $*
 
 ReaDDyMM: ReaDDyMM.cpp simulation.h
-	gcc -shared -m64 -g -L$(LIB_DIR) $(LIBS) -fPIC -MMD -MP -I$(INCLUDE_DIR) -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux -I ./ -L$(JAVA_HOME)/jre/lib/amd64/server -ljvm -o libCReaDDyMM.so ReaDDyMM.cpp
+	g++ -O3 -shared -m64 -g -L$(LIB_DIR) $(LIBS) -fPIC -MMD -MP -I$(INCLUDE_DIR) -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux -I ./ -L$(JAVA_HOME)/jre/lib/amd64/server -ljvm -o libCReaDDyMM.so ReaDDyMM.cpp
 
 clean:
 	rm $(ALL_PROGS) *.o *.mod *.obj *.exe 

@@ -6,10 +6,11 @@
         <!--simulation timesteps in nanoseconds = 10^-9 seconds!	-->
         <!-- reaction timestep	-->
         <dt>1e-7</dt>
+        <!-- or: <dtReaDDy>1e-7</dtReaDDy> -->
         <!-- dynamic timestep	-->
-        <dtO>1e-10</dtO>
+        <dtOpenMM>1e-10</dtOpenMM>
 
-        <cuda>0</cuda>
+        <cudaDeviceIndex>0</cudaDeviceIndex>
 	
 	<!-- simulation temperature in Kelvin (K=C+273.16)!--> 
 	<T>293.15</T>
