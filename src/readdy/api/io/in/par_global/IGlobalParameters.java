@@ -46,10 +46,14 @@ public interface IGlobalParameters {
     public int get_outputEveryXSteps();
 
     public double get_dt();
+    
+    public double get_dtOpenMM();
 
     public double get_T();
 
     public double get_Kb();
+    
+    public int get_cudaDeviceIndex();
 
     public void print();
 

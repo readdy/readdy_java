@@ -32,58 +32,50 @@
 \*===========================================================================*/
 package readdy.impl.assembly;
 
-import readdy.api.analysis.IAnalysisAndOutputManager;
-import readdy.api.assembly.ITopFactory;
-import readdy.api.io.in.par_global.IGlobalParameters;
+import readdy.api.assembly.ICoreFactory;
 import readdy.api.sim.core.ICore;
-import readdy.api.sim.top.ITop;
-import readdy.api.sim.top.rkHandle.IReactionHandler;
-import readdy.impl.sim.top.Top;
+import readdy.api.sim.core.bd.IDiffusionEngine;
+import readdy.api.sim.core.config.IParticleConfiguration;
+import readdy.api.sim.core.rk.IReactionObserver;
+import readdy.impl.sim.core.Core;
+import readdy.impl.sim.core.CoreMM;
 
 /**
  *
  * @author schoeneberg
  */
-public class TopFactory implements ITopFactory {
+public class Core_ReaDDyMM_Factory implements ICoreFactory {
 
-    public void setAnalysisManager(IAnalysisAndOutputManager analysisManager) {
-        this.analysisManager = analysisManager;
+    IParticleConfiguration particleConfig = null;
+    IDiffusionEngine diffusionEngine = null;
+    IReactionObserver reactionObserver = null;
+
+    public void set_ParticleConfiguration(IParticleConfiguration particleConfig) {
+        this.particleConfig = particleConfig;
     }
 
-    public void setCore(ICore core) {
-        this.core = core;
+    public void set_DiffusionEngine(IDiffusionEngine diffusionEngine) {
+        this.diffusionEngine = diffusionEngine;
     }
 
-    public void setGlobalParameters(IGlobalParameters globalParameters) {
-        this.globalParameters = globalParameters;
+    public void set_ReactionObserver(IReactionObserver reactionObserver) {
+        this.reactionObserver = reactionObserver;
     }
 
-    public void setReactionHandler(IReactionHandler reactionHandler) {
-        this.reactionHandler = reactionHandler;
-    }
-    IAnalysisAndOutputManager analysisManager;
-    ICore core;
-    IGlobalParameters globalParameters;
-    IReactionHandler reactionHandler;
 
-    public ITop createTop() {
-        if (allInputPresent()) {
-            Top top = new Top();
-            top.set_Core(core);
-            top.set_AnalysisManager(analysisManager);
-            top.set_GlobalParameters(globalParameters);
-            top.set_ReactionHandler(reactionHandler);
+    public ICore createCore() {
+        if (particleConfig != null
+                && diffusionEngine != null
+                && reactionObserver != null) {
+            CoreMM core = new CoreMM();
+            core.set_ParticleConfiguration(particleConfig);
+            core.set_DiffusionEngine(diffusionEngine);
+            core.set_ReactionObserver(reactionObserver);
 
-            return top;
+            return core;
         } else {
-            throw new RuntimeException("not all input present");
+            throw new RuntimeException("necessary building blocks not present for assembly."
+                    + "construction cancelled!");
         }
-    }
-
-    private boolean allInputPresent() {
-        return core != null
-                && analysisManager != null
-                && globalParameters != null
-                && reactionHandler != null;
     }
 }

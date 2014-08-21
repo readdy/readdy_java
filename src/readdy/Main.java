@@ -77,6 +77,7 @@ public class Main {
         args = Main.args;
         }
 
+        
         IReaDDySimulatorFactory readdySimulatorFactory = new ReaDDySimulatorFactory();
         String[] essentialInputFileKeys = readdySimulatorFactory.getEssentialInputFileKeys();
         String[] optionalInputFileKeys = readdySimulatorFactory.getOptionalInputFileKeys();
@@ -186,9 +187,10 @@ public class Main {
         System.out.println("-output_path [path]                                         output path");
         System.out.println("-react_elmtlRk [react_elmtlRk.xml]                          input the elemental, particle ");
         System.out.println("                                                            based reactions directly.");
-        System.out.println("-core [BD, MC]                                              available cores:");    
+        System.out.println("-core [BD, MC, BD_OpenMM]                                   available cores:");    
         System.out.println("                                                            BD: Default Brownian dynamics");
         System.out.println("                                                            MC: Monte Carlo core");
+        System.out.println("                                                            BD_OpenMM: OpenMM core");
         System.out.println("");
         System.out.println("other:");
         System.out.println("-help                                                       display this help");

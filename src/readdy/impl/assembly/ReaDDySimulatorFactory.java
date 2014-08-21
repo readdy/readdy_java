@@ -268,6 +268,7 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
 
         particleParamFactory.set_paramParticlesFileData(paramParticlesFileData);
         IParticleParameters particleParameters = particleParamFactory.createParticleParameters();
+        
         //##############################################################################
         // get the potential parameters as input
         //##############################################################################
@@ -356,6 +357,8 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
 
         tplgyGroupsFileParser.parse(inputValues.get("tplgy_groups"));
         ITplgyGroupsFileData tplgyGroupsFileData = tplgyGroupsFileParser.get_groupsFileData();
+        
+        
         //----------------------------------------------------------------------------------------
         IGroupFactory groupFactory = new GroupFactory();
 
@@ -574,14 +577,27 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
 
             core = coreFactory.createCore();
         } else {
+            if (reaDDyImplementation.contentEquals(possibleValuesForImplementationKey[2])) {
+                // ReaDDy MM
+                Core_ReaDDyMM_Factory coreFactory = new Core_ReaDDyMM_Factory();
 
-            Core_Default_Factory coreFactory = new Core_Default_Factory();
+                coreFactory.set_ParticleConfiguration(particleConfiguration);
+                coreFactory.set_DiffusionEngine(diffusionEngine);
+                coreFactory.set_ReactionObserver(reactionObserver);
 
-            coreFactory.set_ParticleConfiguration(particleConfiguration);
-            coreFactory.set_DiffusionEngine(diffusionEngine);
-            coreFactory.set_ReactionObserver(reactionObserver);
+                core = coreFactory.createCore();
 
-            core = coreFactory.createCore();
+            } else {
+                // default
+
+                Core_Default_Factory coreFactory = new Core_Default_Factory();
+
+                coreFactory.set_ParticleConfiguration(particleConfiguration);
+                coreFactory.set_DiffusionEngine(diffusionEngine);
+                coreFactory.set_ReactionObserver(reactionObserver);
+
+                core = coreFactory.createCore();
+            }
         }
         //##############################################################################
         // reactionParameters
@@ -648,16 +664,36 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
         //##############################################################################
         // assemble everything
         //##############################################################################
-        ITopFactory topFactory = new TopFactory();
 
-        topFactory.setAnalysisManager(analysisAndOutputManager);
+        if (reaDDyImplementation.contentEquals(possibleValuesForImplementationKey[2])) {
+            // ReaDDy MM
+            Top_ReaDDyMM_Factory topFactory = new Top_ReaDDyMM_Factory();
+            
+            topFactory.setParticleParameters(particleParameters);
+            topFactory.setPotentialInventory(potentialInventory);
+            topFactory.setPotentialManager(potentialManager);
+            topFactory.setGroupParameters(groupParameters);
+            topFactory.setGroupConfiguration(groupConfiguration);
+            topFactory.setPathTplgyGrp(inputValues.get("tplgy_groups"));
+            topFactory.setPathTplgyCrd(inputValues.get("tplgy_coordinates"));
+            
+            topFactory.setAnalysisManager(analysisAndOutputManager);
+            topFactory.setCore(core);
+            topFactory.setGlobalParameters(globalParameters);
+            topFactory.setReactionHandler(reactionHandler);
+            top = topFactory.createTop();
 
-        topFactory.setCore(core);
+        } else {
+            // default
 
-        topFactory.setGlobalParameters(globalParameters);
+            ITopFactory topFactory = new Top_Default_Factory();
+            topFactory.setAnalysisManager(analysisAndOutputManager);
+            topFactory.setCore(core);
+            topFactory.setGlobalParameters(globalParameters);
+            topFactory.setReactionHandler(reactionHandler);
+            top = topFactory.createTop();
+        }
 
-        topFactory.setReactionHandler(reactionHandler);
-        top = topFactory.createTop();
     }
 
     public IReaDDySimulator createReaDDySimulator() {

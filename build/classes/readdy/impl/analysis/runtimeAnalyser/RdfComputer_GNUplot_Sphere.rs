@@ -1,2 +1,0 @@
-readdy.impl.analysis.runtimeAnalyser.RdfComputer_GNUplot_Sphere
-readdy.impl.analysis.runtimeAnalyser.RDF_Computer_Sphere_Special_Flags
