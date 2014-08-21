@@ -18,10 +18,6 @@
 # gcc 4.1.2.
 
 # Check whether this is the right capitalization for your install directory.
-#OpenMM_INSTALL_DIR=/usr/local/openmm
-#OpenMM_INSTALL_DIR=/home/mi/biederj/programs/OpenMM/OpenMM5.2-Linux64
-#OpenMM_INSTALL_DIR=/home/mi/biederj/programs/OpenMM
-#OpenMM_INSTALL_DIR=/group/ag_cmb/software/openmm-git/openmm
 OpenMM_INSTALL_DIR=$(OPENMM_PLUGIN_DIR)/../..
 CFLAGS = -g
 FFLAGS = -g -ffree-line-length-none
@@ -49,7 +45,7 @@ all : $(ALL_PROGS)
 	g++ $(CFLAGS) -I$(INCLUDE_DIR) $< -L$(LIB_DIR) $(LIBS) -o $*
 
 ReaDDyMM: ReaDDyMM.cpp simulation.h
-	g++ -O3 -shared -m64 -g -L$(LIB_DIR) $(LIBS) -fPIC -MMD -MP -I$(INCLUDE_DIR) -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux -I ./ -L$(JAVA_HOME)/jre/lib/amd64/server -ljvm -o libCReaDDyMM.so ReaDDyMM.cpp
+	g++ -O3 -shared -m64 -g -Wl,--no-undefined  -L$(LIB_DIR) $(LIBS) -fPIC -I$(INCLUDE_DIR) -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux -I ./ -L$(JAVA_HOME)/jre/lib/amd64/server -ljvm -o libCReaDDyMM.so ReaDDyMM.cpp # -MMD -MP
 
 clean:
 	rm $(ALL_PROGS) *.o *.mod *.obj *.exe 

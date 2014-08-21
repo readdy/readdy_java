@@ -3,7 +3,6 @@
  * =========================================================================== *
  *           ReaDDyMM - A combination of OpenMM and ReaDDy                     *
  *                    written by Johann Biedermann                             *
- *     code based on the OpenMM(tm) HelloArgon example in C++ (June 2009)      *
  * =========================================================================== *
  * Copyright (c) 2010-2013, Johannes Schöneberg, Frank Noé, FU Berlin          *
  * All rights reserved.                                                        *
