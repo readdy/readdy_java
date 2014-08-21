@@ -157,13 +157,17 @@ public class StandardParticleBasedRkExecutor implements IReactionExecutor {
             IExtendedIdAndType p_product1 = rk.get_products().get(0);
 
             // generate coordinates until you find some that do not collide
+            int nTrials = 1000;
+            int counter = 0;
             double[] newCoords = new double[3];
             do {
                 newCoords = particleCoordinatesCreator.createCoordinates(p_product1.get_type());
+                counter++;
                 //System.out.println("coordinates " + newCoords[0] + "," + newCoords[1] + "," + newCoords[2] + "created but do they match?");
             } while ( // collisions with other particles are forbidden
                     doesNewParticleCollideWithOtherParticles(newCoords, p_product1.get_type())
                     || doCellularGeometryForcesActOnParticle(newCoords, p_product1.get_type()) // assumption is, that cellular geometry potentials have gradient = 0 potential where particles should be
+                    || counter < nTrials
                     );
 
 
