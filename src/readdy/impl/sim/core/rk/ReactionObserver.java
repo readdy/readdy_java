@@ -49,7 +49,7 @@ import readdy.impl.tools.AdvancedSystemOut;
  */
 public class ReactionObserver implements IReactionObserver {
     
-    boolean outputHittingEvents = true;
+    boolean outputHittingEvents = false;
 
     IElementalReactionManager elementalReactionManger = null;
     IParticleParameters particleParameters = null;
