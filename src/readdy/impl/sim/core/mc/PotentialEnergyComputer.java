@@ -30,7 +30,7 @@
 * POSSIBILITY OF SUCH DAMAGE.                                                 *
 *                                                                             *
 \*===========================================================================*/
-package readdy.impl.sim.core_mc;
+package readdy.impl.sim.core.mc;
 
 import java.util.Iterator;
 import readdy.api.sim.core.pot.IPotentialManager;

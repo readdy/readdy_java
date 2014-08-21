@@ -41,9 +41,9 @@ import readdy.api.sim.core.particle.IParticleParameters;
 import readdy.api.sim.core.pot.IPotentialManager;
 import readdy.api.sim.core.rk.IReactionObserver;
 import readdy.impl.sim.core.bd.NoiseDisplacementComputer;
-import readdy.impl.sim.core_mc.Core_MC;
-import readdy.impl.sim.core_mc.MetropolisDecider;
-import readdy.impl.sim.core_mc.PotentialEnergyComputer;
+import readdy.impl.sim.core.Core_MC;
+import readdy.impl.sim.core.mc.MetropolisDecider;
+import readdy.impl.sim.core.mc.PotentialEnergyComputer;
 
 
 /**

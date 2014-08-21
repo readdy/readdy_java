@@ -30,7 +30,7 @@
 * POSSIBILITY OF SUCH DAMAGE.                                                 *
 *                                                                             *
 \*===========================================================================*/
-package readdy.impl.sim.core.pot.potentials;
+package readdy.impl.sim.core.pot.potentials.usr;
 
 
 import java.util.HashMap;
@@ -40,14 +40,14 @@ import readdy.api.sim.core.pot.potentials.IPotential2;
  *
  * @author ullrich
  */
-public class P2_PiecewiseHarmonicAttraction_Snx9Wing2 implements IPotential2 {
+public class P2_WeakInteractionPiecewiseHarmonic_onlyXY implements IPotential2 {
     
     private final int order = 2;
     
     // potential parameters
     public static String[] essentialParameterKeys = new String[]{"id", "name", "type","forceConst",
             "depth","length","affectedParticleTypeIdPairs","affectedParticleIdPairs"};
-    public static String[] defaultParameterValues = new String[]{"-1", "P2_PiecewiseHarmonicAttraction_Snx9Wing", "WEAK_INTERACTION_PIECEWISE_HARMONIC", "1",
+    public static String[] defaultParameterValues = new String[]{"-1", "WeakInteractionPiecewiseHarmonic", "WEAK_INTERACTION_PIECEWISE_HARMONIC", "1",
         "1","2","null","null"};
     HashMap<String, String> defaultParameterMap = new HashMap(); // is generated in the constructor from the above info
 
@@ -114,51 +114,45 @@ public class P2_PiecewiseHarmonicAttraction_Snx9Wing2 implements IPotential2 {
     private void computeGradient() {
         if (coordsSet) {
 
-            gradient[0] = 0;
+                gradient[0] = 0;
             gradient[1] = 0;
             gradient[2] = 0;
 
-            
-            double dx = (coords2[0] - coords1[0]);
-            double dy = (coords2[1] - coords1[1]);
-            double dz = (coords2[2] - coords1[2]);
-            
+            double precompute = 0;
 
-            
-            double w = Math.cos(Math.PI/2 * dz/r);
-            double factor = 0;
-            
-            if (r - r0 - (0.707107 * Math.sqrt(d) * w)/Math.sqrt(k) < 0) {
-                
-               factor = k * (r - r0 - 0.5 * (r0 - (- Math.sqrt(2) * Math.sqrt(d) + Math.sqrt(k) * r0)/Math.sqrt(k))* w);
-                
-                
+
+
+            if (r < r0) {
+                // the radius is here becaues we are computing the gradient in arc lengths
+                precompute = k * (r - r0)/r;
+                //System.out.println("f");
             } else {
-                if ((r - r0 - (0.707107 * Math.sqrt(d) * w)/Math.sqrt(k) >= 0) && (- 0.5 * l + r - r0 < 0)) {
-                    factor = (4. * d* (r - r0) * w)/(l*l);
+                if (r >= r0 && r < r0 + 0.5 * l) {
+                    precompute = d * (1 / (0.5 * l)) * (1 / (0.5 * l)) * (r - r0)/r;
+
+                    //System.out.println("g");
                 } else {
                     if (r >= r0 + 0.5 * l && r < r0 + l) {
-                    factor = -((4. * d * (-l + r - r0) * w)/(l*l));
+                        precompute = - d * (1 / (0.5 * l)) * (1 / (0.5 * l)) * (r - r0 - l)/r;
+                        //System.out.println("h");
                     } else {
                         if (r >= r0 + l) {
-                            factor=0;
+                            precompute = 0;
+                            //System.out.println("null");
                         } else {
                             throw new RuntimeException("this line should never be reached!");
                         }
                     }
                 }
             }
-            
-            gradient[0] = factor * dx / r;
-            gradient[1] = factor * dy / r;
-            gradient[2] = factor * dz / r;
 
-            
+            gradient[0] = precompute * (coords2[0] - coords1[0]);
+            gradient[1] = precompute * (coords2[1] - coords1[1]);
+            //gradient[2] = precompute * (coords2[2] - coords1[2]);
             //System.out.println("precompute: " + precompute + " r " + r + " r0 " + r0 + " l " + l);
             //System.out.println("coords1: " + coords1[0] + ", " + coords1[1] + ", " + coords1[2]);
             //System.out.println("coords2: " + coords2[0] + ", " + coords2[1] + ", " + coords2[2]);
             //System.out.println("gradient: " + gradient[0] + ", " + gradient[1] + ", " + gradient[2]);
-
             gradientComputed = true;
         } else {
             throw new RuntimeException("coordinates not set!");
@@ -183,11 +177,10 @@ public class P2_PiecewiseHarmonicAttraction_Snx9Wing2 implements IPotential2 {
                 energy = k / 2 * (r - r0) * (r - r0) - d;
                 //System.out.println("f");
 
-                // from here on, k is 1 kJ/mol/nm^2 and therefore omitted
             } else {
                 if (r >= r0 && r < r0 + 0.5 * l) {
                     //pot= k/2*    0.5*d   *(1/(0.5*l))*(1/(0.5*l))    *(r-r0)*(r-r0)     -d;
-                    energy =  0.5 * d * (1 / (0.5 * l)) * (1 / (0.5 * l)) * (r - r0) * (r - r0) - d;
+                    energy = 0.5 * d * (1 / (0.5 * l)) * (1 / (0.5 * l)) * (r - r0) * (r - r0) - d;
                     //System.out.println("g");
                 } else {
                     if (r >= r0 + 0.5 * l && r < r0 + l) {

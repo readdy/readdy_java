@@ -40,13 +40,13 @@ import readdy.impl.tools.StringTools;
  *
  * @author schoeneberg
  */
-public class P1_Cube implements IPotential1 {
+public class P1_Box implements IPotential1 {
 
     private final int order = 1;
     // potential parameters
     public static String[] essentialParameterKeys = new String[]{"id", "name", "type", "subtype", "forceConst",
         "origin", "extension", "considerParticleRadius","affectedParticleTypeIds","affectedParticleIds"};
-    public static String[] defaultParameterValues = new String[]{"-1", "CUBE_0", "CUBE", "attractive", "1",
+    public static String[] defaultParameterValues = new String[]{"-1", "BOX_0", "BOX", "attractive", "1",
         "[-5.0,-5.0,-5.0]", "[5.0,5.0,5.0]", "true","null","null"};
     HashMap<String, String> defaultParameterMap = new HashMap(); // is generated in the constructor from the above info
 
@@ -80,7 +80,7 @@ public class P1_Cube implements IPotential1 {
     private double[] min = new double[3];
     private double[] max = new double[3];
 
-    public P1_Cube() {
+    public P1_Box() {
         defaultParameterMap = new HashMap();
         if (essentialParameterKeys.length == defaultParameterValues.length) {
             for (int i = 0; i < essentialParameterKeys.length; i++) {

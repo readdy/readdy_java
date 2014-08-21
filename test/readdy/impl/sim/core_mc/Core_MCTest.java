@@ -4,6 +4,8 @@
  */
 package readdy.impl.sim.core_mc;
 
+import readdy.impl.sim.core.mc.MetropolisDecider;
+import readdy.impl.sim.core.mc.PotentialEnergyComputer;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import org.junit.After;

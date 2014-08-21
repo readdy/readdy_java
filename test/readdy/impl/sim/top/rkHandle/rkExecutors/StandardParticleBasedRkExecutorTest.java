@@ -94,8 +94,8 @@ import readdy.impl.io.in.tpl_group.TplgyGroupsFileParser;
 import readdy.impl.io.in.tpl_pot.TplgyPotentialsFileParser;
 import readdy.impl.sim.core.particle.Particle;
 import readdy.impl.sim.core.space.LatticeBoxSizeComputer;
-import readdy.impl.sim.core_mc.MetropolisDecider;
-import readdy.impl.sim.core_mc.PotentialEnergyComputer;
+import readdy.impl.sim.core.mc.MetropolisDecider;
+import readdy.impl.sim.core.mc.PotentialEnergyComputer;
 import readdy.impl.sim.top.group.ExtendedIdAndType;
 import readdy.impl.sim.top.rkHandle.ExecutableReaction;
 

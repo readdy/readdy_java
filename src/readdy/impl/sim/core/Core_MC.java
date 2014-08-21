@@ -30,7 +30,7 @@
 * POSSIBILITY OF SUCH DAMAGE.                                                 *
 *                                                                             *
 \*===========================================================================*/
-package readdy.impl.sim.core_mc;
+package readdy.impl.sim.core;
 
 import java.util.ArrayList;
 import java.util.Iterator;

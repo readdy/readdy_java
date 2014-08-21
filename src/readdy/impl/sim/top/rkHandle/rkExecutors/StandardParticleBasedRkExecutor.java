@@ -48,8 +48,8 @@ import readdy.api.sim.top.rkHandle.IExecutableReaction;
 import readdy.api.sim.top.rkHandle.IReactionExecutionReport;
 import readdy.api.sim.top.rkHandle.rkExecutors.IReactionExecutor;
 import readdy.impl.sim.core.particle.Particle;
-import readdy.impl.sim.core_mc.MetropolisDecider;
-import readdy.impl.sim.core_mc.PotentialEnergyComputer;
+import readdy.impl.sim.core.mc.MetropolisDecider;
+import readdy.impl.sim.core.mc.PotentialEnergyComputer;
 import statlab.base.datatypes.IIntIterator;
 import statlab.base.util.DoubleArrays;
 

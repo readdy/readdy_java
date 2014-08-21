@@ -30,7 +30,7 @@
 * POSSIBILITY OF SUCH DAMAGE.                                                 *
 *                                                                             *
 \*===========================================================================*/
-package readdy.impl.sim.core.pot.potentials;
+package readdy.impl.sim.core.pot.potentials.usr;
 
 
 import java.util.HashMap;
@@ -40,15 +40,15 @@ import readdy.api.sim.core.pot.potentials.IPotential2;
  *
  * @author ullrich
  */
-public class P2_PiecewiseHarmonicAttraction_Snx9Wing implements IPotential2 {
+public class P2_WeakInteractionPiecewiseHarmonic_zWindow implements IPotential2 {
     
     private final int order = 2;
     
     // potential parameters
     public static String[] essentialParameterKeys = new String[]{"id", "name", "type","forceConst",
-            "depth","length","affectedParticleTypeIdPairs","affectedParticleIdPairs"};
-    public static String[] defaultParameterValues = new String[]{"-1", "P2_PiecewiseHarmonicAttraction_Snx9Wing", "WEAK_INTERACTION_PIECEWISE_HARMONIC", "1",
-        "1","2","null","null"};
+            "depth","length","windowSizeZ","affectedParticleTypeIdPairs","affectedParticleIdPairs"};
+    public static String[] defaultParameterValues = new String[]{"-1", "WeakInteractionPiecewiseHarmonic", "WEAK_INTERACTION_PIECEWISE_HARMONIC", "1",
+        "1","2","1","null","null"};
     HashMap<String, String> defaultParameterMap = new HashMap(); // is generated in the constructor from the above info
 
 
@@ -60,7 +60,7 @@ public class P2_PiecewiseHarmonicAttraction_Snx9Wing implements IPotential2 {
     private double[] gradient = new double[3];
     private double energy;
     private boolean parametersSet, coordsSet, gradientComputed, nrgComputed = false;
-    private double r, r0, k, d, l; // actualParticleDistance, desiredParticleDistance, forceKonst, depth of the potential at r0, length between r0 and the point where the potential is 0 again
+    private double r, r0, k, d, l,w; // actualParticleDistance, desiredParticleDistance, forceKonst, depth of the potential at r0, length between r0 and the point where the potential is 0 again, window size
     HashMap<String, String> parameters;
 
 
@@ -114,58 +114,48 @@ public class P2_PiecewiseHarmonicAttraction_Snx9Wing implements IPotential2 {
     private void computeGradient() {
         if (coordsSet) {
 
-            gradient[0] = 0;
+                gradient[0] = 0;
             gradient[1] = 0;
             gradient[2] = 0;
 
-            
-            double dx = (coords2[0] - coords1[0]);
-            double dy = (coords2[1] - coords1[1]);
-            double dz = (coords2[2] - coords1[2]);
-            
-            
-            double A = (dz * Math.PI)/(2 * r);
-            double B = (r0 - (- Math.sqrt(2) * Math.sqrt(d) + Math.sqrt(k) *r0)/Math.sqrt(k));
-            // only in z dimension
-            double C = (-((dz*dz * Math.PI)/(2*r*Math.sqrt(r))) + Math.PI/(2 * r));
+            double precompute = 0;
 
-            
-            if ((r - r0 - (0.707107 * Math.sqrt(d) * Math.cos(A))/ Math.sqrt(k)) < 0) {
+            // only check within window
+            if((coords2[2] - coords1[2]) < w){
                 
-                gradient[0] = -((d* dx * dz * Math.PI* Math.sin(A))/(2 * r * Math.sqrt(r))) +  k * (r - r0 - 1/2 * B * Math.cos(A)) * (dx/r - (B* dx *dz *Math.PI* Math.sin(A))/(4 *r*Math.sqrt(r)));
-                gradient[1] = -((d* dy * dz * Math.PI* Math.sin(A))/(2 * r * Math.sqrt(r))) +  k * (r - r0 - 1/2 * B * Math.cos(A)) * (dy/r - (B* dy *dz *Math.PI* Math.sin(A))/(4 *r*Math.sqrt(r)));
-                gradient[2] =    d * C*                 Math.sin(A)                           +  k * (r - r0 - 1/2 * B * Math.cos(A)) * (dz/r +     1/2 * B* C*       Math.sin(A));
-                
+            if (r < r0 ) {
+                // the radius is here becaues we are computing the gradient in arc lengths
+                precompute = k * (r - r0)/r;
+                //System.out.println("f");
                 
             } else {
-                if (r - r0 - (0.707107 * Math.sqrt(d) * Math.cos(A))/ Math.sqrt(k) >= 0 && -0.5 * l + r - r0 < 0) {
-                    gradient[0] = (4 * d * dx * (r - r0) * Math.cos(A))/(l*l*r) + (dx * dz * Math.PI * (-d + (2 * d * (r - r0)*(r - r0))/(l*l)) * Math.sin(A))/(2 * r * Math.sqrt(r));
-                    gradient[1] = (4 * d * dy * (r - r0) * Math.cos(A))/(l*l*r) + (dy * dz * Math.PI * (-d + (2 * d * (r - r0)*(r - r0))/(l*l)) * Math.sin(A))/(2 * r * Math.sqrt(r));
-                    gradient[2] = (4 * d * dz * (r - r0) * Math.cos(A))/(l*l*r) - C *                   (-d + (2 * d * (r - r0)*(r - r0))/(l*l)) * Math.sin(A);
+                if (r >= r0 && r < r0 + 0.5 * l) {
+                    precompute = d * (1 / (0.5 * l)) * (1 / (0.5 * l)) * (r - r0)/r;
 
+                    //System.out.println("g");
                 } else {
                     if (r >= r0 + 0.5 * l && r < r0 + l) {
-                    gradient[0] = -((4 * d * dx * (-l + r - r0) * Math.cos(A))/(l*l*r)) - (d * dx * dz * Math.PI* (-l + r - r0)*(-l + r - r0)* Math.sin(A))/(l*l* r*Math.sqrt(r));
-                    gradient[1] = -((4 * d * dy * (-l + r - r0) * Math.cos(A))/(l*l*r)) - (d * dy * dz * Math.PI* (-l + r - r0)*(-l + r - r0)* Math.sin(A))/(l*l* r*Math.sqrt(r));
-                    gradient[2] = -((4 * d * dz * (-l + r - r0) * Math.cos(A))/(l*l*r)) + ( 2 * d * C *          (-l + r - r0)*(-l + r - r0)* Math.sin(A))/(l*l);
+                        precompute = - d * (1 / (0.5 * l)) * (1 / (0.5 * l)) * (r - r0 - l)/r;
+                        //System.out.println("h");
                     } else {
                         if (r >= r0 + l) {
-                            gradient[0] = 0;
-                            gradient[1] = 0;
-                            gradient[2] = 0;
+                            precompute = 0;
+                            //System.out.println("null");
                         } else {
                             throw new RuntimeException("this line should never be reached!");
                         }
                     }
                 }
             }
+            }
 
-            
+            gradient[0] = precompute * (coords2[0] - coords1[0]);
+            gradient[1] = precompute * (coords2[1] - coords1[1]);
+            gradient[2] = precompute * (coords2[2] - coords1[2]);
             //System.out.println("precompute: " + precompute + " r " + r + " r0 " + r0 + " l " + l);
             //System.out.println("coords1: " + coords1[0] + ", " + coords1[1] + ", " + coords1[2]);
             //System.out.println("coords2: " + coords2[0] + ", " + coords2[1] + ", " + coords2[2]);
             //System.out.println("gradient: " + gradient[0] + ", " + gradient[1] + ", " + gradient[2]);
-
             gradientComputed = true;
         } else {
             throw new RuntimeException("coordinates not set!");
@@ -190,11 +180,10 @@ public class P2_PiecewiseHarmonicAttraction_Snx9Wing implements IPotential2 {
                 energy = k / 2 * (r - r0) * (r - r0) - d;
                 //System.out.println("f");
 
-                // from here on, k is 1 kJ/mol/nm^2 and therefore omitted
             } else {
                 if (r >= r0 && r < r0 + 0.5 * l) {
                     //pot= k/2*    0.5*d   *(1/(0.5*l))*(1/(0.5*l))    *(r-r0)*(r-r0)     -d;
-                    energy =  0.5 * d * (1 / (0.5 * l)) * (1 / (0.5 * l)) * (r - r0) * (r - r0) - d;
+                    energy = 0.5 * d * (1 / (0.5 * l)) * (1 / (0.5 * l)) * (r - r0) * (r - r0) - d;
                     //System.out.println("g");
                 } else {
                     if (r >= r0 + 0.5 * l && r < r0 + l) {
@@ -261,6 +250,7 @@ public class P2_PiecewiseHarmonicAttraction_Snx9Wing implements IPotential2 {
 
         this.l = Double.parseDouble(parameters.get(essentialParameterKeys[5]));
 
+        this.w = Double.parseDouble(parameters.get(essentialParameterKeys[6]));
         parametersSet = true;
         
     }

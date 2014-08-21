@@ -30,7 +30,7 @@
 * POSSIBILITY OF SUCH DAMAGE.                                                 *
 *                                                                             *
 \*===========================================================================*/
-package readdy.impl.sim.core.pot.potentials;
+package readdy.impl.sim.core.pot.potentials.usr;
 
 
 import java.util.HashMap;
@@ -40,15 +40,15 @@ import readdy.api.sim.core.pot.potentials.IPotential2;
  *
  * @author ullrich
  */
-public class P2_WeakInteractionPiecewiseHarmonic_zWindow implements IPotential2 {
+public class P2_WeakInteractionPiecewiseHarmonic_onlyZ implements IPotential2 {
     
     private final int order = 2;
     
     // potential parameters
     public static String[] essentialParameterKeys = new String[]{"id", "name", "type","forceConst",
-            "depth","length","windowSizeZ","affectedParticleTypeIdPairs","affectedParticleIdPairs"};
+            "depth","length","affectedParticleTypeIdPairs","affectedParticleIdPairs"};
     public static String[] defaultParameterValues = new String[]{"-1", "WeakInteractionPiecewiseHarmonic", "WEAK_INTERACTION_PIECEWISE_HARMONIC", "1",
-        "1","2","1","null","null"};
+        "1","2","null","null"};
     HashMap<String, String> defaultParameterMap = new HashMap(); // is generated in the constructor from the above info
 
 
@@ -60,7 +60,7 @@ public class P2_WeakInteractionPiecewiseHarmonic_zWindow implements IPotential2 
     private double[] gradient = new double[3];
     private double energy;
     private boolean parametersSet, coordsSet, gradientComputed, nrgComputed = false;
-    private double r, r0, k, d, l,w; // actualParticleDistance, desiredParticleDistance, forceKonst, depth of the potential at r0, length between r0 and the point where the potential is 0 again, window size
+    private double r, r0, k, d, l; // actualParticleDistance, desiredParticleDistance, forceKonst, depth of the potential at r0, length between r0 and the point where the potential is 0 again
     HashMap<String, String> parameters;
 
 
@@ -120,14 +120,12 @@ public class P2_WeakInteractionPiecewiseHarmonic_zWindow implements IPotential2 
 
             double precompute = 0;
 
-            // only check within window
-            if((coords2[2] - coords1[2]) < w){
-                
-            if (r < r0 ) {
+
+
+            if (r < r0) {
                 // the radius is here becaues we are computing the gradient in arc lengths
                 precompute = k * (r - r0)/r;
                 //System.out.println("f");
-                
             } else {
                 if (r >= r0 && r < r0 + 0.5 * l) {
                     precompute = d * (1 / (0.5 * l)) * (1 / (0.5 * l)) * (r - r0)/r;
@@ -147,10 +145,9 @@ public class P2_WeakInteractionPiecewiseHarmonic_zWindow implements IPotential2 
                     }
                 }
             }
-            }
 
-            gradient[0] = precompute * (coords2[0] - coords1[0]);
-            gradient[1] = precompute * (coords2[1] - coords1[1]);
+            //gradient[0] = precompute * (coords2[0] - coords1[0]);
+            //gradient[1] = precompute * (coords2[1] - coords1[1]);
             gradient[2] = precompute * (coords2[2] - coords1[2]);
             //System.out.println("precompute: " + precompute + " r " + r + " r0 " + r0 + " l " + l);
             //System.out.println("coords1: " + coords1[0] + ", " + coords1[1] + ", " + coords1[2]);
@@ -250,7 +247,6 @@ public class P2_WeakInteractionPiecewiseHarmonic_zWindow implements IPotential2 
 
         this.l = Double.parseDouble(parameters.get(essentialParameterKeys[5]));
 
-        this.w = Double.parseDouble(parameters.get(essentialParameterKeys[6]));
         parametersSet = true;
         
     }

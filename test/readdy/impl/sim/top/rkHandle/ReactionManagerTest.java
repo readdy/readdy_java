@@ -79,8 +79,8 @@ import readdy.impl.io.in.par_global.ParamGlobalFileParser;
 import readdy.impl.io.in.par_group.ParamGroupsFileParser;
 import readdy.impl.io.in.par_particle.ParamParticlesFileParser;
 import readdy.impl.io.in.tpl_pot.TplgyPotentialsFileParser;
-import readdy.impl.sim.core_mc.MetropolisDecider;
-import readdy.impl.sim.core_mc.PotentialEnergyComputer;
+import readdy.impl.sim.core.mc.MetropolisDecider;
+import readdy.impl.sim.core.mc.PotentialEnergyComputer;
 
 /**
  *

@@ -30,7 +30,7 @@
 * POSSIBILITY OF SUCH DAMAGE.                                                 *
 *                                                                             *
 \*===========================================================================*/
-package readdy.impl.sim.core_mc;
+package readdy.impl.sim.core.mc;
 
 import java.util.Random;
 import readdy.api.io.in.par_global.IGlobalParameters;
