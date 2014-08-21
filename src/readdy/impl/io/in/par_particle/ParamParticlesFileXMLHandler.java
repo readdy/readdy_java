@@ -217,6 +217,10 @@ public class ParamParticlesFileXMLHandler implements IParamParticlesFileXMLHandl
         if (localName.equals("diffusionConstant")) {
             particleData.setD(Double.parseDouble(accumulator.toString().trim()));
         }
+        
+        if (localName.equals("numberOfDummyParticles")) {
+            particleData.setNumberOfDummyParticles(Integer.parseInt(accumulator.toString().trim()));
+        }
 
         // collision radius and reaction radius
         if (localName.equals("partnerType")) {

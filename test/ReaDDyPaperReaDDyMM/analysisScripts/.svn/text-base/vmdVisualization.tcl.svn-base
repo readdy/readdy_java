@@ -1,0 +1,217 @@
+#
+#ON VMD MAILING LIST:
+#https://www-s.ks.uiuc.edu/Research/vmd/mailing_list/vmd-l/1946.html
+#
+#I've previously asked how to find the VDW radii that VMD assigns to
+#atoms. John replied that in absence of this information from the
+#structure files that are loaded, VMD "guesses" based on the string atom
+#names.
+#
+# WORKAROUND:
+# Give every particle the same prefix and then just its type ID
+# VMD guesses them all the same particle and displays the same size
+
+
+#VMD
+# documentation:
+# http://www.ks.uiuc.edu/Research/vmd/current/ug/node135.html
+#
+
+set scriptPath "/Users/johannesschoeneberg/NetBeansProjects/DiscVesicleSimulator/data/vmd/"
+set reactionMarkersScript "reactionMarkers/reactionMarkers.tcl"
+set trajPathScript "downloadedVMD_scripts/trajectory_path_customized.tcl"
+
+set trajPath "/Users/johannesschoeneberg/Desktop/PhD/tutorials/12_09_26_readdyTutorial_SFB958_SummerSchool/ReaDDy_Tutorial/ReaDDy_output/"
+set simulationTraj "out_traj.xyz"
+
+#source $scriptPath$reactionMarkersScript
+source $scriptPath$trajPathScript
+
+mol delete top
+mol load xyz $trajPath$simulationTraj
+# delete the automatically generated represenation
+mol delrep 0 top
+display resetview
+
+# 						sphere scale, resolution
+
+
+# trackedParticle
+mol representation VDW 2.200000 16.000000 
+mol selection name C_0 
+mol material Opaque
+mol color ColorID 11
+mol addrep top
+
+# Ap2
+mol representation VDW 3.400000 16.000000 
+mol selection name C_1 
+mol material Transparent
+mol color ColorID 16
+mol addrep top
+
+# CALM red
+mol representation VDW 1.200000 16.000000
+mol selection name C_2
+mol material Transparent
+mol color ColorID 1
+mol addrep top
+
+# Snx9
+mol representation VDW 2.200000 16.000000 
+mol selection name C_3
+mol material Opaque
+mol color ColorID 7
+mol addrep top
+
+# epsin
+mol representation VDW 1.200000 16.000000
+mol selection name C_4
+mol material Transparent
+mol color ColorID 0
+mol addrep top
+
+# fcho
+mol representation VDW 3.400000 16.000000 
+mol selection name C_5 
+mol material Transparent
+mol color ColorID 4
+mol addrep top
+
+
+# Ap2_clathrinbound
+mol representation VDW 3.400000 16.000000 
+mol selection name C_6 
+mol material Opaque
+mol color ColorID 2
+mol addrep top
+
+# CALM_clathrinbound
+mol representation VDW 1.200000 16.000000
+mol selection name C_7
+mol material Opaque
+mol color ColorID 9
+mol addrep top
+
+# Snx9_clathrinbound
+mol representation VDW 2.200000 16.000000 
+mol selection name C_8
+mol material Opaque
+mol color ColorID 20
+mol addrep top
+
+# epsin_clathrinbound
+mol representation VDW 1.200000 16.000000
+mol selection name C_9
+mol material Opaque
+mol color ColorID 15
+mol addrep top
+
+# fcho_clathrinbound yellow
+mol representation VDW 3.400000 16.000000 
+mol selection name C_10 
+mol material Opaque
+mol color ColorID 32
+mol addrep top
+
+##################################################################
+## crowders
+##################################################################
+
+# ARH, 0.6
+mol representation VDW 0.400000 16.000000 
+mol selection name C_11 
+mol material Opaque
+mol color ColorID 8
+mol addrep top
+
+# PI3KC2alpha 3.6
+mol representation VDW 2.500000 16.000000 
+mol selection name C_12 
+mol material Opaque
+mol color ColorID 8
+mol addrep top
+
+# NECAP1 0.6
+mol representation VDW 0.400000 16.000000 
+mol selection name C_13 
+mol material Opaque
+mol color ColorID 8
+mol addrep top
+
+# Hip1  2.2
+mol representation VDW 1.500000 16.000000 
+mol selection name C_14 
+mol material Opaque
+mol color ColorID 8
+mol addrep top
+
+# Numb 1.3
+mol representation VDW 0.900000 16.000000 
+mol selection name C_15 
+mol material Opaque
+mol color ColorID 8
+mol addrep top
+
+# Hip1R  2.2
+mol representation VDW 1.500000 16.000000 
+mol selection name C_16 
+mol material Opaque
+mol color ColorID 8
+mol addrep top
+
+# HRB 1.1
+mol representation VDW 0.800000 16.000000 
+mol selection name C_17 
+mol material Opaque
+mol color ColorID 8
+mol addrep top
+
+# Dab2 1.5
+mol representation VDW 1.000000 16.000000 
+mol selection name C_18
+mol material Opaque
+mol color ColorID 8
+mol addrep top
+
+# NECAP2  0.5
+mol representation VDW 0.400000 16.000000 
+mol selection name C_19 
+mol material Opaque
+mol color ColorID 8
+mol addrep top
+
+
+
+####################################################################################
+# Draw Stuff
+####################################################################################
+# draw cellular membrane
+draw delete all
+draw color 32
+draw material Transparent
+#  draw triangle {-50 -50 0} {-50 50 0} {50 -50 0}
+#  draw triangle {50 50 0} {-50 50 0} {50 -50 0}
+draw cone {0 0 0} {0 0 0.001} radius 126.575 resolution 100
+draw cylinder {0 0 0} {0 0 5.0} radius 126.575 resolution 100
+####################################################################################
+
+
+#go to first step of the trajectory
+animate goto 0
+
+# Display Backgound ColorID 8 # white
+# Axes Off
+
+# create the trajectory path of the reaction pathway
+
+set traj [atomselect top "name C_0"]
+trajectory_path $traj scale 5
+trajectory_path $traj white 1
+
+#set reactions [atomselect top "name C_4"]
+
+#scriptName atomSelection color radius
+#mark_reactions $reactions blue 1
+
+display resetview

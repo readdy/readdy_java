@@ -161,6 +161,22 @@ class ParamGlobalFileXMLHandler implements IParamGlobalFileXMLHandler {
             globalParameters.set_dt(Double.parseDouble(accumulator.toString().trim()));
         }
 
+        if (localName.equals("dtReaDDy")) {
+            globalParameters.set_dt(Double.parseDouble(accumulator.toString().trim()));
+        }
+
+        if (localName.equals("dtOpenMM")) {
+            globalParameters.set_dtOpenMM(Double.parseDouble(accumulator.toString().trim()));
+        }
+
+        if (localName.equals("cudaDeviceIndex")) {
+            globalParameters.set_cudaDeviceIndex(Integer.parseInt(accumulator.toString().trim()));
+        }
+
+        if (localName.equals("cuda")) {
+            globalParameters.set_cudaDeviceIndex(Integer.parseInt(accumulator.toString().trim()));
+        }
+
         if (localName.equals("T")) {
             globalParameters.set_T(Double.parseDouble(accumulator.toString().trim()));
         }

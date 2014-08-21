@@ -47,6 +47,8 @@ public interface IParticleData {
     void setTypeId(int typeId);
 
     void setD(double D);
+    
+    void setNumberOfDummyParticles(int nD);
 
     public void setDefaultCollisionRadius(Double defaultCollisionRadius);
 
@@ -63,6 +65,8 @@ public interface IParticleData {
     int getTypeId();
 
     double getD();
+
+    int getNumberOfDummyParticles();
 
     double get_defaultCollR();
 

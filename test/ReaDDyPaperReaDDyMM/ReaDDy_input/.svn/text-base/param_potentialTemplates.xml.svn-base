@@ -1,0 +1,87 @@
+<param_potentialTemplates version="0.0.1">
+	<potential>
+		<potentialType>DISK</potentialType>
+		<potentialOrder>1</potentialOrder>
+		<parameters>			
+			<param name="name" type="String" default="DISK"/>
+			<!-- subtype choices: [ "attractive","repulsive",] -->
+			<param name="subtype" type="String" default="attractive" />
+			<param name="forceConst" type="double" default="1" />
+			<param name="center" type="double[]" default="[0.0,0.0,0.0]" />
+			<param name="normal" type="double[]" default="[0.0,0.0,1.0]" />
+			<param name="radius" type="double" default="1" />
+			<param name="affectedParticleTypeIds" type="int[]" default="null" />
+			<param name="affectedParticleIds" type="int[]" default="null" />
+		</parameters>
+	</potential>
+	<potential>
+		<potentialType>SPHERE</potentialType>
+		<potentialOrder>1</potentialOrder>
+		<parameters>			
+			<param name="name" type="String" default="SPHERE"/>
+			<!-- subtype choices: [ "membrane","attractive","repulsive"] -->
+			<param name="subtype" type="String" default="attractive" />
+			<param name="forceConst" type="double" default="1" />
+			<param name="center" type="double[]" default="[0.0,0.0,0.0]" />
+			<param name="radius" type="double" default="1" />
+			<param name="affectedParticleTypeIds" type="int[]" default="null" />
+			<param name="affectedParticleIds" type="int[]" default="null" />
+		</parameters>
+	</potential>
+	<potential>
+			<potentialType>CUBE</potentialType>
+			<potentialOrder>1</potentialOrder>
+			<parameters>			
+			<param name="name" type="String" default="CUBE"/>
+			<!-- subtype choices: ["attractive","repulsive"] -->
+			<param name="subtype" type="String" default="repulsive" />
+			<param name="forceConst" type="double" default="1" />
+			<param name="origin" type="double[]" default="[0.0,0.0,0.0]" />
+			<param name="extension" type="double[]" default="[0.0,0.0,0.0]" />
+			<param name="cutoff" type="double" default="1" />
+			<param name="affectedParticleTypeIds" type="int[]" default="null" />
+			<param name="affectedParticleIds" type="int[]" default="null" />
+	</parameters>
+	</potential>
+	<!-- +++++++++++++++++++++++++++++++ ORDER 2 +++++++++++++++++++++++++++++++ -->
+	<potential>
+		<potentialType>HARMONIC</potentialType>
+		<potentialOrder>2</potentialOrder>
+		<parameters>
+			<param name="name" type="String" default="HARMONIC"/>
+			<!-- subtype choices:  ["spring", "attractive", "repulsive"] -->
+			<param name="subtype" type="String" default="spring" />
+			<param name="forceConst" type="double" default="1" />
+			<!-- if no r0 is given, the sum of the particle radii is taken as r0 -->
+			<param name="r0" type="double" default="null" />
+			<param name="affectedParticleTypeIdPairs" type="int[][]" default="null" />
+			<param name="affectedParticleIdPairs" type="int[][]" default="null" />
+		</parameters>
+	</potential>
+	<potential>
+		<potentialType>WEAK_ATTRACTION</potentialType>
+		<potentialOrder>2</potentialOrder>
+		<parameters>
+			<param name="name" type="String" default="WEAK_ATTRACTION"/>
+			<!-- subtype choices:  ["attractive"] -->
+			<param name="subtype" type="String" default="attractive" />
+			<param name="forceConst" type="double" default="1" />
+			<param name="depth" type="double" default="2" />
+			<param name="length" type="double" default="1" />
+			<param name="affectedParticleTypeIdPairs" type="int[][]" default="null" />
+			<param name="affectedParticleIdPairs" type="int[][]" default="null" />
+		</parameters>
+	</potential>
+<potential>
+		<potentialType>WEAK_INTERACTION</potentialType>
+		<potentialOrder>2</potentialOrder>
+		<parameters>
+			<param name="name" type="String" default="WeakInteraction"/>
+			<param name="forceConst" type="double" default="1" />
+			<param name="interactionradius" type="double" default="2" />
+			<param name="affectedParticleTypeIdPairs" type="int[][]" default="null" />
+			<param name="affectedParticleIdPairs" type="int[][]" default="null" />
+		</parameters>
+	</potential>
+
+</param_potentialTemplates>

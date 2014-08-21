@@ -41,6 +41,8 @@ public interface IParticleParametersEntry {
     public int get_typeId();
 
     public double get_D();
+    
+    public int get_NumberOfDummyParticles();
 
     public double get_collisionRadiusWithPartnerType(int partnerTypeId);
 

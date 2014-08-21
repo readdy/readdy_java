@@ -1,0 +1,21 @@
+<param_groups version="1.1">
+	<!--
+	<particleGroup>
+	<type>Syntaxin</type>
+	<templateOrigin>[0,0,0]</templateOrigin>
+	<templateNormal>[0,0,1] </templateNormal>
+	<buildingBlocks>
+	<particle internalId="0" type="syx0" templateC="0,0,2.5" />
+	<particle internalId="1" type="syx1" templateC="0,0,4.95" />
+	<particle internalId="2" type="syx2" templateC="0,0,7.4" />
+	<particle internalId="3" type="syx3" templateC="0,0,9.85" /> 
+	<particle internalId="4" type="syx4" templateC="0,0,12.625" />
+	</buildingBlocks>
+	<potentials>
+	<pot name="harmonic_groupSpring" type="HARMONIC" subtype="attractive" forceConst="1.5" affectedInternalIdPairs="[0,1];[1,2];[2,3];[3,4]"/>
+	<pot name="stiffRepulsion" type="StiffnessInteraction" forceConst="3" interactionradius="10.125" affectedInternalIdPairs="[0,4]"/>
+	</potentials>
+	<maxNumberOfGroupAssignmentsPerParticle>1</maxNumberOfGroupAssignmentsPerParticle>
+	</particleGroup>
+	-->
+</param_groups>

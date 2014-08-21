@@ -43,7 +43,16 @@ public class Particle implements IParticleAllAccess {
     private int particleId;
     private int typeId;
     private double[] coords;
+    private int pos;
 
+    public void setIndex(int pos){
+        this.pos=pos;
+    }
+    
+    public int getIndex(){
+        return(this.pos);
+    }
+    
     public Particle(int id, int typeId, double[] coords) {
         this.particleId = id;
         this.typeId = typeId;
