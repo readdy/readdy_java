@@ -1,0 +1,17 @@
+<param_reactions version="1.1">
+	<!--
+<reaction> 
+		<name>formDimer</name> 
+		<type>group</type> 
+		<educts> 
+			<educt 		type="particle">A</educt>
+			<educt 		type="particle">A</educt> 
+		</educts> 
+		<products> 
+			<product 	type="group">dimer</product> 
+		</products> 
+		<k_forward>1e5</k_forward> 			 
+		<k_backward>0</k_backward> 		
+</reaction>
+-->
+</param_reactions>

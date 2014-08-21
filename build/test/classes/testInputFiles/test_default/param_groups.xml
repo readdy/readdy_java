@@ -1,0 +1,33 @@
+<param_groups version="1.1">
+	
+	<particleGroup>
+		<type>A_DIMER</type>
+		<templateOrigin>[0,0,0]</templateOrigin>
+		<templateNormal>[0,0,1] </templateNormal>
+		<buildingBlocks>
+			<particle internalId="0" type="A" templateC="[0,0,0]"/>
+			<particle internalId="1" type="A" templateC="[0,2.8,0]"/>		
+		</buildingBlocks>
+		<potentials>
+			<pot type="HARMONIC" forceConst="1" affectedInternalIdPairs="[[0,1]]"/>
+		</potentials>
+		<maxNumberOfGroupAssignmentsPerParticle>1</maxNumberOfGroupAssignmentsPerParticle>
+	</particleGroup>
+	
+	<particleGroup>
+		<type>A_TETRAMER</type>
+		<templateOrigin>[0,0,0]</templateOrigin>
+		<templateNormal>[0,0,1] </templateNormal>
+		<buildingBlocks>
+			<particle internalId="0" type="A" templateC="[0,0,0]"/>
+			<particle internalId="1" type="A" templateC="[0,2.8,0]"/>
+			<particle internalId="2" type="A" templateC="[2.8,0,0]"/>
+			<particle internalId="3" type="A" templateC="[2.8,2.8,0]"/>		
+		</buildingBlocks>
+		<potentials>
+			<pot type="HARMONIC" forceConst="1" affectedInternalIdPairs="[[0,1];[0,2];[1,3];[2,3]]"/>
+		</potentials>
+		<maxNumberOfGroupAssignmentsPerParticle>2</maxNumberOfGroupAssignmentsPerParticle>
+	</particleGroup>
+	
+</param_groups>

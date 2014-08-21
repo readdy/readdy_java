@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : param.particles.xml
+    Created on : 27. März 2009, 16:07
+    Author     : Jojo
+    Description:
+    
+	space dimension is nm = 10^-9 m
+	time dimension is ns = 10^-9 s
+
+	D = x mum^2 s^-1 = 10^-3 nm^2 ns^-1
+	
+-->
+
+<particles>
+	<particle>		
+        <type>R</type>
+		<diffusionConstant>0.0007</diffusionConstant>		
+		<collisionRadiusMap>
+			<collisionRadius>
+				<!-- 'default' radius is taken for default except otherwise defined-->
+				<partnerType>default</partnerType>
+				<radius>2.185</radius>
+			</collisionRadius>
+			<collisionRadius>
+				<partnerType>G</partnerType>
+				<radius>1</radius>
+			</collisionRadius>
+		</collisionRadiusMap>		
+		<reactionRadiusMap>
+			<reactionRadius>
+				<partnerType>default</partnerType>
+				<radius>1</radius>
+			</reactionRadius>
+		</reactionRadiusMap>
+	</particle>
+	<particle>		
+        <type>G</type>
+		<diffusionConstant>0.0014</diffusionConstant>		
+		<collisionRadiusMap>
+			<collisionRadius>
+				<partnerType>default</partnerType>
+				<radius>1.185</radius>
+			</collisionRadius>
+			<collisionRadius>
+				<partnerType>testTypo</partnerType>
+				<radius>5</radius>
+			</collisionRadius>
+		</collisionRadiusMap>		
+		<reactionRadiusMap>
+			<reactionRadius>
+				<partnerType>default</partnerType>
+				<radius>1</radius>
+			</reactionRadius>
+			<reactionRadius>
+				<partnerType>Other</partnerType>
+				<radius>10</radius>
+			</reactionRadius>
+		</reactionRadiusMap>
+	</particle>
+	<particle>		
+        <type>Other</type>
+		<diffusionConstant>0.5</diffusionConstant>		
+		<collisionRadiusMap>
+			<collisionRadius>
+				<partnerType>default</partnerType>
+				<radius>3</radius>
+			</collisionRadius>
+		</collisionRadiusMap>		
+		<reactionRadiusMap>
+			<reactionRadius>
+				<partnerType>defaultl</partnerType>
+				<radius>3</radius>
+			</reactionRadius>
+		</reactionRadiusMap>
+	</particle>
+</particles>
+	

@@ -1,0 +1,45 @@
+<param_groups version="1.1">
+	<particleGroup>
+	      <type>dimer</type>
+	      <templateOrigin>[0.0,2.1,0.0]</templateOrigin>
+	      <templateNormal>[0,0,1] </templateNormal>
+	      <buildingBlocks>
+			<particle internalId="0" type="A" templateC="[0.0,0.0,0.0]"/>
+			<particle internalId="1" type="A" templateC="[0.0,4.2,0.0]"/>
+		</buildingBlocks>
+		<potentials>
+
+			<pot 
+	                 name="harmonic_groupSpring" 
+	                 type="HARMONIC" 
+	                 subtype="spring" 
+	                 forceConst="20.0" 
+	                 affectedInternalIdPairs="[[0,1]]"/>
+
+		</potentials>
+		<maxNumberOfGroupAssignmentsPerParticle>1</maxNumberOfGroupAssignmentsPerParticle>
+	</particleGroup>
+
+	<particleGroup>
+	      <type>trimer</type>
+	      <templateOrigin>[4.2,2.1,0.0]</templateOrigin>
+	      <templateNormal>[0,0,1] </templateNormal>
+	      <buildingBlocks>
+			<particle internalId="0" type="A" templateC="[0.0,0.0,0.0]"/>
+			<particle internalId="1" type="A" templateC="[0.0,4.2,0.0]"/>
+			<particle internalId="2" type="A" templateC="[0.0,8.4,0.0]"/>
+		</buildingBlocks>
+		<potentials>
+
+			<pot 
+	                 name="harmonic_groupSpring" 
+	                 type="HARMONIC" 
+	                 subtype="spring" 
+	                 forceConst="20.0" 
+	                 affectedInternalIdPairs="[[0,1];[1,2]]"/>
+
+		</potentials>
+		<maxNumberOfGroupAssignmentsPerParticle>1</maxNumberOfGroupAssignmentsPerParticle>
+	</particleGroup>
+
+</param_groups>
