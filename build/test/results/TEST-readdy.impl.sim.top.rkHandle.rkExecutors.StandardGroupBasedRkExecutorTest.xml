@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest" tests="2" time="0.167" timestamp="2014-05-21T19:13:30">
+<testsuite errors="0" failures="0" hostname="Johanness-MacBook-Pro-4.local" name="readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest" tests="2" time="0.172" timestamp="2014-08-21T12:01:13">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -45,7 +45,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher6599899914337082169.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit8154249450958477052.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher2438577344643428283.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit2449508846773787738.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -179,6 +179,7 @@
     <property name="org.openide.major.version" value="IDE/1" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
     <property name="netbeans.user" value="/Users/johannesschoeneberg/Library/Application Support/NetBeans/7.2.1" />
+    <property name="tests.failed" value="true" />
     <property name="javadoc.additionalparam" value="" />
     <property name="jnlp.offline-allowed" value="false" />
     <property name="java.io.tmpdir" value="/var/folders/3g/_bpdg45s3zv2x4ktzdvpvsnw0000gn/T/" />
@@ -195,7 +196,6 @@
     <property name="meta.inf.dir" value="src/META-INF" />
     <property name="javadoc.encoding.used" value="UTF-8" />
     <property name="dist.jar" value="dist/ReaDDy.jar" />
-    <property name="netbeans.automatic.build" value="true" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="ReaDDy" />
     <property name="netbeans.hash.code" value="unique=NB_JAVA056e4f842-5fe4-4f9b-9400-70920d741659_f13b8425-b6a4-4f8b-97bd-90bd6ef862dd" />
@@ -292,7 +292,7 @@
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar" />
-    <property name="os.version" value="10.9.2" />
+    <property name="os.version" value="10.9.4" />
     <property name="application.args" value="" />
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="/Applications/NetBeans/NetBeans 6.9.app/Contents/Resources/NetBeans/enterprise/docs/javaee6-doc-api.zip" />
     <property name="main.class.available" value="true" />
@@ -327,8 +327,8 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
   </properties>
-  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest" name="testSetup" time="0.002" />
-  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest" name="testExecuteReaction" time="0.021" />
+  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest" name="testSetup" time="0.001" />
+  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardGroupBasedRkExecutorTest" name="testExecuteReaction" time="0.022" />
   <system-out><![CDATA[parse globalParameters...
 parsing param_global file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/param_global.xml
 ... done.
@@ -345,11 +345,11 @@ parsing tplgy_coordinates file: /Users/johannesschoeneberg/Desktop/PhD/projects/
 ---------------------------------------
 NeighborLattice construction... 
 num Dimensions:          3
-latice origin:           -50.0 -50.0 -50.0
-latice extension:        100.0 100.0 100.0
-num boxes per dimension: 7,7,7
-box edge length per dim: 14.285714285714286 14.285714285714286 14.285714285714286
-total num boxes:         343
+latice origin:           -100.0 -100.0 -100.0
+latice extension:        200.0 200.0 200.0
+num boxes per dimension: 15,15,15
+box edge length per dim: 13.333333333333334 13.333333333333334 13.333333333333334
+total num boxes:         3375
 ... lattice ready.
 ---------------------------------------
 parsing param_groups file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_group/param_groups.xml
@@ -371,8 +371,8 @@ created Group:
 	 id: 2
 	 typeId: 0
 	 positionedParticles: 
-<p id=10 typeId=0 c=0.0,0.0,0.0 \>
 <p id=11 typeId=0 c=0.0,0.0,0.0 \>
+<p id=10 typeId=0 c=0.0,0.0,0.0 \>
 </group>
 nGroups after: 3
 ---------------------------------------------------------------------------
@@ -384,8 +384,8 @@ removed Group:
 	 id: 2
 	 typeId: 0
 	 positionedParticles: 
-<p id=10 typeId=0 c=0.0,0.0,0.0 \>
 <p id=11 typeId=0 c=0.0,0.0,0.0 \>
+<p id=10 typeId=0 c=0.0,0.0,0.0 \>
 </group>
 nGroups after: 2
 ---------------------------------------------------------------------------
@@ -435,8 +435,8 @@ generated new group with id 3
 	 id: 3
 	 typeId: 0
 	 positionedParticles: 
-<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 <p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 </group>
 nGroups after: 2
 now start with the fusion
@@ -446,41 +446,40 @@ matching trial 0 ...
 >>>toBePlacedBlocks length:4
 match found
 templateBlock.get_id()0 particle
-<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
+<p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
 >>>toBePlacedBlocks length:3
 match found
 templateBlock.get_id()1 particle
-<p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
+<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 >>>toBePlacedBlocks length:2
 check distance constraints...
-distNewConfig 3.7883130034241477
+distNewConfig 2.8
 distTemplate 2.8
-frac: 1.3529689297943386
+frac: 1.0
 check distance constraints...
-distNewConfig 3.7883130034241477
+distNewConfig 2.8
 distTemplate 2.8
-frac: 1.3529689297943386
-check distance constraints...
-distNewConfig 3.7883130034241477
-distTemplate 2.8
-frac: 1.3529689297943386
-check distance constraints...
-distNewConfig 3.7883130034241477
-distTemplate 2.8
-frac: 1.3529689297943386
+frac: 1.0
+match found
+templateBlock.get_id()2 particle
+<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 >>>toBePlacedBlocks length:1
 check distance constraints...
-distNewConfig 3.7883130034241477
+distNewConfig 2.8
 distTemplate 2.8
-frac: 1.3529689297943386
+frac: 1.0
 check distance constraints...
 distNewConfig 3.7883130034241477
 distTemplate 2.8
 frac: 1.3529689297943386
 check distance constraints...
-distNewConfig 3.7883130034241477
+distNewConfig 2.8
 distTemplate 2.8
-frac: 1.3529689297943386
+frac: 1.0
+check distance constraints...
+distNewConfig 2.7202972508973753
+distTemplate 3.959797974644666
+frac: 0.6869787974830919
 check distance constraints...
 distNewConfig 3.7883130034241477
 distTemplate 2.8
@@ -489,61 +488,62 @@ frac: 1.3529689297943386
 matching trial 1 ...
 >>>toBePlacedBlocks length:4
 match found
-templateBlock.get_id()2 particle
-<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
+templateBlock.get_id()3 particle
+<p id=5 typeId=0 c=-2.275995041673313,-1.1903938636068836,0.0 \>
 >>>toBePlacedBlocks length:3
 match found
-templateBlock.get_id()3 particle
-<p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+templateBlock.get_id()0 particle
+<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 >>>toBePlacedBlocks length:2
 check distance constraints...
-distNewConfig 2.800005279620201
-distTemplate 2.8
-frac: 1.0000018855786432
+distNewConfig 2.7202972508973753
+distTemplate 3.959797974644666
+frac: 0.6869787974830919
 check distance constraints...
-distNewConfig 2.800005279620201
-distTemplate 2.8
-frac: 1.0000018855786432
-match found
-templateBlock.get_id()0 particle
-<p id=4 typeId=0 c=0.0806863581053281,-2.7023636979413475,0.0 \>
+distNewConfig 2.7202972508973753
+distTemplate 3.959797974644666
+frac: 0.6869787974830919
+check distance constraints...
+distNewConfig 2.7202972508973753
+distTemplate 3.959797974644666
+frac: 0.6869787974830919
+check distance constraints...
+distNewConfig 2.7202972508973753
+distTemplate 3.959797974644666
+frac: 0.6869787974830919
+check distance constraints...
+distNewConfig 2.7202972508973753
+distTemplate 3.959797974644666
+frac: 0.6869787974830919
+check distance constraints...
+distNewConfig 2.7202972508973753
+distTemplate 3.959797974644666
+frac: 0.6869787974830919
 >>>toBePlacedBlocks length:1
 check distance constraints...
-distNewConfig 3.7883130034241477
-distTemplate 2.8
-frac: 1.3529689297943386
-check distance constraints...
-distNewConfig 3.7883130034241477
-distTemplate 2.8
-frac: 1.3529689297943386
-check distance constraints...
-distNewConfig 2.7202959995225213
+distNewConfig 2.7202972508973753
 distTemplate 3.959797974644666
-frac: 0.6869784814632186
+frac: 0.6869787974830919
 check distance constraints...
-distNewConfig 3.7883130034241477
-distTemplate 2.8
-frac: 1.3529689297943386
-check distance constraints...
-distNewConfig 3.7883130034241477
-distTemplate 2.8
-frac: 1.3529689297943386
-check distance constraints...
-distNewConfig 2.7202959995225213
+distNewConfig 2.7202972508973753
 distTemplate 3.959797974644666
-frac: 0.6869784814632186
+frac: 0.6869787974830919
 check distance constraints...
-distNewConfig 3.7883130034241477
-distTemplate 2.8
-frac: 1.3529689297943386
-check distance constraints...
-distNewConfig 3.7883130034241477
-distTemplate 2.8
-frac: 1.3529689297943386
-check distance constraints...
-distNewConfig 2.7202959995225213
+distNewConfig 2.7202972508973753
 distTemplate 3.959797974644666
-frac: 0.6869784814632186
+frac: 0.6869787974830919
+check distance constraints...
+distNewConfig 2.7202972508973753
+distTemplate 3.959797974644666
+frac: 0.6869787974830919
+check distance constraints...
+distNewConfig 2.7202972508973753
+distTemplate 3.959797974644666
+frac: 0.6869787974830919
+check distance constraints...
+distNewConfig 2.7202972508973753
+distTemplate 3.959797974644666
+frac: 0.6869787974830919
 --------------------------------------
 matching trial 2 ...
 >>>toBePlacedBlocks length:4
@@ -634,8 +634,8 @@ generated new group with id 5
 	 typeId: 4
 	 positionedParticles: 
 <p id=2001 typeId=0 c=0.0,0.0,0.0 \>
-<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2003 typeId=0 c=0.0,0.0,0.0 \>
+<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2000 typeId=0 c=0.0,0.0,0.0 \>
 </group>
 nGroups before: 4
@@ -651,8 +651,8 @@ current Group Config Status
 	 id: 3
 	 typeId: 0
 	 positionedParticles: 
-<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 <p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 </group>
 <group>
 	 id: 4
@@ -668,8 +668,8 @@ current Group Config Status
 	 typeId: 4
 	 positionedParticles: 
 <p id=2001 typeId=0 c=0.0,0.0,0.0 \>
-<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2003 typeId=0 c=0.0,0.0,0.0 \>
+<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2000 typeId=0 c=0.0,0.0,0.0 \>
 </group>
 typeId before: 4
@@ -713,8 +713,8 @@ execution comment:
 	 typeId: 3
 	 positionedParticles: 
 <p id=2001 typeId=0 c=0.0,0.0,0.0 \>
-<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2003 typeId=0 c=0.0,0.0,0.0 \>
+<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2000 typeId=0 c=0.0,0.0,0.0 \>
 </group>
 typeChange from: 4 to 3
@@ -726,8 +726,8 @@ ligand typeChange
 	 typeId: 3
 	 positionedParticles: 
 <p id=2001 typeId=0 c=0.0,0.0,0.0 \>
-<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2003 typeId=0 c=0.0,0.0,0.0 \>
+<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2000 typeId=0 c=0.0,0.0,0.0 \>
 </group>
 typeConversion from 4 to 3
@@ -748,8 +748,8 @@ double typeChange
 	 typeId: 1
 	 positionedParticles: 
 <p id=2001 typeId=0 c=0.0,0.0,0.0 \>
-<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2003 typeId=0 c=0.0,0.0,0.0 \>
+<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2000 typeId=0 c=0.0,0.0,0.0 \>
 </group>
 <group>
@@ -799,8 +799,8 @@ execution comment:
 	 typeId: 1
 	 positionedParticles: 
 <p id=2001 typeId=0 c=0.0,0.0,0.0 \>
-<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2003 typeId=0 c=0.0,0.0,0.0 \>
+<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2000 typeId=0 c=0.0,0.0,0.0 \>
 </group>
 typeChange from: 3 to 1
@@ -833,8 +833,8 @@ Final GroupConfiguration ...
 	 id: 3
 	 typeId: 0
 	 positionedParticles: 
-<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 <p id=1000 typeId=0 c=1.68069,-0.502364,0.0 \>
+<p id=1001 typeId=0 c=-0.675995,1.00961,0.0 \>
 </group>
 <group>
 	 id: 4
@@ -850,8 +850,8 @@ Final GroupConfiguration ...
 	 typeId: 1
 	 positionedParticles: 
 <p id=2001 typeId=0 c=0.0,0.0,0.0 \>
-<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2003 typeId=0 c=0.0,0.0,0.0 \>
+<p id=2002 typeId=0 c=0.0,0.0,0.0 \>
 <p id=2000 typeId=0 c=0.0,0.0,0.0 \>
 </group>
 ]]></system-out>

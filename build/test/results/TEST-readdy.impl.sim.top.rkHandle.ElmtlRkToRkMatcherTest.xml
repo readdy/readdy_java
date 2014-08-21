@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.top.rkHandle.ElmtlRkToRkMatcherTest" tests="1" time="0.165" timestamp="2014-05-21T19:13:23">
+<testsuite errors="0" failures="0" hostname="Johanness-MacBook-Pro-4.local" name="readdy.impl.sim.top.rkHandle.ElmtlRkToRkMatcherTest" tests="1" time="0.173" timestamp="2014-08-21T12:01:07">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -45,7 +45,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.ElmtlRkToRkMatcherTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.ElmtlRkToRkMatcherTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher5457737694126815373.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit3630117917960428611.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.ElmtlRkToRkMatcherTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.ElmtlRkToRkMatcherTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher6668143177537531946.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit387699618538886526.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -179,6 +179,7 @@
     <property name="org.openide.major.version" value="IDE/1" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
     <property name="netbeans.user" value="/Users/johannesschoeneberg/Library/Application Support/NetBeans/7.2.1" />
+    <property name="tests.failed" value="true" />
     <property name="javadoc.additionalparam" value="" />
     <property name="jnlp.offline-allowed" value="false" />
     <property name="java.io.tmpdir" value="/var/folders/3g/_bpdg45s3zv2x4ktzdvpvsnw0000gn/T/" />
@@ -195,7 +196,6 @@
     <property name="meta.inf.dir" value="src/META-INF" />
     <property name="javadoc.encoding.used" value="UTF-8" />
     <property name="dist.jar" value="dist/ReaDDy.jar" />
-    <property name="netbeans.automatic.build" value="true" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="ReaDDy" />
     <property name="netbeans.hash.code" value="unique=NB_JAVA056e4f842-5fe4-4f9b-9400-70920d741659_f13b8425-b6a4-4f8b-97bd-90bd6ef862dd" />
@@ -292,7 +292,7 @@
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar" />
-    <property name="os.version" value="10.9.2" />
+    <property name="os.version" value="10.9.4" />
     <property name="application.args" value="" />
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="/Applications/NetBeans/NetBeans 6.9.app/Contents/Resources/NetBeans/enterprise/docs/javaee6-doc-api.zip" />
     <property name="main.class.available" value="true" />
@@ -327,7 +327,7 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
   </properties>
-  <testcase classname="readdy.impl.sim.top.rkHandle.ElmtlRkToRkMatcherTest" name="testMatchReactions" time="0.007" />
+  <testcase classname="readdy.impl.sim.top.rkHandle.ElmtlRkToRkMatcherTest" name="testMatchReactions" time="0.008" />
   <system-out><![CDATA[parsing tplgy_groups file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/tplgy_groups.xml
 ... done.
 parse globalParameters...
@@ -346,11 +346,11 @@ parsing tplgy_coordinates file: /Users/johannesschoeneberg/Desktop/PhD/projects/
 ---------------------------------------
 NeighborLattice construction... 
 num Dimensions:          3
-latice origin:           -50.0 -50.0 -50.0
-latice extension:        100.0 100.0 100.0
-num boxes per dimension: 7,7,7
-box edge length per dim: 14.285714285714286 14.285714285714286 14.285714285714286
-total num boxes:         343
+latice origin:           -100.0 -100.0 -100.0
+latice extension:        200.0 200.0 200.0
+num boxes per dimension: 15,15,15
+box edge length per dim: 13.333333333333334 13.333333333333334 13.333333333333334
+total num boxes:         3375
 ... lattice ready.
 ---------------------------------------
 parsing param_reactions file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/param_reactions.xml
@@ -661,9 +661,9 @@ testing elmtlRkId 1 ...
 RK idToTest: 1 exRk:
 <executableReaction rkId=1 rkTypeId=101 derivedFromElmtlRkId=1>
 	 educts:
-<p id=1 typeId=0 c=0.0,0.0,0.0 \>
-<ExtendedIdAndType group=true id=2 type=0/>
 <p id=0 typeId=0 c=0.0,0.0,0.0 \>
+<ExtendedIdAndType group=true id=2 type=0/>
+<p id=1 typeId=0 c=0.0,0.0,0.0 \>
 <ExtendedIdAndType group=true id=2 type=0/>
 	products:
 <ExtendedIdAndType group=false id=-1 type=0/>
@@ -673,9 +673,9 @@ RK idToTest: 1 exRk:
 <expectedResult>
 <executableReaction rkId=1 rkTypeId=101 derivedFromElmtlRkId=1>
 	 educts:
-<p id=1 typeId=0 c=0.0,0.0,0.0 \>
-<ExtendedIdAndType group=true id=1 type=0/>
 <p id=0 typeId=0 c=0.0,0.0,0.0 \>
+<ExtendedIdAndType group=true id=1 type=0/>
+<p id=1 typeId=0 c=0.0,0.0,0.0 \>
 <ExtendedIdAndType group=true id=1 type=0/>
 	products:
 <ExtendedIdAndType group=false id=-1 type=0/>
@@ -685,9 +685,9 @@ RK idToTest: 1 exRk:
 <result>
 <executableReaction rkId=1 rkTypeId=101 derivedFromElmtlRkId=1>
 	 educts:
-<p id=1 typeId=0 c=0.0,0.0,0.0 \>
-<ExtendedIdAndType group=true id=2 type=0/>
 <p id=0 typeId=0 c=0.0,0.0,0.0 \>
+<ExtendedIdAndType group=true id=2 type=0/>
+<p id=1 typeId=0 c=0.0,0.0,0.0 \>
 <ExtendedIdAndType group=true id=2 type=0/>
 	products:
 <ExtendedIdAndType group=false id=-1 type=0/>
@@ -730,10 +730,10 @@ testing elmtlRkId 11 ...
 RK idToTest: 11 exRk:
 <executableReaction rkId=7 rkTypeId=8 derivedFromElmtlRkId=11>
 	 educts:
-<p id=0 typeId=6 c=0.0,0.0,0.0 \>
-<ExtendedIdAndType group=false id=0 type=6/>
 <p id=1 typeId=7 c=0.0,0.0,0.0 \>
 <ExtendedIdAndType group=false id=1 type=7/>
+<p id=0 typeId=6 c=0.0,0.0,0.0 \>
+<ExtendedIdAndType group=false id=0 type=6/>
 	products:
 <ExtendedIdAndType group=false id=-1 type=5/>
 </executableReaction>
@@ -741,10 +741,10 @@ RK idToTest: 11 exRk:
 <expectedResult>
 <executableReaction rkId=7 rkTypeId=8 derivedFromElmtlRkId=11>
 	 educts:
-<p id=0 typeId=6 c=0.0,0.0,0.0 \>
-<ExtendedIdAndType group=false id=0 type=6/>
 <p id=1 typeId=7 c=0.0,0.0,0.0 \>
 <ExtendedIdAndType group=false id=1 type=7/>
+<p id=0 typeId=6 c=0.0,0.0,0.0 \>
+<ExtendedIdAndType group=false id=0 type=6/>
 	products:
 <ExtendedIdAndType group=false id=-1 type=5/>
 </executableReaction>
@@ -752,10 +752,10 @@ RK idToTest: 11 exRk:
 <result>
 <executableReaction rkId=7 rkTypeId=8 derivedFromElmtlRkId=11>
 	 educts:
-<p id=0 typeId=6 c=0.0,0.0,0.0 \>
-<ExtendedIdAndType group=false id=0 type=6/>
 <p id=1 typeId=7 c=0.0,0.0,0.0 \>
 <ExtendedIdAndType group=false id=1 type=7/>
+<p id=0 typeId=6 c=0.0,0.0,0.0 \>
+<ExtendedIdAndType group=false id=0 type=6/>
 	products:
 <ExtendedIdAndType group=false id=-1 type=5/>
 </executableReaction>

@@ -81,13 +81,14 @@ public class ParamGlobalFileParserTest {
         assertEquals(300, globalParameters.get_T(), 0);
         assertEquals(0.0083144621, globalParameters.get_Kb(), 0);
 
-        double[][] expResult = new double[][]{new double[]{-50, 50}, new double[]{-50, 50}, new double[]{-50, 50}};
+        double[][] expResult = new double[][]{new double[]{-100, 100}, new double[]{-100, 100}, new double[]{-100, 100}};
         double[][] lboounds = globalParameters.get_latticeBounds();
         for (int i = 0; i < lboounds.length; i++) {
             double[] ds = lboounds[i];
             for (int j = 0; j < ds.length; j++) {
                 double d = ds[j];
-                assertEquals(d, expResult[i][j], 0);
+                assertEquals( expResult[i][j],d, 0);
+                
 
             }
 

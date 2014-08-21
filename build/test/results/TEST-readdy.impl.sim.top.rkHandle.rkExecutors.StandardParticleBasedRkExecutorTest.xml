@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="1" failures="0" hostname="johanness-mbp-4" name="readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest" tests="2" time="0.166" timestamp="2014-05-21T19:13:31">
+<testsuite errors="0" failures="0" hostname="Johanness-MacBook-Pro-4.local" name="readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest" tests="2" time="0.186" timestamp="2014-08-21T12:01:14">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="nb.wait.for.caches" value="true" />
@@ -45,7 +45,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher4236235890689016204.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit49537778955894898.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher7083742161014425305.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit5924352490105274616.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="jnlp.descriptor" value="application" />
@@ -179,6 +179,7 @@
     <property name="org.openide.major.version" value="IDE/1" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
     <property name="netbeans.user" value="/Users/johannesschoeneberg/Library/Application Support/NetBeans/7.2.1" />
+    <property name="tests.failed" value="true" />
     <property name="javadoc.additionalparam" value="" />
     <property name="jnlp.offline-allowed" value="false" />
     <property name="java.io.tmpdir" value="/var/folders/3g/_bpdg45s3zv2x4ktzdvpvsnw0000gn/T/" />
@@ -195,7 +196,6 @@
     <property name="meta.inf.dir" value="src/META-INF" />
     <property name="javadoc.encoding.used" value="UTF-8" />
     <property name="dist.jar" value="dist/ReaDDy.jar" />
-    <property name="netbeans.automatic.build" value="true" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="ReaDDy" />
     <property name="netbeans.hash.code" value="unique=NB_JAVA056e4f842-5fe4-4f9b-9400-70920d741659_f13b8425-b6a4-4f8b-97bd-90bd6ef862dd" />
@@ -292,7 +292,7 @@
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar" />
-    <property name="os.version" value="10.9.2" />
+    <property name="os.version" value="10.9.4" />
     <property name="application.args" value="" />
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="/Applications/NetBeans/NetBeans 6.9.app/Contents/Resources/NetBeans/enterprise/docs/javaee6-doc-api.zip" />
     <property name="main.class.available" value="true" />
@@ -327,16 +327,8 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
   </properties>
-  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest" name="testSetup" time="0.002" />
-  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest" name="testExecuteReaction" time="0.023">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at readdy.impl.sim.core_mc.PotentialEnergyComputer.computeEnergy(PotentialEnergyComputer.java:84)
-	at readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutor.getCurrentPotentialEnergyContribution_singleParticle(StandardParticleBasedRkExecutor.java:512)
-	at readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutor.execute_fission(StandardParticleBasedRkExecutor.java:331)
-	at readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutor.executeReaction(StandardParticleBasedRkExecutor.java:131)
-	at readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest.testExecuteReaction(StandardParticleBasedRkExecutorTest.java:686)
-</error>
-  </testcase>
+  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest" name="testSetup" time="0.001" />
+  <testcase classname="readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutorTest" name="testExecuteReaction" time="0.035" />
   <system-out><![CDATA[parse globalParameters...
 parsing param_global file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/param_global.xml
 ... done.
@@ -353,11 +345,11 @@ parsing tplgy_coordinates file: /Users/johannesschoeneberg/Desktop/PhD/projects/
 ---------------------------------------
 NeighborLattice construction... 
 num Dimensions:          3
-latice origin:           -50.0 -50.0 -50.0
-latice extension:        100.0 100.0 100.0
-num boxes per dimension: 7,7,7
-box edge length per dim: 14.285714285714286 14.285714285714286 14.285714285714286
-total num boxes:         343
+latice origin:           -100.0 -100.0 -100.0
+latice extension:        200.0 200.0 200.0
+num boxes per dimension: 15,15,15
+box edge length per dim: 13.333333333333334 13.333333333333334 13.333333333333334
+total num boxes:         3375
 ... lattice ready.
 ---------------------------------------
 parsing param_groups file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/param_groups.xml
@@ -368,249 +360,137 @@ executeReaction
 CREATION
 ---------------------------------------------------------------------------
 nParticles before: 12
-coordinates -36.696703173366544,-15.428582265298388,10.01615409950955created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -25.275577627277222,-33.5876483173158,32.51402629197351created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 13.755826243111386,-36.478051519688066,40.16695660850027created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -15.03145564447452,35.64752225890605,44.343563535205746created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 23.313911401024654,-39.799084088548014,-32.18123510303634created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 44.71730073154164,-37.734649899146646,-10.114199695008232created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 48.51718176113907,18.00182337123269,25.69856674437078created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -32.34958342403244,15.831755181223954,35.59586033009215created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 26.39581631555089,34.83215347256319,-11.622705839881952created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 27.459814267341685,26.062641059617206,26.02597293020409created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -45.78270139430009,-5.727456149925054,35.80264814595213created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 23.967302022092454,-16.496031838666035,-41.8555169278865created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 10.263035558833515,42.82154754608784,-5.188179314218118created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 41.794443438780945,1.103131488033135,-4.347998694511432created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 32.84840255276913,17.056496702236075,19.01786967944352created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 41.98920542795277,-28.913335260897384,-22.65949860578519created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -48.115404179880215,8.811512420903362,32.59911473506419created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -21.015190656981016,21.024699597773363,-28.751251615803184created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -47.22164096219624,2.152769060839404,48.22647028682658created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 14.878481544105291,8.58257347738843,-47.654377743059776created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 47.597095041889844,7.772596094047891,-31.222556844447073created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -28.95668363701571,32.17505583436348,5.970293332780344created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 45.373458029231884,-2.973259716788043,36.45920504492544created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -14.602165438075453,21.353869102154306,49.849723515229286created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 48.35246253282257,-35.86027111692863,20.579415959291282created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 2.7370794794658693,42.821637694788166,49.74611038228228created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 18.46078149062484,49.46073080019558,45.64994103833551created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -48.23852772567481,-30.826023672723654,-23.53018252735036created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 18.340732249184825,28.03082758265728,-32.7328422731899created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -31.067558122171487,36.22457573644098,16.11578219300526created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 49.970011910453195,23.05641961959057,-35.692910835542406created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -34.2151914654715,6.253638234431143,-42.94081918783454created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -44.617963138298876,1.1943778253429969,0.36491813418799524created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 19.197555367420733,5.517929781100449,-40.41464123355934created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -23.275462723384862,1.5819093231098833,-34.25311951444915created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -22.652639336710283,-33.507588000713625,-5.789348097326908created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -44.00837749848048,8.747430299318964,37.962820949282715created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -23.634227208647488,-1.2894144311016689,47.79371331482163created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -23.68542183721006,-17.307443958275492,47.50148622304745created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 40.76930198777383,1.173593707254362,9.8772087644385created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 18.856319180148247,-4.423287576028436,-7.803398459747591created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 16.48458458170579,-28.880320851160068,-6.426042501026679created but do they match?
-doesNewParticleCollideWithOtherParticles: yes!
-coordinates 22.815342450763623,-22.785326023773624,-47.42688313352154created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 49.769273968537135,33.83529223551213,-40.119071089049086created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 27.270802145392807,-38.89187420468424,-13.387999116116148created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates 5.915921419049994,25.445965597896304,23.023076139359105created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
-forces acting on particle! Reject Coordinates!.
-coordinates -14.068630593538956,3.6901830546682888,2.8535210881619832created but do they match?
-check potentials...
-check potential "attractiveCylinder_1" for having 0 gradient
 createdParticle:
-<p id=12 typeId=1 c=-14.068630593538956,3.6901830546682888,2.8535210881619832 \>
+<p id=12 typeId=1 c=19.498965702583675,10.645319612727448,14.109169954758244 \>
 nParticles after: 13
 ---------------------------------------------------------------------------
 DECAY
 ---------------------------------------------------------------------------
 nParticles before: 13
 removedParticle:
-<p id=12 typeId=1 c=-14.068630593538956,3.6901830546682888,2.8535210881619832 \>
+<p id=12 typeId=1 c=19.498965702583675,10.645319612727448,14.109169954758244 \>
 nParticles after: 12
 ---------------------------------------------------------------------------
 DOUBLE CREATION
 ---------------------------------------------------------------------------
 nParticles before: 12
 createdParticles:
-<p id=13 typeId=1 c=38.38015287785462,-30.02818830341162,-40.92182854088613 \>
-<p id=14 typeId=1 c=38.5095912950684,-32.38532929002011,-41.13166672949715 \>
+<p id=13 typeId=1 c=15.602275455897178,-16.000696910034055,75.48280917520941 \>
+<p id=14 typeId=1 c=14.152139764586359,-14.585538857118575,74.25344585948255 \>
 nParticles after: 14
 ---------------------------------------------------------------------------
 ANNIHILATION
 ---------------------------------------------------------------------------
 nParticles before: 14
 createdParticles:
-<p id=13 typeId=1 c=38.38015287785462,-30.02818830341162,-40.92182854088613 \>
-<p id=14 typeId=1 c=38.5095912950684,-32.38532929002011,-41.13166672949715 \>
+<p id=14 typeId=1 c=14.152139764586359,-14.585538857118575,74.25344585948255 \>
+<p id=13 typeId=1 c=15.602275455897178,-16.000696910034055,75.48280917520941 \>
 nParticles after: 12
 ---------------------------------------------------------------------------
 TYPE CONVERSION
 ---------------------------------------------------------------------------
 nParticles before: 12
 particle to convert to 2
-<p id=0 typeId=0 c=5.441379295706454,-23.411381253272392,0.0 \>
+<p id=11 typeId=1 c=-25.129529116424738,-8.267794311997278,5.600288336795963 \>
 typeConvertedParticle after conversion:
-<p id=0 typeId=2 c=5.441379295706454,-23.411381253272392,0.0 \>
+<p id=11 typeId=2 c=-25.129529116424738,-8.267794311997278,5.600288336795963 \>
 nParticles after: 12
 ---------------------------------------------------------------------------
 BIRTH
 ---------------------------------------------------------------------------
 nParticles before: 12
 bornPaticle:
-<p id=15 typeId=1 c=2.2268043179770762,-20.996055659479133,-1.1605752834363716 \>
+<p id=15 typeId=1 c=-25.809191224912986,-6.402664912340044,1.9160548017415469 \>
 nParticles after: 13
 ---------------------------------------------------------------------------
 DEATH
 ---------------------------------------------------------------------------
 nParticles before: 13
 deathEducts:
-<p id=0 typeId=2 c=5.441379295706454,-23.411381253272392,0.0 \>
-<p id=15 typeId=1 c=2.2268043179770762,-20.996055659479133,-1.1605752834363716 \>
+<p id=11 typeId=2 c=-25.129529116424738,-8.267794311997278,5.600288336795963 \>
+<p id=15 typeId=1 c=-25.809191224912986,-6.402664912340044,1.9160548017415469 \>
 deathProducts:
-<ExtendedIdAndType group=false id=0 type=2/>
+<ExtendedIdAndType group=false id=11 type=2/>
 diedParticle:
-<p id=15 typeId=1 c=2.2268043179770762,-20.996055659479133,-1.1605752834363716 \>
+<p id=15 typeId=1 c=-25.809191224912986,-6.402664912340044,1.9160548017415469 \>
 nParticles after: 12
 ---------------------------------------------------------------------------
 FISSION
 ---------------------------------------------------------------------------
 nParticles before: 12
+standardParticleBasedRkExecutor:
+<p id=11 typeId=2 c=-25.129529116424738,-8.267794311997278,5.600288336795963 \>
+<p id=-1 typeId=0 c=-23.962159319866224,-7.496761091887929,5.547795179425303 \>
+<p id=-1 typeId=0 c=-26.296898912983252,-9.038827532106627,5.652781494166622 \>
+energy0 0.0
+energy1+ 0.0
+energy1- 0.0
+energy1+ 0.0
+energy1= 0.0
+dE 0.0
+check for fission product placement acceptance, based on energy: 0.0 kJ/mol
+placement accepted...proceed fission
+cleavedParticle:
+<p id=11 typeId=2 c=-25.129529116424738,-8.267794311997278,5.600288336795963 \>
+both fission products:
+<p id=16 typeId=0 c=-23.962159319866224,-7.496761091887929,5.547795179425303 \>
+<p id=17 typeId=0 c=-26.296898912983252,-9.038827532106627,5.652781494166622 \>
+nParticles after: 13
+---------------------------------------------------------------------------
+FISSION, in crowded teritory
+---------------------------------------------------------------------------
+nParticles before: 13
+standardParticleBasedRkExecutor:
+<p id=0 typeId=0 c=5.441379295706454,-23.411381253272392,0.0 \>
+<p id=-1 typeId=0 c=6.048186595311574,-23.119904117501363,-1.227528403120946 \>
+<p id=-1 typeId=0 c=4.834571996101335,-23.70285838904342,1.227528403120946 \>
+energy0 141.23689678152712
+energy1+ 172.96337886730512
+energy1- 0.0
+energy1+ 114.30128374462988
+energy1= 0.0
+dE 146.0277658304079
+check for fission product placement acceptance, based on energy: 146.0277658304079 kJ/mol
+placement rejected...no fission!
+nParticles after: 13
+---------------------------------------------------------------------------
+FUSION
+---------------------------------------------------------------------------
+nParticles before: 13
+removed fusion educts:
+<p id=16 typeId=0 c=-23.962159319866224,-7.496761091887929,5.547795179425303 \>
+<p id=17 typeId=0 c=-26.296898912983252,-9.038827532106627,5.652781494166622 \>
+fusion product:
+<p id=18 typeId=2 c=-25.129529116424735,-8.267794311997276,5.600288336795963 \>
+nParticles after: 12
+---------------------------------------------------------------------------
+ENZYMATIC
+---------------------------------------------------------------------------
+nParticles before: 12
+enzyme:
+<p id=1 typeId=0 c=7.852670129898662,-24.83464388291621,0.0 \>
+ligand:
+<p id=18 typeId=2 c=-25.129529116424735,-8.267794311997276,5.600288336795963 \>
+typeChanged enzymeLigand:
+<p id=18 typeId=1 c=-25.129529116424735,-8.267794311997276,5.600288336795963 \>
+typeChange from: 2 to: 1
+nParticles after: 12
+---------------------------------------------------------------------------
+DOUBLE TYPE CONVERSION
+---------------------------------------------------------------------------
+nParticles before: 12
+educts:
+<p id=18 typeId=1 c=-25.129529116424735,-8.267794311997276,5.600288336795963 \>
+<p id=1 typeId=0 c=7.852670129898662,-24.83464388291621,0.0 \>
+products:
+<ExtendedIdAndType group=false id=-1 type=2/>
+<ExtendedIdAndType group=false id=-1 type=1/>
+typeChanged enzymeLigands:
+<p id=18 typeId=2 c=-25.129529116424735,-8.267794311997276,5.600288336795963 \>
+<p id=1 typeId=1 c=7.852670129898662,-24.83464388291621,0.0 \>
+typeChange from: 1 to: 2
+typeChange from: 0 to: 1
+nParticles after: 12
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
