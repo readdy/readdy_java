@@ -30,7 +30,7 @@
 * POSSIBILITY OF SUCH DAMAGE.                                                 *
 *                                                                             *
 \*===========================================================================*/
-package readdy.impl.sim.core.pot.potentials;
+package readdy.impl.sim.core.pot.potentials.usr;
 
 
 import java.util.HashMap;

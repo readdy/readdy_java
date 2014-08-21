@@ -37,19 +37,19 @@ import readdy.api.assembly.IPotentialFactory;
 import readdy.api.sim.core.pot.potentials.IPotential;
 import readdy.api.sim.core.pot.potentials.IPotential1;
 import readdy.api.sim.core.pot.potentials.IPotential2;
-import readdy.impl.sim.core.pot.potentials.P1_Cube;
+import readdy.impl.sim.core.pot.potentials.P1_Box;
 import readdy.impl.sim.core.pot.potentials.P1_Cylinder;
 import readdy.impl.sim.core.pot.potentials.P1_Disk;
 import readdy.impl.sim.core.pot.potentials.P1_Lollipop;
 import readdy.impl.sim.core.pot.potentials.P1_Sphere;
 import readdy.impl.sim.core.pot.potentials.P2_Harmonic;
-import readdy.impl.sim.core.pot.potentials.P2_PiecewiseHarmonicAttraction_Snx9Wing;
-import readdy.impl.sim.core.pot.potentials.P2_PiecewiseHarmonicAttraction_Snx9Wing2;
+import readdy.impl.sim.core.pot.potentials.usr.P2_PiecewiseHarmonicAttraction_Snx9Wing;
+import readdy.impl.sim.core.pot.potentials.usr.P2_PiecewiseHarmonicAttraction_Snx9Wing2;
 import readdy.impl.sim.core.pot.potentials.P2_WeakInteraction;
 import readdy.impl.sim.core.pot.potentials.P2_WeakInteractionPiecewiseHarmonic;
-import readdy.impl.sim.core.pot.potentials.P2_WeakInteractionPiecewiseHarmonic_onlyXY;
-import readdy.impl.sim.core.pot.potentials.P2_WeakInteractionPiecewiseHarmonic_onlyZ;
-import readdy.impl.sim.core.pot.potentials.P2_WeakInteractionPiecewiseHarmonic_zWindow;
+import readdy.impl.sim.core.pot.potentials.usr.P2_WeakInteractionPiecewiseHarmonic_onlyXY;
+import readdy.impl.sim.core.pot.potentials.usr.P2_WeakInteractionPiecewiseHarmonic_onlyZ;
+import readdy.impl.sim.core.pot.potentials.usr.P2_WeakInteractionPiecewiseHarmonic_zWindow;
 
 /**
  *
@@ -89,13 +89,13 @@ public class PotentialFactory implements IPotentialFactory {
                     return potential;
                 }
 
-                if (potentialType.contentEquals("CUBE")) {
+                if (potentialType.contentEquals("BOX")) {
                     HashMap<String, String> potentialParameters = 
                             matchDefaultAndUserParameters(newPotentialId, 
-                            P1_Cube.essentialParameterKeys, 
-                            P1_Cube.defaultParameterValues, 
+                            P1_Box.essentialParameterKeys, 
+                            P1_Box.defaultParameterValues, 
                             userGivenParameters);
-                    IPotential1 potential = new P1_Cube();
+                    IPotential1 potential = new P1_Box();
                     potential.set_parameterMap(potentialParameters);
                     return potential;
                 }
