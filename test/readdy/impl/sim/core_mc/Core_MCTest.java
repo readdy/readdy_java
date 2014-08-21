@@ -290,10 +290,21 @@ public class Core_MCTest {
         // create standardParticleBasedRkExecutor
         //----------------------------------------------------------------------------------------
 
-        IStandardParticleBasedRkExecutorFactory standardParticleBasedRkExecutorFactory = new StandardParticleBasedRkExecutorFactory();
-        standardParticleBasedRkExecutorFactory.set_particleCoordinateCreator(particleCoordinateCreator);
-        standardParticleBasedRkExecutorFactory.set_particleParameters(particleParameters);
+        
+        MetropolisDecider metropolisDecider = new MetropolisDecider();
+        metropolisDecider.set_GlobalParameters(globalParameters);
 
+        PotentialEnergyComputer potentialEnergyComputer = new PotentialEnergyComputer();
+        potentialEnergyComputer.set_particleParameters(particleParameters);
+        potentialEnergyComputer.set_potentialManager(potentialManager);
+
+        IStandardParticleBasedRkExecutorFactory standardParticleBasedRkExecutorFactory = new StandardParticleBasedRkExecutorFactory();
+
+        standardParticleBasedRkExecutorFactory.set_particleCoordinateCreator(particleCoordinateCreator);
+        standardParticleBasedRkExecutorFactory.set_PotentialEnergyComputer(potentialEnergyComputer);
+        standardParticleBasedRkExecutorFactory.set_MetropolisDecider(metropolisDecider);
+
+        standardParticleBasedRkExecutorFactory.set_particleParameters(particleParameters);
         IReactionExecutor standardParticleBasedRkExecutor = standardParticleBasedRkExecutorFactory.createStandardParticleBasedRkExecutor();
 
 

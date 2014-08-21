@@ -177,10 +177,11 @@ public class P2_WeakInteractionPiecewiseHarmonic implements IPotential2 {
                 energy = k / 2 * (r - r0) * (r - r0) - d;
                 //System.out.println("f");
 
+                // from here on, k is 1 kJ/mol/nm^2 and therefore omitted
             } else {
                 if (r >= r0 && r < r0 + 0.5 * l) {
                     //pot= k/2*    0.5*d   *(1/(0.5*l))*(1/(0.5*l))    *(r-r0)*(r-r0)     -d;
-                    energy = 0.5 * d * (1 / (0.5 * l)) * (1 / (0.5 * l)) * (r - r0) * (r - r0) - d;
+                    energy =  0.5 * d * (1 / (0.5 * l)) * (1 / (0.5 * l)) * (r - r0) * (r - r0) - d;
                     //System.out.println("g");
                 } else {
                     if (r >= r0 + 0.5 * l && r < r0 + l) {

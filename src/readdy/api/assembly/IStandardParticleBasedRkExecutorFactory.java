@@ -33,6 +33,8 @@
 package readdy.api.assembly;
 
 import readdy.api.sim.core.particle.IParticleParameters;
+import readdy.api.sim.core_mc.IMetropolisDecider;
+import readdy.api.sim.core_mc.IPotentialEnergyComputer;
 import readdy.api.sim.top.rkHandle.rkExecutors.IParticleCoordinateCreator;
 import readdy.api.sim.top.rkHandle.rkExecutors.IReactionExecutor;
 
@@ -47,4 +49,8 @@ public interface IStandardParticleBasedRkExecutorFactory {
     public void set_particleParameters(IParticleParameters particleParameters);
 
     public IReactionExecutor createStandardParticleBasedRkExecutor();
+
+    public void set_PotentialEnergyComputer(IPotentialEnergyComputer potentialEnergyComputer);
+
+    public void set_MetropolisDecider(IMetropolisDecider metropolisDecider);
 }

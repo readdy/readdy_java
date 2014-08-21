@@ -103,6 +103,8 @@ import readdy.api.sim.top.rkHandle.rkExecutors.IParticleCoordinateCreator;
 import readdy.api.sim.top.rkHandle.rkExecutors.IReactionExecutor;
 import readdy.api.assembly.IReactionConflictResolverFactory;
 import readdy.api.sim.core.space.ILatticeBoxSizeComputer;
+import readdy.api.sim.core_mc.IMetropolisDecider;
+import readdy.api.sim.core_mc.IPotentialEnergyComputer;
 import readdy.api.sim.top.rkHandle.rkExecutors.ICustomReactionExecutor;
 import readdy.impl.io.in.par_global.ParamGlobalFileParser;
 import readdy.impl.io.in.par_group.ParamGroupsFileParser;
@@ -111,6 +113,8 @@ import readdy.impl.io.in.par_rk.ParamReactionsFileParser;
 import readdy.impl.io.in.tpl_coord.TplgyCoordinatesFileParser;
 import readdy.impl.sim.ReaDDySimulator;
 import readdy.impl.sim.core.space.LatticeBoxSizeComputer;
+import readdy.impl.sim.core_mc.MetropolisDecider;
+import readdy.impl.sim.core_mc.PotentialEnergyComputer;
 import readdy.impl.sim.top.rkHandle.rkExecutors.custom.ParticleIdConservingRhodopsinRkExecutor;
 import readdy.impl.sim.top.rkHandle.rkExecutors.custom.PositionConservingBimolecularRkExecutor;
 import readdy.impl.sim.top.rkHandle.rkExecutors.custom.PositionDependentUnimolecularRkExecutor;
@@ -407,9 +411,20 @@ public class ReaDDySimulatorFactory implements IReaDDySimulatorFactory {
         //----------------------------------------------------------------------------------------
         // create standardParticleBasedRkExecutor
         //----------------------------------------------------------------------------------------
+
+
+        MetropolisDecider metropolisDecider = new MetropolisDecider();
+        metropolisDecider.set_GlobalParameters(globalParameters);
+
+        PotentialEnergyComputer potentialEnergyComputer = new PotentialEnergyComputer();
+        potentialEnergyComputer.set_particleParameters(particleParameters);
+        potentialEnergyComputer.set_potentialManager(potentialManager);
+
         IStandardParticleBasedRkExecutorFactory standardParticleBasedRkExecutorFactory = new StandardParticleBasedRkExecutorFactory();
 
         standardParticleBasedRkExecutorFactory.set_particleCoordinateCreator(particleCoordinateCreator);
+        standardParticleBasedRkExecutorFactory.set_PotentialEnergyComputer(potentialEnergyComputer);
+        standardParticleBasedRkExecutorFactory.set_MetropolisDecider(metropolisDecider);
 
         standardParticleBasedRkExecutorFactory.set_particleParameters(particleParameters);
         IReactionExecutor standardParticleBasedRkExecutor = standardParticleBasedRkExecutorFactory.createStandardParticleBasedRkExecutor();

@@ -34,6 +34,8 @@ package readdy.impl.assembly;
 
 import readdy.api.assembly.IStandardParticleBasedRkExecutorFactory;
 import readdy.api.sim.core.particle.IParticleParameters;
+import readdy.api.sim.core_mc.IMetropolisDecider;
+import readdy.api.sim.core_mc.IPotentialEnergyComputer;
 import readdy.api.sim.top.rkHandle.rkExecutors.IParticleCoordinateCreator;
 import readdy.api.sim.top.rkHandle.rkExecutors.IReactionExecutor;
 import readdy.impl.sim.top.rkHandle.rkExecutors.StandardParticleBasedRkExecutor;
@@ -46,6 +48,9 @@ public class StandardParticleBasedRkExecutorFactory implements IStandardParticle
 
     IParticleCoordinateCreator particleCoordinateCreator;
     IParticleParameters particleParameters;
+    
+    IPotentialEnergyComputer potentialEnergyComputer;
+    IMetropolisDecider metropolisDecider;
 
     public void set_particleCoordinateCreator(IParticleCoordinateCreator particleCoordinateCreator) {
         this.particleCoordinateCreator = particleCoordinateCreator;
@@ -58,8 +63,13 @@ public class StandardParticleBasedRkExecutorFactory implements IStandardParticle
     public IReactionExecutor createStandardParticleBasedRkExecutor() {
         if (allInputPresent()) {
             StandardParticleBasedRkExecutor standardParticleBasedRkExecutor = new StandardParticleBasedRkExecutor();
+            // no particle configuration, given in the setup method
             standardParticleBasedRkExecutor.set_ParticleCoordinateCreator(particleCoordinateCreator);
+            // no potential manager, given in the setup method
             standardParticleBasedRkExecutor.set_ParticleParameters(particleParameters);
+            standardParticleBasedRkExecutor.set_MetropolisDecider(metropolisDecider);
+            standardParticleBasedRkExecutor.set_PotentialEnergyComputer(potentialEnergyComputer);
+            
             return standardParticleBasedRkExecutor;
         } else {
             throw new RuntimeException("not all input present.");
@@ -67,6 +77,17 @@ public class StandardParticleBasedRkExecutorFactory implements IStandardParticle
     }
 
     private boolean allInputPresent() {
-        return particleCoordinateCreator != null;
+        return ( particleCoordinateCreator != null &&
+                particleParameters != null &&
+                potentialEnergyComputer != null &&
+                        metropolisDecider !=  null );
+    }
+
+    public void set_PotentialEnergyComputer(IPotentialEnergyComputer potentialEnergyComputer) {
+       this.potentialEnergyComputer = potentialEnergyComputer;
+    }
+
+    public void set_MetropolisDecider(IMetropolisDecider metropolisDecider) {
+        this.metropolisDecider = metropolisDecider;
     }
 }

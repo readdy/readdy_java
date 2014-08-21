@@ -33,6 +33,8 @@
 package readdy.impl.sim.top;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import readdy.api.analysis.IAnalysisAndOutputManager;
 import readdy.api.io.in.par_global.IGlobalParameters;
 import readdy.api.sim.core.ICore;
@@ -144,6 +146,7 @@ public class Top implements ITop {
                 
                
             }
+            
 
             //---------------------------------------------------------------
             // Analysis by runtime analysers
