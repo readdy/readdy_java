@@ -47,7 +47,7 @@ public class P2_PiecewiseHarmonicAttraction_Snx9Wing implements IPotential2 {
     // potential parameters
     public static String[] essentialParameterKeys = new String[]{"id", "name", "type","forceConst",
             "depth","length","affectedParticleTypeIdPairs","affectedParticleIdPairs"};
-    public static String[] defaultParameterValues = new String[]{"-1", "WeakInteractionPiecewiseHarmonic", "WEAK_INTERACTION_PIECEWISE_HARMONIC", "1",
+    public static String[] defaultParameterValues = new String[]{"-1", "P2_PiecewiseHarmonicAttraction_Snx9Wing", "WEAK_INTERACTION_PIECEWISE_HARMONIC", "1",
         "1","2","null","null"};
     HashMap<String, String> defaultParameterMap = new HashMap(); // is generated in the constructor from the above info
 
@@ -165,6 +165,7 @@ public class P2_PiecewiseHarmonicAttraction_Snx9Wing implements IPotential2 {
             //System.out.println("coords1: " + coords1[0] + ", " + coords1[1] + ", " + coords1[2]);
             //System.out.println("coords2: " + coords2[0] + ", " + coords2[1] + ", " + coords2[2]);
             //System.out.println("gradient: " + gradient[0] + ", " + gradient[1] + ", " + gradient[2]);
+
             gradientComputed = true;
         } else {
             throw new RuntimeException("coordinates not set!");

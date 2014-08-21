@@ -144,7 +144,7 @@ public class StandardParticleBasedRkExecutor implements IReactionExecutor {
             double[] newCoords = new double[3];
             do {
                 newCoords = particleCoordinatesCreator.createCoordinates(p_product1.get_type());
-                System.out.println("coordinates " + newCoords[0] + "," + newCoords[1] + "," + newCoords[2] + "created but do they match?");
+                //System.out.println("coordinates " + newCoords[0] + "," + newCoords[1] + "," + newCoords[2] + "created but do they match?");
             } while ( // collisions with other particles are forbidden
                     doesNewParticleCollideWithOtherParticles(newCoords, p_product1.get_type())
                     || doCellularGeometryForcesActOnParticle(newCoords, p_product1.get_type()) // assumption is, that cellular geometry potentials have gradient = 0 potential where particles should be
@@ -359,28 +359,28 @@ public class StandardParticleBasedRkExecutor implements IReactionExecutor {
              */
 
             if (p_educt1.get_type() == p_product1.get_type()) {
-                System.out.println("A");
+                //System.out.println("A");
                 int typeBefore = p_educt2.get_type();
                 particleConfiguration.changeParticleType(p_educt2.get_id(), p_educt2.get_type(), p_product2.get_type());
                 report.addParticleTypeChange(p_educt2, typeBefore, p_product2.get_type());
                 report.setExecutionWasSuccessfull(true);
             } else {
                 if (p_educt1.get_type() == p_product2.get_type()) {
-                    System.out.println("B");
+                    //System.out.println("B");
                     int typeBefore = p_educt2.get_type();
                     particleConfiguration.changeParticleType(p_educt2.get_id(), p_educt2.get_type(), p_product1.get_type());
                     report.addParticleTypeChange(p_educt2, typeBefore, p_product1.get_type());
                     report.setExecutionWasSuccessfull(true);
                 } else {
                     if (p_educt2.get_type() == p_product1.get_type()) {
-                        System.out.println("C");
+                        //System.out.println("C");
                         int typeBefore = p_educt1.get_type();
                         particleConfiguration.changeParticleType(p_educt1.get_id(), p_educt1.get_type(), p_product2.get_type());
                         report.addParticleTypeChange(p_educt1, typeBefore, p_product2.get_type());
                         report.setExecutionWasSuccessfull(true);
                     } else {
                         if (p_educt2.get_type() == p_product2.get_type()) {
-                            System.out.println("D");
+                            //System.out.println("D");
                             int typeBefore = p_educt1.get_type();
                             particleConfiguration.changeParticleType(p_educt1.get_id(), p_educt1.get_type(), p_product1.get_type());
                             report.addParticleTypeChange(p_educt1, typeBefore, p_product1.get_type());
@@ -426,18 +426,18 @@ public class StandardParticleBasedRkExecutor implements IReactionExecutor {
     }
 
     private boolean doCellularGeometryForcesActOnParticle(double[] coords, int pTypeId) {
-        System.out.println("check potentials...");
+        //System.out.println("check potentials...");
         double pRadius = particleParameters.get_pCollisionRadius(pTypeId);
         Iterator<IPotential1> potentialIterator = potentialManager.getPotentials(pTypeId);
         while (potentialIterator.hasNext()) {
             IPotential1 pot = potentialIterator.next();
-            System.out.println("check potential \"" + pot.get_name() + "\" for having 0 gradient");
+            //System.out.println("check potential \"" + pot.get_name() + "\" for having 0 gradient");
             pot.set_coordinates(coords, pRadius);
             double[] grad = pot.getGradient();
             for (int i = 0; i < grad.length; i++) {
                 double d = grad[i];
                 if (d != 0) {
-                    System.out.println("forces acting on particle! Reject Coordinates!.");
+                    //System.out.println("forces acting on newly generated particle! Reject Coordinates!.");
                     return true;
                 }
             }
@@ -461,7 +461,7 @@ public class StandardParticleBasedRkExecutor implements IReactionExecutor {
             double[] coords2 = p2.get_coords();
             double r = DoubleArrays.distance(coords1, coords2);
             if (r < r0) {
-                System.out.println("doesNewParticleCollideWithOtherParticles: yes!");
+                //System.out.println("doesNewParticleCollideWithOtherParticles: yes! reject coordinates.");
                 return true;
             }
         }
