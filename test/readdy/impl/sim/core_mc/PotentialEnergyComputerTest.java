@@ -5,6 +5,8 @@
 
 package readdy.impl.sim.core_mc;
 
+import readdy.impl.sim.core.mc.MetropolisDecider;
+import readdy.impl.sim.core.mc.PotentialEnergyComputer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;

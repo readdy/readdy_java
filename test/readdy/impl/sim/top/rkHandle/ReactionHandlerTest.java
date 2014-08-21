@@ -122,8 +122,8 @@ import readdy.impl.io.in.par_particle.ParamParticlesFileParser;
 import readdy.impl.io.in.par_rk.ParamReactionsFileParser;
 import readdy.impl.io.in.tpl_coord.TplgyCoordinatesFileParser;
 import readdy.impl.sim.core.space.LatticeBoxSizeComputer;
-import readdy.impl.sim.core_mc.MetropolisDecider;
-import readdy.impl.sim.core_mc.PotentialEnergyComputer;
+import readdy.impl.sim.core.mc.MetropolisDecider;
+import readdy.impl.sim.core.mc.PotentialEnergyComputer;
 
 /**
  *

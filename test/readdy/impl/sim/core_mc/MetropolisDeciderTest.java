@@ -5,6 +5,7 @@
 
 package readdy.impl.sim.core_mc;
 
+import readdy.impl.sim.core.mc.MetropolisDecider;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
