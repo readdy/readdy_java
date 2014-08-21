@@ -1,0 +1,2352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Johanness-MacBook-Pro-4.local" name="readdy.impl.sim.core.bd.DiffusionEngineTest" tests="2" time="0.318" timestamp="2014-08-21T13:05:11">
+  <properties>
+    <property name="netbeans.autoupdate.country" value="US" />
+    <property name="nb.wait.for.caches" value="true" />
+    <property name="javac.test.classpath" value="lib/colt.jar:lib/statlab.jar:build/classes:lib/junit-4.10.jar" />
+    <property name="libs.junit.javadoc" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/docs/junit-3.8.2-api.zip" />
+    <property name="file.reference.colt.jar" value="lib/colt.jar" />
+    <property name="ant.core.lib" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/ant/lib/ant.jar" />
+    <property name="javadoc.windowtitle" value="" />
+    <property name="user.dir" value="/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy" />
+    <property name="com.apple.mrj.application.apple.menu.about.name" value="NetBeans" />
+    <property name="libs.hibernate-persistence.javadoc" value="" />
+    <property name="java.vm.version" value="24.51-b03" />
+    <property name="libs.MyLibrary.src" value="" />
+    <property name="libs.MySQLDriver.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/mysql-connector-java-5.1.18-bin.jar" />
+    <property name="libs.eclipselinkmodelgen.src" value="" />
+    <property name="javadoc.notree" value="false" />
+    <property name="netbeans.autoupdate.version" value="1.23" />
+    <property name="libs.EclipseLink-GlassFish-v3.classpath" value="/Applications/NetBeans/glassfish-3.0.1/glassfish/modules/org.eclipse.persistence.antlr.jar:/Applications/NetBeans/glassfish-3.0.1/glassfish/modules/org.eclipse.persistence.asm.jar:/Applications/NetBeans/glassfish-3.0.1/glassfish/modules/org.eclipse.persistence.core.jar:/Applications/NetBeans/glassfish-3.0.1/glassfish/modules/org.eclipse.persistence.jpa.jar:/Applications/NetBeans/glassfish-3.0.1/glassfish/modules/org.eclipse.persistence.jpa.modelgen.jar:/Applications/NetBeans/glassfish-3.0.1/glassfish/modules/org.eclipse.persistence.oracle.jar:/Applications/NetBeans/glassfish-3.0.1/glassfish/modules/javax.persistence.jar" />
+    <property name="libs.hibernate-support.maven-pom" value="" />
+    <property name="libs.hibernate-support.javadoc" value="" />
+    <property name="jdk.home" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home" />
+    <property name="libs.javac-api.src" value="" />
+    <property name="javadoc.noindex" value="false" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="do.archive+manifest.available" value="true" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="nb.show.statistics.ui" value="usageStatisticsEnabled" />
+    <property name="netbeans.autoupdate.variant" value="" />
+    <property name="have.tests" value="true" />
+    <property name="org.xml.sax.driver" value="com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser" />
+    <property name="libs.javac-api.javadoc" value="" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="libs.beans-binding.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/beansbinding-1.2.1.jar" />
+    <property name="ap.proc.none.internal" value="" />
+    <property name="libs.JWSAntTasks.maven-pom" value="" />
+    <property name="jnlp.signing.keystore" value="" />
+    <property name="libs.testng.src" value="" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="libs.jaxb.maven-pom" value="" />
+    <property name="os.arch" value="x86_64" />
+    <property name="libs.eclipselink.src" value="" />
+    <property name="user.name" value="johannesschoeneberg" />
+    <property name="libs.Comet-GlassFish-v3.javadoc" value="" />
+    <property name="copylibs.rebase" value="true" />
+    <property name="manifest.available+main.class" value="true" />
+    <property name="libs.swing-layout.maven-pom" value="" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner readdy.impl.sim.core.bd.DiffusionEngineTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/results/TEST-readdy.impl.sim.core.bd.DiffusionEngineTest.xml crashfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junitvmwatcher3090074497305760427.properties propsfile=/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/junit2427699068089781944.properties" />
+    <property name="build.classes.dir" value="build/classes" />
+    <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
+    <property name="jnlp.descriptor" value="application" />
+    <property name="build.sysclasspath" value="ignore" />
+    <property name="ap.supported.internal" value="true" />
+    <property name="libs.jaxws21.javadoc" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/docs/jaxws-api-doc.zip" />
+    <property name="includes" value="**" />
+    <property name="user.country" value="US" />
+    <property name="manifest.file" value="manifest.mf" />
+    <property name="javadoc.encoding" value="UTF-8" />
+    <property name="javac.classpath" value="lib/colt.jar:lib/statlab.jar" />
+    <property name="debug-transport" value="dt_socket" />
+    <property name="netbeans.system_http_non_proxy_hosts" value="" />
+    <property name="com.sun.mysql.port" value="3306" />
+    <property name="netbeans.home" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform" />
+    <property name="build.compiler.emacs" value="true" />
+    <property name="libs.ejb3-persistence.src" value="" />
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/endorsed" />
+    <property name="libs.Comet-GlassFish-v3.maven-pom" value="" />
+    <property name="netbeans.dynamic.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/core/core.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/core/org-openide-filesystems.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/core/locale/core_ja.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/core/locale/core_pt_BR.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/core/locale/core_ru.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/core/locale/core_zh_CN.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/core/locale/org-openide-filesystems_ja.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/core/locale/org-openide-filesystems_pt_BR.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/core/locale/org-openide-filesystems_ru.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/core/locale/org-openide-filesystems_zh_CN.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/nb/core/org-netbeans-upgrader.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/nb/core/locale/core_nb.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/nb/core/locale/core_nb_ja.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/nb/core/locale/core_nb_pt_BR.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/nb/core/locale/core_nb_ru.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/nb/core/locale/core_nb_zh_CN.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/nb/core/locale/org-netbeans-upgrader_ja.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/nb/core/locale/org-netbeans-upgrader_pt_BR.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/nb/core/locale/org-netbeans-upgrader_ru.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/nb/core/locale/org-netbeans-upgrader_zh_CN.jar" />
+    <property name="jnlp.enabled" value="false" />
+    <property name="java.vm.specification.version" value="1.7" />
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="netbeans.productversion" value="NetBeans IDE 7.2.1 (Build 201210100934)" />
+    <property name="libs.hibernate-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/antlr-2.7.6.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/asm.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/asm-attrs.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/cglib-2.1.3.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/commons-collections-2.1.1.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/org-apache-commons-logging.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/dom4j-1.6.1.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/ehcache-1.2.3.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/jdbc2_0-stdext.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/jta.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/hibernate3.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/hibernate-tools.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/hibernate-annotations.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/hibernate-commons-annotations.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/hibernate-entitymanager.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/javassist.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/ejb3-persistence.jar" />
+    <property name="libs.jaxws21.src" value="" />
+    <property name="application.title" value="ReaDDy" />
+    <property name="do.archive" value="true" />
+    <property name="netbeans.autoupdate.language" value="en" />
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="sun.font.fontmanager" value="sun.font.CFontManager" />
+    <property name="jar.index.metainf" value="false" />
+    <property name="javac.debug" value="true" />
+    <property name="javadoc.splitindex" value="true" />
+    <property name="file.separator" value="/" />
+    <property name="libs.junit_4.maven-pom" value="" />
+    <property name="mkdist.disabled" value="false" />
+    <property name="javac.test.processorpath" value="lib/colt.jar:lib/statlab.jar:build/classes:lib/junit-4.10.jar" />
+    <property name="netbeans.buildnumber" value="201210100934" />
+    <property name="libs.JWSAntTasks.javadoc" value="" />
+    <property name="build.generated.sources.dir" value="build/generated-sources" />
+    <property name="libs.eclipselinkmodelgen.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/org.eclipse.persistence.jpa.modelgen.processor-2.3.2.jar" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="libs.junit.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/junit-3.8.2.jar" />
+    <property name="libs.jaxb.javadoc" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/docs/jaxb-api-doc.zip" />
+    <property name="ant.home" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/ant" />
+    <property name="libs.junit_4.src" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/docs/junit-4.10-sources.jar" />
+    <property name="libs.testng.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/modules/ext/testng-6.5.1-dist.jar" />
+    <property name="libs.absolutelayout.maven-pom" value="" />
+    <property name="ant.java.version" value="1.7" />
+    <property name="java.library.path" value="/Users/johannesschoeneberg/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="javadoc.author" value="false" />
+    <property name="manifest.available+main.class-mkdist.available" value="true" />
+    <property name="libs.EclipseLink-GlassFish-v3.src" value="" />
+    <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
+    <property name="libs.PostgreSQLDriver.src" value="" />
+    <property name="file.reference.junit-4.10.jar" value="lib/junit-4.10.jar" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="basedir" value="/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy" />
+    <property name="libs.jpa20-persistence.maven-pom" value="" />
+    <property name="jar.compress" value="false" />
+    <property name="path.separator" value=":" />
+    <property name="ant.junit.enabletestlistenerevents" value="true" />
+    <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+    <property name="libs.jaxws21.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/jaxb-impl.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/jaxb-xjc.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/FastInfoset.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/gmbal-api-only.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/ha-api.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/javax.mail_1.4.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/jaxws-rt.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/jaxws-tools.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/management-api.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/mimepull.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/policy.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/saaj-impl.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/stax-ex.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/stax2-api.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/streambuffer.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/woodstox-core-asl.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/api/jaxws-api.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/api/jsr181-api.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/api/javax.annotation.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/jaxws22/api/saaj-api.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/activation.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/api/jaxb-api.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/api/jsr173_1.0_api.jar" />
+    <property name="compile.on.save" value="true" />
+    <property name="ant.file.ReaDDy" value="/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build.xml" />
+    <property name="apple.awt.graphics.UseQuartz" value="true" />
+    <property name="user.language" value="en" />
+    <property name="testng.mode" value="testng" />
+    <property name="libs.JAXB-ENDORSED.maven-pom" value="" />
+    <property name="libs.spring-framework.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/org-apache-commons-logging.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/cglib-2.2.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring/spring-2.5.6.SEC03.jar" />
+    <property name="libs.eclipselink.maven-pom" value="" />
+    <property name="application.vendor" value="Jojo" />
+    <property name="test.binaryincludes" value="&lt;nothing&gt;" />
+    <property name="manifest.available" value="true" />
+    <property name="libs.spring-framework300.maven-pom" value="" />
+    <property name="run.test.classpath" value="lib/colt.jar:lib/statlab.jar:build/classes:lib/junit-4.10.jar:build/test/classes" />
+    <property name="ant.project.invoked-targets" value="test" />
+    <property name="test.binaryexcludes" value="" />
+    <property name="libs.swing-layout.javadoc" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/docs/swing-layout-1.0.4-doc.zip" />
+    <property name="libs.ejb3-persistence.maven-pom" value="" />
+    <property name="gopherProxySet" value="false" />
+    <property name="libs.PostgreSQLDriver.maven-pom" value="" />
+    <property name="java.class.version" value="51.0" />
+    <property name="netbeans.system_http_proxy" value="DIRECT" />
+    <property name="libs.eclipselink.javadoc" value="" />
+    <property name="user.properties.file" value="/Users/johannesschoeneberg/Library/Application Support/NetBeans/7.2.1/build.properties" />
+    <property name="runtime.encoding" value="UTF-8" />
+    <property name="libs.spring-framework.src" value="" />
+    <property name="libs.javac-api.maven-pom" value="" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="libs.JAXB-ENDORSED.javadoc" value="" />
+    <property name="libs.JWSAntTasks.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/ant/extra/org-netbeans-modules-javawebstart-anttasks.jar" />
+    <property name="libs.spring-framework300.src" value="" />
+    <property name="empty.dir" value="/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/empty" />
+    <property name="version-output" value="java version &quot;1.7" />
+    <property name="test.binarytestincludes" value="" />
+    <property name="javadoc.preview" value="true" />
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="libs.jpa20-persistence.javadoc" value="" />
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre" />
+    <property name="debug.test.classpath" value="lib/colt.jar:lib/statlab.jar:build/classes:lib/junit-4.10.jar:build/test/classes" />
+    <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
+    <property name="ant.project.default-target" value="default" />
+    <property name="annotation.processing.run.all.processors" value="true" />
+    <property name="libs.MyLibrary.classpath" value="/Users/Jojo/NetBeansProjects/IoTools/dist/IoTools.jar" />
+    <property name="jar.archive.disabled" value="false" />
+    <property name="jnlp.signing.alias" value="" />
+    <property name="libs.PostgreSQLDriver.javadoc" value="" />
+    <property name="com.sun.mysql.stopcommand" value="/usr/local/mysql/support-files/mysql-admin.server" />
+    <property name="libs.MySQLDriver.maven-pom" value="" />
+    <property name="ant.file.type.ReaDDy-impl" value="file" />
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="libs.junit_4.javadoc" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/docs/junit-4.10-javadoc.jar" />
+    <property name="libs.EclipseLink-GlassFish-v3.maven-pom" value="" />
+    <property name="run.classpath" value="lib/colt.jar:lib/statlab.jar:build/classes" />
+    <property name="libs.hibernate-support.src" value="" />
+    <property name="jna.boot.library.name" value="jnidispatch-340" />
+    <property name="sun.awt.datatransfer.timeout" value="1000" />
+    <property name="annotation.processing.enabled.in.editor" value="false" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="javac.deprecation" value="false" />
+    <property name="javadoc.use" value="true" />
+    <property name="sun.java2d.noddraw" value="true" />
+    <property name="javac.processorpath" value="lib/colt.jar:lib/statlab.jar" />
+    <property name="javac.compilerargs" value="" />
+    <property name="svnkit.http.methods" value="Basic" />
+    <property name="ant.file" value="/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build.xml" />
+    <property name="libs.beans-binding.maven-pom" value="" />
+    <property name="jnlp.codebase.type" value="no.codebase" />
+    <property name="libs.beans-binding.src" value="" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="libs.swing-layout.src" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/docs/swing-layout-1.0.4-src.zip" />
+    <property name="org.openide.major.version" value="IDE/1" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="netbeans.user" value="/Users/johannesschoeneberg/Library/Application Support/NetBeans/7.2.1" />
+    <property name="javadoc.additionalparam" value="" />
+    <property name="jnlp.offline-allowed" value="false" />
+    <property name="java.io.tmpdir" value="/var/folders/3g/_bpdg45s3zv2x4ktzdvpvsnw0000gn/T/" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="endorsed.classpath.cmd.line.arg" value="" />
+    <property name="junit.available" value="true" />
+    <property name="org.openide.awt.ActionReference.completion" value="org.netbeans.modules.apisupport.project.layers.PathCompletions" />
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib" />
+    <property name="have.sources" value="true" />
+    <property name="debug.classpath" value="lib/colt.jar:lib/statlab.jar:build/classes" />
+    <property name="javadoc.private" value="false" />
+    <property name="test.src.dir" value="test" />
+    <property name="libs.MyLibrary.javadoc" value="" />
+    <property name="ap.processors.internal" value="" />
+    <property name="meta.inf.dir" value="src/META-INF" />
+    <property name="javadoc.encoding.used" value="UTF-8" />
+    <property name="dist.jar" value="dist/ReaDDy.jar" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="ant.project.name" value="ReaDDy" />
+    <property name="netbeans.hash.code" value="unique=NB_JAVA056e4f842-5fe4-4f9b-9400-70920d741659_f13b8425-b6a4-4f8b-97bd-90bd6ef862dd" />
+    <property name="netbeans.default_userdir_root" value="/Users/johannesschoeneberg/Library/Application Support/NetBeans" />
+    <property name="manifest.available-mkdist.available" value="true" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="libs.CopyLibs.javadoc" value="" />
+    <property name="org.openide.specification.version" value="6.2" />
+    <property name="libs.hibernate-support.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/antlr-2.7.6.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/asm.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/asm-attrs.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/cglib-2.1.3.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/commons-collections-2.1.1.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/org-apache-commons-logging.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/dom4j-1.6.1.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/ehcache-1.2.3.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/jdbc2_0-stdext.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/jta.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/hibernate3.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/hibernate-tools.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/hibernate-annotations.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/hibernate-commons-annotations.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/hibernate-entitymanager.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/javassist.jar" />
+    <property name="user.home" value="/Users/johannesschoeneberg" />
+    <property name="annotation.processing.processors.list" value="" />
+    <property name="debug-args-line" value="-Xdebug" />
+    <property name="libs.JWSAntTasks.src" value="" />
+    <property name="jar.index" value="false" />
+    <property name="libs.CopyLibs.maven-pom" value="" />
+    <property name="libs.spring-framework300.javadoc" value="" />
+    <property name="libs.hibernate-persistence.maven-pom" value="" />
+    <property name="libs.absolutelayout.javadoc" value="" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="do.archive+main.class.available" value="true" />
+    <property name="jnlp.mixed.code" value="default" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="libs.javac-api.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/nb-javac-api.jar" />
+    <property name="java.version" value="1.7.0_51" />
+    <property name="run.jvmargs.ide" value="" />
+    <property name="javadoc.version" value="false" />
+    <property name="libs.MySQLDriver.javadoc" value="" />
+    <property name="org.openide.version" value="deprecated" />
+    <property name="ant.file.ReaDDy-impl" value="/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/nbproject/build-impl.xml" />
+    <property name="source.encoding" value="UTF-8" />
+    <property name="ap.cmd.line.internal" value="" />
+    <property name="libs.eclipselinkmodelgen.maven-pom" value="" />
+    <property name="libs.junit.maven-pom" value="" />
+    <property name="libs.eclipselinkmodelgen.javadoc" value="" />
+    <property name="netbeans.home+have.tests" value="true" />
+    <property name="annotation.processing.processor.options" value="" />
+    <property name="libs.testng.maven-pom" value="" />
+    <property name="libs.jaxb.src" value="" />
+    <property name="work.dir" value="/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy" />
+    <property name="libs.jaxb.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/jaxb-impl.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/jaxb-xjc.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/jaxb1-impl.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/activation.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/api/jaxb-api.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/api/jsr173_1.0_api.jar" />
+    <property name="do.depend" value="false" />
+    <property name="com.sun.mysql.startargs" value="start" />
+    <property name="dist.javadoc.dir" value="dist/javadoc" />
+    <property name="libs.swing-layout.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/modules/ext/swing-layout-1.0.4.jar" />
+    <property name="build.generated.dir" value="build/generated" />
+    <property name="javac.source" value="1.7" />
+    <property name="libs.hibernate-persistence.src" value="" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="java.specification.version" value="1.7" />
+    <property name="libs.jaxws21.maven-pom" value="" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="nb.junit.batch" value="true" />
+    <property name="junit.forkmode" value="perTest" />
+    <property name="libs.spring-framework.maven-pom" value="" />
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/classes" />
+    <property name="javac.target" value="1.7" />
+    <property name="built-jar.properties" value="/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/built-jar.properties" />
+    <property name="build.test.classes.dir" value="build/test/classes" />
+    <property name="src.dir" value="src" />
+    <property name="annotation.processing.enabled" value="true" />
+    <property name="com.sun.mysql.startcommand" value="/usr/local/mysql/support-files/mysql-admin.server" />
+    <property name="libs.jpa20-persistence.src" value="" />
+    <property name="file.reference.statlab.jar" value="lib/statlab.jar" />
+    <property name="ignore.failing.tests" value="true" />
+    <property name="libs.Comet-GlassFish-v3.classpath" value="/Applications/NetBeans/glassfish-3.0.1/glassfish/modules/grizzly-comet.jar" />
+    <property name="dist.dir" value="dist" />
+    <property name="do.archive+manifest.available+main.class" value="true" />
+    <property name="testng.debug.mode" value="" />
+    <property name="javac.fork" value="false" />
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob" />
+    <property name="default.javac.source" value="1.7" />
+    <property name="com.sun.mysql.stopargs" value="stop" />
+    <property name="debug-transport-by-os" value="dt_socket" />
+    <property name="libs.MySQLDriver.src" value="" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="java.runtime.version" value="1.7.0_51-b13" />
+    <property name="build.test.results.dir" value="build/test/results" />
+    <property name="libs.ejb3-persistence.javadoc" value="" />
+    <property name="manifest.available+main.class+mkdist.available" value="true" />
+    <property name="jna.platform.library.path" value="/usr/lib:/usr/lib" />
+    <property name="default.javac.target" value="1.7" />
+    <property name="libs.junit_4.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/modules/ext/junit-4.10.jar" />
+    <property name="user.timezone" value="" />
+    <property name="nb.junit.single" value="false" />
+    <property name="do.jar" value="true" />
+    <property name="netbeans.dirs" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/nb:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ergonomics:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/apisupport:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/webcommon:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/websvccommon:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/enterprise:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/mobility:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/profiler:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/python:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/php:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/identity:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/harness:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/cnd:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/dlight:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/groovy:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/extra:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/javacard:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/javafx:" />
+    <property name="java.ext.dirs" value="/Users/johannesschoeneberg/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+    <property name="libs.MyLibrary.maven-pom" value="" />
+    <property name="endorsed.classpath" value="" />
+    <property name="libs.absolutelayout.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/AbsoluteLayout.jar" />
+    <property name="excludes" value="" />
+    <property name="apple.laf.useScreenMenuBar" value="true" />
+    <property name="java.class.path" value="/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/lib/colt.jar:/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/lib/statlab.jar:/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/classes:/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/lib/junit-4.10.jar:/Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/build/test/classes:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/ant/lib/ant-launcher.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/ant/lib/ant.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/ant/lib/ant-junit.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/ant/lib/ant-junit4.jar" />
+    <property name="do.mkdist" value="true" />
+    <property name="libs.absolutelayout.src" value="" />
+    <property name="libs.jpa20-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar" />
+    <property name="os.version" value="10.9.4" />
+    <property name="application.args" value="" />
+    <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="/Applications/NetBeans/NetBeans 6.9.app/Contents/Resources/NetBeans/enterprise/docs/javaee6-doc-api.zip" />
+    <property name="main.class.available" value="true" />
+    <property name="sun.awt.enableExtraMouseButtons" value="true" />
+    <property name="libs.Comet-GlassFish-v3.src" value="" />
+    <property name="libs.JAXB-ENDORSED.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/api/jaxb-api.jar" />
+    <property name="libs.eclipselink.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/eclipselink-2.3.2.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/javax.persistence-2.0.3.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/org.eclipse.persistence.jpa.jpql_1.0.1.jar" />
+    <property name="libs.beans-binding.javadoc" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/docs/beansbinding-1.2.1-doc.zip" />
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="libs.CopyLibs.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/ant/extra/org-netbeans-modules-java-j2seproject-copylibstask.jar" />
+    <property name="libs.spring-framework300.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/org-apache-commons-logging.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/cglib-2.2.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-aop-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-asm-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-aspects-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-beans-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-context-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-context-support-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-core-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-expression-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-instrument-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-instrument-tomcat-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-jdbc-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-jms-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-orm-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-oxm-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-test-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-tx-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-web-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-webmvc-portlet-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-webmvc-3.1.1.RELEASE.jar:/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-struts-3.1.1.RELEASE.jar" />
+    <property name="run.jvmargs" value="" />
+    <property name="libs.ejb3-persistence.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/java/modules/ext/hibernate/ejb3-persistence.jar" />
+    <property name="libs.JAXB-ENDORSED.src" value="" />
+    <property name="libs.spring-framework.javadoc" value="" />
+    <property name="libs.testng.javadoc" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/platform/docs/testng-6.5.1-javadoc.zip" />
+    <property name="libs.PostgreSQLDriver.classpath" value="/Applications/NetBeans/NetBeans 7.2.1.app/Contents/Resources/NetBeans/ide/modules/ext/postgresql-9.1-901.jdbc4.jar" />
+    <property name="ant.file.type.ReaDDy" value="file" />
+    <property name="jnlp.signing" value="" />
+    <property name="libs.junit.src" value="" />
+    <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
+    <property name="jnlp.signed" value="false" />
+    <property name="main.class" value="readdy.Main" />
+    <property name="libs.CopyLibs.src" value="" />
+    <property name="build.dir" value="build" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.8.3 compiled on February 26 2012" />
+    <property name="file.encoding" value="US-ASCII" />
+    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
+    <property name="jdkBug6558476" value="false" />
+    <property name="javadoc.nonavbar" value="false" />
+    <property name="platform.active" value="default_platform" />
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
+  </properties>
+  <testcase classname="readdy.impl.sim.core.bd.DiffusionEngineTest" name="testPropagateSingle" time="0.135" />
+  <testcase classname="readdy.impl.sim.core.bd.DiffusionEngineTest" name="testPropagatePair" time="0.076" />
+  <system-out><![CDATA[ParticleParametersTEST...:
+
+parse globalParameters...
+parsing param_global file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/param_global.xml
+... done.
+parse ParamParticles
+parsing param_particles file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/param_particles.xml
+... done.
+parsing tplgy_potentials file: /Users/johannesschoeneberg/Desktop/PhD/projects/ReaDDy/gitHub/readdy/./test/testInputFiles/test_default/tplgy_potentials.xml
+... done.
+p1 new coords a 15.0, 5.0, 5.0
+p1 new coords aa 14.667443048694485, 4.883402503893929, 3.0268266222441294
+p1 new coords aa 14.854911043812214, 4.874328282523456, 1.8380327607987754
+p1 new coords aa 14.905685000824889, 4.960411500212564, 1.051057341130504
+p1 new coords aa 14.724380974367529, 4.985941052342247, 0.7305891676701648
+p1 new coords aa 14.66831062457885, 5.049913004089767, 0.691920619215464
+p1 new coords aa 14.527193715939907, 5.101791444939232, 0.5938767618931391
+p1 new coords aa 14.46061134425976, 4.902897265512941, 0.45050808036655693
+p1 new coords aa 14.465915173658782, 4.653704199073883, 0.37028483471868434
+p1 new coords aa 14.431841932121388, 4.9278547763413965, 0.5215233820307396
+p1 new coords aa 14.425293945868633, 4.741712017251244, 0.299775299456004
+p1 new coords aa 14.27088866548274, 4.929564309569167, 0.4414401553093713
+p1 new coords aa 14.334113421823426, 4.80673931226308, 0.23729724427756688
+p1 new coords aa 14.435193128594065, 4.678975854233676, 0.21195809191881126
+p1 new coords aa 14.346569096425473, 4.630411042869297, 0.31198697026763766
+p1 new coords aa 14.45706826639317, 4.522836969596468, 0.13508581767891342
+p1 new coords aa 14.784421611804309, 4.526406732272196, 0.1452319761819672
+p1 new coords aa 14.673768717238353, 4.245528311332133, 0.06005929756572974
+p1 new coords aa 14.731919862184016, 4.1210114121724795, -0.14839752708407755
+p1 new coords aa 14.458888753759105, 4.029058127504687, -0.12283307657605727
+p1 new coords aa 14.238981121868344, 4.095848544009951, -0.04300483407971037
+p1 new coords aa 14.215047432152517, 3.997955489579414, -0.02183661055650306
+p1 new coords aa 14.189521100784967, 4.146913555974854, -0.23789728796406756
+p1 new coords aa 14.153707651011958, 4.399213381627876, -0.3269611729732668
+p1 new coords aa 14.241358676190893, 4.501164825176808, -0.4241556637102801
+p1 new coords aa 14.11096927185538, 4.552579036578527, -0.2812320006908807
+p1 new coords aa 14.176464180975916, 4.668132216045888, -0.24571048403008044
+p1 new coords aa 14.237007469718877, 4.623091547460681, -0.3757118362887494
+p1 new coords aa 14.390989683805035, 4.622742880598137, -0.14003616673878566
+p1 new coords aa 14.345207938846626, 4.868228046146311, -0.026481240806040668
+p1 new coords aa 14.523244862183379, 4.777604878456749, 0.11097319110858186
+p1 new coords aa 14.420768286758424, 4.733732635175377, -0.11349409816599787
+p1 new coords aa 14.615454091098895, 4.503565100630751, -0.3241333466703925
+p1 new coords aa 14.417008186647863, 4.470971481632494, -0.13501525712058093
+p1 new coords aa 14.361755550221796, 4.391792745374929, -0.05868363369242692
+p1 new coords aa 14.529550141386101, 4.413000429495526, -0.4509474151671344
+p1 new coords aa 14.82745587576518, 4.319491940930728, -0.2932055742098682
+p1 new coords aa 14.665133135086405, 4.369786715635509, -0.15906879228107812
+p1 new coords aa 14.763514094465702, 4.410795697981918, -0.04948533325183689
+p1 new coords aa 14.760846302074505, 4.523354305406944, 0.021644885227529206
+p1 new coords aa 14.808838151973411, 4.712499029060507, 0.07652529804953753
+p1 new coords aa 14.905691919563035, 4.704689243320235, 0.14260383396144194
+p1 new coords aa 14.624400913266015, 4.848633868117879, 0.3445330179024923
+p1 new coords aa 14.626385876947591, 5.095101213035586, 0.11879073864829814
+p1 new coords aa 14.849955488945433, 5.061844146217128, -0.05553786229015578
+p1 new coords aa 14.92281426424451, 5.032270708361191, -0.1309708764849462
+p1 new coords aa 14.976545558817039, 5.096229801976346, -0.3485147571946377
+p1 new coords aa 15.064376815638614, 5.059910942830766, -0.08494636800464145
+p1 new coords aa 15.242010219318601, 5.1390557312321015, -0.10148941875824274
+p1 new coords aa 15.223023361945483, 5.269924246915508, -0.01339719074450385
+p1 new coords aa 15.24575210487737, 5.443629271700043, 0.033560364340935706
+p1 new coords aa 15.167325774867386, 5.421968707170614, 0.0037721583047424997
+p1 new coords aa 15.247995070028528, 5.4264630926278405, -0.11053115419723
+p1 new coords aa 15.308821216626143, 5.241766471695216, -0.01906665049041814
+p1 new coords aa 15.286206660275779, 5.238872304010311, -0.06453488495307125
+p1 new coords aa 15.165186215342793, 5.196490392596714, -0.1953172448988086
+p1 new coords aa 15.215964755995868, 5.185405727362089, 0.07176770455370127
+p1 new coords aa 15.195905705659609, 5.264519147524185, 0.08078864255861165
+p1 new coords aa 15.261020553525995, 5.231546226102577, 0.2222782279402847
+p1 new coords aa 15.322785700855372, 5.011624200838904, -0.026473812699214366
+p1 new coords aa 15.409255371451367, 4.913795985459817, -0.08888981745452305
+p1 new coords aa 15.453239100172512, 4.899756578486114, -0.1927922813986518
+p1 new coords aa 15.611169214612756, 4.8970575835372445, -0.33386598765074915
+p1 new coords aa 15.314898442113751, 5.23531605245274, -0.3978817253310337
+p1 new coords aa 15.191140258579466, 4.895782701222877, -0.3132906428723448
+p1 new coords aa 15.419109668867428, 5.032352177651403, -0.36250157092542384
+p1 new coords aa 15.361779078707702, 5.131675711569516, -0.15339411283872578
+p1 new coords aa 15.29012854723841, 5.133987547579282, -0.19925459850932703
+p1 new coords aa 15.216099505257871, 5.110961699484403, -0.4448426892247342
+p1 new coords aa 15.22325081521922, 4.97240469261259, -0.28269422503032604
+p1 new coords aa 15.016017064104489, 4.961924152163013, -0.32827965130765036
+p1 new coords aa 14.8385688236099, 4.810140335264649, -0.3459499715605566
+p1 new coords aa 14.829879123189805, 4.820182759403602, -0.14157261189284448
+p1 new coords aa 14.900414677194291, 4.821605398253803, 0.26960342088639133
+p1 new coords aa 14.87986996954279, 5.02371170942181, 0.141109040297794
+p1 new coords aa 14.771176081697433, 5.010738113681248, 0.021831632175346796
+p1 new coords aa 14.730271304477684, 4.906150176737531, -0.024904159717602965
+p1 new coords aa 14.639519862592403, 5.011428408683869, -0.1118493529683344
+p1 new coords aa 14.604486555735873, 5.123960758128978, 4.8343313457213655E-4
+p1 new coords aa 14.642818841201759, 5.218960282470176, -0.07275586090750713
+p1 new coords aa 14.763775029825517, 5.056534344604734, -0.1873878126661642
+p1 new coords aa 14.968135212605427, 4.875305100976183, -0.23610587479971154
+p1 new coords aa 14.952710616655912, 4.670338796325826, -0.14031044697234704
+p1 new coords aa 15.091764744723347, 4.513708088285253, -0.04165411954292675
+p1 new coords aa 15.101616470172408, 4.396434468993159, -0.08154256416360559
+p1 new coords aa 15.036252084841149, 4.463949119744482, -0.035754322630690095
+p1 new coords aa 15.227035081715751, 4.317879762912343, 0.089164232740476
+p1 new coords aa 15.137708402620255, 4.153217119881951, 0.10405547378501602
+p1 new coords aa 15.232066051915101, 4.3371973673881925, 0.10701598597579715
+p1 new coords aa 14.937924038953179, 4.260374797132254, 0.27018639124799715
+p1 new coords aa 14.827857620835747, 4.244915607839924, 0.27951698941936753
+p1 new coords aa 14.825818012190089, 4.195340974179906, 0.26727218427765126
+p1 new coords aa 14.67091663797652, 4.267919159307249, -0.05880234168781323
+p1 new coords aa 14.77234227614464, 4.190842004269982, -0.13792772418041938
+p1 new coords aa 14.856020553037142, 4.15502698083872, -0.17434994904940243
+p1 new coords aa 15.02023348063112, 4.261721495729344, -0.024228836807137777
+p1 new coords aa 14.654513820090509, 4.147610126138611, 0.11917970428356167
+p1 new coords aa 14.682101783151822, 4.045448301410477, 0.15005301681256292
+p1 new coords aa 14.850025737208504, 4.082759912528287, -0.0920800904774455
+p1 new coords aa 14.929640712612537, 3.9948284289385843, 0.05034620635542464
+p1 new coords aa 14.678244794524852, 4.158153712394025, 0.15007166704588312
+p1 new coords aa 14.267196814262734, 4.168467239812259, 0.1506583079326548
+p1 new coords aa 14.159462538662979, 4.222227569084704, 0.12728347145344338
+p1 new coords aa 14.361469487112636, 4.2381799096624855, -0.12392870543286522
+p1 new coords aa 14.421609284138958, 4.299947996922053, -0.2154285396675312
+p1 new coords aa 14.26278184836827, 4.279001341276713, -0.3474084379343347
+p1 new coords aa 14.317576851387932, 4.2570608721688785, -0.25454710412350906
+p1 new coords aa 14.141602010537069, 4.501293169632311, 0.14325447278680842
+p1 new coords aa 14.104811879387086, 4.424934989746153, 0.17775814825784567
+p1 new coords aa 13.92380620096198, 4.294129049001879, 0.2745137969161408
+p1 new coords aa 13.985964681300292, 4.163439603198181, 0.16900579786488917
+p1 new coords aa 13.936608454021496, 4.053771346170996, 0.022265256237247316
+p1 new coords aa 14.078535063742347, 3.9930992353564028, 0.03809397833418725
+p1 new coords aa 14.324181297131124, 4.1838599803569725, -0.04539760527869509
+p1 new coords aa 14.227588365844852, 4.218707005987518, -0.3267226849905292
+p1 new coords aa 13.898964635994606, 4.391449906301423, -0.2848533890451912
+p1 new coords aa 14.050100237237743, 4.4431520299109, 0.01307415124659772
+p1 new coords aa 13.907800190490782, 4.482559225587913, 0.05879735742840569
+p1 new coords aa 13.941406192416173, 4.444715077489625, -0.012780661384009982
+p1 new coords aa 13.679465241669634, 4.483747336340092, 0.22633486883026646
+p1 new coords aa 13.878122260610699, 4.453265942756838, 0.07177164075808698
+p1 new coords aa 13.748395656329714, 4.872232719845723, -0.17151362317876903
+p1 new coords aa 13.696646052336673, 5.141790615090896, -0.13728174422994396
+p1 new coords aa 13.777724194625208, 4.947002424932179, -0.03837548235477342
+p1 new coords aa 13.697924423477055, 4.872492869813407, 0.0874642773154764
+p1 new coords aa 13.451277068155038, 4.920517126369592, -1.6856499939618685E-4
+p1 new coords aa 13.303065354744039, 4.821924568591707, -0.006795249129006897
+p1 new coords aa 13.385575585149956, 4.9318219482492704, -0.020033778152137985
+p1 new coords aa 13.371891032929161, 4.94986756798754, 0.1934252037563748
+p1 new coords aa 13.440983910977257, 4.996202812662157, 0.08312149443875883
+p1 new coords aa 13.548608531912338, 5.065865348152011, -0.1230975362333887
+p1 new coords aa 13.392324095440975, 5.333217446865957, 0.00882362603560996
+p1 new coords aa 13.41599649450896, 5.207166110365503, -0.002788166288516289
+p1 new coords aa 13.208635835792656, 5.153588493250525, -0.033154664055826316
+p1 new coords aa 13.12495366253724, 4.909434229687652, -0.33922953651632926
+p1 new coords aa 13.106752643279966, 5.029652669425813, -0.1481829604707724
+p1 new coords aa 13.040469430754403, 4.931581837553927, -0.25605243846776615
+p1 new coords aa 13.084152975681427, 4.82352678883297, -0.37779085887568553
+p1 new coords aa 13.209671244690751, 4.696299756231104, -0.28022169269840475
+p1 new coords aa 13.268229270684754, 4.587960653170893, -0.07684684519499232
+p1 new coords aa 13.49678621529991, 4.445440325249785, -0.290129416795202
+p1 new coords aa 13.495338766913033, 4.465014937282621, 0.005226934951636952
+p1 new coords aa 13.520740016295688, 4.310811132730032, 0.20687947521321454
+p1 new coords aa 13.525481119566596, 4.497083673370046, 0.07027318446343062
+p1 new coords aa 13.54080711064616, 4.49722220005766, -0.061653131290158814
+p1 new coords aa 13.55755421786643, 4.581001793729592, 0.20574004633849596
+p1 new coords aa 13.475560958597836, 4.543960830056516, 0.12515935434747893
+p1 new coords aa 13.668424982617807, 4.311240454158053, 0.1925550463217181
+p1 new coords aa 13.636341965542213, 4.423430103143949, 0.008357595881449242
+p1 new coords aa 13.771696079742915, 4.651689376092733, 0.017218177189681938
+p1 new coords aa 13.704236230292778, 4.647930320828728, -0.050673719642437845
+p1 new coords aa 13.682615951444676, 4.784029270044911, 0.21278455576661975
+p1 new coords aa 13.607762074318384, 4.751802446158856, 0.1358146850838341
+p1 new coords aa 13.291428873263692, 4.968668081157116, 0.09413019612690024
+p1 new coords aa 13.363782001822972, 5.015381047647138, -0.037284773869501464
+p1 new coords aa 13.359602718327459, 5.2042881086819825, 0.2536180412269553
+p1 new coords aa 13.196475029862912, 4.944611216685429, 0.263826927540602
+p1 new coords aa 13.308501707162371, 4.812961033306721, 0.19972061799090965
+p1 new coords aa 13.468066002758837, 4.401288001933811, 0.11999827802320559
+p1 new coords aa 13.27264426242339, 4.045250567557524, 0.04676438811220651
+p1 new coords aa 12.922923354993705, 3.997048156785833, 0.28716544969086
+p1 new coords aa 12.818175350344335, 3.9448444127907796, 0.10451081507353463
+p1 new coords aa 12.427254421126817, 4.057096357273529, 0.1898455024639711
+p1 new coords aa 12.515839944981277, 4.117231211418157, 0.1439723574578432
+p1 new coords aa 12.626963333937452, 4.222506219021069, 0.07861632821950032
+p1 new coords aa 12.685755501860164, 4.119807920203567, 0.06163945180038652
+p1 new coords aa 12.396183416059793, 4.214169803344387, -0.20840652278692076
+p1 new coords aa 12.365434273199066, 4.23463898482874, -0.078157604073123
+p1 new coords aa 12.463265163000083, 4.037799885538079, -0.2517326708933918
+p1 new coords aa 12.466106863225441, 4.236732750652898, -0.2549293478306773
+p1 new coords aa 12.270051362383285, 4.488808202113742, -0.12146124142040687
+p1 new coords aa 12.538118209412032, 4.319565667972864, -0.4590435874640391
+p1 new coords aa 12.710004578970237, 4.30985371391422, -0.43803176306376174
+p1 new coords aa 12.659617432991137, 4.375595507121784, -0.3931623440672369
+p1 new coords aa 12.517539948736882, 4.520112874687223, 0.027778413135882973
+p1 new coords aa 12.302803444369982, 4.434590375968687, 0.08610092814181229
+p1 new coords aa 12.372098060408996, 4.43984002665652, 0.2248088282843979
+p1 new coords aa 12.271466713780564, 4.3415161019297885, 0.2935982844397921
+p1 new coords aa 12.253506038257747, 4.247783073121673, 0.40304467905029573
+p1 new coords aa 12.357403826786596, 4.557671616521649, 0.27113038683745094
+p1 new coords aa 12.484112544312602, 4.512698089635282, 0.15912483748191697
+p1 new coords aa 12.327578770256032, 4.613749127035841, 0.14889701328359833
+p1 new coords aa 12.72223763089493, 4.6081063885920805, 0.1546867432446389
+p1 new coords aa 12.646417930014533, 4.621492494613804, 0.22833554947540646
+p1 new coords aa 12.664582063689434, 4.854755185827816, 0.05109981530127233
+p1 new coords aa 12.802690004876206, 4.686230442584952, 0.25411772755276424
+p1 new coords aa 12.629212785937321, 4.465337648737403, 0.34928907878821874
+p1 new coords aa 12.532127171327705, 4.3997116306017725, 0.2730965772839342
+p1 new coords aa 12.459376121315099, 4.483714430700131, -0.22427993920930367
+p1 new coords aa 12.472458736282029, 4.437835943463631, -0.200938136754514
+p1 new coords aa 12.48448016732503, 4.399419980051113, 0.009952522570994604
+p1 new coords aa 12.428346420843416, 4.690702446630131, -0.08205397020900677
+p1 new coords aa 12.588693812569282, 4.803134364245347, 0.009052537208952396
+p1 new coords aa 12.33445392248293, 4.8349487873124595, 0.05737311935532811
+p1 new coords aa 12.40777718324592, 4.631510986925203, 0.12356369501971878
+p1 new coords aa 12.837677663490355, 4.745404773470288, 0.06197004416002946
+p1 new coords aa 13.035932813415425, 4.713851845935039, -0.017573668639940927
+p1 new coords aa 13.285967702361157, 4.71361138692513, -0.12673398966077304
+p1 new coords aa 13.169335809032003, 4.83364079288341, -0.13942185301530752
+p1 new coords aa 13.026223476647843, 4.7441554464662845, 0.09895357684567269
+p1 new coords aa 12.908036352705789, 4.667698998934153, 0.1765966811426603
+p1 new coords aa 12.828514922610818, 4.661417265222361, 0.03840500658431201
+p1 new coords aa 12.9630258118019, 4.873451733555841, -0.1943155414278784
+p1 new coords aa 13.02000292787377, 4.990607403108271, -0.299236087904987
+p1 new coords aa 12.914587783362299, 4.865849625711687, -0.003514110738497278
+p1 new coords aa 12.78063074230933, 4.8377813470057225, 0.00427257262243315
+p1 new coords aa 12.614076605683897, 4.659493351878235, 0.18705723527032816
+p1 new coords aa 12.863320477294007, 5.0752207179321385, 0.0014928169074201192
+p1 new coords aa 12.697481181946578, 5.194701398185997, -0.2545516505611424
+p1 new coords aa 12.820362310274708, 5.152397348869512, -0.2230013576383405
+p1 new coords aa 12.860639242970429, 4.930275614059824, -0.05881062768608003
+p1 new coords aa 12.771796754597071, 4.954109605784795, -0.03197551415839642
+p1 new coords aa 12.86982046582703, 5.031879125331227, 0.04034523547051047
+p1 new coords aa 12.984023457557635, 5.011764013339631, 0.20480126536486817
+p1 new coords aa 12.95268550981884, 4.990435141242374, 0.2312604192381567
+p1 new coords aa 12.794390012120624, 4.793301896156371, -0.043935300258755916
+p1 new coords aa 12.740519711636596, 4.811956681781603, 0.11775399890753624
+p1 new coords aa 12.619215119948874, 4.847674953725836, 0.20992443796008017
+p1 new coords aa 12.713386584596423, 4.8683407022263605, 0.33620889025117806
+p1 new coords aa 12.740916397297761, 4.9194884129111704, 0.048264127780589305
+p1 new coords aa 12.782724791234388, 4.760896141556737, -0.1004322775365154
+p1 new coords aa 12.749971447899076, 4.85045568180196, -0.07222493240265962
+p1 new coords aa 12.815827558306461, 4.669816263012509, -0.1815368928143965
+p1 new coords aa 12.807314260611708, 4.685048244284569, -0.14846007884518903
+p1 new coords aa 12.728793952675906, 4.946799457068813, -0.12023924861005514
+p1 new coords aa 12.580435695063851, 5.13202618092202, -0.18298857156044482
+p1 new coords aa 12.551215984408586, 5.140115781724322, 0.11426967567616622
+p1 new coords aa 12.56190933829984, 5.219460970090646, 0.2179587129395012
+p1 new coords aa 12.44224643956697, 5.457922315434589, 0.09913949396064459
+p1 new coords aa 12.414582677392064, 5.521940546172984, 0.2027107330653918
+p1 new coords aa 12.520030743854871, 5.500038169697222, -0.045200436775296976
+p1 new coords aa 12.533107577407751, 5.491139179931913, -0.11274607938585536
+p1 new coords aa 12.478979556846358, 5.499192619951198, 0.03910389370219099
+p1 new coords aa 12.418630341100762, 5.269641672103893, 0.08922011116554185
+p1 new coords aa 12.359721087932344, 5.543937894841278, 0.14472056039307096
+p1 new coords aa 12.527002617167673, 5.492784506008634, -0.029552827890287958
+p1 new coords aa 12.520115460238399, 5.386257712840403, -0.0931742002257799
+p1 new coords aa 12.517179748609875, 5.329253388250136, -0.2815776732808615
+p1 new coords aa 12.443428067627945, 5.309723948187346, -0.28627892731495724
+p1 new coords aa 12.35840066356957, 5.31785771823575, -0.14965152323979974
+p1 new coords aa 12.118132213185039, 5.285002322571767, -0.24330888306808246
+p1 new coords aa 12.328985767967973, 4.966037070710409, -0.059183893843403834
+p1 new coords aa 12.31685249385236, 5.0010332650986085, -0.15396484406499333
+p1 new coords aa 12.380680064636849, 5.0001260796143905, -0.03390931012432831
+p1 new coords aa 12.358401833218162, 4.876025465384043, -0.030684315243549483
+p1 new coords aa 12.43005757010054, 4.859480305492135, 0.16493090122014198
+p1 new coords aa 12.574052800150369, 4.786911505689318, 0.0416917739267719
+p1 new coords aa 12.673785078582664, 4.99804845401328, -0.17376489849457064
+p1 new coords aa 12.667963757023124, 4.798753628459349, -0.47042014217992
+p1 new coords aa 12.552147042962268, 4.920936797802511, -0.2776406306592607
+p1 new coords aa 12.475312624737928, 4.907244392567223, -0.3326852960242862
+p1 new coords aa 12.445134155094435, 4.782811115088778, 0.05863867843152193
+p1 new coords aa 12.568344875159825, 4.772943560143644, 0.27458354989413025
+p1 new coords aa 12.494437330268068, 4.681131380520327, 0.16259588305601919
+p1 new coords aa 12.35271104244047, 4.746787629424981, 0.042088844037070666
+p1 new coords aa 12.413802686268609, 4.98512428344655, 0.015999805137444364
+p1 new coords aa 12.500226100398345, 5.136702569864915, 0.05562206749479506
+p1 new coords aa 12.385552695364503, 5.011913445529683, 0.19883766518976181
+p1 new coords aa 12.44073956154954, 5.207488534972584, 0.18872224557364153
+p1 new coords aa 12.22112277683488, 5.229889600264472, 0.05911894928650349
+p1 new coords aa 12.007866844854272, 5.262598368408378, 0.06324931356958849
+p1 new coords aa 11.90068515167167, 5.273563491417496, -0.010381588692177687
+p1 new coords aa 11.834987576670784, 5.390471780161124, -0.1463056794998419
+p1 new coords aa 11.832871702553359, 5.412347998349194, -0.10665319400641494
+p1 new coords aa 11.765227739602432, 5.466451760303105, -0.075979185016744
+p1 new coords aa 11.73978939901095, 5.55494245941829, 0.1499486593837218
+p1 new coords aa 11.719603925572224, 5.3711745699479225, 0.08531510239270418
+p1 new coords aa 11.761171651304682, 5.282210181355675, 0.3674696913567163
+p1 new coords aa 11.783087687667662, 5.226725527892816, 0.15400940010813569
+p1 new coords aa 11.905329183669382, 5.235600723815286, 0.02600631081293231
+p1 new coords aa 12.14078031247792, 5.251325586458685, -0.08646165267731497
+p1 new coords aa 12.209156223944674, 5.194638580206369, -0.0030534524911331046
+p1 new coords aa 12.248770260177741, 5.339580163245619, -0.0639196066327163
+p1 new coords aa 12.211305804027075, 5.11971931055421, -0.22313741213932903
+p1 new coords aa 12.241791319476944, 5.214171626264952, -0.342666976879081
+p1 new coords aa 12.55275944355518, 5.315450490027648, -0.14276334098520482
+p1 new coords aa 12.475582832977006, 5.340129216984803, -0.09669798928968212
+p1 new coords aa 12.547046920874582, 5.454769440526436, 0.14445745270426782
+p1 new coords aa 12.35589834816138, 5.67818838236275, 0.014724833723153724
+p1 new coords aa 12.34946876451013, 5.705783679176721, 0.28201718973608614
+p1 new coords aa 12.436713939792519, 5.814642225972688, 0.07565325390528538
+p1 new coords aa 12.591276886589426, 5.791855537397107, 0.5221436867683478
+p1 new coords aa 12.63063885229372, 5.928556582283766, 0.38040643378033995
+p1 new coords aa 12.615885332721803, 6.0941482265444264, 0.06299764702381144
+p1 new coords aa 12.50769281038311, 5.880905836957453, -0.2527751064180001
+p1 new coords aa 12.401629348855076, 5.853164818716652, -0.0651330452055078
+p1 new coords aa 12.508750865564581, 5.9914948418540614, 0.07255653538149473
+p1 new coords aa 12.425135842627693, 6.052001086219761, 0.24596220760463733
+p1 new coords aa 12.340087243055592, 5.937948605292846, -3.869299223943634E-4
+p1 new coords aa 12.162284497181858, 5.9011878654914565, 0.18044418713848098
+p1 new coords aa 12.11369815546225, 6.016812104887849, -0.09107409320599152
+p1 new coords aa 12.053821921896748, 5.992549874436485, 0.07338709352638928
+p1 new coords aa 12.102188885428859, 6.197396727991124, 0.10620767436201377
+p1 new coords aa 12.047759351012328, 6.312757906408273, -0.12736575589312837
+p1 new coords aa 12.123785203964353, 6.297386090891266, -0.0972900301436442
+p1 new coords aa 12.323542245799612, 6.3781453282617555, 0.09445543352027767
+p1 new coords aa 12.25911715791199, 6.457387507951858, 0.004704486735736674
+p1 new coords aa 12.535546815907614, 6.371870781777329, -0.07412055428894467
+p1 new coords aa 12.69244019870941, 6.305605027042374, -0.3453887111025508
+p1 new coords aa 12.693554320086266, 6.289418806565703, -0.27129113486795825
+p1 new coords aa 12.70392369290395, 6.220740437585279, -0.29236367045366796
+p1 new coords aa 12.552654574901114, 6.247158198182944, 0.12910809124342776
+p1 new coords aa 12.34024859196831, 6.098131717028531, 0.21433634703227067
+p1 new coords aa 12.392054695255908, 6.018430127433675, 0.2507940493249729
+p1 new coords aa 12.321561614809927, 5.880800954383599, 0.1981948221367676
+p1 new coords aa 12.335628033419527, 6.11853356269715, 0.2130128819448328
+p1 new coords aa 12.561270485354612, 6.112681504958031, 0.028670116796026157
+p1 new coords aa 12.536664624521247, 5.875606596144796, 0.10442888894866101
+p1 new coords aa 12.714386648056283, 5.86020082555118, -0.08145400457501531
+p1 new coords aa 12.630102277509147, 5.686427321081749, 0.15043899480180145
+p1 new coords aa 12.902629189128504, 5.779867179848243, 0.1253895114146042
+p1 new coords aa 12.89058690297545, 5.615813486623029, -0.0041581300513851005
+p1 new coords aa 13.097009041874022, 5.864209955804587, -0.18937408755823865
+p1 new coords aa 13.057304597928976, 6.0092322508793155, 0.24343675973028667
+p1 new coords aa 13.209911294955756, 5.8033360318364196, -0.08899745744954252
+p1 new coords aa 13.310330507797326, 5.825609110234234, 0.10954013680104135
+p1 new coords aa 13.199079915822956, 5.925147020355819, -0.03890067552941351
+p1 new coords aa 13.275007840560479, 5.7956882401988405, 0.11556308802840445
+p1 new coords aa 13.545751705356308, 5.9112609942418795, -0.16329958546499365
+p1 new coords aa 13.876733827080331, 6.00680164401046, -0.036802455932062605
+p1 new coords aa 13.974152710574737, 6.1646399767125155, -0.17272344247007235
+p1 new coords aa 14.078336003248753, 6.068947457956371, -0.19112604887855766
+p1 new coords aa 14.063433174672538, 6.123621208130316, -0.06632063459331583
+p1 new coords aa 14.185358132338267, 6.033708387065742, -0.07559524916451794
+p1 new coords aa 13.999951847447749, 6.044725051468361, 0.01069532965007998
+p1 new coords aa 13.878911583841935, 5.885124909069614, 0.0654670665981
+p1 new coords aa 13.817223695088135, 5.737007472610345, 0.10513830361907325
+p1 new coords aa 13.711740966103385, 5.957828843616308, 0.06641714610679361
+p1 new coords aa 13.645609666327962, 5.796971170656712, 0.07247795756159085
+p1 new coords aa 13.665727061790086, 5.749662888380398, 0.02099852005621529
+p1 new coords aa 13.514636556718717, 5.716274942212926, 0.16827402189770074
+p1 new coords aa 13.58386047658237, 5.773014945456373, 0.30663723244431884
+p1 new coords aa 13.476703855619096, 5.52217041695841, 0.20372877301045872
+p1 new coords aa 13.460259865769409, 5.117397287913408, 0.2393127861334594
+p1 new coords aa 13.573619332026034, 5.289259214921112, 0.1297601929612734
+p1 new coords aa 13.497014599217458, 5.105350315046131, 0.11779111039877152
+p1 new coords aa 13.295853622806725, 5.262340263226622, 0.1568441135416836
+p1 new coords aa 13.312815946840974, 5.161649321933819, 0.22889869584185935
+p1 new coords aa 13.082322230030915, 5.032602022429682, 0.09078938166841691
+p1 new coords aa 13.232565535327451, 4.836997184604059, 0.16225300667823606
+p1 new coords aa 13.409395152024532, 4.5999673633758205, 0.1572607884303966
+p1 new coords aa 13.34094912377642, 4.585769229044087, -0.011037680838136221
+p1 new coords aa 13.406875395794822, 4.47511460565324, -0.18338961165853934
+p1 new coords aa 13.328370485529279, 4.179673896013349, -0.26597644720889557
+p1 new coords aa 13.52049262612254, 4.369935286348096, -0.285249988923432
+p1 new coords aa 13.41285104051547, 4.185833101248674, -0.3051905556853444
+p1 new coords aa 13.509824717944849, 4.237710452466483, -0.14996104258547951
+p1 new coords aa 13.488304309840212, 4.190579662712889, 0.10776385564415183
+p1 new coords aa 13.406766650068441, 4.07282658366944, 0.14956207283098572
+p1 new coords aa 13.503818114248714, 3.9947965901698113, 0.013645514268898151
+p1 new coords aa 13.566960939896475, 3.8540023092411606, -0.05643377107965683
+p1 new coords aa 13.589692091082613, 4.026948876052512, -0.004609372648643334
+p1 new coords aa 13.3882390905949, 3.921381047399718, 0.017239024304506738
+p1 new coords aa 13.370922274665686, 3.7851687553371782, 0.10913513409286071
+p1 new coords aa 13.247683848370587, 3.7435923444848997, 0.1567349054224766
+p1 new coords aa 13.315284042542562, 3.8054639081364634, -0.06387782074258391
+p1 new coords aa 13.395356247040922, 3.6974817090727203, -0.14058768693865553
+p1 new coords aa 13.504869093718552, 3.591991077936237, -0.21944639862329463
+p1 new coords aa 13.33159376823559, 3.5680741441907706, -0.1067402674798531
+p1 new coords aa 13.503788514686796, 3.571318375384967, -0.10456020673944977
+p1 new coords aa 13.394991729526259, 3.5623296724153883, -0.2517339729927788
+p1 new coords aa 13.143578898469803, 3.5430251878399033, 7.753974354360316E-4
+p1 new coords aa 13.058446541646614, 3.3815615676151856, -0.040085933620353106
+p1 new coords aa 13.026740923815556, 3.5289403235113492, 0.12611072181398209
+p1 new coords aa 13.191856743447039, 3.669716653864506, 0.1506597042814128
+p1 new coords aa 13.304116171069241, 3.44687770206625, -0.015719738114297027
+p1 new coords aa 13.337434190508702, 3.2979201575763635, -0.03419886794367921
+p1 new coords aa 13.618431701084837, 3.1296477180503466, -8.173237317406212E-5
+p1 new coords aa 13.555577410498225, 3.1677795073093447, 0.2010961766965123
+p1 new coords aa 13.52002332447753, 3.205313470939971, 0.23242920096242878
+p1 new coords aa 13.266756501463245, 3.419637996853897, 0.2575333861044967
+p1 new coords aa 13.43558530330979, 3.4436268000270456, -0.2606772727306338
+p1 new coords aa 13.364534387289499, 3.5563315309602284, -0.22130493644226878
+p1 new coords aa 13.238957762248068, 3.5473572967751017, -0.24183321143685177
+p1 new coords aa 13.284599403340962, 3.222132305710467, -0.11127372395601481
+p1 new coords aa 13.179675342929333, 2.9840629391870386, -0.3940792812714274
+p1 new coords aa 13.137238056620017, 3.044778268232396, -0.23718877762086782
+p1 new coords aa 12.875849731686658, 3.151304805234312, -0.0742168850969428
+p1 new coords aa 12.94964892498699, 3.2427773642590947, -0.0791605027316267
+p1 new coords aa 13.070825665807158, 3.4668290699340303, 0.0020415972218002926
+p1 new coords aa 13.17818309060693, 3.6264349733133803, 0.11305532124733345
+p1 new coords aa 13.290528505861733, 3.7093240292504817, 0.290208254033252
+p1 new coords aa 13.31826851881308, 3.7834294331250296, 0.27550081002762905
+p1 new coords aa 13.374848485325806, 3.6988765722110974, 0.09283646188422912
+p1 new coords aa 13.278690075713483, 3.62535092021846, 0.15702789776792261
+p1 new coords aa 13.180317236104342, 3.6324031999300606, 0.06271686233102214
+p1 new coords aa 13.189132653041355, 3.5504932740196304, 0.03877530910620982
+p1 new coords aa 13.204017973379537, 3.609922643569811, 0.07925968111929327
+p1 new coords aa 13.29157490739789, 3.5707089303004005, 0.21793799344516432
+p1 new coords aa 13.46594628326942, 3.580952122078872, 0.27612331228977205
+p1 new coords aa 13.462204933810215, 3.533874702601771, -0.03484313777596826
+p1 new coords aa 13.394910174566848, 3.19013371932403, -0.10632725078134121
+p1 new coords aa 13.315990946524847, 3.123812952797236, -0.046568336893470216
+p1 new coords aa 13.18979524884083, 3.3400406316840874, 0.18679065350441926
+p1 new coords aa 13.365869423037669, 3.331414300682829, 0.07116002895856655
+p1 new coords aa 13.29122007760863, 3.223051882837966, -0.020825341636028727
+p1 new coords aa 13.206382547974382, 3.3794031736355943, -0.059329779941270415
+p1 new coords aa 13.248560444334531, 3.5575380366989653, -0.15123919628462826
+p1 new coords aa 13.421174697358033, 3.4337306318136225, 0.11388009704349603
+p1 new coords aa 13.190676714723747, 3.6026967710025146, 0.11003183160004008
+p1 new coords aa 13.233258144829515, 3.3847581779337643, 0.15502137478311373
+p1 new coords aa 13.314431223277033, 3.536861663152207, 0.11242697977184685
+p1 new coords aa 13.152011751516392, 3.414047529064758, 0.1298791782064741
+p1 new coords aa 13.042926012531552, 3.3974483328106895, -0.16068865684862943
+p1 new coords aa 13.169739936382303, 3.515864364218626, 0.042733685444936276
+p1 new coords aa 13.283610973200755, 3.5430651405262252, 0.15111006330371152
+p1 new coords aa 13.197569891311762, 3.548838746414846, 0.07273424815716478
+p1 new coords aa 13.326960885278076, 3.783828227763558, -0.34813423002517063
+p1 new coords aa 13.411187943089148, 3.794079274152303, -0.011466691661039863
+p1 new coords aa 13.213245055674301, 3.689447003309156, 0.028394046498886973
+p1 new coords aa 12.995648827664061, 3.616653766886581, 0.26124474929872954
+p1 new coords aa 12.789188972878256, 3.6352609965003277, 0.09671610496888086
+p1 new coords aa 12.762659588952852, 3.559313124562719, 0.34056428734660227
+p1 new coords aa 12.69703800545018, 3.6417998316333895, -0.0573569155830681
+p1 new coords aa 12.62961542710886, 3.386652076032191, -0.11823585822758147
+p1 new coords aa 12.527634453015594, 3.4947284113506303, -0.15151381436313155
+p1 new coords aa 12.455457490532686, 3.514558752941309, -0.08883107471610865
+p1 new coords aa 12.506420616212171, 3.5244698195291972, -0.2974788241701909
+p1 new coords aa 12.356923057583465, 3.6755781325129555, -0.30621042943289617
+p1 new coords aa 12.276752307976972, 3.7208654568086743, -0.37547133780381264
+p1 new coords aa 12.034112440615665, 3.5847741728083364, -0.33065057100271833
+p1 new coords aa 12.105231698027067, 3.6736403683056706, -0.5683238096112628
+p1 new coords aa 12.076602369673433, 3.573148098808824, -0.12014339671906182
+p1 new coords aa 12.187856783531366, 3.7085627871172067, -0.3120010818469692
+p1 new coords aa 12.315773824814107, 3.5997580878934947, -0.24124424647953036
+p1 new coords aa 12.341513846763009, 3.506266968603736, -0.2783622287661274
+p1 new coords aa 12.394640285611668, 3.5314207591783795, -0.15273669004038154
+p1 new coords aa 12.609234654327883, 3.403817587939828, -0.22353640629798985
+p1 new coords aa 12.450431167245679, 3.031351520693046, -0.03614413734009295
+p1 new coords aa 12.670674139437288, 2.852036231203929, -0.03763437598110651
+p1 new coords aa 12.78457664020496, 3.0794878760168256, -0.47131848867334264
+p1 new coords aa 13.055229355708367, 3.047289907225269, -0.3254246947385351
+p1 new coords aa 13.152959301647554, 2.9289181727083737, -0.038099480735048985
+p1 new coords aa 13.136379426238875, 3.0100114160459372, -0.1449634836490038
+p1 new coords aa 13.085164414651391, 3.147453324105642, -0.14145459676781036
+p1 new coords aa 12.795317037608626, 3.0286484970605345, -0.08378757202027491
+p1 new coords aa 12.681686517634676, 3.3290938764145204, -0.12380788614724474
+p1 new coords aa 13.026189709661336, 3.268549126114559, -0.1956685691362559
+p1 new coords aa 13.128190852191729, 3.175712247379434, -0.1752364673954412
+p1 new coords aa 13.029553463711803, 3.1531334806729685, -0.2168068229238875
+p1 new coords aa 13.298236966602511, 3.0336739927887217, -0.2453287920183017
+p1 new coords aa 13.20863847416899, 3.0088065706172626, 0.021622701649567644
+p1 new coords aa 12.938118677066207, 3.3381260256592578, 0.13196626669343586
+p1 new coords aa 12.809730358856047, 3.361329039167959, 0.06421649851051994
+p1 new coords aa 12.889538030069225, 3.5602483505201064, -0.03699024365497207
+p1 new coords aa 12.897964215505745, 3.814441836638037, -0.08847204986456052
+p1 new coords aa 12.949422867972451, 4.007490344877112, -0.33977009535052544
+p1 new coords aa 13.064063470607378, 4.03475258072465, -0.22562819379796506
+p1 new coords aa 13.022610407186415, 3.8893327387142427, -0.013406652698971622
+p1 new coords aa 12.882995351618597, 3.9009906981753275, -0.20211910752671783
+p1 new coords aa 12.716277323734587, 4.0961046223692925, -0.25369445085314296
+p1 new coords aa 12.664521102181798, 4.069737162854567, -0.16739517964967385
+p1 new coords aa 12.600554221849928, 4.110927724556195, 0.10759093229609443
+p1 new coords aa 12.658805307918875, 3.6861669130393473, 0.12688793428936174
+p1 new coords aa 12.54255603588866, 3.7149937427347846, 0.378198616846346
+p1 new coords aa 12.775652201331015, 3.8065821230691497, 0.3383058410734216
+p1 new coords aa 12.643857403138371, 3.681372425170459, 0.1816462119502158
+p1 new coords aa 12.756417442306176, 3.4298221010259495, -0.0933166382643299
+p1 new coords aa 12.722986499314853, 3.367084415144116, 0.07504731976212331
+p1 new coords aa 12.893244578744634, 3.2211603504859134, 0.06547760819434077
+p1 new coords aa 12.917304204244077, 3.028559439563169, -0.09587986219301485
+p1 new coords aa 12.884160239498152, 2.9771035700691937, -0.20301154507697444
+p1 new coords aa 13.011500488299692, 2.8505368024022, -0.09704274072430777
+p1 new coords aa 13.262042655752593, 2.8791222038448527, -0.09528021816615645
+p1 new coords aa 13.222207085710188, 3.021768224224818, 0.16752589335617318
+p1 new coords aa 13.401106649754993, 2.906669278241585, 0.32881749072697564
+p1 new coords aa 13.509932191996498, 3.107098963851629, 0.1772223640125698
+p1 new coords aa 13.404067950059694, 2.964129290348581, 0.04416949580085222
+p1 new coords aa 13.364005557426763, 2.8283065658155633, 0.21511345172334656
+p1 new coords aa 13.53817588903052, 2.844435244739452, 0.16191593544681446
+p1 new coords aa 13.645542105932842, 2.9037727817086108, 0.01020544005721799
+p1 new coords aa 13.667500087391154, 2.8712789176811295, -0.2498969756812189
+p1 new coords aa 13.615219253753724, 2.9227575386710254, -0.2461544539188815
+p1 new coords aa 13.400096240624732, 3.043923525379111, -0.10729427323449287
+p1 new coords aa 13.196947849131725, 3.063711683833534, -0.01287691362925028
+p1 new coords aa 13.227147141856918, 2.976143417220792, -0.15471937055653573
+p1 new coords aa 13.002126086667685, 2.781079518890542, 0.0377492262598246
+p1 new coords aa 13.022223386676293, 3.053366606882572, 0.07071576136289773
+p1 new coords aa 12.926586518191977, 2.9599636586480367, -0.0883039260218037
+p1 new coords aa 12.845055476548511, 2.977839659529611, 0.03135349364314596
+p1 new coords aa 12.68754863170484, 2.8356056222795587, 0.040698084449862656
+p1 new coords aa 12.761390660806667, 2.8296621627003162, -0.032672301324317796
+p1 new coords aa 12.82648242055556, 2.6474202538240243, -0.16343934172955332
+p1 new coords aa 12.588031176104373, 2.8073790814130977, -0.11775249486267315
+p1 new coords aa 12.465116128417645, 2.6637009384522647, -0.2152541439127883
+p1 new coords aa 12.695002350233967, 2.5159113087960616, 0.02140647000715057
+p1 new coords aa 12.667257805861137, 2.604784376010524, 0.48050614870018615
+p1 new coords aa 12.497006572519323, 2.6725267552982075, 0.46197447479946324
+p1 new coords aa 12.381555117998847, 2.6096462611947984, 0.18697123199713483
+p1 new coords aa 12.120303140381335, 3.026349831359706, 0.10346986022706313
+p1 new coords aa 12.355863426749234, 3.002274465144512, 0.15674598063481748
+p1 new coords aa 12.481739428004143, 2.9751053482732606, -0.07145228194829581
+p1 new coords aa 12.43580229102999, 3.05562817486204, 0.16513838568938988
+p1 new coords aa 12.358153798402196, 2.9409308019846425, 0.10248826208431586
+p1 new coords aa 12.170672511901591, 2.7670673634602028, 0.13747574057832257
+p1 new coords aa 12.257332210049208, 2.6672472041517956, 0.07050280445175153
+p1 new coords aa 12.133997160210603, 2.4978319460564125, 0.07522494474381523
+p1 new coords aa 12.11654589991688, 2.5753544045518035, -0.050046619094740244
+p1 new coords aa 11.860991989647538, 2.8082942311460233, -0.16776210509841638
+p1 new coords aa 11.830346520063259, 2.6892790236145596, 0.0937105277303023
+p1 new coords aa 11.82068891718198, 2.620485572528084, 0.12281506422444755
+p1 new coords aa 11.674297544340051, 2.686790153506162, 0.056395898290983404
+p1 new coords aa 11.745186486680659, 2.493190435795854, -0.10317203523400043
+p1 new coords aa 12.04315399325464, 2.5708787051055517, -0.18995627921362224
+p1 new coords aa 12.017737080866008, 2.3304159205005006, -0.05646830122431443
+p1 new coords aa 12.03786559177424, 2.1636438292042195, 0.051547971251626856
+p1 new coords aa 12.156632147172614, 2.1740650855441026, -0.05496992814041804
+p1 new coords aa 11.992956845744784, 2.22505576004452, -0.12370746338520948
+p1 new coords aa 11.771664760116744, 2.1225311769384754, -0.08453238994140627
+p1 new coords aa 11.927171881209189, 2.098759700693461, 0.05598074449952295
+p1 new coords aa 11.790311326321756, 2.069933950109994, -0.06724957354401956
+p1 new coords aa 11.800930269130284, 2.1601935665642746, 0.0019236393921583245
+p1 new coords aa 11.823751954554483, 2.187764408394394, -0.20276235096951423
+p1 new coords aa 11.961414585459124, 2.1653068424524475, -0.02948105038263832
+p1 new coords aa 11.679616767319878, 2.4187034762691275, 0.32292866006591076
+p1 new coords aa 11.706105947219756, 2.4157572868467767, -0.011662073706368903
+p1 new coords aa 11.77373585701756, 2.500092826096126, 0.1060414709485806
+p1 new coords aa 11.991418853715777, 2.7641465431322696, -0.04158482943709571
+p1 new coords aa 11.644639783420425, 2.9228298687293353, -0.34784962450788426
+p1 new coords aa 11.46474633853653, 2.9515956995992823, 0.0015278901246594812
+p1 new coords aa 11.501666556572436, 3.027370747487483, 0.12503428620597956
+p1 new coords aa 11.460452330466577, 2.9388861098470125, 0.06625012169338301
+p1 new coords aa 11.73353689135295, 2.938738109992675, 0.1832033090822634
+p1 new coords aa 11.813536980461052, 2.8416482622633024, -0.013715187609670026
+p1 new coords aa 11.883570361323311, 2.751792488851614, 0.029811359313528338
+p1 new coords aa 11.826271952537207, 2.6784196127272986, 0.2403390609977123
+p1 new coords aa 12.034424482507, 2.849850442045599, 0.006595907957424596
+p1 new coords aa 11.898276784180263, 2.5624019869746686, 0.1013711402048214
+p1 new coords aa 11.877371384622137, 2.5686564449318046, 0.06541206287376468
+p1 new coords aa 11.851081038750864, 2.5320536095406, 0.30161764089292376
+p1 new coords aa 12.058565640084801, 2.7064386271615706, 0.26825956630832354
+p1 new coords aa 11.97844996286885, 2.65692902784713, 0.09289749378194773
+p1 new coords aa 12.122308540312302, 2.5275243870551223, -0.019649609633070553
+p1 new coords aa 12.156360991221765, 2.9007715664622924, 0.020760259016387596
+p1 new coords aa 11.937178322704874, 2.705989817285578, -0.1380389116387229
+p1 new coords aa 11.953636317121545, 2.5051471142012605, -0.025717627494722436
+p1 new coords aa 12.095902761038014, 2.4541995230993248, 0.06152538541220158
+p1 new coords aa 12.306132802738258, 2.5727615082101054, 0.06642722086471112
+p1 new coords aa 12.42167285220296, 2.670700528091946, 0.41187409055046564
+p1 new coords aa 12.655353416251199, 2.688232444775936, 0.19636868359901882
+p1 new coords aa 12.656833922327554, 2.8174357451673693, 0.10930983143818201
+p1 new coords aa 12.704167301518929, 2.772484267023763, 0.05750062205817755
+p1 new coords aa 12.890526396820109, 2.948877637899085, 3.878230808403299E-4
+p1 new coords aa 12.921481217873714, 2.98719728648974, 0.0020129289761052337
+p1 new coords aa 12.925595565596504, 2.7733492151788557, 0.006111434875182365
+p1 new coords aa 12.810430716896017, 2.7849547113809523, -0.13050083516582256
+p1 new coords aa 12.817059448284722, 2.836718328456798, -0.024190191515943954
+p1 new coords aa 12.649231673949505, 2.8511179485169342, 0.13354193548862708
+p1 new coords aa 12.685202890629055, 2.8759364426532863, -0.10103089167819598
+p1 new coords aa 12.59614656378811, 2.8416631523142883, 0.08770400578768578
+p1 new coords aa 12.69944675349002, 2.7639966849909903, 0.09741482576720539
+p1 new coords aa 12.940880638304707, 2.8200290730464284, 0.191009393453985
+p1 new coords aa 12.947115963750424, 2.8453992492150006, 0.004941425061757154
+p1 new coords aa 12.87678901490381, 2.860812756517155, -0.07096788493695605
+p1 new coords aa 12.83149991215891, 2.7993954541599506, 0.04259695167601815
+p1 new coords aa 12.770988297152034, 2.7631612139348274, 0.25273922864602427
+p1 new coords aa 12.736617499482396, 2.5506461744426026, 0.34954998744875626
+p1 new coords aa 12.690797484580905, 2.636578427170044, 0.4003774740216215
+p1 new coords aa 12.650403082439293, 2.742710332639699, 0.15414711611253773
+p1 new coords aa 12.6297900860231, 2.986905628811983, 0.12997009892665617
+p1 new coords aa 12.761381020306835, 2.7252779113823475, 0.11582324391831618
+p1 new coords aa 12.54397386884389, 2.597505095005618, -0.30129325481285
+p1 new coords aa 12.257367797680534, 2.607178660003592, -0.162466536622836
+p1 new coords aa 12.088894299943703, 2.6819704142849035, -0.013518830579198837
+p1 new coords aa 12.126294780352776, 2.9927392701474576, 0.03625848474551209
+p1 new coords aa 11.809944750233454, 2.9723183840163094, 0.16862419117443822
+p1 new coords aa 11.783924875636618, 2.8630201437338423, 0.14196278275928279
+p1 new coords aa 11.733541666866056, 2.9046211883814825, 0.061418024600426196
+p1 new coords aa 11.912513572824873, 2.5723354820763813, 0.0021707680995751016
+p1 new coords aa 12.064562362647122, 2.525163952403923, -0.06231322679005742
+p1 new coords aa 11.893872930043665, 2.5947369861427148, -0.20612310879744838
+p1 new coords aa 11.929892232141071, 2.9220691877950946, 0.15491277167590978
+p1 new coords aa 12.20352420970062, 3.0103798288494468, 0.05959486762695358
+p1 new coords aa 12.25674694714034, 3.1308719365642865, -0.02139697808015227
+p1 new coords aa 12.177821662277385, 3.0889774924419555, -0.0010947018378678168
+p1 new coords aa 12.16149927917467, 3.1542061680431552, -0.1123526472173911
+p1 new coords aa 12.240445821893323, 3.0899256277048055, 0.016332718278316144
+p1 new coords aa 12.429851895433728, 3.141082065456701, 0.1302050094819938
+p1 new coords aa 12.631587657300205, 3.0910046681672014, 0.2010279709706259
+p1 new coords aa 12.54483727381775, 3.2702743735843707, 0.5193114253808324
+p1 new coords aa 12.797855971194318, 3.3946295765877075, 0.2064373009888868
+p1 new coords aa 12.710979364181869, 3.2457695093583276, 0.25288623906376184
+p1 new coords aa 12.884567877849546, 3.160878039044538, 0.12447957242365659
+p1 new coords aa 12.916115617141886, 3.1994483466395796, 0.20555499713405756
+p1 new coords aa 12.928040856424339, 3.053603501483909, -0.08565661335131652
+p1 new coords aa 12.849683754383852, 2.890096388641005, -0.13470107524242061
+p1 new coords aa 12.999786647884942, 2.826180055676034, -0.0777915484368105
+p1 new coords aa 12.71952656525099, 2.896935344458449, -0.016994019007895933
+p1 new coords aa 12.88353644412927, 2.934499833431536, 0.1811414067947686
+p1 new coords aa 12.870971531046846, 2.9461478088145805, 0.3359186287111724
+p1 new coords aa 12.698490883562158, 3.1022612348636036, 0.2139386579007245
+p1 new coords aa 12.544181848227481, 3.0264344632760216, 0.07392050997316113
+p1 new coords aa 12.60852914048792, 2.638659084329854, 0.12076775559550608
+p1 new coords aa 12.188685015009755, 2.7398398451482375, -0.05846364925031526
+p1 new coords aa 12.19331967229608, 2.723019716874075, -0.01997058740050143
+p1 new coords aa 12.209615023639442, 2.797382629707269, -0.13933247550485447
+p1 new coords aa 12.308040466695658, 2.8142625315688106, -0.1833206765459586
+p1 new coords aa 12.281702415744352, 2.7933088861269617, -0.22828387921214932
+p1 new coords aa 12.135569551816829, 2.8465936231885935, -0.5401615294541704
+p1 new coords aa 12.214372927219088, 2.721418381438814, -0.281130886347091
+p1 new coords aa 12.399234881498003, 2.8040893320575093, -0.34288623380710725
+p1 new coords aa 12.476190572869102, 2.8358824519381276, -0.4200235412740477
+p1 new coords aa 12.197109080151412, 2.797394638173263, -0.23811173960912854
+p1 new coords aa 12.065163777470778, 2.886801537336174, 0.02161153982661343
+p1 new coords aa 11.940778328139725, 2.47060533032011, -0.021987952381191035
+p1 new coords aa 12.10440786068423, 2.0392295862625143, -0.1030153500253102
+p1 new coords aa 12.035992796095353, 2.001147197833919, 0.19360500811716946
+p1 new coords aa 11.925035605341506, 2.128205956545892, -0.021480700497059246
+p1 new coords aa 12.132200124983356, 2.0633894001795756, -0.11574835225876001
+p1 new coords aa 11.920349981338875, 2.0959827116803704, -0.11900160571368139
+p1 new coords aa 11.944607824993355, 2.2551531749376057, -0.03880968643857448
+p1 new coords aa 11.935015337807911, 2.12208462336379, -0.0038897340997575205
+p1 new coords aa 11.934533429272564, 2.15129704935552, -0.03463295454942807
+p1 new coords aa 11.899743178790583, 2.045725452916238, -0.08999912167211659
+p1 new coords aa 11.911601555970213, 2.0169841556657038, 0.017387961091282947
+p1 new coords aa 11.985096486483826, 2.1871485466221925, -0.024284980119177214
+p1 new coords aa 11.964032844313113, 2.146205620949441, -0.1410884900796883
+p1 new coords aa 11.950515931604087, 2.1108904559638453, -0.1168676998863199
+p1 new coords aa 12.138033408673602, 2.1346616616882224, -0.30972733287584653
+p1 new coords aa 12.119911224984424, 2.031809882361404, -0.17995478910520987
+p1 new coords aa 12.068371298020296, 2.132374707357985, -0.10704123275171394
+p1 new coords aa 12.135373222774513, 2.1685278316753402, -0.0641240349855103
+p1 new coords aa 12.107382206457665, 2.1123122927437326, -0.06618239271518675
+p1 new coords aa 12.09349864101977, 2.324105838059326, -0.19974068708622705
+p1 new coords aa 12.01928065081381, 2.1748910152774195, -0.08680308669202105
+p1 new coords aa 11.961990157458121, 1.9978024354703057, -0.15116658017382184
+p1 new coords aa 12.066502444825574, 1.9855988265030524, -0.04148920002913223
+p1 new coords aa 12.314048604032417, 2.2429026372750553, 0.08735225874266067
+p1 new coords aa 12.050158614440507, 2.387819119228147, -0.23950866789751823
+p1 new coords aa 12.217430595183517, 2.3789667854913668, -0.03570302213557425
+p1 new coords aa 12.166305897628146, 2.3761377221722086, 0.015417438367331032
+p1 new coords aa 12.176117314705678, 2.281018760219261, 0.0522676670006261
+p1 new coords aa 12.188061721489559, 2.268087990626537, 0.24598680553607288
+p1 new coords aa 12.213134395885472, 2.229529542094906, 0.036751034116512454
+p1 new coords aa 11.93538642198735, 2.206336818818135, -0.07806563885826506
+p1 new coords aa 11.682088321729736, 1.9344585660703213, 0.05990205234010815
+p1 new coords aa 11.615173729081786, 2.006748061441654, 0.01695085673493618
+p1 new coords aa 11.50235031592816, 2.0647810641155315, 0.08376896438122719
+p1 new coords aa 11.729284589195613, 2.230416529019052, -0.031199749523308035
+p1 new coords aa 11.64525466512628, 2.3840237428260513, 0.06443052873207573
+p1 new coords aa 11.565149800184683, 2.4593445096486124, 0.033166978388271165
+p1 new coords aa 11.658112502335461, 2.203122235278161, 0.145344205217677
+p1 new coords aa 11.484710377441372, 2.2198666444788255, 0.017638220145641342
+p1 new coords aa 11.579329143244923, 2.3028994657562754, 0.3558403583158478
+p1 new coords aa 11.338901199617691, 2.3333830712494716, 0.18518025648783676
+p1 new coords aa 11.500460491720105, 2.178798382079959, -0.08810943553587891
+p1 new coords aa 11.517401440915382, 2.306702791052505, 0.05954823763652242
+p1 new coords aa 11.616271707495356, 2.348916569441817, 0.22428278069601715
+p1 new coords aa 11.53601456846324, 2.203010678775116, 0.13174752056880756
+p1 new coords aa 11.442655058150873, 2.2198646731677045, -0.09268039093923541
+p1 new coords aa 11.463219957898495, 2.2066215611781757, 0.17462487016667516
+p1 new coords aa 11.468083497121842, 1.9641530849427058, 0.10064825022621422
+p1 new coords aa 11.736978858965896, 2.1256404851210027, 0.014227101070641554
+p1 new coords aa 11.502687175213053, 2.2091088174340507, -0.06685064962892996
+p1 new coords aa 11.31796965068809, 2.2036156216240723, 0.31761349794747823
+p1 new coords aa 11.524577479139271, 2.3869296423169875, 0.20586082870739725
+p1 new coords aa 11.487908354960986, 2.3934980111025235, -9.008518149874745E-4
+p1 new coords aa 11.560978759684929, 2.3557182744413225, 0.16613008645383892
+p1 new coords aa 11.55251990916049, 2.3905404123114335, 0.4332627730484585
+p1 new coords aa 11.594407686539547, 2.4234931216906075, 0.25580527554357246
+p1 new coords aa 11.685679007161836, 2.382397758600265, -0.14073040640670648
+p1 new coords aa 11.76886045735707, 2.35827804075233, -0.11992198793935548
+p1 new coords aa 11.757138319820063, 2.3857252416570978, 0.027472875610538197
+p1 new coords aa 11.76300410621138, 2.3667247553851665, 0.060517482224926325
+p1 new coords aa 11.993375695670322, 2.475299546534728, 0.08049839044481781
+p1 new coords aa 11.806619996210282, 2.5345029165562183, -0.15380203507531554
+p1 new coords aa 11.663529491335904, 2.578653514505421, -0.0703499855550722
+p1 new coords aa 11.739769662741944, 2.639742747844983, -0.13232208065454204
+p1 new coords aa 11.683766565535755, 2.636677560849787, 0.09769629292804566
+p1 new coords aa 11.677906920747963, 2.5088896106318535, 0.04595879756167789
+p1 new coords aa 11.644657515019068, 2.6104710961824833, 0.005728021155819073
+p1 new coords aa 11.824682820284757, 2.6304763476865873, 0.008072640782250482
+p1 new coords aa 11.914825846435232, 2.598414942021338, 0.12960212104091084
+p1 new coords aa 11.717828100108576, 2.222023864691683, 0.14883889960304553
+p1 new coords aa 11.476774140235861, 2.1112874815330813, 0.13886207642972456
+p1 new coords aa 11.352970774835283, 2.126618706661013, 0.12919090395592955
+p1 new coords aa 11.385923216447011, 2.1411033381944153, -0.21153084156641985
+p1 new coords aa 11.176429734217793, 2.299770509526129, -0.03354576118038918
+p1 new coords aa 11.239967757539498, 2.065220976509794, 9.777644294828927E-4
+p1 new coords aa 11.299127749653803, 2.161291070687707, 0.06122218227749877
+p1 new coords aa 11.35221618856841, 1.9543678991186217, 0.15822287546792116
+p1 new coords aa 11.583762435760697, 1.9810909375197092, 0.0811331100610884
+p1 new coords aa 11.462595241297063, 2.042934785860071, 0.06299546250872261
+p1 new coords aa 11.39139042302619, 2.01924596221193, 0.2433647998859012
+p1 new coords aa 11.152307102956948, 1.8739216508317997, -0.053833912959518004
+p1 new coords aa 11.017166705192595, 1.907971731237422, 0.0502830595197134
+p1 new coords aa 10.990798648584065, 1.9663944273156804, 0.04485926389786768
+p1 new coords aa 10.886059179292483, 1.8992586049563471, -0.13774552570774137
+p1 new coords aa 10.788029139649838, 2.0434513582567297, -0.09411261457197992
+p1 new coords aa 10.852487453439878, 1.6730238382593536, 0.04538861936606964
+p1 new coords aa 10.745848759779614, 1.6919219187912151, 0.06218725217390692
+p1 new coords aa 10.622890013526614, 1.8784462848803942, 0.09936894270319853
+p1 new coords aa 10.583088060472093, 1.8642642941751328, 0.024856702733248928
+p1 new coords aa 10.629397675452532, 1.8546676420490136, 0.06681627255805726
+p1 new coords aa 10.577487708780692, 2.0174231533493567, -0.0018218415809986704
+p1 new coords aa 10.531523825205445, 1.9620302390919375, -0.03533784505002206
+p1 new coords aa 10.620425383539008, 1.855988728520799, -0.06623418609529796
+p1 new coords aa 10.715132439400824, 1.804432354897401, -0.0012230600079537746
+p1 new coords aa 10.53421098714836, 1.9033485087154418, -0.06713889202355375
+p1 new coords aa 10.361032021135783, 1.641907703365666, 0.018725974950325186
+p1 new coords aa 10.262652713346062, 1.5022935124110433, -0.21044140652812332
+p1 new coords aa 10.068605438659594, 1.4539141290961362, 0.0984822960963272
+p1 new coords aa 9.825109312634032, 1.3941937000335847, 4.109433933580653E-4
+p1 new coords aa 9.776391280971898, 1.3437736588246787, -0.04952965449822425
+p1 new coords aa 9.754302929404728, 1.1416936032292435, 0.0528527683460474
+p1 new coords aa 9.837307079449513, 1.0754193729549035, 0.14895196656774584
+p1 new coords aa 9.571595286648332, 1.1118870861825259, 0.1730379537246629
+p1 new coords aa 9.591741758306561, 0.9432426308310041, 0.12492606640205182
+p1 new coords aa 9.724140209950182, 0.9253161266621964, 0.19047970243046292
+p1 new coords aa 9.885764488376196, 0.87495430860053, 0.29257194050665075
+p1 new coords aa 9.836084242730719, 0.6912921250318624, 0.029767436984337536
+p1 new coords aa 9.861744601202833, 0.7592978203963164, -0.2988193128398685
+p1 new coords aa 9.901159015768531, 0.7588468426273453, 0.06758855591800966
+p1 new coords aa 9.955272339405514, 0.7842403203182642, 0.07704625526150388
+p1 new coords aa 9.996859352963458, 0.7550494945850527, -0.0316494006612319
+p1 new coords aa 10.139871418803471, 0.6937925027644455, 0.05400445860167123
+p1 new coords aa 10.195593235935373, 0.6325564917391647, -0.008305608677934395
+p1 new coords aa 10.142924888198129, 0.8296328862255219, 0.13568626365040906
+p1 new coords aa 10.25953689745779, 0.724175359271612, 0.17767074556389853
+p1 new coords aa 10.14489119281227, 0.5781031787467795, -0.004184973770353234
+p1 new coords aa 10.053769870793856, 0.8541919750988503, -0.15471377642725467
+p1 new coords aa 10.179304828938971, 1.012360120233236, -0.17963075459903308
+p1 new coords aa 10.141845920922528, 1.2141613621862757, -0.0445185259183645
+p1 new coords aa 10.178562985990192, 1.0458976218067675, 0.053035029330270156
+p1 new coords aa 10.351250819524955, 0.8924875117664961, 0.1229726652602025
+p1 new coords aa 10.260962207352392, 0.958059100530248, 0.0876009895832017
+p1 new coords aa 10.333761302410105, 1.0503450297417616, 0.1988428198468129
+p1 new coords aa 10.075883833149812, 1.1510296819602157, 0.061875616382644744
+p1 new coords aa 10.063862067990357, 1.098646393100516, -0.21328608508086097
+p1 new coords aa 9.690212319389296, 0.9725710574519293, -0.11530105551934357
+p1 new coords aa 9.523116977174112, 0.9256892020082221, -0.4437590984739549
+p1 new coords aa 9.53875187767766, 1.0130776254384564, -0.6121289450973795
+p1 new coords aa 9.38720467946114, 1.0149151935047869, -0.47502278148173915
+p1 new coords aa 9.640589972938065, 1.0106353260349084, -0.1352112169675776
+p1 new coords aa 9.73429724054974, 0.9367317546458267, -0.09765849246386683
+p1 new coords aa 9.768573094253998, 0.7625765773347146, 0.1238262442070726
+p1 new coords aa 9.861178849933586, 0.799151985012908, 0.042676291422437326
+p1 new coords aa 9.647235183641516, 0.8829198403980325, -0.10938339322881167
+p1 new coords aa 9.58152958987496, 1.021051994741089, -0.056492061771955565
+p1 new coords aa 9.697531825012708, 0.9226287723818534, -0.019885336749408844
+p1 new coords aa 9.890988872045979, 0.8919775443411763, -0.10977699718075014
+p1 new coords aa 9.877388982462424, 1.1462822064499483, -0.18603600901700063
+p1 new coords aa 9.844988154847725, 1.2284866620913037, -0.2928518303193415
+p1 new coords aa 9.963140813463683, 1.203967963591672, -0.18049884025681895
+p1 new coords aa 9.744529671327106, 1.3266551635500357, -0.18117786748755638
+p1 new coords aa 9.743232505911136, 1.331182916978683, -0.49548211860218955
+p1 new coords aa 9.559767238820877, 1.4463995185534135, -0.142661547318996
+p1 new coords aa 9.629823061442412, 1.6640809738022728, -0.07367824258774044
+p1 new coords aa 9.638015816011587, 1.5059274750879839, 0.13842832023129362
+p1 new coords aa 9.699913984242713, 1.4520858904629228, 0.06801368851674329
+p1 new coords aa 9.552573694049718, 1.4745376787219073, -0.2019492877207324
+p1 new coords aa 9.58513445952223, 1.2902169028195936, -0.4528168462368146
+p1 new coords aa 9.645971126882902, 1.456363591511242, -0.28938204393741196
+p1 new coords aa 9.582511214927816, 1.5491751585187474, -0.26823590970801936
+p1 new coords aa 9.546185109742936, 1.7106094882340985, -0.30788001957474814
+p1 new coords aa 9.331064820404707, 1.4058275231943345, -0.2307294316312012
+p1 new coords aa 9.363712666437294, 1.374358467294289, -0.14597213746502186
+p1 new coords aa 9.345920875169162, 1.4074393059692578, 0.032887604479808874
+p1 new coords aa 9.427074237571368, 1.5598553140935894, 0.023543985424758013
+p1 new coords aa 9.347801287889187, 1.4376321995155494, 0.11497706626904153
+p1 new coords aa 9.24719084592039, 1.50830004655999, 0.26437501384166556
+p1 new coords aa 9.5102794337679, 1.4135347149341464, 0.023326128883540964
+p1 new coords aa 9.452971445526483, 1.4844806575827412, 0.23178071353255822
+p1 new coords aa 9.383355255828256, 1.3556322133912935, 0.2719539160923016
+p1 new coords aa 9.456675307992617, 1.3625135490782592, 0.20169149134610825
+p1 new coords aa 9.459420610666827, 0.9814843458005142, 0.1481023088896606
+p1 new coords aa 9.393934728251763, 1.3046634891176216, -0.18322546068395582
+p1 new coords aa 9.263428751190041, 1.147976839637931, 0.017055506426626482
+p1 new coords aa 9.316116195078846, 1.3821114287980958, 0.08849601709005521
+p1 new coords aa 8.847299525362033, 1.1941884051834746, 0.012998839994955644
+p1 new coords aa 8.865593448106912, 1.2104700410459526, -0.16711365673857304
+p1 new coords aa 8.726173372930685, 1.0508973657381602, -0.18064319959633657
+p1 new coords aa 8.710860821068124, 1.1611173982423717, -0.160151255806481
+p1 new coords aa 8.655905759428443, 1.0726921801459994, 0.34472477958149406
+p1 new coords aa 8.753339867816662, 1.2100532039808347, 0.0952030710254253
+p1 new coords aa 8.866567553911366, 0.9825778016968517, 0.16572796809780324
+p1 new coords aa 9.087996758951974, 1.0709413804152315, 0.02188604353341203
+p1 new coords aa 9.036881515131224, 0.8651956794666446, 0.134339252151516
+p1 new coords aa 9.112709786461236, 1.0224748896762879, 0.15378450467442129
+p1 new coords aa 9.034639407311783, 0.9561205303523116, 0.09033772559466238
+p1 new coords aa 9.163366169014544, 1.2134266121256716, -0.009635636680653842
+p1 new coords aa 9.10916989118257, 1.1371890922489414, 0.08322005779421023
+p1 new coords aa 9.301262090974772, 1.1705102839424566, -0.08758628672851902
+p1 new coords aa 9.353360097366547, 1.0757207163951392, 0.11300705109986216
+p1 new coords aa 9.08464883423796, 1.1997942174840819, 0.01989502855990849
+p1 new coords aa 9.103689717752703, 1.3399377561471693, 0.03926793555205507
+p1 new coords aa 9.502712030923728, 1.2961354233573652, -0.26338238544373516
+p1 new coords aa 9.427004465599419, 1.1300495612307044, -0.08844000611095376
+p1 new coords aa 9.655293299774108, 1.1935562018614454, 0.17041119287491935
+p1 new coords aa 9.604067424800558, 1.0649214104734845, 0.25869652620844663
+p1 new coords aa 9.513685845721325, 1.311171855798956, -0.015598064141982726
+p1 new coords aa 9.591310989877684, 1.4151956365742042, -0.0012252491322453114
+p1 new coords aa 9.62513867471471, 1.5588391622864526, -0.15226671392480912
+p1 new coords aa 9.530337329029951, 1.5213216791892725, 0.007705851612636927
+p1 new coords aa 9.477122343735052, 1.4870795601240172, -0.04076020588060024
+p1 new coords aa 9.415546437041364, 1.4660881688461675, -0.14570837844329604
+p1 new coords aa 9.562644852731948, 1.3109471670434418, -0.12416084754551254
+p1 new coords aa 9.23912592707882, 1.279966138548705, -0.15511915181445726
+p1 new coords aa 9.4141648745441, 1.2590297189714972, -0.2588832640561193
+p1 new coords aa 9.39437261049712, 1.1193660196641642, -0.09966012344620467
+p1 new coords aa 9.3882982902749, 1.2094348400720822, -0.018886952996661183
+p1 new coords aa 9.341823072115101, 1.4717257364241485, -0.1658574976375828
+p1 new coords aa 9.449182686807251, 1.5443540265275018, -0.24921931952050277
+p1 new coords aa 9.89638652636848, 1.7114938943546971, -0.16353863882429845
+p1 new coords aa 10.090924318967472, 1.7915352607329929, -0.2693857529158955
+p1 new coords aa 9.937715138352283, 1.7404693549640844, -0.023990140346497046
+p1 new coords aa 10.000902685108455, 1.763595047290341, -0.0748160363201746
+p1 new coords aa 10.241679311525605, 1.6707139169534362, -0.2136022656771569
+p1 new coords aa 10.248679254947637, 1.638366654600046, -0.41615028263650267
+p1 new coords aa 10.280174400281224, 1.7399483651451686, -0.36666435150795307
+p1 new coords aa 10.26820230665237, 1.8008961417159028, 0.0491491444035112
+p1 new coords aa 10.126894366379155, 1.7695503181237249, -0.16551552773795417
+p1 new coords aa 10.2679589043306, 1.5160700324985177, 0.035229473039687514
+p1 new coords aa 10.390465226101407, 1.6781921797403287, -0.03711218601966407
+p1 new coords aa 10.41173735453703, 1.873610908687817, -0.22811193919847145
+p1 new coords aa 10.323315717781337, 1.7357300221298828, -0.12545944153870292
+p1 new coords aa 10.089912284915306, 1.7610532868982365, -0.07902774911666713
+p1 new coords aa 10.150188451320123, 2.031720757320056, -0.3578850147202005
+p1 new coords aa 10.303966573254375, 2.1199365883250034, -0.6550209809161002
+p1 new coords aa 10.15708581945032, 2.1920250552769684, -0.552676538219216
+p1 new coords aa 10.124330733714629, 2.4396866568059763, -0.2969164705391269
+p1 new coords aa 10.045745137004964, 2.2264615261019265, -0.4511778527896968
+p1 new coords aa 9.860246180457098, 2.1692501013830356, -0.013974985766676329
+p1 new coords aa 9.805305761859245, 2.340972792543847, 0.14994349898358117
+p1 new coords aa 9.887964934164762, 2.2526801021145704, 0.2703384719416737
+p1 new coords aa 9.882554940433916, 2.0533050105216413, 0.3533875827610733
+p1 new coords aa 9.952955628074177, 2.2220359341849973, 0.08418451440854391
+p1 new coords aa 9.87054684096251, 2.0031502016350338, -0.014817564192567911
+p1 new coords aa 9.928691997563984, 1.8933271753660954, -0.09846503379242721
+p1 new coords aa 9.74031767631758, 2.0017441671894782, -0.04056152054677977
+p1 new coords aa 9.86783067743975, 1.9366964593846232, 0.08500393315890731
+p1 new coords aa 9.636257529837858, 1.7099759210561847, 0.2037331355388916
+p1 new coords aa 9.816279682971572, 1.6352192618970178, 0.14959047509371579
+p1 new coords aa 9.737452389583492, 1.3899918672599, 0.04838842799668752
+p1 new coords aa 9.757740680509981, 1.4194816140282367, 0.27074344630453046
+p1 new coords aa 10.009277270966566, 1.5041645722866952, 0.3316845077845372
+p1 new coords aa 9.914033643473878, 1.612493444970174, 0.21683482329391837
+p1 new coords aa 9.732384653250708, 1.7097258987150727, 0.1637718568782146
+p1 new coords aa 9.558301821282173, 1.5966198101588098, -0.15302825970817463
+p1 new coords aa 9.66172616298634, 1.7598732045352876, 0.13778351960146062
+p1 new coords aa 9.377590614327389, 1.713646804962087, 0.05960411229498483
+p1 new coords aa 9.482532127245763, 1.7882369069758508, -0.032773074174725414
+p1 new coords aa 9.503347615939, 1.8030259823464438, 0.012307613575288937
+p1 new coords aa 9.378741640676353, 1.9326618038216237, 0.13328857013489853
+p1 new coords aa 9.506063978781501, 1.7800687167717126, 0.09269538260982621
+p1 new coords aa 9.503934837798894, 1.6273685402943017, -0.06489397035301728
+p1 new coords aa 9.17295685231209, 1.7976899958314934, -0.24457480635607912
+p1 new coords aa 9.109699624965874, 1.8367066956352123, 0.07415051859457591
+p1 new coords aa 9.129673464794502, 1.8825665310153097, -0.16063612760173862
+p1 new coords aa 9.352843540393344, 1.675696773425023, -0.05441429836183226
+p1 new coords aa 9.539131631408349, 1.7576154353344615, 0.07946827679994659
+p1 new coords aa 9.525848678598273, 1.6712786512554954, 0.19177543580798875
+p1 new coords aa 9.818863009975825, 1.360568264358339, 0.15901528273274218
+p1 new coords aa 9.92365628212978, 1.528152879085205, 0.28769206197007563
+p1 new coords aa 9.728336651728103, 1.5366718330286901, -0.12176775505068343
+p1 new coords aa 9.695257218910891, 1.4824378945689551, 0.056709717570130075
+p1 new coords aa 9.575258501362079, 1.5167310121942519, 0.07350924390576019
+p1 new coords aa 9.686715921393121, 1.4080811327588856, 0.12163586526290719
+p1 new coords aa 9.51117308870901, 1.6136701919711494, 0.2078918280452276
+p1 new coords aa 9.575900237964143, 1.4344707626856603, 0.19002167844480855
+p1 new coords aa 9.60131593485773, 1.4942099507570636, -0.12667907191113825
+p1 new coords aa 9.569935601074997, 1.6264456095354207, -0.2625374986109779
+p1 new coords aa 9.696439948261382, 1.6852851301971523, -0.30231030379966445
+p1 new coords aa 9.87980308814378, 1.7367755035262196, -0.08289572332066553
+p1 new coords aa 9.870153340573573, 1.7870705137380438, 0.10907773378738589
+p1 new coords aa 10.067174801606253, 1.8689968991587083, 0.14960388503975802
+p1 new coords aa 10.130417171894585, 1.7825718902534489, 0.10902555356423604
+p1 new coords aa 10.456434066854264, 1.6884387355276707, 0.16397455523887514
+p1 new coords aa 10.285623402162717, 1.7352287553379733, -0.18105446240666193
+p1 new coords aa 10.053841794909745, 1.7756555292276759, -0.09985080736051945
+p1 new coords aa 10.158667781385974, 1.726232350048638, -0.03308828915322995
+p1 new coords aa 10.02138224315086, 1.8402554221148315, -0.009308698514797466
+p1 new coords aa 9.940178400633961, 1.8800797676462526, -0.2921648800783712
+p1 new coords aa 9.99925603188011, 2.1583082396817783, -0.41624212895321244
+p1 new coords aa 9.952928192263583, 2.0392203061926626, 0.11377551872104252
+p1 new coords aa 10.181398170064488, 2.1074583552267088, 0.05231278243869644
+p1 new coords aa 9.98637357899252, 2.0514927007534958, -0.13854968998661896
+p1 new coords aa 9.986770945188786, 1.843680275223183, -0.2181995587657104
+p1 new coords aa 10.035474178261197, 1.8400036136418345, 0.02297187364627562
+p1 new coords aa 9.94051443307635, 1.7841389132155367, -0.18040204072380292
+p1 new coords aa 9.969751503136763, 1.728325040350094, 0.017289054858531966
+p1 new coords aa 10.134810433006932, 1.573817401430753, 0.13564654691254446
+p1 new coords aa 10.125612595067926, 1.514488710413978, 0.22354024804912634
+p1 new coords aa 10.103793918034802, 1.725272831366865, 0.05756539232930363
+p1 new coords aa 10.04479436268711, 1.8523554248351943, 0.10147553346676047
+p1 new coords aa 9.959987664059069, 1.905633323916276, -0.2216541915169019
+p1 new coords aa 9.961299605995674, 1.921041362853532, -0.3205683875879217
+p1 new coords aa 9.821792375188945, 1.770320174974531, -0.05845012571158403
+p1 new coords aa 9.950315011296043, 1.6447777201725198, 0.12353929696113566
+p1 new coords aa 9.959697410024042, 1.5688032001355905, -0.23787395536246256
+p1 new coords aa 10.322537119855049, 1.3454864242276905, -0.08446873471911129
+p1 new coords aa 10.45343042170951, 1.1091032610866172, 0.05035962509014846
+p1 new coords aa 10.395040517278671, 0.9572328209096708, 0.12217120163075965
+p1 new coords aa 10.392058230296758, 1.0631527820208018, -0.03773889054341642
+p1 new coords aa 10.145076068664833, 1.1291302443839373, 0.10914698455442451
+p1 new coords aa 10.386531779504946, 1.2635602953208709, -0.003959920419849439
+p1 new coords aa 10.554879674425436, 1.177979224605902, -0.2147659578075985
+p1 new coords aa 10.464632889857734, 1.0806260069435911, 0.024300411565191138
+p1 new coords aa 10.26934154001494, 1.180019672317129, 0.1438120745184408
+p1 new coords aa 10.100760460751777, 0.7936287228806584, 0.18601184414702898
+p1 new coords aa 10.043757063861285, 0.8045222691187799, -0.032815091841502164
+p1 new coords aa 9.971503002470529, 0.6835719491338843, 0.022453533321791265
+p1 new coords aa 9.930266833943312, 0.5792092711457548, 0.28423103946837747
+p1 new coords aa 10.029156003736338, 0.7193784243471019, 0.13888299456073377
+p1 new coords aa 9.795424188272895, 0.7424895178094731, 0.3840432692250423
+p1 new coords aa 9.79841321668385, 0.7432868242266332, 0.292980827141174
+p1 new coords aa 9.856111417702461, 0.7637150102277691, 0.23138437002757808
+p1 new coords aa 10.029879104869606, 0.6388492990353165, 0.00230407990873549
+p1 new coords aa 10.105807380492239, 0.6600122193993797, 0.2407915706392749
+p1 new coords aa 10.270926460868113, 1.0921006129253907, 0.06664068175972596
+p1 new coords aa 10.031792427502525, 0.9296438439839797, 0.147266264251741
+p1 new coords aa 9.917227671635725, 1.1872226719955132, 0.00450795816944316
+p1 new coords aa 10.042718774710446, 1.0351652895957302, 0.4464022811972974
+p1 new coords aa 10.159828395937724, 0.9449673345661977, 0.28185780379510406
+p1 new coords aa 10.323554473407778, 0.7073291154998581, 0.29938586721470156
+p1 new coords aa 10.391366235963806, 0.4879761839370188, 0.23705236284328404
+p1 new coords aa 10.328395367983918, 0.6024770490906421, 0.05999427115529263
+p1 new coords aa 10.303999979565942, 0.6623907797752416, 0.009817677728492444
+p1 new coords aa 10.203283236990698, 0.5984936091883732, -0.2469048887639529
+p1 new coords aa 10.151938393926418, 0.3417917974656452, 0.005833809674043289
+p1 new coords aa 10.043985188811474, 0.4464602251394356, 0.14078952151050922
+p1 new coords aa 10.134054534935593, 0.4472750462608822, -0.08789499365330586
+p1 new coords aa 10.350914681398246, 0.3713565671254964, 0.3185406400484787
+p1 new coords aa 10.390035099178288, 0.5440809767639785, -0.053328295667188774
+p1 new coords aa 10.535267005914205, 0.5905681854669698, 0.13905338186990102
+p1 new coords aa 10.566950591922181, 0.5552377731036547, 0.10432010597256312
+p1 new coords aa 10.82891328769125, 0.507530884625703, 0.040215729903971764
+p1 new coords aa 10.813055364381766, 0.7224177643903187, 0.08422587064527455
+p1 new coords aa 10.807532341444313, 0.6873007034136103, 0.1182044559572085
+p1 new coords aa 10.75080804024224, 0.6252190338655979, 0.03823031723570548
+p1 new coords aa 10.928061671758128, 0.6273408898617592, -0.009667247499153889
+p1 new coords aa 10.96843471396837, 0.7563485929811454, -0.10078327725935864
+p1 new coords aa 10.804317791622209, 0.6365336608720429, -0.015707255523338334
+p1 new coords aa 10.743442779067687, 0.5641618648418582, -0.034048974441486426
+p1 new coords aa 10.75465079486701, 0.4776778345587038, 0.07969034068482445
+p1 new coords aa 10.611101361044769, 0.47287180121371347, -0.08324329022411175
+p1 new coords aa 10.635361209479603, 0.5804869143211095, 0.08449269409850305
+p1 new coords aa 10.543015992144909, 0.5390848337530527, 0.19468106978750083
+p1 new coords aa 10.320388205905997, 0.3639412422032131, -0.07340327150552489
+p1 new coords aa 10.296757075783612, 0.3610240179533219, -0.22564380895252212
+p1 new coords aa 10.449800474682966, 0.3888861785774411, -0.1165364872528062
+p1 new coords aa 10.390396614528333, 0.542445509618203, -0.16418952426768144
+p1 new coords aa 10.59550235391473, 0.6544625726699301, -0.19640827631120045
+p1 new coords aa 10.577135123982456, 0.6689881131596064, -0.11696735870053158
+p1 new coords aa 10.464262200013918, 0.922163725585861, -0.32607356131629556
+p1 new coords aa 10.594067447840192, 1.1937386634474298, -0.15246782487584254
+p1 new coords aa 10.481464091005227, 0.9986888700722537, -0.1757534371788121
+p1 new coords aa 10.34717442547047, 1.086099982739722, -0.12071365421020604
+p1 new coords aa 10.399175500697616, 1.235272439847224, -0.09735999052759806
+p1 new coords aa 10.340778847534335, 1.191018450214398, -0.18947551186944728
+p1 new coords aa 10.41174310109095, 0.9810266253217467, -0.17416053951905922
+p1 new coords aa 10.332199762828841, 0.9414444870849582, -0.1597281815330572
+p1 new coords aa 10.173479278494991, 0.9149485062891571, -0.11199235593738058
+p1 new coords aa 10.231576096100893, 0.8553361733180027, -0.010816048484916949
+p1 new coords aa 10.17565844908551, 0.6817382403489177, -0.030449618277733802
+p1 new coords aa 10.448676945821326, 0.6439683160438238, -0.0926726817315176
+p1 new coords aa 10.392398357627469, 0.6279328675248926, -0.2595211402887544
+p1 new coords aa 10.3905665308668, 0.8025480616755745, -0.13156230604216002
+p1 new coords aa 10.393335769458366, 0.90816827344619, 0.029093118014955455
+p1 new coords aa 10.221372131211735, 0.9163232409429664, 0.28904163046747117
+p1 new coords aa 10.349195185387849, 1.0766931160803512, 0.013085240801201437
+p1 new coords aa 10.17214866282347, 0.6702278560722994, 0.06957186363118303
+p1 new coords aa 10.376279307620687, 0.6284370054982467, -0.2051355964306715
+p1 new coords aa 10.376990395992445, 0.7401419345161891, -0.1760108114262175
+p1 new coords aa 10.426511532164108, 0.9121087577353602, -0.06380864485268783
+p1 new coords aa 10.453818140194688, 0.7934904910527837, -0.0010026488169599668
+p1 new coords aa 10.320550085181411, 1.0018683567426552, 0.17265536460062678
+p1 new coords aa 10.377970172350244, 1.0201346458069003, 0.25487910213191234
+p1 new coords aa 10.41989745920162, 1.0641753904415294, 0.267161262229972
+p1 new coords aa 10.36448717962992, 0.7447850390509552, 0.11886453081542792
+p1 new coords aa 10.476098214360078, 0.7136253910986016, -0.13921284316870852
+p1 new coords aa 10.404303298957837, 0.5963502191519273, -0.31622797093959687
+p1 new coords aa 10.127824182987679, 0.5361939897625142, -0.085973069588696
+p1 new coords aa 10.167786671849283, 0.6146246151484331, -0.2717250861501428
+p1 new coords aa 10.23668018912977, 0.751491915449683, 0.0866173253876032
+p1 new coords aa 10.19180550177231, 0.7847588929878375, -0.004616294923251135
+p1 new coords aa 10.146972679482111, 0.609496146484019, -0.16042696616219704
+p1 new coords aa 10.110911711602464, 0.7846482489178737, 0.008678574923048521
+p1 new coords aa 10.121333840836414, 0.7621776920845594, -0.11691076255284336
+p1 new coords aa 10.088948040518444, 0.726147527047008, 0.08824058786416183
+p1 new coords aa 10.203144930559803, 0.5461926951066215, 0.0940437825036174
+p1 new coords aa 10.10137871872945, 0.5618777204857462, -0.23558629352204652
+p1 new coords aa 10.233327060153398, 0.5909001852496851, -0.13620895997834498
+p1 new coords aa 9.96591454548923, 0.6567967053541779, -0.03397129306686261
+p1 new coords aa 9.862766249373255, 0.3536123185916153, -0.1868537116898443
+p1 new coords aa 9.799670129668083, 0.47107972871698356, -0.1322149384822246
+p1 new coords aa 10.168696835752575, 0.594372096421537, -0.20392786899549242
+p1 new coords aa 10.281339663325802, 0.5412477539328632, 0.16654687517725564
+p1 new coords aa 10.20888947518487, 0.3157827822268487, 0.24413711696239268
+p1 new coords aa 10.370735657631544, 0.19179812033718815, 0.22076301775557267
+p1 new coords aa 10.402184655860866, 0.2013542315270559, -0.07195028785264584
+p1 new coords aa 10.605153115325114, 0.24855242952922033, -0.27621252697798426
+p1 new coords aa 10.405673250308585, 0.24026616547746552, -0.44738606814110826
+p1 new coords aa 10.401183647221288, 0.22269941624874917, -0.18569763728067323
+p1 new coords aa 10.316239747221747, 0.047447034010077466, -0.09561893212525414
+p1 new coords aa 10.10888687930128, -0.030466061870223507, -0.01112653884413918
+p1 new coords aa 10.085343329424566, 0.019822287024264446, 0.16475934247624785
+p1 new coords aa 9.943455570676615, -0.0078102192662360265, 0.20689935243937374
+p1 new coords aa 9.865135818100066, 0.01796776627956428, 0.43857602951866065
+p1 new coords aa 9.759540635035808, 0.0208391376285267, 0.4520688567025661
+p1 new coords aa 9.744221811523344, 0.22350199947661234, 0.4327504273858659
+propagatePair
+dist: 0.17320508075688712
+dist: 0.2932989734610012
+dist: 0.3228153317350552
+dist: 0.5731037264954487
+dist: 0.3671981016485782
+dist: 0.7728507566114037
+dist: 0.8772915357958373
+dist: 0.9306098084713486
+dist: 0.9176397739665249
+dist: 0.9443479238858743
+dist: 1.139300380178667
+dist: 1.0315316580501177
+dist: 0.6821221386882631
+dist: 0.8780735217612538
+dist: 0.856221353472932
+dist: 0.5298796139208307
+dist: 0.6607168246701225
+dist: 0.759012786443979
+dist: 0.8753380339453622
+dist: 0.8144544354940252
+dist: 1.073009994199653
+dist: 1.1423441440863058
+dist: 1.3243491610410851
+dist: 0.8537864653237225
+dist: 0.8286599077911599
+dist: 0.901508050115659
+dist: 1.0310871141105933
+dist: 0.9882693566580718
+dist: 0.998508278045212
+dist: 1.1525844681269417
+dist: 1.3521716095209548
+dist: 1.367663208492414
+dist: 1.5721434724908887
+dist: 1.5922388631065045
+dist: 1.3565114210051306
+dist: 1.3257239820903814
+dist: 1.360183123490718
+dist: 1.2756083921922616
+dist: 1.3776224726066908
+dist: 1.4538009554793077
+dist: 1.4296333666251027
+dist: 1.5400867599193167
+dist: 1.6174648697687146
+dist: 1.6844927191482189
+dist: 1.4477761617437463
+dist: 1.4968808178524744
+dist: 1.8006467990147659
+dist: 2.080818275792664
+dist: 1.8142445216318694
+dist: 1.707488469492485
+dist: 1.4377729140938147
+dist: 1.4653524063360792
+dist: 1.4146622554320354
+dist: 1.327454037888483
+dist: 1.2154808635185317
+dist: 1.2731563431303008
+dist: 1.1940511514655108
+dist: 1.5006552624166818
+dist: 1.566001075201708
+dist: 1.4641344701454515
+dist: 1.5675110354002504
+dist: 1.446858990788464
+dist: 1.1455917687843944
+dist: 1.3303862675659919
+dist: 1.1459726315954006
+dist: 1.2262958197541143
+dist: 1.7283651975619394
+dist: 1.8715957783217712
+dist: 1.5602571708679
+dist: 1.770492020122557
+dist: 1.9567684587971164
+dist: 1.898981713600414
+dist: 2.1146637052597357
+dist: 2.037496415393874
+dist: 2.220613821878255
+dist: 2.168849629173698
+dist: 2.073125478318471
+dist: 2.320505571672338
+dist: 2.463205491784004
+dist: 2.8268266732139153
+dist: 2.3806150046089587
+dist: 2.306979113000981
+dist: 2.4005791724246337
+dist: 2.52134803351708
+dist: 2.6783560631546677
+dist: 2.554789668774289
+dist: 2.639068382899582
+dist: 2.437519597013653
+dist: 2.5116077549285776
+dist: 2.4923877418466533
+dist: 2.6739458740781337
+dist: 2.9539369136506024
+dist: 3.010362859611475
+dist: 3.4178562544389535
+dist: 3.4948826772558608
+dist: 3.3815136054791166
+dist: 3.492358292086415
+dist: 3.76375527079052
+dist: 3.7165480676727483
+dist: 3.9480140966228583
+dist: 3.791719114562944
+dist: 3.789496670265021
+dist: 3.9394027787068215
+dist: 3.731391521754777
+dist: 3.87769595932275
+dist: 4.05261339869575
+dist: 4.145946581213561
+dist: 4.021473049044803
+dist: 4.063311788438554
+dist: 4.2838785853225705
+dist: 4.500512194725187
+dist: 4.615339263004872
+dist: 4.817325098958492
+dist: 4.886865279995523
+dist: 4.787436902445406
+dist: 4.680949388375247
+dist: 4.962395186460985
+dist: 5.246803924939889
+dist: 5.208672136174936
+dist: 5.2346282977987935
+dist: 5.176119970397774
+dist: 4.882314510489135
+dist: 4.968939216897233
+dist: 4.847173256173269
+dist: 4.50648103385601
+dist: 4.471990763876765
+dist: 4.258654599286615
+dist: 4.252803778363324
+dist: 4.527823744045765
+dist: 4.632134678313018
+dist: 4.554106275884409
+dist: 4.166593359721173
+dist: 4.572059708018565
+dist: 4.436890792145155
+dist: 4.238899629205743
+dist: 4.487531878093475
+dist: 4.357441046857855
+dist: 4.449756089347013
+dist: 4.017263453032704
+dist: 3.8261428203760937
+dist: 3.43674078809436
+dist: 3.176240990457587
+dist: 3.214554945421871
+dist: 3.301779033228761
+dist: 3.5950064163774638
+dist: 3.4981651165515832
+dist: 3.350052867914429
+dist: 3.2930355058454555
+dist: 2.9975549310023077
+dist: 2.7911871861285267
+dist: 3.1803289511365676
+dist: 3.050241230367082
+dist: 2.7203951689505477
+dist: 2.6598846396370748
+dist: 3.007867626134204
+dist: 3.032465534175781
+dist: 3.017882231907606
+dist: 2.8432288068181686
+dist: 2.9880898950485038
+dist: 3.0908950601841605
+dist: 3.191776666558304
+dist: 3.2117994776109966
+dist: 3.0890781762570745
+dist: 3.135379464091466
+dist: 3.6289958595850726
+dist: 3.362089693058614
+dist: 3.3683622098289336
+dist: 3.869633766821447
+dist: 3.875685003257417
+dist: 3.650988662259722
+dist: 3.6023339683124425
+dist: 3.512020742806052
+dist: 3.887277460617752
+dist: 4.09969317869942
+dist: 4.338083342935115
+dist: 4.355789085852496
+dist: 4.087914551535964
+dist: 4.152308684581682
+dist: 4.032447307405616
+dist: 3.837281414125475
+dist: 3.6989894312583522
+dist: 3.8079451988223876
+dist: 3.9002230994888447
+dist: 4.150323151424501
+dist: 3.933196236008946
+dist: 4.10803033192952
+dist: 3.8523262600844452
+dist: 4.132588427573618
+dist: 4.117706904781252
+dist: 4.268138753681789
+dist: 4.504695341129799
+dist: 4.5208197526400795
+dist: 4.542193416915117
+dist: 4.674741702666349
+dist: 4.62789920994806
+dist: 4.271821124637365
+dist: 4.0427536126398405
+dist: 3.926584575671316
+dist: 3.9748712234551187
+dist: 4.115830450698742
+dist: 4.291060555073213
+dist: 4.367182269376706
+dist: 4.443567878613671
+dist: 4.4999431286781855
+dist: 4.355976129483093
+dist: 4.4264777427135025
+dist: 4.576803076716418
+dist: 4.658167081703793
+dist: 4.573990445283713
+dist: 4.429988250514867
+dist: 4.52697968569885
+dist: 4.230565032708563
+dist: 4.132928600138547
+dist: 4.373703144833055
+dist: 3.9262562306742073
+dist: 3.8207204281457927
+dist: 4.142525785606081
+dist: 4.072312319216944
+dist: 4.252608936895344
+dist: 4.419518022172667
+dist: 4.267993478926669
+dist: 4.367859895967209
+dist: 4.5368737054861
+dist: 4.263371463168613
+dist: 4.485404961679278
+dist: 4.566089326240934
+dist: 4.634140380536459
+dist: 4.639242145525651
+dist: 4.320142365740262
+dist: 4.167755000380419
+dist: 4.175282849794786
+dist: 4.357796703406085
+dist: 4.428854081445486
+dist: 4.793418301822894
+dist: 4.814799576429677
+dist: 4.972258380973273
+dist: 4.999914467703748
+dist: 4.992078366213463
+dist: 5.099989946696978
+dist: 5.067718069775592
+dist: 5.181462621157272
+dist: 5.424279099689648
+dist: 5.1976840323832025
+dist: 4.971175828037527
+dist: 5.129003896565467
+dist: 5.318979405323402
+dist: 5.5615945916254175
+dist: 5.889739153061321
+dist: 5.972247864016892
+dist: 5.920499479569666
+dist: 5.865650362202202
+dist: 6.096149530813914
+dist: 6.201869890869411
+dist: 6.267978580951245
+dist: 6.066441968844726
+dist: 6.2467363722674
+dist: 6.432798045806758
+dist: 6.259984975093953
+dist: 6.2138427748720435
+dist: 6.115609209997517
+dist: 6.276050451435025
+dist: 6.56570059951514
+dist: 6.740930392786769
+dist: 6.795904120314597
+dist: 6.6190453920874015
+dist: 6.721143191883176
+dist: 6.682626832552407
+dist: 6.575733871384493
+dist: 6.22428498506962
+dist: 6.090643009356107
+dist: 5.808685759775077
+dist: 5.820689188403348
+dist: 6.052218096411318
+dist: 6.137227177295171
+dist: 6.219772783837473
+dist: 6.195679434703292
+dist: 6.481865047851843
+dist: 6.647821674397455
+dist: 6.587698768129595
+dist: 6.769688599002158
+dist: 6.715306496262223
+dist: 6.762387379562522
+dist: 6.713411444500015
+dist: 6.618726514740518
+dist: 6.413006007069432
+dist: 6.2930913887681355
+dist: 6.412280166430958
+dist: 6.323673836014622
+dist: 6.407606747125777
+dist: 5.795245891369503
+dist: 5.756962224155232
+dist: 5.840970822068943
+dist: 5.929942845917855
+dist: 5.799409663936414
+dist: 5.83959269331863
+dist: 5.768745132624549
+dist: 5.561047189830067
+dist: 5.73683581831846
+dist: 5.628565363142291
+dist: 5.431507553302478
+dist: 5.206502281212755
+dist: 5.071585780657157
+dist: 4.949485676997752
+dist: 4.89739397968153
+dist: 5.096515789935966
+dist: 5.564799799835417
+dist: 5.504340801960109
+dist: 5.089817988084971
+dist: 5.2980680684601085
+dist: 5.235413291000361
+dist: 5.068233405000559
+dist: 4.910923620870694
+dist: 4.994027955477231
+dist: 4.651756600247397
+dist: 4.432690680290793
+dist: 4.29212113945752
+dist: 4.039125949958522
+dist: 4.1150501751829385
+dist: 3.900677282709501
+dist: 3.9175952901457767
+dist: 3.557471752085544
+dist: 3.491076339735664
+dist: 3.5034218440141625
+dist: 3.8909843197912273
+dist: 3.6246963284986577
+dist: 3.8122622286080596
+dist: 3.5838801919378356
+dist: 3.2310601152257528
+dist: 3.5464736670781067
+dist: 3.480895050757043
+dist: 3.6003954657886763
+dist: 3.64908926522622
+dist: 3.5853999858341528
+dist: 3.4628480373433836
+dist: 3.271920076828943
+dist: 3.1042184303379283
+dist: 3.073318438241795
+dist: 3.2449874458410415
+dist: 3.686355124900224
+dist: 3.9105779764528137
+dist: 3.688582648002195
+dist: 4.124393555606728
+dist: 4.235668710347375
+dist: 4.48242583196536
+dist: 4.62835384121779
+dist: 4.508523629057753
+dist: 4.914827638019401
+dist: 4.743899536294445
+dist: 4.721779084922369
+dist: 4.902213848785499
+dist: 5.150067751475201
+dist: 5.159339341780169
+dist: 5.180689045257826
+dist: 5.061802467234855
+dist: 5.115069989861556
+dist: 4.496537134921158
+dist: 4.377463665275321
+dist: 3.9067520133010794
+dist: 4.030922629065581
+dist: 4.068919206792412
+dist: 4.02817463834897
+dist: 3.861830952695605
+dist: 3.759930266798367
+dist: 4.249486312787251
+dist: 4.084600027880695
+dist: 4.3284708915663135
+dist: 4.358680191581702
+dist: 4.234471774793211
+dist: 4.31820328878376
+dist: 4.398961252912571
+dist: 4.275467350635715
+dist: 3.847118090450611
+dist: 3.8378820672210714
+dist: 3.959382296328508
+dist: 3.901910383518875
+dist: 3.7498247779611207
+dist: 3.997283901928317
+dist: 4.348452457192342
+dist: 4.309708242126904
+dist: 4.493792989249188
+dist: 4.0468279020528195
+dist: 3.617643890815591
+dist: 3.9242874261699385
+dist: 3.8151375082441223
+dist: 3.9786732080292833
+dist: 4.069571637059449
+dist: 3.790864317095121
+dist: 4.0781699220224334
+dist: 3.9136182293554826
+dist: 4.033776167249098
+dist: 3.7468100836900446
+dist: 3.828187606492377
+dist: 3.660836831969402
+dist: 3.794162767909578
+dist: 3.9488372280078967
+dist: 4.387935095095387
+dist: 4.089777906967111
+dist: 4.186311720614887
+dist: 4.114228334505725
+dist: 3.8857108234090387
+dist: 3.780718016291948
+dist: 3.905823247553474
+dist: 3.952663831226005
+dist: 3.9873992426347895
+dist: 4.155178944471712
+dist: 3.7946734197180803
+dist: 3.9586670463388276
+dist: 4.053580867777531
+dist: 4.483280981024567
+dist: 4.390013470664792
+dist: 4.366095956493531
+dist: 4.34201648023582
+dist: 4.2280243884378255
+dist: 3.9761714242186312
+dist: 4.448426388850444
+dist: 4.355805793864056
+dist: 4.2568213466338145
+dist: 4.141958036184643
+dist: 4.032637082159098
+dist: 3.955687597753581
+dist: 3.887156077011649
+dist: 4.208992543560932
+dist: 4.559789051086213
+dist: 4.656768150068976
+dist: 4.408623080764426
+dist: 4.14409158436203
+dist: 4.048412563636179
+dist: 4.147954769322678
+dist: 3.949788548228699
+dist: 3.8790814517658916
+dist: 3.7815017959255393
+dist: 3.5052011245840733
+dist: 3.4098478425312053
+dist: 3.7114046566350556
+dist: 3.687091959824211
+dist: 3.744610527861335
+dist: 3.752395112557624
+dist: 3.460604991002678
+dist: 3.449533041408725
+dist: 3.267526564322367
+dist: 2.7569556696912714
+dist: 2.6832561208176604
+dist: 2.871218057772065
+dist: 3.080235227307188
+dist: 2.882159678230139
+dist: 3.12840753934018
+dist: 3.168807346545709
+dist: 3.243082148719474
+dist: 3.135733136930603
+dist: 3.1804849549888403
+dist: 3.0653447531451863
+dist: 3.264967777913898
+dist: 3.2200149475370896
+dist: 3.4111755945939137
+dist: 3.4844379265980816
+dist: 3.777688860851398
+dist: 3.690634514800195
+dist: 3.730374603761637
+dist: 3.598540348824735
+dist: 3.5973960125119153
+dist: 3.63700405078876
+dist: 3.511698843422922
+dist: 3.533946729541793
+dist: 3.496191489342878
+dist: 3.9556687226963643
+dist: 3.6959036209698715
+dist: 3.9068547001600993
+dist: 3.7732560034751854
+dist: 3.7663269113418503
+dist: 4.052015915630934
+dist: 4.387923980749885
+dist: 4.45322117807881
+dist: 4.391028077844058
+dist: 4.605040241267369
+dist: 4.51079940005345
+dist: 4.658167502969953
+dist: 4.477926399514482
+dist: 4.56391273978284
+dist: 4.530438309141016
+dist: 4.827124909417781
+dist: 4.960016033176061
+dist: 4.808859947804034
+dist: 4.635432065301244
+dist: 5.111625795962699
+dist: 5.226364178111985
+dist: 4.914388990632699
+dist: 5.053914009764536
+dist: 5.085239349624992
+dist: 5.092661806783993
+dist: 4.993475171228912
+dist: 5.030875713236497
+dist: 5.070329120784419
+dist: 5.007851645241875
+dist: 4.860888829557417
+dist: 4.659802229678328
+dist: 4.538961950843493
+dist: 4.875051709352849
+dist: 4.831377402171458
+dist: 4.556816537512569
+dist: 4.405487118147557
+dist: 4.42751565316615
+dist: 4.398983006612481
+dist: 4.153583585722374
+dist: 3.9450620717080476
+dist: 4.015464859546904
+dist: 4.004145373347736
+dist: 3.9518993697795994
+dist: 3.9249498807287075
+dist: 3.9304343104282995
+dist: 3.82506857645072
+dist: 3.777416212628621
+dist: 3.7511826805935264
+dist: 3.5410406942374246
+dist: 3.7691111758888622
+dist: 3.9218480426815105
+dist: 3.9847453543936586
+dist: 4.00207045173948
+dist: 4.0974978432462095
+dist: 3.857215486552155
+dist: 3.866500844746158
+dist: 3.4413394026561255
+dist: 3.3056863525696585
+dist: 3.5535171828670373
+dist: 3.5271457449652672
+dist: 3.4606357733217026
+dist: 3.0361659473083638
+dist: 3.029778180471423
+dist: 3.0205778478381236
+dist: 3.090914984545885
+dist: 3.3770788137715697
+dist: 2.9205714916738743
+dist: 2.8906478379730656
+dist: 2.78921682343184
+dist: 2.6425365278917807
+dist: 2.6832007680850434
+dist: 2.637102553067093
+dist: 2.497307857065337
+dist: 2.3495041212404586
+dist: 2.485922692736023
+dist: 2.4730456402561543
+dist: 2.656244911542288
+dist: 2.778660023387653
+dist: 2.7657662784734525
+dist: 2.804639504584584
+dist: 2.857255720194702
+dist: 2.595671684292579
+dist: 2.757830366756552
+dist: 2.813740245293991
+dist: 2.767425362138917
+dist: 2.9143562911751064
+dist: 3.281408273478609
+dist: 3.532260460146586
+dist: 3.4327983387117396
+dist: 3.461755694754623
+dist: 3.6089264616945655
+dist: 3.365457146819021
+dist: 3.286355130823237
+dist: 3.5080701100117477
+dist: 3.869801527975811
+dist: 3.939405357688478
+dist: 3.9633351151607785
+dist: 4.121603051036035
+dist: 3.9848825610508505
+dist: 4.16385370209864
+dist: 4.376748104035981
+dist: 4.345230113704941
+dist: 4.292766338174462
+dist: 4.519277903702166
+dist: 4.215466209787717
+dist: 4.066468060827529
+dist: 3.7480807556148457
+dist: 3.6638650140118156
+dist: 3.6242484687295593
+dist: 3.563183866095967
+dist: 3.711090466055089
+dist: 3.9714180242849637
+dist: 4.306578837376691
+dist: 4.633653238373952
+dist: 4.334015190605885
+dist: 4.518272365470264
+dist: 4.426159394007919
+dist: 4.68447716400311
+dist: 4.663395790789558
+dist: 4.58768632287753
+dist: 4.562451030775629
+dist: 4.487402812908934
+dist: 4.5905327744408755
+dist: 4.477668945340928
+dist: 4.190775928556645
+dist: 4.364973891281716
+dist: 3.913573899781938
+dist: 3.7999431195771556
+dist: 3.9291379748343993
+dist: 3.602949413101736
+dist: 3.222047630324644
+dist: 3.427244913891665
+dist: 3.552387473646756
+dist: 3.8501861994200977
+dist: 3.960064704807454
+dist: 4.183784577100932
+dist: 4.163203017365735
+dist: 4.029949261341644
+dist: 4.137139809304345
+dist: 4.256677826167877
+dist: 4.206616752959594
+dist: 4.686585477260094
+dist: 4.779860784920237
+dist: 4.952412951691684
+dist: 5.207123602648918
+dist: 5.5451775264103285
+dist: 5.486057873715454
+dist: 5.427789733450126
+dist: 5.4269401857330895
+dist: 5.320007051096333
+dist: 5.5531625137913165
+dist: 5.2876825200629565
+dist: 5.3080215473993535
+dist: 5.295896882404663
+dist: 5.252567653170522
+dist: 5.584059076183096
+dist: 5.4533030725263645
+dist: 5.247964321306733
+dist: 5.162910136619709
+dist: 5.089766929815531
+dist: 5.103819467926572
+dist: 5.169347384966303
+dist: 5.0208116288287385
+dist: 4.815492307338656
+dist: 4.777396906254774
+dist: 4.877947172990436
+dist: 5.226988549403037
+dist: 5.238935650795638
+dist: 4.941736838289572
+dist: 4.94528972928052
+dist: 4.9960116597316135
+dist: 4.843496034985899
+dist: 4.994169980690344
+dist: 5.05268054785919
+dist: 4.936892632771922
+dist: 5.057937429854818
+dist: 5.137358768037831
+dist: 5.065190489440598
+dist: 5.2077273603261505
+dist: 4.818377608924993
+dist: 4.635958582501151
+dist: 4.5601381978750934
+dist: 4.545740399140308
+dist: 3.9953046093561575
+dist: 3.725990902283928
+dist: 3.5896748362775246
+dist: 3.6710774589738735
+dist: 3.4002342972362296
+dist: 3.4449266595877304
+dist: 3.5486747140199335
+dist: 3.6900215773152527
+dist: 3.7417020146194657
+dist: 3.9082276766017796
+dist: 3.842324115092487
+dist: 3.8631980360156843
+dist: 4.030419483493945
+dist: 4.086472212010705
+dist: 4.024137910217412
+dist: 3.767230976904153
+dist: 3.6108386585489183
+dist: 3.514182940624681
+dist: 3.6425866268356444
+dist: 3.9690386711194994
+dist: 3.864358583626586
+dist: 3.5596648924848346
+dist: 3.327693259942148
+dist: 3.5210933375401408
+dist: 3.3712917725060323
+dist: 3.128042508904476
+dist: 3.284936336166428
+dist: 3.4269245036956777
+dist: 3.292263761379916
+dist: 3.216251259478789
+dist: 3.051717870318612
+dist: 3.051201368235008
+dist: 3.1160819669676503
+dist: 3.2078649555478234
+dist: 3.0690674865334215
+dist: 3.153150703160984
+dist: 3.0446100754002168
+dist: 3.1151880992947016
+dist: 3.2439054086380756
+dist: 3.112989852714944
+dist: 3.0975123528160458
+dist: 2.7503030293553654
+dist: 2.840107053317695
+dist: 2.2953582322155603
+dist: 2.5122468160819116
+dist: 2.7458520363563514
+dist: 2.579909452198222
+dist: 3.128710149257451
+dist: 3.2570787425880154
+dist: 3.3153170760413597
+dist: 2.9684345126041234
+dist: 3.080983618459295
+dist: 3.3045945221774318
+dist: 3.057210523455737
+dist: 3.3276162971362266
+dist: 3.5979998892044787
+dist: 3.512759429748569
+dist: 3.956211395667133
+dist: 3.8168650989847146
+dist: 3.6551033742720698
+dist: 3.843330177596853
+dist: 3.9754176822733864
+dist: 4.110671292226789
+dist: 4.252827265879437
+dist: 4.474324916071315
+dist: 4.432207317697209
+dist: 4.132070609046821
+dist: 4.010568594289473
+dist: 4.289369211023483
+dist: 3.782213885395307
+dist: 3.9209892700682794
+dist: 4.234811519576155
+dist: 4.0485242926451805
+dist: 3.9329383574147903
+dist: 3.774159055711542
+dist: 3.9335967913671097
+dist: 3.875324211232927
+dist: 3.8702045760867834
+dist: 3.793471968454731
+dist: 3.963703326296614
+dist: 3.976648200224785
+dist: 3.757880716442703
+dist: 3.426795340984913
+dist: 3.3839412874893515
+dist: 3.41860160683059
+dist: 3.318146897323994
+dist: 3.2759212312052677
+dist: 3.4378656133563616
+dist: 3.349694412285875
+dist: 3.1259256543651173
+dist: 3.40211970228801
+dist: 3.5686134142771193
+dist: 3.76734641274791
+dist: 3.837356516186374
+dist: 4.055137315834956
+dist: 3.773020770097225
+dist: 3.8289923500343708
+dist: 3.3410880575210498
+dist: 3.6370126440705213
+dist: 3.80666917623665
+dist: 3.9586861702777796
+dist: 3.651854517777996
+dist: 3.989250951453636
+dist: 4.035250514666104
+dist: 3.934131797875122
+dist: 4.260485871113732
+dist: 4.436524020676944
+dist: 4.472842085319753
+dist: 4.6063260560695465
+dist: 4.6462183568260675
+dist: 4.931674352243959
+dist: 5.013268078811214
+dist: 4.970270901046904
+dist: 5.0332489444361785
+dist: 5.100419907142243
+dist: 5.257414510683476
+dist: 5.2189424079296565
+dist: 4.8416239798289915
+dist: 4.910368360755939
+dist: 4.9374374949749145
+dist: 5.1718249225659045
+dist: 5.329487262255173
+dist: 5.366832033664996
+dist: 5.109777989256833
+dist: 5.189246438517575
+dist: 4.883783801531378
+dist: 5.047877548054963
+dist: 5.176671615583122
+dist: 4.822868908039225
+dist: 4.574658735993262
+dist: 4.334683409363965
+dist: 4.344680975640302
+dist: 4.522002027349076
+dist: 4.75232562517576
+dist: 4.7574872358166145
+dist: 4.556518551558462
+dist: 4.591467853597965
+dist: 4.457798313531435
+dist: 4.519098332346787
+dist: 4.582529462383954
+dist: 4.124001739756739
+dist: 4.132916786175786
+dist: 3.7822007030578177
+dist: 3.564688569235943
+dist: 4.20906340763462
+dist: 4.075483358727125
+dist: 4.183311872817751
+dist: 4.577794993521692
+dist: 4.544990163614317
+dist: 4.881245284350306
+dist: 5.183271762454616
+dist: 5.033682651744624
+dist: 4.939528110566591
+dist: 4.879171414265461
+dist: 4.92255925902979
+dist: 4.886004788550467
+dist: 4.514550009038167
+dist: 4.240744093317689
+dist: 4.166273527645283
+dist: 4.445139691967461
+dist: 4.532766823795215
+dist: 4.68123796192096
+dist: 4.684807356627287
+dist: 4.681510894461861
+dist: 4.7982823982033125
+dist: 4.880178677984612
+dist: 5.020098424068425
+dist: 4.885153743600649
+dist: 4.660351915981701
+dist: 4.464699389316874
+dist: 4.337513637564756
+dist: 4.099035647483689
+dist: 4.410544640885428
+dist: 4.174289067592012
+dist: 4.2059410340638905
+dist: 4.313674505437492
+dist: 4.420407646902618
+dist: 4.479330490470238
+dist: 4.558411860264499
+dist: 4.704234522540243
+dist: 4.782550712602636
+dist: 4.631057411484494
+dist: 4.205016884583436
+dist: 4.016605432025284
+dist: 3.8899692410683415
+dist: 4.049401711163626
+dist: 4.32178597679489
+dist: 4.4037459867652196
+dist: 4.4560271850205915
+dist: 4.334899878555059
+dist: 4.3852515911321115
+dist: 4.6355518066247265
+dist: 4.494167929484471
+dist: 4.338397527143008
+dist: 4.09518837674536
+dist: 3.9041481957803628
+dist: 3.918345179648801
+dist: 4.147920153622166
+dist: 4.006566043808338
+dist: 3.871358006392633
+dist: 3.9223358852870844
+dist: 4.323831167411474
+dist: 4.2951267604181895
+dist: 4.407646238595335
+dist: 4.51946110864317
+dist: 4.581351337429953
+dist: 4.264261889299818
+dist: 4.032968908324851
+dist: 3.8353978286177894
+dist: 4.057372467070923
+dist: 3.9123432021504385
+dist: 4.198590564878387
+dist: 4.4779858037105535
+dist: 4.689224625322989
+dist: 4.825375551904237
+dist: 5.207714044824745
+dist: 5.315915800060442
+dist: 5.284578288868944
+dist: 5.4663332037821935
+dist: 5.576624361847483
+dist: 5.440822233670958
+dist: 5.359396199960937
+dist: 5.344255841971041
+dist: 5.369639996511034
+dist: 5.321983706044023
+dist: 5.547662690336318
+dist: 5.740309855868384
+dist: 5.745120408368662
+dist: 6.119150865562604
+dist: 6.2411738262223455
+dist: 6.078102934123332
+dist: 6.1857710117624425
+dist: 6.449166141762011
+dist: 6.444785960487899
+dist: 6.2973595515211445
+dist: 5.97021203191316
+dist: 5.999025037913843
+dist: 6.115680027707383
+dist: 5.965178279437227
+dist: 6.000270030419753
+dist: 5.956691948714107
+dist: 5.769942326091522
+dist: 5.356632984061923
+dist: 5.051991032674149
+dist: 5.20044126781933
+dist: 5.350377104840692
+dist: 5.458584048989703
+dist: 5.693714990503568
+dist: 5.62604246795716
+dist: 5.648806092839658
+dist: 5.53651075726601
+dist: 5.521623699317265
+dist: 5.228768408047523
+dist: 5.194846897109365
+dist: 5.2401975159835
+dist: 5.085830614779326
+dist: 4.794293749548697
+dist: 4.688337174239214
+dist: 5.018310614707024
+dist: 5.1631755538010236
+dist: 5.367304713918667
+dist: 5.485445649269256
+dist: 5.441129260249073
+dist: 5.231785034148052
+dist: 4.950192540277789
+dist: 5.042571439803119
+dist: 4.902938046424545
+dist: 4.832149339560404
+dist: 4.921032827509604
+dist: 4.790243113340557
+dist: 5.107510203723774
+dist: 4.967791474075173
+dist: 5.321213533931439
+dist: 5.351452123147742
+dist: 5.128937493948364
+dist: 4.913398964641545
+dist: 5.019872859759886
+dist: 4.964695109395073
+dist: 4.943543045819939
+dist: 4.924725327954345
+dist: 4.956934826945958
+dist: 5.034626612883205
+dist: 5.189807720923588
+dist: 5.178780966003812
+dist: 5.302683976461226
+dist: 5.696315903191872
+dist: 5.567871191432187
+dist: 5.986980060549314
+dist: 6.199283937343577
+dist: 6.2248731468261465
+dist: 6.377545553734725
+dist: 6.3957939091488445
+dist: 6.755924079432063
+dist: 6.663088152743174
+dist: 6.925583645206399
+dist: 7.072535559734614
+dist: 7.48846246390006
+dist: 7.699182292295447
+dist: 7.622952380201098
+dist: 7.416377089176151
+dist: 7.247581946240278
+dist: 7.440499432032027
+dist: 7.595844741911038
+dist: 7.407503324599563
+dist: 7.605939091931914
+dist: 7.556112964788458
+dist: 7.630825866226287
+dist: 7.6795945320507215
+dist: 7.61197017661418
+dist: 8.17747749724659
+dist: 8.147336765155595
+dist: 8.332969705425073
+dist: 8.310953568044706
+dist: 8.411713174280413
+dist: 8.595632616456525
+dist: 9.056917748960085
+dist: 9.133490439361704
+dist: 8.840882866327874
+dist: 8.972886842265352
+dist: 9.473694501131481
+dist: 9.656552170975127
+dist: 9.593153696860016
+dist: 9.674125119972457
+dist: 9.471385251745225
+dist: 9.434666731270703
+dist: 9.402097090416765
+dist: 9.597353289419733
+dist: 9.236370088745508
+dist: 9.295482795846887
+dist: 9.566373862822248
+dist: 9.557375193908397
+dist: 9.46959292974063
+dist: 9.659740163467117
+dist: 9.776618741580371
+dist: 9.291659104067273
+dist: 9.60396947508142
+dist: 9.201537417409252
+dist: 9.177824298651062
+dist: 8.915319175945156
+dist: 8.609458707185503
+dist: 8.6039831143779
+dist: 8.619489277986164
+dist: 8.638563681037821
+dist: 8.90776441168668
+dist: 9.111912946687397
+dist: 9.330960756852317
+dist: 8.949850986366103
+dist: 8.801909186640442
+dist: 8.858002503035152
+dist: 8.693730128413772
+dist: 8.852226730221846
+dist: 8.824705241162697
+dist: 8.88468963652758
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,51 @@
+<param_particles version="1.1">
+<particle>
+	<type>A</type>
+	<diffusionConstant>143.1e+6</diffusionConstant>
+	<collisionRadiusMap>
+		<collisionRadius>
+		<partnerType>default</partnerType>
+		<radius>1.5</radius>
+		</collisionRadius>
+	</collisionRadiusMap>
+	<reactionRadiusMap>
+		<reactionRadius>
+		<partnerType>default</partnerType>
+		<radius>1.5</radius>
+		</reactionRadius>
+	</reactionRadiusMap>
+</particle>
+<particle>
+	<type>B</type>
+	<diffusionConstant>71.6e+6</diffusionConstant>
+	<collisionRadiusMap>
+		<collisionRadius>
+		<partnerType>default</partnerType>
+		<radius>3</radius>
+		</collisionRadius>
+	</collisionRadiusMap>
+	<reactionRadiusMap>
+		<reactionRadius>
+		<partnerType>default</partnerType>
+		<radius>3</radius>
+		</reactionRadius>
+	</reactionRadiusMap>
+</particle>
+<particle>
+	<type>C</type>
+	<diffusionConstant>68.82e+6</diffusionConstant>
+        <numberOfDummyParticles>2358</numberOfDummyParticles>
+	<collisionRadiusMap>
+		<collisionRadius>
+		<partnerType>default</partnerType>
+                <radius>3.12</radius>
+		</collisionRadius>
+	</collisionRadiusMap>
+	<reactionRadiusMap>
+		<reactionRadius>
+		<partnerType>default</partnerType>
+                <radius>3.12</radius>
+		</reactionRadius>
+	</reactionRadiusMap>
+</particle>
+</param_particles>

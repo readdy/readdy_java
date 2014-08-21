@@ -1,0 +1,54 @@
+<tplgy_potentials version="1.1">
+	<!--geometry defining potentials!
+	
+		POTENTIAL ORDER 1
+	-->
+		<pot 	name="attractiveDisk_1"
+				type="DISK"
+				subtype="attractive" 
+				forceConst="100.0"
+				center="[0.0,0.0,0.0]"
+				normal="[0.0,0.0,1.0]"
+				radius="30.0"
+				affectedParticleTypeIds="[0]"
+				affectedParticleIds="" />
+				
+		 <pot 	name="attractiveCylinder_1"
+				type="CYLINDER"
+				subtype="attractive" 
+				forceConst="100"
+				center="[0,0,10]"
+				normal="[0,0,1]"
+				radius="30"
+				height="20"
+				affectedParticleTypeIds="[1,2]"
+				affectedParticleIds="[1000]" />
+			
+	<!--particle interaction potentials!
+	
+		POTENTIAL ORDER 2
+	-->
+	
+		<pot 	name="harmonic_typeBound_attractive"
+				type="HARMONIC" 
+				subtype="attractive"
+				forceConst="3" 
+				affectedParticleTypeIdPairs="[[1,1];[0,1]]"
+				affectedParticleIdPairs="" />
+				
+		<pot 	name="harmonic_idBound_repulsive"
+				type="HARMONIC"
+				subtype="repulsive" 
+				forceConst="1" 
+				affectedParticleTypeIdPairs=""
+				affectedParticleIdPairs="[[10,11];[0,2]]" />
+				
+	    <pot 	name="harmonic_typeBound_spring"
+	    		type="HARMONIC"
+	    		subtype="spring" 
+	    		forceConst="0.1" 
+	    		affectedParticleTypeIdPairs="[[1,1]]"
+				affectedParticleIdPairs="" />
+
+						
+</tplgy_potentials>

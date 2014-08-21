@@ -1,0 +1,92 @@
+<tplgy_potentials version="1.1">
+	<!--geometry defining potentials!
+				normal="[-1.0,1.0,1.0]"	
+		POTENTIAL ORDER 1
+	-->
+		<pot 	name="attractiveDisk_1"
+				type="DISK"
+				subtype="attractive" 
+				forceConst="10.0"
+				center="[0.0,0.0,0.0]"
+				normal="[0.0,0.0,10.0]"
+				radius="10.0"
+				affectedParticleTypeIds="[1]"
+				affectedParticleIds="" />
+		
+	   <pot 	name="attractiveDisk_2"
+	   			type="DISK"
+	   			subtype="attractive" 
+	   			forceConst="10.0"
+	   			center="[0, 0, 8]"
+	   			normal="[-2.35702, 2.35702, 9.42809]"
+	   			radius="10.0"
+	   			affectedParticleTypeIds="[2]"
+	   			affectedParticleIds="" />
+
+		<pot 	name="attractiveDisk_3"
+				type="DISK"
+				subtype="attractive" 
+				forceConst="10.0"
+				center="[0, 0, 18.]"
+				normal="[-2.12, -2.12, 9.53998]"
+				radius="10.0"
+				affectedParticleTypeIds="[3]"
+				affectedParticleIds="" />
+				
+		<pot 	name="attractiveDisk_4"
+				type="DISK"
+				subtype="attractive" 
+				forceConst="10.0"
+				center="[0, 0, 29.]"
+				normal="[3.48155, -3.48155, 8.70388]"
+				radius="10.0"
+				affectedParticleTypeIds="[4]"
+				affectedParticleIds="" />
+	
+		<pot 	name="attractiveDisk_5"
+				type="DISK"
+				subtype="attractive" 
+				forceConst="10.0"
+				center="[10, -12, 10]"
+				normal="[6.66667, -6.66667, 3.33333]"
+				radius="10.0"
+				affectedParticleTypeIds="[5]"
+				affectedParticleIds="" />
+
+		<pot 	name="repulsiveDisk_1"
+				type="DISK"
+				subtype="repulsive" 
+				forceConst="2.0"
+				center="[0.0,0.0,0.0]"
+				normal="[-1.0,1.0,1.0]"
+				radius="3.0"
+				affectedParticleTypeIds=""
+				affectedParticleIds="" />
+			
+	<!--particle interaction potentials!
+
+		POTENTIAL ORDER 2
+	-->
+		<pot 	name="harmonic_typeBound attractive"
+				type="HARMONIC" 
+				subtype="attractive"
+				forceConst="3" 
+				affectedParticleTypeIdPairs=""
+				affectedParticleIdPairs="" />
+				
+		<pot 	name="harmonic_idBound repulsive"
+				type="HARMONIC"
+				subtype="repulsive" 
+				forceConst="5" 
+				affectedParticleTypeIdPairs="[[1,1];[1,2];[1,3];[1,4];[1,5];[2,2];[2,3];[2,4];[2,5];[3,3];[3,4];[3,5];[4,4];[4,5];[5,5];]"
+				affectedParticleIdPairs="" />
+				
+	    <pot 	name="harmonic_typeBound spring"
+	    		type="HARMONIC"
+	    		subtype="spring" 
+	    		forceConst="50" 
+	    		affectedParticleTypeIdPairs=""
+				affectedParticleIdPairs="" />
+
+		
+</tplgy_potentials>

@@ -1,0 +1,887 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     33995,        878]
+NotebookOptionsPosition[     33031,        843]
+NotebookOutlinePosition[     33426,        860]
+CellTagsIndexPosition[     33383,        857]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+ /*=== === === === === === === === === === === === === === === === === === \
+=== *\\
+ *          ReaDDy - The Library for Reaction Diffusion Dynamics              \
+ *
+ * === === === === === === === === === === === === === === === === === === \
+=== *
+ *Copyright (c) 2010 - 2013, Johannes Sch\[ODoubleDot]neberg, Frank No\
+\[EAcute], FU Berlin         *
+ *All rights reserved.                                                        \
+ *
+ *                                                                            \
+ *
+ *Redistribution and use in source and binary forms, with or without          \
+ *
+ *modification, are permitted provided that the following conditions are met \
+: *
+ *                                                                            \
+ *
+ *     *Redistributions of source code must retain the above copyright        \
+ *
+ *      notice, this list of conditions and the following disclaimer.         \
+ *
+ *     *Redistributions in binary form must reproduce the above copyright     \
+ *
+ *      notice, this list of conditions and the following disclaimer in the   \
+ *
+ *      documentation and/or other materials provided with the distribution.  \
+ *
+ *     *Neither the name of Johannes Sch\[ODoubleDot]neberg or Frank No\
+\[EAcute] or the FU Berlin  *
+ *      nor the names of its contributors may be used to endorse or promote   \
+ *
+ *      products derived from this software without specific prior written    \
+ *
+ *      permission.                                                           \
+ *
+ *                                                                            \
+ *
+ *THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\
+\"  *
+ *AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE   \
+ *
+ *IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE  \
+ *
+ *ARE DISCLAIMED.IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE    \
+ *
+ *LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR         \
+ *
+ *CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF        \
+ *
+ *SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS    \
+ *
+ *INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN     \
+ *
+ *CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)     \
+ *
+ *ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE  \
+ *
+ *POSSIBILITY OF SUCH DAMAGE.                                                 \
+ *
+ *\\=== === === === === === === === === === === === === === === === === === \
+=== */\
+\>", "Program"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"n", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+
+ RowBox[{
+  RowBox[{
+   RowBox[{"r", "=", "5"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"n", "=", 
+    RowBox[{"Normalize", "[", "n", "]"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"vectors", " ", "in", " ", "the", " ", "plane"}], ",", " ", 
+    RowBox[{"perpendicular", " ", "to", " ", "n"}], ",", " ", 
+    RowBox[{
+    "these", " ", "should", " ", "be", " ", "precomputed", " ", "for", " ", 
+     "the", " ", "use", " ", "in", " ", "a", " ", 
+     RowBox[{"potential", "."}]}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"u", "=", 
+   RowBox[{"Normalize", "[", 
+    RowBox[{"Cross", "[", 
+     RowBox[{"n", ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"v", "=", 
+    RowBox[{"Normalize", "[", 
+     RowBox[{"Cross", "[", 
+      RowBox[{"n", ",", "u"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pAbove", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.5"}], ",", "1.5", ",", "0.5"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"pBelow", "=", 
+   RowBox[{"{", 
+    RowBox[{"1.167`", ",", 
+     RowBox[{"-", "0.167`"}], ",", 
+     RowBox[{"-", "1.167`"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"pAboveFar", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "3.5"}], ",", 
+     RowBox[{"-", "2.5"}], ",", "0.5"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"pBelowFar", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "2.5"}], ",", 
+     RowBox[{"-", "3.5"}], ",", 
+     RowBox[{"-", "0.5"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"pRadiusS", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"pRadiusL", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p", "=", "pAbove"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pHat", "=", 
+    RowBox[{"p", "-", "c"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "compute", " ", "the", " ", "distance", " ", "of", " ", "the", " ", 
+    "point", " ", "to", " ", "the", " ", "plane"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dist", "=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"n", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], 
+        RowBox[{"p", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"n", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], 
+        RowBox[{"p", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"n", "[", 
+         RowBox[{"[", "3", "]"}], "]"}], 
+        RowBox[{"p", "[", 
+         RowBox[{"[", "3", "]"}], "]"}]}]}], ")"}], "/", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"n", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "^", "2"}], "+", 
+        RowBox[{
+         RowBox[{"n", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], "^", "2"}], "+", 
+        RowBox[{
+         RowBox[{"n", "[", 
+          RowBox[{"[", "3", "]"}], "]"}], "^", "2"}]}], ")"}], "]"}]}]}], 
+   ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "projet", " ", "the", " ", "point", " ", "on", " ", "the", " ", "disc"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pOnPlane", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"p", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "-", 
+      RowBox[{
+       RowBox[{"n", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "dist"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"p", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], "-", 
+      RowBox[{
+       RowBox[{"n", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "dist"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"p", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], "-", 
+      RowBox[{
+       RowBox[{"n", "[", 
+        RowBox[{"[", "3", "]"}], "]"}], "dist"}]}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pointOnPlane", "=", 
+    RowBox[{"{", 
+     RowBox[{"Cyan", ",", 
+      RowBox[{"Sphere", "[", 
+       RowBox[{"pOnPlane", ",", "0.1"}], "]"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", "visualization", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pointCoords", "=", 
+   RowBox[{"{", 
+    RowBox[{"pAbove", ",", "pBelow", ",", "pAboveFar", ",", "pBelowFar"}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pointsS", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Cyan", ",", 
+       RowBox[{"Sphere", "[", 
+        RowBox[{"#", ",", "pRadiusS"}], "]"}]}], "}"}], "&"}], "/@", 
+    "pointCoords"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pointsL", "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Cyan", ",", 
+        RowBox[{"Opacity", "[", "0.3", "]"}], ",", 
+        RowBox[{"Sphere", "[", 
+         RowBox[{"#", ",", "pRadiusL"}], "]"}]}], "}"}], "&"}], "/@", 
+     "pointCoords"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"disc", "=", 
+   RowBox[{"Cylinder", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c", ",", 
+       RowBox[{"0.001", "n"}]}], "}"}], ",", "r"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nVec", "=", 
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{"c", ",", "n"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"uVec", "=", 
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{"c", ",", "u"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"vVec", "=", 
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{"c", ",", "v"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pHatVec", "=", 
+    RowBox[{"{", 
+     RowBox[{"Cyan", ",", 
+      RowBox[{"Arrow", "[", 
+       RowBox[{"{", 
+        RowBox[{"c", ",", "pHat"}], "}"}], "]"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"iVec", "=", 
+   RowBox[{"{", 
+    RowBox[{"Red", ",", 
+     RowBox[{"Arrow", "[", 
+      RowBox[{"{", 
+       RowBox[{"p", ",", "pOnPlane"}], "}"}], "]"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"jVec", "=", 
+    RowBox[{"{", 
+     RowBox[{"Blue", ",", 
+      RowBox[{"Arrow", "[", 
+       RowBox[{"{", 
+        RowBox[{"pOnPlane", ",", "c"}], "}"}], "]"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Graphics3D", "[", 
+   RowBox[{"{", 
+    RowBox[{
+    "pointOnPlane", ",", "disc", ",", "nVec", ",", "uVec", ",", "vVec", ",", 
+     "pHatVec", ",", "iVec", ",", "jVec", ",", "pointsS", ",", "pointsL"}], 
+    "}"}], "]"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", 
+   "\"\<The Potentials act along the red (normal) direction and along the \
+blue( planar) direction and pull the particle back on the disc\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  "\"\<if a projected point on the plane is within the disc radius, only the \
+force acting along the normal is applied. This ensures, that particles within \
+a disc are first pulled back and not to the center in any fashion. A force \
+towards tha disc center only acts if the projected particle would be further \
+away from the center than the radius.\>\"", "]"}]}], "Input"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[0, 1, 1], SphereBox[{-0.5, 1.5, 0.}, 0.1]}, 
+   CylinderBox[{{0, 0, 0}, {0, 0, 0.001}}, 5], 
+   Arrow3DBox[{{0, 0, 0}, {0, 0, 1}}], Arrow3DBox[{{0, 0, 0}, {0, 1, 0}}], 
+   Arrow3DBox[{{0, 0, 0}, {-1, 0, 0}}], 
+   {RGBColor[0, 1, 1], Arrow3DBox[{{0, 0, 0}, {-0.5, 1.5, 0.5}}]}, 
+   {RGBColor[1, 0, 0], Arrow3DBox[{{-0.5, 1.5, 0.5}, {-0.5, 1.5, 0.}}]}, 
+   {RGBColor[0, 0, 1], Arrow3DBox[{{-0.5, 1.5, 0.}, {0, 0, 0}}]}, {
+    {RGBColor[0, 1, 1], SphereBox[{-0.5, 1.5, 0.5}, 1]}, 
+    {RGBColor[0, 1, 1], SphereBox[{1.167, -0.167, -1.167}, 1]}, 
+    {RGBColor[0, 1, 1], SphereBox[{-3.5, -2.5, 0.5}, 1]}, 
+    {RGBColor[0, 1, 1], SphereBox[{-2.5, -3.5, -0.5}, 1]}}, {
+    {RGBColor[0, 1, 1], Opacity[0.3], SphereBox[{-0.5, 1.5, 0.5}, 2]}, 
+    {RGBColor[0, 1, 1], Opacity[0.3], 
+     SphereBox[{1.167, -0.167, -1.167}, 2]}, 
+    {RGBColor[0, 1, 1], Opacity[0.3], SphereBox[{-3.5, -2.5, 0.5}, 2]}, 
+    {RGBColor[0, 1, 1], Opacity[0.3], SphereBox[{-2.5, -3.5, -0.5}, 2]}}},
+  AutomaticImageSize->True,
+  ImageSize->{416.0395030612328, 403.7475245930328},
+  ViewAngle->0.2578640774673365,
+  ViewPoint->{3.121507475092324, 0.9737309287696849, 0.8706544442544786},
+  ViewVertical->{0.19564770634418613`, 0.19097744989697735`, 
+   1.782237333241391}]], "Output"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"The Potentials act along the red (normal) direction and \
+along the blue( planar) direction and pull the particle back on the \
+disc\"\>"], "Print"],
+
+Cell[BoxData["\<\"if a projected point on the plane is within the disc \
+radius, only the force acting along the normal is applied. This ensures, that \
+particles within a disc are first pulled back and not to the center in any \
+fashion. A force towards tha disc center only acts if the projected particle \
+would be further away from the center than the radius.\"\>"], "Print"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"computeGradientAndNrg", "[", 
+     RowBox[{
+     "p_", ",", "pRadius_", ",", "k_", ",", "flag_", ",", "n_", ",", 
+      "center_", ",", "diskRadius_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"t", "=", "0"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"distToDiskPlane", "=", "0"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"pointOnDiskPlane", "=", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"distToCenterWithinDiskPlane", "=", "0"}], ",", 
+        "\[IndentingNewLine]", "r", ",", "r0", ",", 
+        RowBox[{"gradient", "=", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ",", 
+        RowBox[{"nrg", "=", "0"}], ","}], "\[IndentingNewLine]", "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"t", "=", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"n", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], 
+            RowBox[{"p", "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "+", 
+           RowBox[{
+            RowBox[{"n", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], 
+            RowBox[{"p", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "+", 
+           RowBox[{
+            RowBox[{"n", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], 
+            RowBox[{"p", "[", 
+             RowBox[{"[", "3", "]"}], "]"}]}]}], ")"}], "/", 
+         RowBox[{"Sqrt", "[", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"n", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "^", "2"}], "+", 
+            RowBox[{
+             RowBox[{"n", "[", 
+              RowBox[{"[", "2", "]"}], "]"}], "^", "2"}], "+", 
+            RowBox[{
+             RowBox[{"n", "[", 
+              RowBox[{"[", "3", "]"}], "]"}], "^", "2"}]}], ")"}], "]"}]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"distToDiskPlane", "=", 
+        RowBox[{"Abs", "[", "t", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"pointOnDiskPlane", "=", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"p", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "-", 
+           RowBox[{
+            RowBox[{"n", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "t"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"p", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], "-", 
+           RowBox[{
+            RowBox[{"n", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], "t"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"p", "[", 
+            RowBox[{"[", "3", "]"}], "]"}], "-", 
+           RowBox[{
+            RowBox[{"n", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], "t"}]}]}], "}"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<pOnDiskPlane: \>\"", ",", "pointOnDiskPlane"}], "]"}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"distToCenterWithinDiskPlane", "=", 
+        RowBox[{"Norm", "[", 
+         RowBox[{"center", "-", "pointOnDiskPlane"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<distToDiskPlane \>\"", ",", "distToDiskPlane"}], "]"}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Switch", "[", 
+        RowBox[{
+        "flag", ",", "\[IndentingNewLine]", "\"\<attractive\>\"", ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{"<", "doAttractive", ">"}], "*)"}], "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Print", "[", "\"\<attractive processing...\>\"", "]"}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"r", "=", "distToDiskPlane"}], ";", "\n", "\t", 
+          RowBox[{"r0", "=", "0"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"r", ">", "r0"}], ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+             "Print", "[", "\"\<normal direction component active\>\"", "]"}],
+              ";", "\[IndentingNewLine]", 
+             RowBox[{"precompute", "=", 
+              RowBox[{"(", 
+               RowBox[{"k", "*", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "r0"}], "+", "r"}], ")"}], "/", "r"}]}], 
+               ")"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"gradient", "+=", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"precompute", "*", 
+                 RowBox[{"N", "[", 
+                  RowBox[{
+                   RowBox[{"pointOnDiskPlane", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "-", 
+                   RowBox[{"p", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"precompute", "*", 
+                 RowBox[{"N", "[", 
+                  RowBox[{
+                   RowBox[{"pointOnDiskPlane", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "-", 
+                   RowBox[{"p", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"precompute", "*", 
+                 RowBox[{"N", "[", 
+                  RowBox[{
+                   RowBox[{"pointOnDiskPlane", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], "-", 
+                   RowBox[{"p", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}]}], "]"}]}]}], "}"}]}], ";",
+              "\[IndentingNewLine]", 
+             RowBox[{"nrg", "+=", 
+              RowBox[{"0.5", "*", "k", "*", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"-", "r0"}], "+", "r"}], ")"}], "^", "2"}]}]}], 
+             ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\n", "\t", 
+          RowBox[{"r", "=", 
+           RowBox[{"distToCenterWithinDiskPlane", "+", "pRadius"}]}], ";", 
+          "\n", "\t", 
+          RowBox[{"r0", "=", "diskRadius"}], ";", "\n", "\t", 
+          RowBox[{"If", " ", "[", 
+           RowBox[{
+            RowBox[{"r", ">", "r0"}], ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+             "Print", "[", "\"\<planar direction component active\>\"", "]"}],
+              ";", "\[IndentingNewLine]", 
+             RowBox[{"precompute", "=", 
+              RowBox[{"(", 
+               RowBox[{"k", "*", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "r0"}], "+", "r"}], ")"}], "/", "r"}]}], 
+               ")"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"gradient", "+=", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"precompute", "*", 
+                 RowBox[{"N", "[", 
+                  RowBox[{
+                   RowBox[{"pointOnDiskPlane", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "-", 
+                   RowBox[{"center", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"precompute", "*", 
+                 RowBox[{"N", "[", 
+                  RowBox[{
+                   RowBox[{"pointOnDiskPlane", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "-", 
+                   RowBox[{"center", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"precompute", "*", 
+                 RowBox[{"N", "[", 
+                  RowBox[{
+                   RowBox[{"pointOnDiskPlane", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], "-", 
+                   RowBox[{"center", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}]}], "]"}]}]}], "}"}]}], ";",
+              "\[IndentingNewLine]", 
+             RowBox[{"nrg", "+=", 
+              RowBox[{"0.5", "*", "k", "*", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"-", "r0"}], "+", "r"}], ")"}], "^", "2"}]}]}], 
+             ";"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{"<", 
+           RowBox[{"/", "doAttractive"}], ">"}], "*)"}], 
+         "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+         "\"\<repulsive\>\"", ",", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{"<", "doRepulsive", ">"}], "*)"}], "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Print", "[", "\"\<repulsive processing...\>\"", "]"}], ";",
+           "\[IndentingNewLine]", 
+          RowBox[{"r", "=", "distToDiskPlane"}], ";", "\n", "\t", 
+          RowBox[{"r0", "=", "pRadius"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"r1", "=", 
+           RowBox[{"distToCenterWithinDiskPlane", "-", "pRadius"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"r01", "=", "diskRadius"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"normalDirectionComponentActive", "=", "False"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"r", "<", "r0"}], " ", "&&", " ", 
+             RowBox[{"r1", "<", "r01"}]}], ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"normalDirectionComponentActive", "=", "True"}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+             "Print", "[", "\"\<normal direction component active\>\"", "]"}],
+              ";", "\[IndentingNewLine]", 
+             RowBox[{"precompute", "=", 
+              RowBox[{"(", 
+               RowBox[{"k", "*", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "r0"}], "+", "r"}], ")"}], "/", "r"}]}], 
+               ")"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"gradient", "+=", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"precompute", "*", 
+                 RowBox[{"N", "[", 
+                  RowBox[{
+                   RowBox[{"p", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "-", 
+                   RowBox[{"pointOnDiskPlane", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"precompute", "*", 
+                 RowBox[{"N", "[", 
+                  RowBox[{
+                   RowBox[{"p", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "-", 
+                   RowBox[{"pointOnDiskPlane", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"precompute", "*", 
+                 RowBox[{"N", "[", 
+                  RowBox[{
+                   RowBox[{"p", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], "-", 
+                   RowBox[{"pointOnDiskPlane", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}]}], "]"}]}]}], "}"}]}], ";",
+              "\[IndentingNewLine]", 
+             RowBox[{"nrg", "+=", 
+              RowBox[{"0.5", "*", "k", "*", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"-", "r0"}], "+", "r"}], ")"}], "^", "2"}]}]}], 
+             ";"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}], 
+          ";"}], "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{"<", 
+           RowBox[{"/", "doRepulsive"}], ">"}], "*)"}], ",", 
+         "\[IndentingNewLine]", "_", ",", 
+         RowBox[{
+          RowBox[{"Print", "[", 
+           RowBox[{
+           "\"\<The flag '\>\"", ",", "flag", ",", 
+            "\"\<' is neither 'repulsive' nor 'attracitve'\>\""}], "]"}], ";",
+           "0"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       
+       RowBox[{"Return", "[", 
+        RowBox[{"{", 
+         RowBox[{"gradient", ",", "nrg"}], "}"}], "]"}], ";"}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pointToComputeFor", "=", "pBelow"}], ";"}], "\[IndentingNewLine]", 
+
+ RowBox[{
+  RowBox[{
+   RowBox[{"pRadiusToComputeFor", "=", "pRadiusS"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"gradientAndNrg", "=", 
+  RowBox[{"computeGradientAndNrg", "[", 
+   RowBox[{
+   "pointToComputeFor", ",", "pRadiusToComputeFor", ",", "100", ",", 
+    "\"\<attractive\>\"", ",", "n", ",", "c", ",", "r"}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gradient", " ", "=", " ", 
+   RowBox[{"gradientAndNrg", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nrg", " ", "=", " ", 
+    RowBox[{"gradientAndNrg", "[", 
+     RowBox[{"[", "2", "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"oldPointVisu", "=", 
+   RowBox[{"{", 
+    RowBox[{"Green", ",", 
+     RowBox[{"Sphere", "[", 
+      RowBox[{"pointToComputeFor", ",", "pRadiusToComputeFor"}], "]"}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"newPoint", "=", 
+   RowBox[{"pointToComputeFor", "-", "gradient"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"newPointVisu", "=", 
+   RowBox[{"{", 
+    RowBox[{"Red", ",", 
+     RowBox[{"Sphere", "[", 
+      RowBox[{"newPoint", ",", "pRadiusToComputeFor"}], "]"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"displacementVectorVisu", "=", 
+   RowBox[{"{", 
+    RowBox[{"Red", ",", 
+     RowBox[{"Arrow", "[", 
+      RowBox[{"{", 
+       RowBox[{"pointToComputeFor", ",", "newPoint"}], "}"}], "]"}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Graphics3D", "[", 
+  RowBox[{"{", 
+   RowBox[{
+   "pointOnPlane", ",", "disc", ",", "nVec", ",", "uVec", ",", "vVec", ",", 
+    "pHatVec", ",", "iVec", ",", "jVec", ",", "pointsS", ",", "pointsL", ",", 
+    "oldPointVisu", ",", "displacementVectorVisu", ",", "newPointVisu"}], 
+   "}"}], "]"}], "\[IndentingNewLine]"}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"pOnDiskPlane: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1.167`", ",", 
+     RowBox[{"-", "0.167`"}], ",", "0.`"}], "}"}]}],
+  SequenceForm["pOnDiskPlane: ", {1.167, -0.167, 0.}],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"distToDiskPlane \"\>", "\[InvisibleSpace]", "1.167`"}],
+  SequenceForm["distToDiskPlane ", 1.167],
+  Editable->False]], "Print"],
+
+Cell[BoxData["\<\"attractive processing...\"\>"], "Print"],
+
+Cell[BoxData["\<\"normal direction component active\"\>"], "Print"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.`", ",", "0.`", ",", "116.7`"}], "}"}], ",", 
+   "68.09445000000001`"}], "}"}]], "Output"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[0, 1, 1], SphereBox[{-0.5, 1.5, 0.}, 0.1]}, 
+   CylinderBox[{{0, 0, 0}, {0, 0, 0.001}}, 5], 
+   Arrow3DBox[{{0, 0, 0}, {0, 0, 1}}], Arrow3DBox[{{0, 0, 0}, {0, 1, 0}}], 
+   Arrow3DBox[{{0, 0, 0}, {-1, 0, 0}}], 
+   {RGBColor[0, 1, 1], Arrow3DBox[{{0, 0, 0}, {-0.5, 1.5, 0.5}}]}, 
+   {RGBColor[1, 0, 0], Arrow3DBox[{{-0.5, 1.5, 0.5}, {-0.5, 1.5, 0.}}]}, 
+   {RGBColor[0, 0, 1], Arrow3DBox[{{-0.5, 1.5, 0.}, {0, 0, 0}}]}, {
+    {RGBColor[0, 1, 1], SphereBox[{-0.5, 1.5, 0.5}, 1]}, 
+    {RGBColor[0, 1, 1], SphereBox[{1.167, -0.167, -1.167}, 1]}, 
+    {RGBColor[0, 1, 1], SphereBox[{-3.5, -2.5, 0.5}, 1]}, 
+    {RGBColor[0, 1, 1], SphereBox[{-2.5, -3.5, -0.5}, 1]}}, {
+    {RGBColor[0, 1, 1], Opacity[0.3], SphereBox[{-0.5, 1.5, 0.5}, 2]}, 
+    {RGBColor[0, 1, 1], Opacity[0.3], 
+     SphereBox[{1.167, -0.167, -1.167}, 2]}, 
+    {RGBColor[0, 1, 1], Opacity[0.3], SphereBox[{-3.5, -2.5, 0.5}, 2]}, 
+    {RGBColor[0, 1, 1], Opacity[0.3], SphereBox[{-2.5, -3.5, -0.5}, 2]}}, 
+   {RGBColor[0, 1, 0], SphereBox[{1.167, -0.167, -1.167}, 1]}, 
+   {RGBColor[1, 0, 0], 
+    Arrow3DBox[{{1.167, -0.167, -1.167}, {1.167, -0.167, -117.867}}]}, 
+   {RGBColor[1, 0, 0], SphereBox[{1.167, -0.167, -117.867}, 1]}},
+  AutomaticImageSize->True,
+  ImageSize->{131.1301258864593, 483.1943445920614},
+  ViewPoint->{2.488450912440159, -2.2846836209684582`, 0.19450657689189282`},
+  ViewVertical->{2.7056941888486685`, -2.436972504496954, 
+   0.7147243148645188}]], "Output",
+ ImageCache->GraphicsData["CompressedBitmap", "\<\
+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
+Uf8FtrmAyw==\
+\>"]]
+}, Open  ]]
+},
+WindowSize->{875, 752},
+WindowMargins->{{171, Automatic}, {-1, Automatic}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 2645, 63, 427, "Program"],
+Cell[CellGroupData[{
+Cell[3215, 87, 7915, 246, 808, "Input"],
+Cell[11133, 335, 1297, 23, 419, "Output"],
+Cell[CellGroupData[{
+Cell[12455, 362, 166, 2, 36, "Print"],
+Cell[12624, 366, 379, 4, 66, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[13030, 374, 12429, 294, 1048, "Input"],
+Cell[CellGroupData[{
+Cell[25484, 672, 2006, 56, 223, "Input"],
+Cell[CellGroupData[{
+Cell[27515, 732, 274, 7, 20, "Print"],
+Cell[27792, 741, 177, 4, 20, "Print"],
+Cell[27972, 747, 58, 0, 20, "Print"],
+Cell[28033, 749, 67, 0, 20, "Print"]
+}, Open  ]],
+Cell[28115, 752, 162, 5, 27, "Output"],
+Cell[28280, 759, 4735, 81, 498, 1492, 26, "CachedBoxData", "BoxData", "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,4 @@
+#ReaDDY by j schoeneberg. Run on Thu May 16 12:09:49 CEST 2013
+#, typeIds, 0, 1, 2, 3, 4, 5, 6, 7, 8
+timeStep, R*_meta1, R*_meta2, R, G, G*, R*_Ggdp_cplx, R*_G0_cplx, R*_Ggtp_cplx, R_Ggdp_preCplx
+0, 0, 0.0, NaN, NaN, 0, 0, 0, 0, NaN

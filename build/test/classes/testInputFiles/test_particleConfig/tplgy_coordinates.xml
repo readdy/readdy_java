@@ -1,0 +1,6 @@
+<!-- they should have type 0 to have a radius of 1.4nm !-->
+<tplgy_coords version="1.1" stepId="0">
+<p id="0" type="0" c="2,2,1.5"/>
+<p id="1" type="0" c="1,3,4.5"/>
+<p id="2" type="0" c="0,1,2.5"/>
+</tplgy_coords>
