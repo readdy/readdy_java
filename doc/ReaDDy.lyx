@@ -1,0 +1,653 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ReaDDy
+\end_layout
+
+\begin_layout Section
+ReaDDy
+\end_layout
+
+\begin_layout Subsection
+Installation
+\end_layout
+
+\begin_layout Subsection
+Usage
+\end_layout
+
+\begin_layout Subsection
+Tutorial
+\end_layout
+
+\begin_layout Subsection
+ReaDDy Starter Pack
+\end_layout
+
+\begin_layout Subsection
+How to add Potential
+\end_layout
+
+\begin_layout Subsection
+How to add Reaction
+\end_layout
+
+\begin_layout Section
+ReaDDyMM
+\end_layout
+
+\begin_layout Subsection
+Installation and usage
+\end_layout
+
+\begin_layout Paragraph
+Installation
+\end_layout
+
+\begin_layout Standard
+The installation involves two parts: 
+\end_layout
+
+\begin_layout Standard
+First, the third party software OpenMM has to be installed on the system
+ 
+\end_layout
+
+\begin_layout Standard
+Second, ReaDDyMM has to interface with this OpenMM distribution on the system.
+\end_layout
+
+\begin_layout Itemize
+Install OpenMM
+\end_layout
+
+\begin_layout Standard
+- for CMB @ FU Berlin: use "module load compiler/4.6.3 openmm/git" instead
+ 
+\end_layout
+
+\begin_layout Standard
+- https://simtk.org/project/xml/downloads.xml?group_id=161 
+\end_layout
+
+\begin_layout Standard
+- make sure that OpenMM runs properly 
+\end_layout
+
+\begin_layout Standard
+- If you want to use GPU acceleration, sometimes specific compilers are
+ required (GCC 4.6.3 works)
+\end_layout
+
+\begin_layout Itemize
+set system variables / prepare ReaDDyMM
+\end_layout
+
+\begin_layout Standard
+- set OPENMM_PLUGIN_DIR system variable (part of OpenMM instal) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+export OPENMM_PLUGIN_DIR=$OpenMMDIR/lib/plugins
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+- set JAVA_HOME system variable e.g.
+ 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+- add your OpenMM library dircetory to the LD_LIBRARY_PATH system variable
+ e.g.
+ 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+export LD_LIBRARY_PATH=$OpenMMDIR/lib:$LD_LIBRARY_PATH 
+\end_layout
+
+\begin_layout Plain Layout
+
+or 
+\end_layout
+
+\begin_layout Plain Layout
+
+export LD_LIBRARY_PATH=$OPENMM_PLUGIN_DIR/../../lib:$LD_LIBRARY_PATH
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+build ReaDDyMM
+\end_layout
+
+\begin_layout Standard
+- change directory to /lib 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+cd /lib
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+- run makefile
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+make
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Usage
+\end_layout
+
+\begin_layout Standard
+Use the template in /test/ReaDDyPaperReaDDyMM/.
+ Set parameters in the readdy simulation run script.
+\end_layout
+
+\begin_layout Itemize
+edit the run script 
+\end_layout
+
+\begin_layout Standard
+- file 
+\begin_inset Quotes eld
+\end_inset
+
+/test/ReaDDyPaperReaDDyMM/_run/runSimulation.sh
+\begin_inset Quotes eld
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+- edit the following line 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+PROGRAMPATH=/path/to/your/ReaDDy/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+edit ReaDDyMM specific parameter 
+\end_layout
+
+\begin_layout Standard
+- in /test/ReaDDyPaperReaDDyMM/ReaDDy_input/ 
+\end_layout
+
+\begin_layout Standard
+- file param_global.xml: 
+\end_layout
+
+\begin_layout Standard
+- the diffusion timestep in OpenMM 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<dtOpenMM>1e-10</dtOpenMM>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+- Optional Parameters:
+\end_layout
+
+\begin_layout Standard
+- in param_global.xml: 
+\end_layout
+
+\begin_layout Standard
+- the CUDA device index, default 0 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<cudaDeviceIndex>0</cudaDeviceIndex>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+- file param_particles.xml 
+\end_layout
+
+\begin_layout Standard
+- the number of dummy particles for the respective particle 
+\end_layout
+
+\begin_layout Standard
+- default: 0 
+\end_layout
+
+\begin_layout Standard
+- these particles are necessary since OpenMM can not add or remove particles
+ 
+\end_layout
+
+\begin_layout Standard
+- upon a reaction.
+ Dummy particles are used to catch this.
+ 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<numberOfDummyParticles>1234</numberOfDummyParticles>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+run ReaDDyMM 
+\end_layout
+
+\begin_layout Standard
+- for CMB @ FU Berlin: login into GPU node 
+\end_layout
+
+\begin_layout Standard
+- for CMB @ FU Berlin: type "module load compiler/4.6.3 openmm/git" 
+\end_layout
+
+\begin_layout Standard
+- change to test folder cd /test/ReaDDyPaperReaDDyMM/ ./run.sh
+\end_layout
+
+\begin_layout Subsection
+How to add Potential
+\end_layout
+
+\begin_layout Standard
+1.
+ How to add a new parameter in ReaDDy? 
+\end_layout
+
+\begin_layout Standard
+See tutorial_PotentialAddingInReaDDy.pdf 
+\end_layout
+
+\begin_layout Standard
+2.
+ How to add this parameter to ReaDDyMM? 
+\end_layout
+
+\begin_layout Standard
+In the TopMM.java file are all parameters stored in an array, to be than
+ handed over to OpenMM.
+ For the new parameter you have to add a new case-clause in either the order
+ one or order two potential section.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+case "your_parameter_name": {                             	potParam1.add(123.0);	/
+/ first value => unique number for your 							// parameter (<1000)    
+                 	potParam1.add(Double.parseDouble(entry.getValue()));	
+\end_layout
+
+\begin_layout Plain Layout
+
+	// following: value(s)                             
+\end_layout
+
+\begin_layout Plain Layout
+
+	break;                         
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If the amount of transduced values is unclear at this time, it is important,
+ to submit the amount of parameters too.
+ 
+\end_layout
+
+\begin_layout Standard
+After storing your parameter, you need to interpret it in the C++-interface.
+ In the C++ code you add a new case-clause in either the order one potential(ext
+ernal force) or order two potential (pairwise force).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+else if(paramPot1[i]==your parameter number){
+\end_layout
+
+\begin_layout Plain Layout
+
+	i++; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	for( int x=0, x<howMuchValues, ++x){
+\end_layout
+
+\begin_layout Plain Layout
+
+		// iterate through your 
+\end_layout
+
+\begin_layout Plain Layout
+
+		// parameter-values and store them myParam=paramPot1[i]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+		i++; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ The i indicates the current position in the array.
+ Don't forget to increase it properly after reading your variable.
+ Now you can use your new parameter in a force in OpenMM
+\end_layout
+
+\begin_layout Standard
+3.
+ How to add a new force to ReaDDy? 
+\end_layout
+
+\begin_layout Standard
+See tutorial_PotentialAddingInReaDDy.pdf 
+\end_layout
+
+\begin_layout Standard
+4.
+ How to add a new force to ReaDDyMM? 
+\end_layout
+
+\begin_layout Standard
+In the TopMM.java add a new case-clause in the "type"section of either the
+ order one or two potentials.
+ 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+case "YOUR_POTENTIAL_NAME": {
+\end_layout
+
+\begin_layout Plain Layout
+
+	potParam1.add((int)uniquePotentialID); //(>1000) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	break;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ Invent an unique ID for your new potential, and be sure, that it is unique
+ and bigger than 1000.
+ ReaDDy will store all related parameters for this potential in the respective
+ array.
+ You now need to specify a OpenMM force-function in the C++-library.
+ 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+if(type==1234){ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	// your unique potential ID 
+\end_layout
+
+\begin_layout Plain Layout
+
+	ss << "O*0.5*" << K << "*((" << center[2] << "+z)^2 + min(200-sqrt((x-"
+ << center[0]<<")^2 + (y-" << center[1] << ")^2),0)^2)" ; 	// ss is a string
+ stream from witch contains your force formula 
+\end_layout
+
+\begin_layout Plain Layout
+
+	// you can use here your various parameters 
+\end_layout
+
+\begin_layout Plain Layout
+
+	// there are two predefined parameter useO = true; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	// parameter "O" witch is important for activating 
+\end_layout
+
+\begin_layout Plain Layout
+
+	// deactivating particles useR = true; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	// and R - the particle radius 
+\end_layout
+
+\begin_layout Plain Layout
+
+	// you can decide whether to use them by switching this booleans 
+\end_layout
+
+\begin_layout Plain Layout
+
+	// on or off 
+\end_layout
+
+\begin_layout Plain Layout
+
+	// add here possible per particle parameter 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The „O“ parameter is important for the activation and inactivation of particles.
+ When a particle changes its type through a reaction, it is necessary, to
+ switch off all to it applied forces.
+ This is done through this parameter.
+ The parameter R, the particle radius, is a common used parameter in force
+ formulas.
+ If you want to add another per particle parameter, you have to add the
+ following code into the above if-clause.
+\end_layout
+
+\end_body
+\end_document
