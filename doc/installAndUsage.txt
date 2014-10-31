@@ -1,5 +1,11 @@
 --- Installation ---
 
+The installation and usage requires the use of a unix terminal.
+We strongly recoment the usage of a unix system. 
+The usage of windows systems will require to install OpenMM under windows, 
+and the manual compilation of the C++-code (instead of makefile usage) (not tested).
+For unix systems terminal commands are provided.
+
 The installation involves two parts:
 First, the third party software OpenMM has to be installed on the system
 Second, ReaDDyMM has to interface with this OpenMM distribution on the system.
@@ -20,8 +26,9 @@ b) set system variables
         - add your OpenMM library dircetory to the LD_LIBRARY_PATH system variable
         (e.g. export LD_LIBRARY_PATH=$OpenMMDIR/lib:$LD_LIBRARY_PATH
         or export LD_LIBRARY_PATH=$OPENMM_PLUGIN_DIR/../../lib:$LD_LIBRARY_PATH)
+        (- for permanent setting, edit your .bashrc file)
 # ReaDDyMM make execution
-c)  # change directory /lib
+c)  # change directory to /lib
     cd /lib
     # run makefile
     make
