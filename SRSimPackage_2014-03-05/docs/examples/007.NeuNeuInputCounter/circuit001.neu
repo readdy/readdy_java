@@ -1,0 +1,73 @@
+*:ed(c) ex~a
+i:ed(c) ex~a type~in0
+I:ed(c) ex~a type~in1
+j:ed(c) ex~a type~in2
+o:ed(c) ex~a type~out0
+O:ed(c) ex~a type~out1
+p:ed(c) ex~a type~out2
+P:ed(c) ex~a type~out3
+Y:ed(c) ex~b
+s:start(c)
+a:directedA(c) ex~a
+b:directedB(c) ex~a
+x:inhibit(c)
+&:and(c) ex~a
+r:repeat(c) ex~a res~a
+---
+         
+         
+            s****** *********o
+                   *
+                   x
+                   r 
+                   *
+                   *
+      1***ab*      *    
+             **    *
+      2***ab*  **** ***** **********O
+             **          *
+      3* *ab*             x
+        *                 r
+         ****             *
+             *            7
+             r      
+              &***4                
+             r                     
+             *                                                      
+   i**** ****                                                       
+        *    *                                                 7                    
+        1    r                                                 *                    
+              &** **5           8               4***ab*        *                    
+             r   *              *                      *       *                    
+             *    ****r         *                       **     *                    
+   I**** ****          &******** *****P                *  **   *                    
+        *    *        r                         5***ab*     *** **** ******p                    
+        2    r        *                                *  **        *                    
+              &***6   *                                 **          x                    
+             r        *                                *            r                    
+             *       *                          6***ab*             *             
+   j**** **** *******                                               8
+        *                                                    
+        3
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+                             
+                             
+                           
+                           
+                           
+                           
+                           

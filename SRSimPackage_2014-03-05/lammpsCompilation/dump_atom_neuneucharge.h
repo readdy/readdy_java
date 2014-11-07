@@ -1,0 +1,1 @@
+../LammpsModules/neuneu/dump_atom_neuneucharge.h

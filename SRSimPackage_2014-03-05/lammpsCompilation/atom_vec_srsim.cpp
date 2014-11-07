@@ -1,0 +1,1 @@
+../LammpsModules/atom_vec_srsim.cpp

@@ -1,0 +1,51 @@
+# let's have a two-mol collision:
+
+dimension	3
+boundary	f f f
+units		real
+newton          on
+
+atom_style	srsim spass_w.bngl spass.geo spass.tgeo 123456
+
+
+## read_data data.gerdl
+lattice none
+region		        Nukleus block 0 100.0 0 100.0 0 100.0 units box
+create_box	        10 Nukleus
+
+#                       name  
+start_state_srsim       coeffs
+
+start_state_srsim       atoms
+
+# Stimulation:
+#                              Brownian Temp Temp damping randomSeed
+fix 		     2   all   langevin  300  300  200.0   1234567
+fix		     1   all   nve
+
+#  SRSim Reactions:  id  group fixName | nEvery  randomSeed  preFactBindR preFactBreakR preFactExchangeR preFactModifyR_1 preFactModifyR_2
+fix 		     3   all   srsim     1       45678          4.7           1e-3           1.0                1.0e-3           4.7
+fix          4   all   wall/reflect xlo xhi ylo yhi zlo zhi
+
+# da primal big deeest!
+
+# neighbour lists:
+# neigh_modify	exclude molecule ABC
+
+# Dumps:
+timestep	1.0
+thermo		500
+
+dump            2 all srsim 50 w_scf.srsim.gdat
+
+dump           1 all atom 10 spass.lammpstrj
+dump_modify    1 scale yes
+#dump_modify    1 every 50
+
+
+# Stimulation
+run 		100000
+
+
+
+

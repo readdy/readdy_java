@@ -1,0 +1,18 @@
+This is the SRSim software packages.
+
+It can be used for the spatial, rule-based simulation of (biochemical) 
+reaction networks.
+
+Please have a look at the docs/readme docs/manual.pdf files to guide
+you through the installation and use of SRSim.
+
+SRSim is based upon the sources of the molecular dynamics simulator 
+LAMMPS (http://lammps.sandia.gov/). The original functionality of 
+LAMMPS is not altered, so the new modules should be compatible with 
+the original lammps sources as well.
+
+Please let us know if you use the software. Please send comments and 
+critics to 'MrWowbagger at gmx.net'.
+
+
+

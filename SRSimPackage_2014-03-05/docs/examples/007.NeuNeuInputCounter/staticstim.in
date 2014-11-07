@@ -1,0 +1,24 @@
+outpDelay: 2000
+stimDelay: 2000
+nevery:    20
+excitable_site_id:       ed(ex)
+excite_modification:     c
+excited_modification:    b
+excited_modification:    c
+excited_modification:    d
+excited_modification:    e
+excited_modification:    f
+
+stimResultFile:          staticstim.out
+
+stim:
+Time         i:ed(type~in0)   i:ed(type~in1)   i:ed(type~in2)   o:ed(type~out0)  o:ed(type~out1)  o:ed(type~out2)  o:ed(type~out3)
+50000           0                0                  0                 -1                -1                -1             -1
+60000           0                0                  0                  1                 0                 0              0
+60000           1                0                  0                  0                 1                 0              0
+60000           0                1                  0                  0                 1                 0              0
+60000           0                0                  1                  0                 1                 0              0
+60000           1                0                  1                  0                 0                 1              0
+60000           0                1                  1                  0                 0                 1              0
+60000           1                1                  0                  0                 0                 1              0
+60000           1                1                  1                  0                 0                 0              1

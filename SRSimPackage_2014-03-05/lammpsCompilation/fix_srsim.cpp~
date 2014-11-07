@@ -1,0 +1,394 @@
+/* ----------------------------------------------------------------------
+   LAMMPS - Large-scale Atomic/Molecular Massively Parallel Simulator
+   http://lammps.sandia.gov, Sandia National Laboratories
+   Steve Plimpton, sjplimp@sandia.gov
+
+   Copyright (2003) Sandia Corporation.  Under the terms of Contract
+   DE-AC04-94AL85000 with Sandia Corporation, the U.S. Government retains
+   certain rights in this software.  This software is distributed under 
+   the GNU General Public License.
+
+   See the README file in the top-level LAMMPS directory.
+------------------------------------------------------------------------- */
+
+#include "math.h"
+#include "stdlib.h"
+#include "string.h"
+#include "atom.h"
+#include "update.h"
+#include "respa.h"
+#include "error.h"
+#include "random_mars.h"
+#include "memory.h"
+#include "modify.h"
+#include "compute.h"
+#include "compute_reapot_atom.h"
+
+#include "fix_srsim.h"
+#include <SRSim/names_manager.h>
+#include <SRSim/bng_rule_builder.h>
+#include <SRSim/site_reactant_template.h>
+#include "lammps_molecule.h"
+
+
+// only need this one for debug:
+#include <SRSim/bound_reactant_template.h>
+#include <SRSim/modification_reactant_template.h>
+
+using namespace LAMMPS_NS;
+
+#define COMP_IDENT_STRING "internal_reapot_computation"
+
+/* ---------------------------------------------------------------------- */
+
+//   Syntax: fix 	id_5 group_all name_srsim nevery_1 rndSeed_23456
+FixSRSim::FixSRSim(LAMMPS *lmp, int narg, char **arg) :
+  Fix(lmp, narg, arg)
+{
+  printf ("FixSRSim::FixSRSim - constructor!\n");
+  
+  if (narg != 11) error->all("fix-SRSim:  id  group srsim | nEvery  randomSeed preFactBinR preFactBreakR preFactExchangeR preFactModifyR_1 preFactModifyR_2 refractoryTime");
+  nevery = atoi(arg[3]);
+  if (nevery <= 0) error->all("Illegal fix SRSim command: nevery too small");
+
+  // random number generator:
+  //rng = new RanMars(lmp, atoi(arg[4]));
+  
+  // init Rule Sys: nope - we take the RuleSys from the aVec.
+  avec = dynamic_cast<AtomVecSRSim*>(atom->avec);
+  rset = avec->rset;
+  
+  // add Event-Queue computation
+  computeCmd = new char*[4];
+  computeCmd[0] = COMP_IDENT_STRING;
+  computeCmd[1] = "all";//arg[1]; // group
+  computeCmd[2] = "reapot/atom";
+  computeCmd[3] = arg[4];
+  modify->add_compute(4,computeCmd);
+  
+  // Reaction-Rate-Prefactors: maybe scale some rates!
+  avec->srmodel->kinetics->scaleRates( rset, atof(arg[5]),atof(arg[6]),atof(arg[7]), atof(arg[8]), atof(arg[9]) );
+
+  // refractory time for molecules until they can react after a break-Reaction:
+  refractoryTime = atoi(arg[10]);
+  
+  //  MPI_Comm_rank(world,&me);
+}
+
+/* ---------------------------------------------------------------------- */
+
+FixSRSim::~FixSRSim()
+{
+  printf("Destruction! [FixSRSim::~FixSRSim]\n");
+  modify->delete_compute(COMP_IDENT_STRING);
+  //delete rng;
+}
+
+/* ---------------------------------------------------------------------- */
+
+int FixSRSim::setmask()
+{
+  int mask = 0;
+  mask |= FINAL_INTEGRATE;
+  return mask;
+}
+
+/* ---------------------------------------------------------------------- */
+
+// before every run:
+void FixSRSim::init()
+  {
+  printf ("initing FixSRSim!\n");
+  
+  int icompute = modify->find_compute(COMP_IDENT_STRING);
+  if (icompute < 0) error->all("Reapot-Compute ID for fix reapot/atom does not exist!");
+  computeReapot = (ComputeReapotAtom*) (modify->compute[icompute]);
+  //computeReapot->init();              // not yet called by Modify::init()
+  
+  // setup fitting-templates-array...
+  updateInitial ();
+  }
+
+/* ---------------------------------------------------------------------- */
+
+// before the very first run:
+//void FixSRSim::setup()
+//{  
+/*  int  nlocal   = atom->nlocal;
+  int *visited  = atom->visited;
+  
+  for (int i = 0; i < nlocal; i++)
+      {
+      visited[i] = -1;  // the standard-unvisited value when we walk through
+                        // the graph recursively later.
+      }*/
+  // There's no need to init 'visited', as it's inited by 
+  //    atomVecSRSim::create_atom!
+ 
+  
+  
+//}
+
+/* ---------------------------------------------------------------------- */
+
+void FixSRSim::final_integrate() 
+  {
+/*  int nlocal = atom->nlocal;
+  int *n_bnd = atom->num_bond;
+  int *tags  = atom->tag;
+  int *mask  = atom->mask;*/
+
+/*  if (update->ntimestep > 8951)
+     {
+     if (avec->findOtherEnd(1754,1) != 1671 )
+        {
+        printf ("#################################################\n");
+        printf ("############ TS = %d  #######################\n", update->ntimestep);
+        printf ("############ Other End  = %d  ###############\n", avec->findOtherEnd(1754,1));
+        printf ("#################################################\n");
+        }
+     assert( avec->findOtherEnd(1754,1) == 1671 );
+     }*/
+  
+  
+  
+  //assert (update->ntimestep < 56);
+  for (int i=0 ; i<atom->nlocal ; i++)       // all nodes should be unvisited!
+      assert (avec->visited[i] == -1);
+  
+  
+  // clear refactory-state?
+  avec->unRefract();
+  
+  // Reaction Potential?
+  computeReapot->compute_peratom();
+  //printf ("--- final_integrate starts: %d    nlocal=%d\n", update->ntimestep,atom->nlocal);
+  
+  ComputeReapotAtom::Event *et;
+
+  int imax = computeReapot->events.size();
+  for (int i=0 ; i<imax ; i++)
+      {
+      et = computeReapot->events[i];
+      SRSim_ns::RuleTp *r = rset->getRule( et->reaID );
+      
+      //printf ("printfiprin ntimestep=%d   (%d/%d)\n", update->ntimestep, i, imax);
+      
+      if (r->type == RuleTp::BindR)
+         {
+         printf (" |ts %5d| %s   (%d & %d) \n", update->ntimestep, r->toString().c_str(), et->i,et->j);
+         
+         avec->addNewBond (et->i, atom->tag[et->j], et->sites.first, et->sites.second);
+         updateSubgraphTemplateData (et->i);
+         //printf ("Done.\n");
+         
+         /*if (update->ntimestep == 87)
+            {
+            LammpsMolecule lm(145);
+            lm.writeToDotFile ("spass.dot");
+            
+            printf ("S1 = %d, S2 = %d\n",et->sites.first, et->sites.second);
+            
+            //int ti = atom->type[et->i];
+            avec->srmodel->names->printAll();
+            }*/
+         }
+         
+      else if (r->type == RuleTp::BreakR)   
+         {
+         printf (" |ts %5d| %s ", update->ntimestep, r->toString().c_str());
+                           
+         /*if (update->ntimestep == 87)
+            {
+            LammpsMolecule lm(145);
+            lm.writeToDotFile ("spass.dot");
+            
+            //BoundReactantTemplate *brt = dynamic_cast<BoundReactantTemplate*>(avec->rset->getRT(2));
+            //brt->getStartSite()->getMol()->writeToDotFile("spassT.dot");
+            }
+            
+         printf ("et->i = %d (tag=%d) to templates: ", et->i, atom->tag[et->i]);
+         for (int i=0 ; i<avec->all_templs[et->i].size() ; i++)
+             printf ("%d ", avec->all_templs[et->i][i]);
+         int type = atom->type[et->i];
+         for (int i=0 ; i<avec->type2numSites[type] ; i++)
+             for (int j=0 ; j<avec->site_templs[et->i][i].size() ; j++)
+                 printf ("S%d(%d) ", i, avec->site_templs[et->i][i][j] );
+         printf ("\n");*/
+         
+         // we have to know, which site exactly is breaking, so find it:  run over sites:
+         //int needTemplate = r->in[0];
+         //int fittingSite  = avec->findFittingSite(et->i, needTemplate);
+         ////if (fittingSite == -1) continue;
+         //assert (fittingSite != -1);
+         int otherEnd     = avec->findOtherEnd   (et->i, /*fittingSite*/et->sites.first);
+         
+         avec->breakBond (et->i, et->sites.first);
+         updateSubgraphTemplateData (et->i);
+         updateSubgraphTemplateData (otherEnd);
+         
+         avec->refractMol(et->i   , update->ntimestep + refractoryTime);
+         avec->refractMol(otherEnd, update->ntimestep + refractoryTime);
+         
+         printf ("  (%d & %d)\n",et->i,otherEnd);
+         }
+
+      else if (r->type == RuleTp::ModifyR)
+         {
+         printf (" |ts %5d| %s \n", update->ntimestep, r->toString().c_str());
+         
+         if (et->sites.first >= 0) // modification on first mol of Rule...
+            {
+            ModificationReactantTemplate *mrt = dynamic_cast<ModificationReactantTemplate*>( rset->getRT(r->out[0]) );
+            assert( mrt != NULL );
+            int iSite    = et->sites.first;
+            int newModif = mrt->getModif();
+
+            printf ("   old modif: %d",avec->site_modified[et->i][iSite]);
+            avec->site_modified[et->i][iSite] = newModif;
+            printf ("   new modif: %d",avec->site_modified[et->i][iSite]);
+            updateSubgraphTemplateData (et->i);
+            }
+         if (et->sites.second >= 0) // modification on first mol of Rule...
+            {
+            ModificationReactantTemplate *mrt = dynamic_cast<ModificationReactantTemplate*>( rset->getRT(r->out[1]) );
+            assert( mrt != NULL );
+            int jSite    = et->sites.second;
+            int newModif = mrt->getModif();
+            printf ("   2old modif: %d",avec->site_modified[et->j][jSite]);
+            avec->site_modified[et->j][jSite] = newModif;
+            printf ("   2new modif: %d",avec->site_modified[et->j][jSite]);
+            updateSubgraphTemplateData (et->j);
+            }
+            
+         assert (et->sites.first >= 0 || et->sites.second >= 0 );
+         }
+               
+      else if (r->type == RuleTp::ExchangeR)// exchange rule 
+         {
+         printf (" |ts %5d| %s \n", update->ntimestep, r->toString().c_str());
+         assert( false );  // nööp: geht noch ned!
+         }
+         
+      else if (r->type == RuleTp::BindIntramolR)
+         {
+         printf (" |ts %5d| %s   (%d & %d) \n", update->ntimestep, r->toString().c_str(), et->i,et->j);
+         
+         ReactantTemplate *tgtTemplate = rset->getRT(r->out[0]);
+         LammpsMolecule *lm1 = new LammpsMolecule(et->i);
+         LammpsMolecule *lm2 = new LammpsMolecule(et->j);
+         assert (! tgtTemplate->matchMolecule(lm1, et->sites.first ) );
+         assert (! tgtTemplate->matchMolecule(lm2, et->sites.second) );
+         
+         //assert (false);    // ===>  muss matchMolecule nehmen, nicht fitsToTemplate, denn u.U. ist das tgtTemplate
+                            //        gar kein reactive Template!
+         //assert (! avec->fitsToTemplate(et->i, r->out[0]) );
+         //assert (! avec->fitsToTemplate(et->j, r->out[0]) );
+         
+         avec->addNewBond (et->i, atom->tag[et->j], et->sites.first, et->sites.second);
+         
+         // test if the new bond had the right effect!
+         // namespace-brackets will be used to have lm deleted after the first matching process!
+         bool success = false;
+         if ( !success && tgtTemplate->matchMolecule(lm1, et->sites.first ) ) success=true; 
+         if ( !success && tgtTemplate->matchMolecule(lm2, et->sites.second) ) success=true;
+         delete lm1; 
+         delete lm2;
+         
+         if (!success)
+            {
+            printf ("  FixSRSim::final_integrate: faulty IntramolBinding reaction - but no worries - restoring.\n");
+            printf ("   tgt-Template = %d \n", tgtTemplate);
+            for (int nt=0 ; nt<avec->all_templs[et->i].size() ; nt++)
+                printf ("     iT%d \n", avec->all_templs[et->i][nt]);
+            for (int nt=0 ; nt<avec->all_templs[et->j].size() ; nt++)
+                printf ("     jT%d \n", avec->all_templs[et->j][nt]);
+            
+            // now we've gotta clean up the mess:
+            avec->breakBond (et->i, et->sites.first);
+            }
+         else updateSubgraphTemplateData (et->i);
+         }
+         
+      else assert( false ); // this doesn't exist at all!
+      
+      //printf ("new Bond: %d %d  -- ts:%d \n", et->i,et->j, update->ntimestep);
+      
+      }
+      
+  //printf ("=== final_integrate done: %d\n", update->ntimestep);
+  }
+
+
+
+  
+void LAMMPS_NS::FixSRSim::updateSingleTemplateData (int idx)
+  {
+  LammpsMolecule lm(idx);
+  // maybe we should add a mem-counting-something in here...
+        
+  // calculate actual fitting templates.
+  rset->fillFittingTemplates(&lm, avec->all_templs[idx], avec->site_templs[idx], avec->amount_templs);
+  }
+  
+  
+/**  Scans all simulation molecules and identifies to which templates
+ *   they belong. Should only be used once.
+ *   Also it initializes the list 'amount_templs' wich is used for the 
+ *   Gillespie-for-unary reactions :)
+ */
+void LAMMPS_NS::FixSRSim::updateInitial( )
+  {
+  printf ("FixSRSim::updateInitial\n       ");
+  
+  for (int i = 0; i < atom->nlocal; i++)
+      {
+      //printf ("   up Mol %d with tag: %d\n", i,atom->tag[i]);
+      //if (i%10==0) printf (".");
+      updateSingleTemplateData(i);
+      }  // ok, now they are equiped with their initial template set...
+      
+  printf ("\n     initially updated Lammps-Molecules with numTemplates=%d\n", rset->numTemplates());
+  //printf ("plong T[0].nMol = %d \n", rset->getRT(0)->numMolecules() );
+  //printf ("plong T[1].nMol = %d \n", rset->getRT(1)->numMolecules() );
+  //printf ("plong T[2].nMol = %d \n", rset->getRT(2)->numMolecules() );
+  }
+
+  
+  
+/**   Scanning of Template Data changes:
+ *  After bond breaking or tying there, new fitting SiteTemplates can be 
+ *  added / lost from the molecules. Also the whole graph can add / lose 
+ *  WholeMoleculeReactantTemplates.
+ *
+ *  1) go through every molecule of the graph recursively
+ *  2) calculate template data.
+ */
+void LAMMPS_NS::FixSRSim::updateSubgraphTemplateData( int startIdx)
+  {
+  //printf (" updating subgraph, beginning at %d\n", startIdx);
+  assert (avec->visited[startIdx] == -1);  // should be unvisited.
+
+  UpdateCallback uc (this);
+  avec->recVisit(startIdx, &uc, 1, rset->numMoleculesMax() );
+
+  // clear the 'visited'  tag from all the nodes we visited.
+  avec->unVisitAll();
+  }
+ 
+void LAMMPS_NS::UpdateCallback::run( int localIdx )
+  {
+  myFix->updateSingleTemplateData (localIdx);
+  }
+ 
+
+
+  
+vector<double> LAMMPS_NS::FixSRSim::recDelLocalizeGraph( int idx, bool del, int distance )
+  {
+  assert (false);
+  }
+
+  
+
+

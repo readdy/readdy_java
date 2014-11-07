@@ -1,0 +1,12 @@
+<?xml version="1.0"?> 
+   <template-geometry-definition> 
+
+      <template id="0" name="S(t,t,t,t)"> 
+         <mol id="0" x="0.0" y="0.0" z="0.0" /> 
+      </template> 
+
+      <template id="1" name="A(s,r~nP)"> 
+         <mol id="0" x="0.0" y="0.0" z="0.0" /> 
+      </template> 
+
+   </template-geometry-definition> 

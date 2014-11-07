@@ -1,0 +1,58 @@
+
+
+Currently converted examples - conform with SRSim 2.0:
+  001.scaffold
+  002.microtubule                ???  writing restarts doesn't work currently.
+  003.spheres/001.small
+  005.simpleTutorial     (not converted but new)
+  006.exchangeRules
+
+
+
+
+
+
+
+To convert an older SRSim 1.00 model to the new version 2.x:
+
+
+to spass.geo:
+  * add a new version tag:   <version value="1.01"/>
+
+  * add a <GeneralProperties> Block, e.g.
+
+	<GeneralProperties>
+		<property name="GPT_Devi_Dist"  value="0.5"/>
+		<property name="GPT_Devi_Angle" value="50"/>
+		<property name="GPT_Mol_Mass"   value="1"/>
+		<property name="GPT_Mol_Rad"    value="1"/>
+		<property name="GPT_Site_Dist"  value="1"/>
+		
+                <property name="GPT_Refractory"        value= "50.0"/>
+                <property name="GPT_Force_Repulsion"   value= "5.0"/>
+		<property name="GPT_Force_Bond"        value= "5.0"/>
+		<property name="GPT_Force_Angle"       value="15.0"/>
+		<property name="GPT_Force_Dihedral"    value= "5.0"/>
+		<property name="GPT_Temperature"       value="300"/>
+		
+		<property name="GPT_Option_Dihedrals"  value="0"/>
+		<property name="GPT_Option_Impropers"  value="0"/>
+		<property name="GPT_Option_Rigid"      value="0"/>
+	</GeneralProperties>
+
+  * delete the <ReaktionGeometry> block:
+	<ReaktionGeometry>
+		<DistanceDeviation value="0.5" />
+		<AngularDeviation value="50" />
+	</ReaktionGeometry>
+
+
+
+
+to spass.in:
+  * remove parameters from "start_state_srsim coeffs" -> put into the <GeneralProperties> of spass.geo
+  
+  * remove refractory-time parameter from th "fix srsim" line
+
+
+

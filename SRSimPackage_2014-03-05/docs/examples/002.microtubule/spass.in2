@@ -1,0 +1,61 @@
+
+runmodif_srsim	ruleSys spass.bngl spass.geo spass.tgeo 23458
+read_restart spass.restart
+
+
+## read_data data.gerdl
+#                       name   fRepulsion fBond   fAngle
+start_state_srsim       coeffs
+
+
+
+# Stimulation:
+#                              Brownian Temp Temp damping randomSeed
+fix 		     2   all   langevin  300  300  200.0   23457
+fix		     1   all   nve
+
+#  SRSim Reactions:  id  group fixName | nEvery  randomSeed  preFactBindR preFactBreakR preFactExchangeR preFactModifyR_1 preFactModifyR_2
+fix 		     3   all   srsim     1       45678          1.0           1.0            1.0                1.0             1.0
+fix                  4   all   wall/reflect xlo xhi ylo yhi zlo zhi
+
+
+# Add some more molecules:
+runmodif_srsim  addMols 170 200 0 30 0 30 M(a,x!1,f).M(a,x!1,f) 50
+runmodif_srsim  addMols   0 200 0 30 0 30 Fr(a) 50
+
+
+# Molecule groups:
+#group immobile1 type 4
+#group immobile2 type 5
+#group mobile subtract all    immobile1
+#group mobile subtract mobile immobile2
+
+
+
+
+
+# Dumps:
+timestep	1.0
+thermo		500
+
+dump            2 all srsim 50 spass2.srsim.gdat
+dump            1 all atom 5 spass3.lammpstrj
+dump_modify     1 scale yes
+
+
+dump_modify     1 every 50
+run 		800000
+
+undump          1
+dump            1 all atom 5 spass4.lammpstrj
+dump_modify     1 every 500
+
+run 		5000000
+write_restart   spass2.restart
+
+run 		5000000
+write_restart   spass2.restart
+
+run 		5000000
+write_restart   spass2.restart
+

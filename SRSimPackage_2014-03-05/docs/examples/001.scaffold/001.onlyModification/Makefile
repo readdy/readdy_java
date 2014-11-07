@@ -1,0 +1,33 @@
+ 
+spass: w_scf.gdat wo_scf.gdat w_scf.srsim.gdat wo_scf.srsim.gdat
+	gnuplot spass.gnuplot
+
+# spass.lammpstrj: spass.in spass.bngl spass.geo
+# 	lammps < spass.in
+# 
+# bngl: spass.bngl
+# 	/home/stud/bid02/gerdl/RulesIn3D/ModelingSoftware/BioNetGen_2.0.44/Perl2/BNG2.pl spass.bngl
+
+spass.tgeo: spass.bngl spass.geo
+	createGeo spass.bngl spass.geo spass.tgeo
+
+#/home/stud/bid02/gerdl/RulesIn3D/ModelingSoftware/BioNetGen_2.0.44/Perl2/BNG2.pl spass_w.bngl
+w_scf.gdat: spass_w.bngl
+	BNG2.pl spass_w.bngl
+	cp spass_w.gdat w_scf.gdat
+
+#/home/stud/bid02/gerdl/RulesIn3D/ModelingSoftware/BioNetGen_2.0.44/Perl2/BNG2.pl spass_wo.bngl
+wo_scf.gdat: spass_wo.bngl
+	BNG2.pl spass_wo.bngl
+	cp spass_wo.gdat wo_scf.gdat
+
+w_scf.srsim.gdat: spass_w.bngl
+	lmp_srsim < spass_w.in
+
+wo_scf.srsim.gdat: spass_wo.bngl
+	lmp_srsim < spass_wo.in
+
+
+clean: 
+	rm -f w_scf.gdat wo_scf.gdat w_scf.srsim.gdat wo_scf.srsim.gdat
+	

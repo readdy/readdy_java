@@ -1,0 +1,26 @@
+<?xml version="1.0"?> 
+   <template-geometry-definition> 
+
+<!--
+      <template id="0" name="ed(ex~a,c,c,c,type)"> 
+         <mol id="0" x="0.0" y="0.0" z="0.0" /> 
+      </template> 
+
+      <template id="1" name="rep(ex~a,c,c,c)"> 
+         <mol id="0" x="0.0" y="0.0" z="0.0" /> 
+      </template> 
+
+      <template id="2" name="start(ex~a,c,c,c)"> 
+         <mol id="0" x="0.0" y="0.0" z="0.0" /> 
+      </template> 
+
+      <template id="3" name="directedA(ex~a,c,c,c)"> 
+         <mol id="0" x="0.0" y="0.0" z="0.0" /> 
+      </template> 
+
+      <template id="4" name="directedB(ex~a,c,c,c)"> 
+         <mol id="0" x="0.0" y="0.0" z="0.0" /> 
+      </template> 
+-->
+
+   </template-geometry-definition> 

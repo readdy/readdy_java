@@ -1,0 +1,98 @@
+ 
+
+begin parameters
+  Ed_0       10
+  Ed_1        5
+
+
+  kEx0       0.0;
+  kEx1       0.0001;
+  kEx2       0.0001;
+  kEx3       0.0001;
+  kEx4       0.0001;
+  kEx5       0.0001;
+  kEx6       0.000005;
+  
+  kNb1       0.4;
+  kNb2       0.4;
+  
+  kAdd1      0.001;
+  
+  kOk0       0.001
+  kNok0      0.00000001
+  kOk1       0.0001
+  kNok1      0.00000001
+  kOk2       0.00000001
+  kNok2      0.0001
+
+  kRep0      0.0001
+end parameters
+
+
+
+
+#
+# Excitable Droplets (ed) - "ex"  with states ~a..~f
+#                           "c"   connections to max 6 other droplets
+#                                  states "~ex" exciting protein channel
+#                                  states "~dio" protein channel diodes: exitation travels only in one direction
+#                                  states "~inh" inhibiting protein channel: excitation here -> ,,kill'' excitation there
+#
+#       Excitation ~a : no excitation
+#                  ~b : starting excitation
+#                  ~c : half way excited
+#                  ~d,~e : fully excited
+#                  ~f : half way excited
+#                  ~g : refractory time
+#
+
+#  ed(ex~a~b~c~d~e~f,c,c,c,c,c,c)       500
+begin species
+  ed(ex~a,c,c,c,ok~no)       Ed_0
+  ed(ex~b,c,c,c,ok~no)       Ed_1
+end species
+
+
+
+
+begin reaction rules
+  # spontaneous reaction:
+  0 ed(ex~a)   -> ed(ex~b)         kEx0
+
+  # cycle through an excitation loop:
+  1 ed(ex~b) -> ed(ex~c)         kEx1
+  2 ed(ex~c) -> ed(ex~d)         kEx2
+  3 ed(ex~d) -> ed(ex~e)         kEx3
+  4 ed(ex~e) -> ed(ex~f)         kEx4
+  5 ed(ex~f) -> ed(ex~g)         kEx5
+  6 ed(ex~g) -> ed(ex~a)         kEx6
+  
+  # passing excitations to neighbours:
+  #     ~d and ~e are in highest excitation phase!
+  10 ed(ex~a,c) + ed(c,ex~c) -> ed(ex~b,c) + ed(c,ex~c)    kNb2   # c excitation
+  11 ed(ex~a,c) + ed(c,ex~d) -> ed(ex~b,c) + ed(c,ex~d)    kNb1   # d excitation
+  12 ed(ex~a,c) + ed(c,ex~e) -> ed(ex~b,c) + ed(c,ex~e)    kNb1   # e excitation
+  13 ed(ex~a,c) + ed(c,ex~f) -> ed(ex~b,c) + ed(c,ex~f)    kNb2   # f excitation
+  
+  
+  15 ed(ok~no,c,c,c)                <->   ed(ok~yes,c,c,c)                  kOk0,kNok0
+  15 ed(ok~no,c,c,c!+)              <->   ed(ok~yes,c,c,c!+)                kOk1,kNok1
+  15 ed(ok~no,c,c!+,c!+)            <->   ed(ok~yes,c,c!+,c!+)              kOk2,kNok2
+
+  # let's add a growth rule:
+  20 ed(ex~a)    ->    ed(ex~a,c,c,c,ok~no) + ed(ex~a,c,c,c,ok~no)          kRep0
+end reaction rules
+
+
+
+
+begin observables
+end observables
+
+
+generate_network({overwrite=>1});
+
+ simulate_ssa({t_end=>2.4e-7,n_steps=>150});
+#simulate_ode({t_end=>8e-7,n_steps=>150});
+#simulate_ode({t_end=>5,n_steps=>50,atol=>1e-8,rtol=>1e-8});
+

@@ -1,0 +1,30 @@
+begin parameters
+  C0   1
+  A0   5
+  B0   6
+  dm   0.050146
+  dc   0.02312
+end parameters
+
+begin species
+  C(l!1).A(l!1,r!2).B(l!2,r!3).A(l!3,r!4).B(l!4,r) C0
+  A(l,r)  A0         # ihr seit alle doof!
+  B(r)  B0
+end species
+
+
+begin reaction rules
+  1 A(r) + A(l)  <-> A(r!1).A(l!1) dm,dc
+  1 A(l) + B(r!2).A(l!2) -> A(l!1).B(l!1,r!2).A(l!2) dm
+  4 B(r) + B(l)  <-> B(r!1).B(l!1) dm,dc
+  5 C(l!1).D(r!1) -> C(l) + D(r)   dm
+  6 C(l!1).E(r!1) -> F             dm
+end reaction rules
+
+begin observables
+Molecules     RecTest     Rec
+end observables
+
+
+generate_network({overwrite=>1});
+simulate_ode({t_end=>600,n_steps=>10,atol=>1e-8,rtol=>1e-8});

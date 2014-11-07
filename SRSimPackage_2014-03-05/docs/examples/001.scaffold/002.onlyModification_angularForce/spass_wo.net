@@ -1,0 +1,107 @@
+# Created by BioNetGen 2.0.44
+substanceUnits("Number");
+begin parameters
+    1 SCF0 30
+    2 A0 300
+    3 B0 300
+    4 AB0 0
+    5 d1_on 0.0001
+    6 d1_off 0.1
+    7 d2_on 0.00
+    8 d2_off 0.001
+    9 d3_on 0.00001
+   10 d3_off 0.9
+end parameters
+begin molecule types
+  1 A(r~nP~P,s)
+  2 S(t,t,t,t)
+end molecule types 
+begin species
+    1 S(t,t,t,t)                                            SCF0
+    2 A(r~nP,s)                                             A0
+    3 A(r~P,s)                                              0
+    4 A(r~nP,s!1).S(t!1,t,t,t)                              0
+    5 A(r~P,s!1).S(t!1,t,t,t)                               0
+    6 A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)                0
+    7 A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)                 0
+    8 A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)                  0
+    9 A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0
+   10 A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)   0
+   11 A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)    0
+end species
+begin reaction rules
+    1 A(r) + A(r~nP) -> A(r) + A(r~P) d1_on
+# StateChange(1.0.0,nP->P)
+    1 A(r~P) -> A(r~nP) d1_off
+# StateChange(0.0.0,P->nP)
+    2 A(r~nP,s) + S(t) <-> A(r~nP,s!1).S(t!1) d2_on, d2_off
+# Bind(0.0.1,0.1.0)
+# Reverse
+# Unbind(0.0.1,0.1.0)
+    3 A(r~P,s) + S(t) <-> A(r~P,s!1).S(t!1) d3_on, d3_off
+# Bind(0.0.1,0.1.0)
+# Reverse
+# Unbind(0.0.1,0.1.0)
+end reaction rules
+begin observables
+    1 Molecules nA A(r~nP)
+    2 Molecules nAP A(r~P)
+    3 Molecules nS S(t,t,t,t)
+    4 Molecules nSb S(t!+,t,t,t)
+    5 Molecules nSbb S(t!+,t!+,t,t)
+    6 Molecules nSbbb S(t!+,t!+,t!+,t)
+    7 Molecules nSbbbb S(t!+,t!+,t!+,t!+)
+end observables
+begin reactions
+    1 2,2 2,3 d1_on #1
+    2 1,2 4 4*d2_on #2
+    3 2,4 2,5 d1_on #1
+    4 2,3 3,3 d1_on #1
+    5 3,4 3,5 d1_on #1
+    6 2,4 3,4 d1_on #1
+    7 4,4 4,5 d1_on #1
+    8 3 2 d1_off #1
+    9 2,4 6 3*d2_on #2
+   10 4 1,2 d2_off #2(reverse)
+   11 1,3 5 4*d3_on #3
+   12 3,4 7 3*d3_on #3
+   13 2,6 2,7 2*d1_on #1
+   14 2,7 2,8 d1_on #1
+   15 3,6 3,7 2*d1_on #1
+   16 3,7 3,8 d1_on #1
+   17 4,6 4,7 2*d1_on #1
+   18 4,7 4,8 d1_on #1
+   19 2,5 3,5 d1_on #1
+   20 4,5 5,5 d1_on #1
+   21 5,6 5,7 2*d1_on #1
+   22 5,7 5,8 d1_on #1
+   23 2,6 3,6 2*d1_on #1
+   24 4,6 5,6 2*d1_on #1
+   25 6,6 6,7 4*d1_on #1
+   26 6,7 6,8 2*d1_on #1
+   27 2,7 3,7 2*d1_on #1
+   28 4,7 5,7 2*d1_on #1
+   29 6,7 7,7 4*d1_on #1
+   30 7,7 7,8 2*d1_on #1
+   31 5 4 d1_off #1
+   32 7 6 d1_off #1
+   33 2,5 7 3*d2_on #2
+   34 2,6 9 2*d2_on #2
+   35 2,7 10 2*d2_on #2
+   36 6 2,4 2*d2_off #2(reverse)
+   37 7 2,5 d2_off #2(reverse)
+   38 3,5 8 3*d3_on #3
+   39 3,6 10 2*d3_on #3
+   40 3,7 11 2*d3_on #3
+   41 5 1,3 d3_off #3(reverse)
+   42 7 3,4 d3_off #3(reverse)
+end reactions
+begin groups
+    1 nA                   2,4,2*6,7
+    2 nAP                  3,5,7
+    3 nS                   24*1
+    4 nSb                  6*4,6*5
+    5 nSbb                 4*6,4*7
+    6 nSbbb                
+    7 nSbbbb               
+end groups

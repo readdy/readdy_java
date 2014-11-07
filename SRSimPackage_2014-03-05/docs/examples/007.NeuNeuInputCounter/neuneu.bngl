@@ -1,0 +1,150 @@
+ 
+
+begin parameters
+  Ed_0      100
+
+
+  kEx0       0.0;
+  kEx1       0.001;
+  kEx2       0.001;
+  kEx3       0.001;
+  kEx4       0.001;
+  kEx5       0.001;
+  kEx6       0.0001;
+  kExInhi    0.00001
+  
+  kNb1       0.05;
+  kNb2       0.00005;
+  
+  kStart     0.05
+  
+  kAnd1      0.003;
+  kAnd2      0.0002
+  kAnd3      0.02
+  
+  kOk0       0.001
+  kNok0      0.00000001
+  kOk1       0.0001
+  kNok1      0.00000001
+  kOk2       0.00000001
+  kNok2      0.0001
+  
+  kRep1       0.05
+  kRep2       0.00001
+end parameters
+
+
+
+
+#
+# Excitable Droplets (ed) - "ex"  with states ~a..~f
+#                           "c"   connections to max 6 other droplets
+#                                  states "~ex" exciting protein channel
+#                                  states "~dio" protein channel diodes: exitation travels only in one direction
+#                                  states "~inh" inhibiting protein channel: excitation here -> ,,kill'' excitation there
+#
+#       Excitation ~a : no excitation
+#                  ~b : starting excitation
+#                  ~c : half way excited
+#                  ~d,~e : fully excited
+#                  ~f : half way excited
+#                  ~g : refractory time
+#
+
+#  ed(ex~a~b~c~d~e~f~g~h~i~j~k~l~x,c,c,c,c,c,c)       500
+begin species
+  ed(ex~a,c,c,c,type)        0
+  ed(ex~a,c,c,c,type~in0)    0
+  ed(ex~a,c,c,c,type~in1)    0
+  ed(ex~a,c,c,c,type~in2)    0
+  ed(ex~a,c,c,c,type~out0)   0
+  ed(ex~a,c,c,c,type~out1)   0
+  ed(ex~a,c,c,c,type~out2)   0
+  ed(ex~a,c,c,c,type~out3)   0
+  
+  
+  and(ex~a,c,c,c)            0
+  inhibit(c,c,c)             0
+  start(c,c,c)               0
+  directedA(ex~a,c,c,c)      0
+  directedB(ex~a,c,c,c)      0
+  repeat(ex~a,c,c,c,res~a)   0
+end species
+  
+
+
+
+
+begin reaction rules
+  # spontaneous reaction:
+  # 0 ed(ex~a)   -> ed(ex~b)         kEx0
+
+  # cycle through an excitation loop:
+  1 ed(ex~b) -> ed(ex~c)         kEx1
+  2 ed(ex~c) -> ed(ex~d)         kEx2
+  3 ed(ex~d) -> ed(ex~e)         kEx3
+  4 ed(ex~e) -> ed(ex~f)         kEx4
+  5 ed(ex~f) -> ed(ex~g)         kEx5
+  
+  6 ed(ex~g) -> ed(ex~a)         kEx6
+  
+  
+  # passing excitations to neighbours:
+  #     ~d and ~e are in highest excitation phase!
+  10 ed(ex~a,c!1).ed(c!1,ex~c) -> ed(ex~b,c!1).ed(c!1,ex~c)    kNb2   # c excitation
+  11 ed(ex~a,c!1).ed(c!1,ex~d) -> ed(ex~b,c!1).ed(c!1,ex~d)    kNb1   # d excitation
+  12 ed(ex~a,c!1).ed(c!1,ex~e) -> ed(ex~b,c!1).ed(c!1,ex~e)    kNb1   # e excitation
+  #13 ed(ex~a,c!1).ed(c!1,ex~f) -> ed(ex~b,c!1).ed(c!1,ex~f)    kNb2   # f excitation
+  
+  # attach free cells:
+  # 14 ed(c)     + ed(c)     ->   ed(c!1).ed(c!1)    kAdd1
+  
+  
+  
+  # starter-droplets:
+  14 start(c!1).ed(c!1,ex~a)   ->   start(c!1).ed(c!1,ex~b)     kStart
+  
+  
+  # diode channels:
+  #15 ed(ex~d,c!1).directedA(c!1,c!2).directedB(c!2,c!3).ed(c!3,ex~a)  ->  ed(ex~d,c!1).directedA(c!1,c!2).directedB(c!2,c!3).ed(c!3,ex~b)   kNb1  # d excitation over diode
+  15 ed(ex~e,c!1).directedA(c!1,c!2).directedB(c!2,c!3).ed(c!3,ex~a)  ->  ed(ex~e,c!1).directedA(c!1,c!2).directedB(c!2,c!3).ed(c!3,ex~b)   kNb1  # e excitation over diode
+  
+  
+  # repeaters:
+  18 ed(ex~c,c!1).repeat(ex~a,c!1)        ->    ed(ex~c,c!1).repeat(ex~b,c!1)      kRep1
+  18 ed(ex~d,c!1).repeat(ex~a,c!1)        ->    ed(ex~d,c!1).repeat(ex~b,c!1)      kRep1
+  18 ed(ex~e,c!1).repeat(ex~a,c!1)        ->    ed(ex~e,c!1).repeat(ex~b,c!1)      kRep1
+  18 ed(ex~c,c!1).repeat(ex~b,c!1,res~a)  ->    ed(ex~c,c!1).repeat(ex~b,c!1,res~b)      kRep1
+  18 ed(ex~d,c!1).repeat(ex~b,c!1,res~a)  ->    ed(ex~d,c!1).repeat(ex~b,c!1,res~b)      kRep1
+  18 ed(ex~e,c!1).repeat(ex~b,c!1,res~a)  ->    ed(ex~e,c!1).repeat(ex~b,c!1,res~b)      kRep1
+  # loose excitation:
+  18 repeat(ex~b,res~a)                   ->    repeat(ex~a,res~a)                 kRep2
+  18 repeat(res~b)                        ->    repeat(res~a)                      kRep2
+  # 18 repeat(ex~b,c!1).ed(ex~a,c!1)      ->    repeat(ex~b,c!1).ed(ex~b,c!1)      kRep1
+  
+  
+  # inhibitors   --  only repeater driven, now
+  repeat(ex~b,c!1).inhibit(c!1,c!2).ed(c!2,ex~a)  -> repeat(ex~b,c!1).inhibit(c!1,c!2).ed(c!2,ex~g)  kNb1
+  # recover from inhibition
+  # 16 ed(ex~x) -> ed(ex~a)         kExInhi
+  
+  # "and" droplet  --  only repeater driven, now
+  17 repeat(ex~b,c!1).repeat(ex~b,c!2).and(c!1,c!2,c!3).ed(c!3,ex~a) ->  repeat(ex~b,c!1).repeat(ex~b,c!2).and(c!1,c!2,c!3).ed(c!3,ex~e)  kNb1
+  
+  
+end reaction rules
+
+
+
+
+begin observables
+  Molecules hi ed(type~in1)
+end observables
+
+
+generate_network({overwrite=>1});
+
+ simulate_ssa({t_end=>2.4e-7,n_steps=>150});
+#simulate_ode({t_end=>8e-7,n_steps=>150});
+#simulate_ode({t_end=>5,n_steps=>50,atol=>1e-8,rtol=>1e-8});
+

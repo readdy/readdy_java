@@ -1,0 +1,43 @@
+
+begin parameters
+  k1      1.5e-2
+  k2      1.5e-2
+  k3      5e-5
+
+  A0      500
+  B0      700
+end parameters
+
+
+begin species
+  A(a,b,c)                 A0
+  B(b,e~triP)              B0
+end species
+
+
+
+
+begin reaction rules
+  1 A(b) + B(b)                    ->  A(b!1).B(b!1)                    k1
+
+  2 A(c) + A(a,b!1).B(b!1,e~triP)  ->  A(c!2).A(a!2,b!1).B(b!1,e~triP)  k2
+
+  3 A(a!+,c!+,b!1).B(b!1,e~triP)   ->  A(a!+,c!+,b!1).B(b!1,e~diP)      k3
+end reaction rules
+
+
+
+
+
+begin observables
+  Molecules    nA0    A(a,c)
+  Molecules    nA1    A(a,c!+)
+  Molecules    nA11   A(a!+,c)
+  Molecules    nA2    A(a!+,c!+)
+  Molecules    nBtri  B(e~triP)
+  Molecules    nBdi   B(e~diP)
+end observables
+
+
+
+

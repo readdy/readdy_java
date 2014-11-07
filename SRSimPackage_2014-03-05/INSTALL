@@ -1,0 +1,35 @@
+ Building SRSim:
+=================
+
+Type 
+   make prepare
+and then
+   make lmp_srsim
+to build lammps with SRSim.
+
+
+
+You will need an MPI implementation and the Xerces XML parser library for C++ installed on your machine.
+If these libraries are not found in the standard search patch, you might have to modify
+   RuleSys/Makefile
+and
+   lammpsCompilation/Makefile
+.
+
+
+When building was successful, you'll find a file lammpsCompilation/lmp_srsim which is the executable of SRSim.
+You can link this file in your local binary directory.
+
+
+When you're changing sources - especially the headers in RuleSys, you'll probably want to exchange 
+the headers in RuleSys/SRSim/...  by symbolic links to the headers in the directory structure below.
+This awkward step will have to be removed in the next versions.
+
+
+
+
+Tricks to make the compilation work:
+   - modify the open-mpi sources: 
+       comment line 64 in /usr/include/mpi/openmpi/ompi/mpi/cxx/constants.h:
+                    "// OMPI_DECLSPEC extern const int UNDEFINED;"
+

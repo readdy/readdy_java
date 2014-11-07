@@ -1,0 +1,1 @@
+../LammpsModules/dihedral_harmonic_srsim.h

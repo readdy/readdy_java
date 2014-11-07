@@ -1,0 +1,38 @@
+dimension       3
+boundary        s s s
+units           real
+newton          off
+
+atom_style      molecular
+bond_style      harmonic
+angle_style     harmonic
+read_data       data.createGeo
+neighbor        10.0 nsq
+
+pair_style      soft 2.5
+
+pair_coeff      1 1 60 60 2.000000
+pair_coeff      1 2 60 60 2.000000
+pair_coeff      1 3 60 60 2.000000
+pair_coeff      1 4 60 60 2.000000
+pair_coeff      1 5 60 60 2.000000
+pair_coeff      2 2 60 60 2.000000
+pair_coeff      2 3 60 60 2.000000
+pair_coeff      2 4 60 60 2.000000
+pair_coeff      2 5 60 60 2.000000
+pair_coeff      3 3 60 60 2.000000
+pair_coeff      3 4 60 60 2.000000
+pair_coeff      3 5 60 60 2.000000
+pair_coeff      4 4 60 60 2.000000
+pair_coeff      4 5 60 60 2.000000
+pair_coeff      5 5 60 60 2.000000
+
+fix             1 all nve
+fix             2 all langevin 5 5 185.0 23456
+
+timestep        1.0
+thermo          200
+dump            1 all atom 100 dump.createGeo.lammpstrj
+dump_modify     1 scale no
+
+run             20000

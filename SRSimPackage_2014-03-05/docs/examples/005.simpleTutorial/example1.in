@@ -1,0 +1,63 @@
+##
+#  Phase 1 - setup reactor
+##
+
+dimension     3
+boundary      f f f       # use fixed boundary conditions
+units         real        # timescale: fs,  distances: Angstrom
+newton        on
+
+atom_style    srsim example1.bngl example1.geo example1.tgeo     11111
+##########    cmd     .bngl         .geo          .tgeo          random_seed
+
+lattice       none
+region	Nucleus block -40  40  -40  40  -40  40 units box
+######                      dimensions of the reaction volume
+
+create_box    100           Nucleus
+#             n_atom_types  Region_name
+
+start_state_srsim   coeffs
+start_state_srsim   atoms
+		#   set initial values e.g. bond forces etc.
+		#   and add molecules to the simulation
+
+neighbor            5.0 bin
+#                   size of neighbor-grouping bins
+
+##
+#  Phase 2 - setup forces
+##
+
+fix  1   all   langevin  300  300  160.0   12345
+#        parameters:     Temp Temp Gamma^-1 random_seed
+
+fix  2   all   nve
+fix  3   all   wall/reflect xlo xhi ylo yhi zlo zhi
+
+fix  4   all   srsim   1   45678  1.0  1.0  1.0  1.0  1.0  50
+#  fix srsim syntax: fix id group srsim | nEvery  randomSeed  preFactBindR 
+#                                         preFactBreakR preFactExchangeR 
+#                                         preFactModifyR_1 preFactModifyR_2 
+#                                         refractoryTime   
+
+##
+#  Phase 3 - run
+##
+
+# Dumps:
+thermo	   5000   # write themodynamics information every 5k timesteps
+timestep   1      # one timestep = 1  fs
+
+dump            1 all atom 1000 example1.lammpstrj
+                ############### trajectory output
+dump_modify     1 scale yes
+dump            2 all srsim 1000 example1.srsim.gdat
+                ################ concentrations output
+
+# first run phase for 500k ts
+run 		500000
+
+# second run phase with higher time-resolution
+dump_modify     1 every 10
+run             5000

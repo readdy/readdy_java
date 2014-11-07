@@ -1,0 +1,47 @@
+begin parameters
+  SCF0    30
+  A0      300
+  B0      300
+  AB0     0
+  d1_on   0.0001
+  d1_off  0.1
+  d2_on   0.05
+  d2_off  0.001
+  d3_on   0.00001
+  d3_off  0.9
+end parameters
+#  d2_on   0.05
+#  d2_on   0.0
+#  d_on    0.005   Max
+
+begin species
+  S(t,t,t,t)        SCF0         # Scaffold Prot
+  A(s,r~nP)           A0
+end species
+
+
+begin reaction rules
+  1 A(r)      + A(r~nP)     ->     A(r) + A(r~P)         d1_on
+  1             A(r~P)      ->     A(r~nP)               d1_off
+  2 A(r~nP,s) + S(t)       <->     A(r~nP,s!1).S(t!1)    d2_on, d2_off
+  3 A(r~P,s)  + S(t)       <->     A(r~P,s!1).S(t!1)     d3_on, d3_off
+end reaction rules
+
+
+
+begin observables
+  Molecules    nA     A(r~nP)
+  Molecules    nAP    A(r~P)
+  Molecules    nS     S(t,t,t,t)
+  Molecules    nSb    S(t!+,t,t,t)
+  Molecules    nSbb   S(t!+,t!+,t,t)
+  Molecules    nSbbb  S(t!+,t!+,t!+,t)
+  Molecules    nSbbbb S(t!+,t!+,t!+,t!+)
+end observables
+
+
+generate_network({overwrite=>1,max_iter=>3});
+
+simulate_ssa({t_end=>100,n_steps=>500});
+# simulate_ode({t_end=>100,n_steps=>500,atol=>1e-8,rtol=>1e-8});
+

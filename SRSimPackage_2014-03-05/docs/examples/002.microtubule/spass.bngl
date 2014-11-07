@@ -1,0 +1,116 @@
+
+begin parameters
+  Tabi    600
+  S0i     0
+  S17i    1
+  Pi      0
+  Fri     0
+  
+  k1_on   0.5
+  k2_on   0.5
+  k3_on   0.5
+  k1_off  0.00000
+  k1_off  0.00000
+  
+  d5_mod  0.5
+  d6_on   0.5
+  d7_mod  0.5  
+  d8_on   0.5
+  
+  k21_off     0.5
+  k24_off     0.000005             # release freight
+  k22_on      0.05                 # bind freight
+  k23_on      0.5
+  k25_off     0.01
+end parameters
+
+
+
+
+
+begin species
+  Ta(a,u,bl,br,x!1).Tb(x!1,a,bl,br,d)   Tabi      #  alpha and beta tubulin
+  S(u,bl,br,d,d1)                       S0i       #  nucleation structure
+  S(u!22,bl,br!1,d).S(u,bl!1,br!2,d).S(u,bl!2,br!3,d).S(u,bl!3,br!4,d).S(u,bl!4,br!5,d).S(u,bl!5,br!6,d).S(u,bl!6,br!7,d).S(u,bl!7,br!8,d).S(u,bl!8,br!9,d).S(u,bl!9,br!10,d).S(u,bl!10,br!11,d).S(u,bl!11,br!12,d).S(u,bl!12,br!13,d).S(u,bl!13,br,d1!20).S(u!20,bl,br,d1!21).S(u!21,bl,br,d1!22)   S17i
+  M(a,x!1,f).M(a,x!1,f)                 Pi        #   the motor proteins
+  Fr(a)                                 Fri
+end species
+
+
+
+
+
+#  Rules:
+#   1: bind to nucleation structure
+#   2: bind to nucleation structure at the seam
+#   3: form lateral connections of the MT lattice in normal area and at the seam
+#   4: bind new Dimer longitudinally
+#   5: break lateral bond
+#   6: break longitudinal bond
+#
+#   9-12: move motor protein along the MT
+#
+#   21-25: motors bind and release freight and MT
+
+begin reaction rules
+  1  Tb(d) + S(u) -> Tb(d!1).S(u!1)                  k1_on
+  
+  2  Tb(br,d!10).Tb(bl,d!20).S(u!10,br!1122).S(bl!1122,u!20)                    ->    Tb(br!5,d!10).Tb(bl!5,d!20).S(u!10,br!1122).S(bl!1122,u!20)         k2_on             #  connect two Tbs at the bottom line
+  2  S(u!+,bl,br,d1!1).S(u!1,bl,br!2,d).S(bl!2,br!+,u!3,d).Tb(d!3,bl)           ->    S(u!+,bl,br!5,d1!1).S(u!1,bl,br!2,d).S(bl!2,br!+,u!3,d).Tb(d!3,bl!5)    k2_on         #  fix 1st up/down
+  2  Ta(bl,x!1).Tb(x!1,bl!2).S(br!2,u!3).S(d1!3,br)                             ->    Ta(bl!5,x!1).Tb(x!1,bl!2).S(br!2,u!3).S(d1!3,br!5)                       k2_on        #  fix 2nd up/down   
+  2  Tb(bl,d!1).Ta(u!1,bl!2).S(br!2,u!3).S(d1!3,br)                             ->    Tb(bl!5,d!1).Ta(u!1,bl!2).S(br!2,u!3).S(d1!3,br!5)                       k2_on        #  fix 3rd up/down
+  2  Ta(bl,x!1).Tb(x!1,bl!2).S(br!2,u!3).Tb(d!3,br)                             ->    Ta(bl!5,x!1).Tb(x!1,bl!2).S(br!2,u!3).Tb(d!3,br!5)                       k2_on        #  fix 4th up/down
+  
+  
+  
+  3  Ta(br,x!10).Ta(bl,x!20).Tb(x!10,br!1122).Tb(bl!1122,x!20)     ->     Ta(br!5,x!10).Ta(bl!5,x!20).Tb(x!10,br!1122).Tb(bl!1122,x!20)      k3_on
+  3  Tb(br,d!10).Tb(bl,d!20).Ta(u!10,br!1122).Ta(bl!1122,u!20)     ->     Tb(br!5,d!10).Tb(bl!5,d!20).Ta(u!10,br!1122).Ta(bl!1122,u!20)      k3_on
+  3  Ta(br,x!10).Tb(bl,d!20).Tb(x!10,br!1122).Ta(bl!1122,u!20)     ->     Ta(br!5,x!10).Tb(bl!5,d!20).Tb(x!10,br!1122).Ta(bl!1122,u!20)      k3_on
+  3  Tb(br,d!10).Ta(bl,x!20).Ta(u!10,br!1122).Tb(bl!1122,x!20)     ->     Tb(br!5,d!10).Ta(bl!5,x!20).Ta(u!10,br!1122).Tb(bl!1122,x!20)      k3_on
+  
+  4  Ta(u,bl!+,br!+)  +  Tb(d)                                     ->     Ta(u!5,bl!+,br!+).Tb(d!5)      k1_on
+  
+  5  Tb(bl!+,d!+,br!1).Tb(bl!1,br,d!+)       -> Tb(bl!+,d!+,br) + Tb(bl,br,d!+)           k1_off
+  6  Ta(u,x!1).Tb(x!1,bl,br,d!5).Ta(u!5)     -> Ta(u,x!1).Tb(x!1,bl,br,d) + Ta(u)         k1_off
+
+  
+  9  Tb(a!2,x!1).Ta(x!1,a!4).M(a!2,x!3).M(x!3,a!4)                         ->  Tb(a,x!1).Ta(x!1,a!4).M(a,x!3).M(x!3,a!4)                                   d5_mod    # löse Pa auf homo
+  10 Tb(a,x!1).Ta(x!1,a!2,u!7).M(a!2,x!3).M(x!3,a).Tb(d!7,a,x!8).Ta(x!8,a) ->  Tb(a,x!1).Ta(x!1,a!2,u!7).M(a!2,x!3).M(x!3,a!5).Tb(d!7,a!5,x!8).Ta(x!8,a)   d6_on     # binde a auf hetero
+  11 Tb(x!1).Ta(x!1,a!2).M(a!2,x!3).M(x!3,a!4).Tb(a!4,x!5).Ta(x!5)         ->  Tb(x!1).Ta(x!1,a) + M(a,x!3).M(x!3,a!4).Tb(a!4,x!5).Ta(x!5)                 d7_mod    # löse b auf hetero
+  12 Tb(a!2,x!1).Ta(x!1,a).M(a!2,x!3).M(x!3,a)                             ->  Tb(a!2,x!1).Ta(x!1,a!4).M(a!2,x!3).M(x!3,a!4)                               d8_on     # binde b auf homo
+  
+  
+  21 Ta(a!2).M(a!2,x!3,f).M(x!3,a,f)     ->   Ta(a) + M(a,x!3,f).M(x!3,a,f)       k21_off   #  motor exits w.o. freight
+  21 Tb(a!2).M(a!2,x!3,f).M(x!3,a,f)     ->   Tb(a) + M(a,x!3,f).M(x!3,a,f)       k21_off
+  
+  24 M(f!5).Fr(a!5)                      ->   M(f) + Fr(a)       k24_off    #   Motor releases freight
+  
+  23 M(f!+,a,x!2).M(a,x!2) + Tb(a,x!1,bl!+,br!+).Ta(x!1,a)      ->    M(f!+,a!5,x!2).M(a,x!2).Tb(a!5,x!1,bl!+,br!+).Ta(x!1,a)        k23_on    # motor binds w. freight
+  23 M(f!+,a,x!2).M(a,x!2) + Tb(a,x!1,bl!+,br!+).Ta(x!1,a)      ->    M(f!+,a!5,x!2).M(a,x!2).Tb(a,x!1,bl!+,br!+).Ta(x!1,a!5)        k23_on    # motor binds w. freight
+  
+  22 M(f,x!2).M(x!2,f) + Fr(a)    ->     M(f,x!2).M(x!2,f!5).Fr(a!5)      k22_on       # motor aquires freight
+  
+  21 Ta(a!2).M(a!2,x!3,f).M(x!3,a,f)     ->   Ta(a) + M(a,x!3,f).M(x!3,a,f)       k21_off   #  motor exits w.o. freight
+  21 Tb(a!2).M(a!2,x!3,f).M(x!3,a,f)     ->   Tb(a) + M(a,x!3,f).M(x!3,a,f)       k21_off
+  
+  25 Fr(a!5).M(f!5,a!1).Ta(a!1,u)                   ->   Fr(a) + M(f,a!1).Ta(a!1,u)             k25_off    # release fright terminally
+  25 Fr(a!5).M(f!5,x!2).M(x!2,a!1).Ta(a!1,u)        ->   Fr(a) + M(f,x!2).M(x!2,a!1).Ta(a!1,u)  k25_off    # release fright terminally
+end reaction rules
+
+
+
+
+begin observables
+   Molecules Fun1 S(u!+,bl,br,d!1).S(u!1,bl,br!2,d).S(bl!2,br!+,u!3,d).Tb(d!3,bl)
+   Molecules Fun2 Ta(br,x!10).Tb(bl,d!20).Tb(x!10,br!1122).Ta(bl!1122,x!20)
+   Molecules Fun3 Tb(br,d!10).Ta(bl,x!20).Ta(u!10,br!1122).Tb(bl!1122,x!20)
+   Molecules Fun4 Ta(br,x!10).Ta(bl,x!20).Tb(x!10,br!1122).Tb(bl!1122,x!20)
+   Molecules Fun5 Tb(br,d!10).Tb(bl,d!20).Ta(u!10,br!1122).Ta(bl!1122,u!20)
+end observables
+
+
+generate_network({overwrite=>1});
+
+#simulate_ssa({t_end=>5,n_steps=>50});
+#simulate_ode({t_end=>5,n_steps=>50,atol=>1e-8,rtol=>1e-8});
+

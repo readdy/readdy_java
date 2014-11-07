@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KDevPrjSession>
+<KDevPrjSession>
+ <DocsAndViews NumberOfDocuments="23" >
+  <Doc0 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/sr_model.h" >
+   <View0 line="33" Type="Source" />
+  </Doc0>
+  <Doc1 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/sr_model.cpp" >
+   <View0 line="25" Type="Source" />
+  </Doc1>
+  <Doc2 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/rule_set.cpp" >
+   <View0 line="221" Type="Source" />
+  </Doc2>
+  <Doc3 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/rule_set.h" >
+   <View0 line="36" Type="Source" />
+  </Doc3>
+  <Doc4 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/bng_rule_builder.h" >
+   <View0 line="0" Type="Source" />
+  </Doc4>
+  <Doc5 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/bng_rule_builder.cpp" >
+   <View0 line="107" Type="Source" />
+  </Doc5>
+  <Doc6 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/rule_builder.h" >
+   <View0 line="16" Type="Source" />
+  </Doc6>
+  <Doc7 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/rule_builder.cpp" >
+   <View0 line="240" Type="Source" />
+  </Doc7>
+  <Doc8 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/reactant_template.h" >
+   <View0 line="73" Type="Source" />
+  </Doc8>
+  <Doc9 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/reactant_template.cpp" >
+   <View0 line="162" Type="Source" />
+  </Doc9>
+  <Doc10 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/molecule.h" >
+   <View0 line="16" Type="Source" />
+  </Doc10>
+  <Doc11 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/kinetics_definition.h" >
+   <View0 line="0" Type="Source" />
+  </Doc11>
+  <Doc12 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/kinetics_definition.cpp" >
+   <View0 line="27" Type="Source" />
+  </Doc12>
+  <Doc13 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/bound_reactant_template.h" >
+   <View0 line="30" Type="Source" />
+  </Doc13>
+  <Doc14 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/bound_reactant_template.cpp" >
+   <View0 line="81" Type="Source" />
+  </Doc14>
+  <Doc15 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/multi_mol_reactant_template.h" >
+   <View0 line="28" Type="Source" />
+  </Doc15>
+  <Doc16 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/testmain.cpp" >
+   <View0 line="79" Type="Source" />
+  </Doc16>
+  <Doc17 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/createGeo.cpp" >
+   <View0 line="49" Type="Source" />
+  </Doc17>
+  <Doc18 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/geometry_definition.cpp" >
+   <View0 line="271" Type="Source" />
+  </Doc18>
+  <Doc19 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/geometry_definition.h" >
+   <View0 line="97" Type="Source" />
+  </Doc19>
+  <Doc20 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/site_reactant_template.h" >
+   <View0 line="27" Type="Source" />
+  </Doc20>
+  <Doc21 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/site_reactant_template.cpp" >
+   <View0 line="56" Type="Source" />
+  </Doc21>
+  <Doc22 NumberOfViews="1" URL="file:///home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/names_manager.h" >
+   <View0 line="16" Type="Source" />
+  </Doc22>
+ </DocsAndViews>
+ <pluginList>
+  <kdevdebugger>
+   <breakpointList>
+    <breakpoint0 location="/home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/createGeo.cpp:110" type="1" condition="" enabled="1" />
+    <breakpoint1 location="/home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/createGeo.cpp:100" type="1" condition="" enabled="1" />
+   </breakpointList>
+  </kdevdebugger>
+  <kdevbookmarks>
+   <bookmarks>
+    <bookmark url="/home/stud/bid02/gerdl/RulesIn3D/SRSim/RuleSys/reactant_template.cpp" >
+     <mark line="24" />
+    </bookmark>
+   </bookmarks>
+  </kdevbookmarks>
+  <kdevvalgrind>
+   <executable path="" params="spass.bngl spass.geo spass.tgeo" />
+   <valgrind path="/usr/bin/valgrind" params="--tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --tool=memcheck --leak-check=yes" />
+   <calltree path="calltree" params="" />
+   <kcachegrind path="/opt/kde3/bin/kcachegrind" />
+  </kdevvalgrind>
+ </pluginList>
+</KDevPrjSession>

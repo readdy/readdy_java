@@ -1,0 +1,412 @@
+begin species
+    1 S(t,t,t,t)            0.000000000000000e+00
+    2 A(r~nP,s)             1.090000000000000e+02
+    3 A(r~P,s)              7.100000000000000e+01
+    4 A(r~nP,s!1).S(t!1,t,t,t)  0.000000000000000e+00
+    5 A(r~P,s!1).S(t!1,t,t,t)  0.000000000000000e+00
+    6 A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.000000000000000e+00
+    7 A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.000000000000000e+00
+    8 A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)  0.000000000000000e+00
+    9 A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.000000000000000e+00
+   10 A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.000000000000000e+00
+   11 A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.000000000000000e+00
+   12 A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  3.000000000000000e+01
+   13 A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.000000000000000e+00
+   14 A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.000000000000000e+00
+   15 A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.000000000000000e+00
+   16 A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.000000000000000e+00
+   17 A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.000000000000000e+00
+end species
+begin rates
+    1 SCF0                  3.000000000000000e+01
+    2 A0                    3.000000000000000e+02
+    3 B0                    3.000000000000000e+02
+    4 AB0                   0.000000000000000e+00
+    5 d1_on                 1.000000000000000e-04
+    6 d1_off                1.000000000000000e-01
+    7 d2_on                 5.000000000000000e-02
+    8 d2_off                1.000000000000000e-03
+    9 d3_on                 1.000000000000000e-05
+   10 d3_off                9.000000000000000e-01
+end rates
+begin reactions
+    1 2,2 2,3 d1_on
+    2 1,2 4 4*d2_on
+    3 2,4 2,5 d1_on
+    4 2,3 3,3 d1_on
+    5 3,4 3,5 d1_on
+    6 2,4 3,4 d1_on
+    7 4,4 4,5 d1_on
+    8 3 2 d1_off
+    9 2,4 6 3*d2_on
+   10 4 1,2 d2_off
+   11 1,3 5 4*d3_on
+   12 3,4 7 3*d3_on
+   13 2,6 2,7 2*d1_on
+   14 2,7 2,8 d1_on
+   15 3,6 3,7 2*d1_on
+   16 3,7 3,8 d1_on
+   17 4,6 4,7 2*d1_on
+   18 4,7 4,8 d1_on
+   19 2,5 3,5 d1_on
+   20 4,5 5,5 d1_on
+   21 5,6 5,7 2*d1_on
+   22 5,7 5,8 d1_on
+   23 2,6 3,6 2*d1_on
+   24 4,6 5,6 2*d1_on
+   25 6,6 6,7 4*d1_on
+   26 6,7 6,8 2*d1_on
+   27 2,7 3,7 2*d1_on
+   28 4,7 5,7 2*d1_on
+   29 6,7 7,7 4*d1_on
+   30 7,7 7,8 2*d1_on
+   31 5 4 d1_off
+   32 7 6 d1_off
+   33 2,5 7 3*d2_on
+   34 2,6 9 2*d2_on
+   35 2,7 10 2*d2_on
+   36 6 2,4 2*d2_off
+   37 7 2,5 d2_off
+   38 3,5 8 3*d3_on
+   39 3,6 10 2*d3_on
+   40 3,7 11 2*d3_on
+   41 5 1,3 d3_off
+   42 7 3,4 d3_off
+   43 2,9 2,10 3*d1_on
+   44 3,9 3,10 3*d1_on
+   45 4,9 4,10 3*d1_on
+   46 5,9 5,10 3*d1_on
+   47 6,9 6,10 6*d1_on
+   48 7,9 7,10 6*d1_on
+   49 2,9 3,9 3*d1_on
+   50 4,9 5,9 3*d1_on
+   51 6,9 7,9 6*d1_on
+   52 7,9 8,9 3*d1_on
+   53 9,9 9,10 9*d1_on
+   54 2,9 12 d2_on
+   55 9 2,6 3*d2_off
+   56 3,9 13 d3_on
+   57 2,12 2,13 4*d1_on
+   58 3,12 3,13 4*d1_on
+   59 4,12 4,13 4*d1_on
+   60 5,12 5,13 4*d1_on
+   61 6,12 6,13 8*d1_on
+   62 7,12 7,13 8*d1_on
+   63 9,12 9,13 12*d1_on
+   64 2,12 3,12 4*d1_on
+   65 4,12 5,12 4*d1_on
+   66 6,12 7,12 8*d1_on
+   67 7,12 8,12 4*d1_on
+   68 9,12 10,12 12*d1_on
+   69 12,12 12,13 16*d1_on
+   70 12 2,9 4*d2_off
+   71 2,13 2,14 3*d1_on
+   72 3,13 3,14 3*d1_on
+   73 4,13 4,14 3*d1_on
+   74 5,13 5,14 3*d1_on
+   75 6,13 6,14 6*d1_on
+   76 7,13 7,14 6*d1_on
+   77 9,13 9,14 9*d1_on
+   78 12,13 12,14 12*d1_on
+   79 2,13 3,13 4*d1_on
+   80 4,13 5,13 4*d1_on
+   81 6,13 7,13 8*d1_on
+   82 7,13 8,13 4*d1_on
+   83 9,13 10,13 12*d1_on
+   84 12,13 13,13 16*d1_on
+   85 13,13 13,14 12*d1_on
+   86 13 12 d1_off
+   87 13 2,10 3*d2_off
+   88 13 3,9 d3_off
+   89 2,14 2,15 2*d1_on
+   90 3,14 3,15 2*d1_on
+   91 4,14 4,15 2*d1_on
+   92 5,14 5,15 2*d1_on
+   93 6,14 6,15 4*d1_on
+   94 7,14 7,15 4*d1_on
+   95 9,14 9,15 6*d1_on
+   96 12,14 12,15 8*d1_on
+   97 13,14 13,15 8*d1_on
+   98 2,14 3,14 4*d1_on
+   99 4,14 5,14 4*d1_on
+  100 6,14 7,14 8*d1_on
+  101 7,14 8,14 4*d1_on
+  102 9,14 10,14 12*d1_on
+  103 12,14 13,14 16*d1_on
+  104 13,14 14,14 12*d1_on
+  105 14,14 14,15 8*d1_on
+  106 14 13 2*d1_off
+  107 14 2,11 2*d2_off
+  108 14 3,10 2*d3_off
+  109 2,10 2,11 2*d1_on
+  110 3,10 3,11 2*d1_on
+  111 4,10 4,11 2*d1_on
+  112 5,10 5,11 2*d1_on
+  113 6,10 6,11 4*d1_on
+  114 7,10 7,11 4*d1_on
+  115 9,10 9,11 6*d1_on
+  116 10,12 11,12 8*d1_on
+  117 10,13 11,13 8*d1_on
+  118 10,14 11,14 8*d1_on
+  119 2,10 3,10 3*d1_on
+  120 4,10 5,10 3*d1_on
+  121 6,10 7,10 6*d1_on
+  122 7,10 8,10 3*d1_on
+  123 9,10 10,10 9*d1_on
+  124 10,12 10,13 12*d1_on
+  125 10,13 10,14 9*d1_on
+  126 10,14 10,15 6*d1_on
+  127 10,10 10,11 6*d1_on
+  128 10 9 d1_off
+  129 2,10 13 d2_on
+  130 10 2,7 2*d2_off
+  131 3,10 14 d3_on
+  132 10 3,6 d3_off
+  133 2,15 2,16 d1_on
+  134 3,15 3,16 d1_on
+  135 4,15 4,16 d1_on
+  136 5,15 5,16 d1_on
+  137 6,15 6,16 2*d1_on
+  138 7,15 7,16 2*d1_on
+  139 9,15 9,16 3*d1_on
+  140 12,15 12,16 4*d1_on
+  141 13,15 13,16 4*d1_on
+  142 14,15 14,16 4*d1_on
+  143 10,15 10,16 3*d1_on
+  144 2,15 3,15 4*d1_on
+  145 4,15 5,15 4*d1_on
+  146 6,15 7,15 8*d1_on
+  147 7,15 8,15 4*d1_on
+  148 9,15 10,15 12*d1_on
+  149 12,15 13,15 16*d1_on
+  150 13,15 14,15 12*d1_on
+  151 14,15 15,15 8*d1_on
+  152 10,15 11,15 8*d1_on
+  153 15,15 15,16 4*d1_on
+  154 15 14 3*d1_off
+  155 15 2,17 d2_off
+  156 15 3,11 3*d3_off
+  157 2,11 2,17 d1_on
+  158 3,11 3,17 d1_on
+  159 4,11 4,17 d1_on
+  160 5,11 5,17 d1_on
+  161 6,11 6,17 2*d1_on
+  162 7,11 7,17 2*d1_on
+  163 9,11 9,17 3*d1_on
+  164 11,12 12,17 4*d1_on
+  165 11,13 13,17 4*d1_on
+  166 11,14 14,17 4*d1_on
+  167 10,11 10,17 3*d1_on
+  168 11,15 15,17 4*d1_on
+  169 2,11 3,11 3*d1_on
+  170 4,11 5,11 3*d1_on
+  171 6,11 7,11 6*d1_on
+  172 7,11 8,11 3*d1_on
+  173 9,11 10,11 9*d1_on
+  174 11,12 11,13 12*d1_on
+  175 11,13 11,14 9*d1_on
+  176 11,14 11,15 6*d1_on
+  177 10,11 11,11 6*d1_on
+  178 11,15 11,16 3*d1_on
+  179 11,11 11,17 3*d1_on
+  180 11 10 2*d1_off
+  181 2,11 14 d2_on
+  182 11 2,8 d2_off
+  183 3,11 15 d3_on
+  184 11 3,7 2*d3_off
+end reactions
+begin reaction_rates
+    1 d1_on A(r~nP,s)+A(r~nP,s)->A(r~nP,s)+A(r~P,s)  1.18810000e+00
+    2 d2_on S(t,t,t,t)+A(r~nP,s)->A(r~nP,s!1).S(t!1,t,t,t)  0.00000000e+00
+    3 d1_on A(r~nP,s)+A(r~nP,s!1).S(t!1,t,t,t)->A(r~nP,s)+A(r~P,s!1).S(t!1,t,t,t)  0.00000000e+00
+    4 d1_on A(r~nP,s)+A(r~P,s)->A(r~P,s)+A(r~P,s)  7.73900000e-01
+    5 d1_on A(r~P,s)+A(r~nP,s!1).S(t!1,t,t,t)->A(r~P,s)+A(r~P,s!1).S(t!1,t,t,t)  0.00000000e+00
+    6 d1_on A(r~nP,s)+A(r~nP,s!1).S(t!1,t,t,t)->A(r~P,s)+A(r~nP,s!1).S(t!1,t,t,t)  0.00000000e+00
+    7 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~nP,s!1).S(t!1,t,t,t)->A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).S(t!1,t,t,t)  0.00000000e+00
+    8 d1_off A(r~P,s)->A(r~nP,s)  7.10000000e+00
+    9 d2_on A(r~nP,s)+A(r~nP,s!1).S(t!1,t,t,t)->A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   10 d2_off A(r~nP,s!1).S(t!1,t,t,t)->S(t,t,t,t)+A(r~nP,s)  0.00000000e+00
+   11 d3_on S(t,t,t,t)+A(r~P,s)->A(r~P,s!1).S(t!1,t,t,t)  0.00000000e+00
+   12 d3_on A(r~P,s)+A(r~nP,s!1).S(t!1,t,t,t)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   13 d1_on A(r~nP,s)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   14 d1_on A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   15 d1_on A(r~P,s)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   16 d1_on A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s)+A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   17 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   18 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   19 d1_on A(r~nP,s)+A(r~P,s!1).S(t!1,t,t,t)->A(r~P,s)+A(r~P,s!1).S(t!1,t,t,t)  0.00000000e+00
+   20 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).S(t!1,t,t,t)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).S(t!1,t,t,t)  0.00000000e+00
+   21 d1_on A(r~P,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   22 d1_on A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   23 d1_on A(r~nP,s)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   24 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   25 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   26 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   27 d1_on A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   28 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   29 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   30 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   31 d1_off A(r~P,s!1).S(t!1,t,t,t)->A(r~nP,s!1).S(t!1,t,t,t)  0.00000000e+00
+   32 d1_off A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   33 d2_on A(r~nP,s)+A(r~P,s!1).S(t!1,t,t,t)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   34 d2_on A(r~nP,s)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+   35 d2_on A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+   36 d2_off A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~nP,s)+A(r~nP,s!1).S(t!1,t,t,t)  0.00000000e+00
+   37 d2_off A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~nP,s)+A(r~P,s!1).S(t!1,t,t,t)  0.00000000e+00
+   38 d3_on A(r~P,s)+A(r~P,s!1).S(t!1,t,t,t)->A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   39 d3_on A(r~P,s)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+   40 d3_on A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+   41 d3_off A(r~P,s!1).S(t!1,t,t,t)->S(t,t,t,t)+A(r~P,s)  0.00000000e+00
+   42 d3_off A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)->A(r~P,s)+A(r~nP,s!1).S(t!1,t,t,t)  0.00000000e+00
+   43 d1_on A(r~nP,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+   44 d1_on A(r~P,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+   45 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+   46 d1_on A(r~P,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+   47 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+   48 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+   49 d1_on A(r~nP,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+   50 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+   51 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+   52 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+   53 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+   54 d2_on A(r~nP,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   55 d2_off A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~nP,s)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+   56 d3_on A(r~P,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   57 d1_on A(r~nP,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  1.30800000e+00
+   58 d1_on A(r~P,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  8.52000000e-01
+   59 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   60 d1_on A(r~P,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   61 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   62 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   63 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   64 d1_on A(r~nP,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  1.30800000e+00
+   65 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).S(t!1,t,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   66 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   67 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   68 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   69 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  1.44000000e+00
+   70 d2_off A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  1.20000000e-01
+   71 d1_on A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   72 d1_on A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   73 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   74 d1_on A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   75 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   76 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   77 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   78 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   79 d1_on A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   80 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   81 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   82 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   83 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   84 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   85 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   86 d1_off A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   87 d2_off A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+   88 d3_off A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+   89 d1_on A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   90 d1_on A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   91 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   92 d1_on A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   93 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   94 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   95 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   96 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   97 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   98 d1_on A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+   99 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  100 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  101 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  102 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  103 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  104 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  105 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  106 d1_off A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  107 d2_off A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  108 d3_off A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+  109 d1_on A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  110 d1_on A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  111 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  112 d1_on A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  113 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  114 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  115 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  116 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  117 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  118 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  119 d1_on A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+  120 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+  121 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+  122 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+  123 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+  124 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  125 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  126 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  127 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  128 d1_off A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  129 d2_on A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  130 d2_off A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~nP,s)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+  131 d3_on A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  132 d3_off A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)->A(r~P,s)+A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+  133 d1_on A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  134 d1_on A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  135 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  136 d1_on A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  137 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  138 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  139 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  140 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  141 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  142 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  143 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  144 d1_on A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  145 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  146 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  147 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  148 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  149 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  150 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  151 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  152 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  153 d1_on A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  154 d1_off A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  155 d2_off A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  156 d3_off A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  157 d1_on A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  158 d1_on A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  159 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  160 d1_on A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  161 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  162 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  163 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  164 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  165 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  166 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  167 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  168 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  169 d1_on A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  170 d1_on A(r~nP,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).S(t!1,t,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  171 d1_on A(r~nP,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  172 d1_on A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  173 d1_on A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  174 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~nP,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  175 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  176 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  177 d1_on A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  178 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~P,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  179 d1_on A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)+A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).S(t!3,t!2,t!1,t)  0.00000000e+00
+  180 d1_off A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~nP,s!2).A(r~nP,s!3).S(t!3,t!1,t!2,t)  0.00000000e+00
+  181 d2_on A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  182 d2_off A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~nP,s)+A(r~P,s!1).A(r~P,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+  183 d3_on A(r~P,s)+A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s!1).A(r~P,s!2).A(r~P,s!3).A(r~nP,s!4).S(t!4,t!3,t!2,t!1)  0.00000000e+00
+  184 d3_off A(r~P,s!1).A(r~P,s!2).A(r~nP,s!3).S(t!3,t!2,t!1,t)->A(r~P,s)+A(r~P,s!1).A(r~nP,s!2).S(t!2,t!1,t,t)  0.00000000e+00
+end reaction_rates
+begin groups
+    1         nA 2,4,2*6,7,3*9,4*12,3*13,2*14,2*10,15,11
+    2        nAP 3,5,7,13,2*14,10,3*15,2*11
+    3         nS 24*1
+    4        nSb 6*4,6*5
+    5       nSbb 4*6,4*7
+    6      nSbbb 6*9,6*10,6*11
+    7     nSbbbb 24*12,24*13,24*14,24*15
+end groups

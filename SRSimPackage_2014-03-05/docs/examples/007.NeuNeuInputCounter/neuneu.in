@@ -1,0 +1,95 @@
+# shell cd /home/mit/csb/gerdl/work/003.NeuNeu/002.tryNeuNeuSRSim/008.networkIO
+
+
+dimension	3
+boundary	f f f 
+units		real
+newton          on
+
+atom_style	srsim neuneu.bngl neuneu.geo neuneu.tgeo 23456
+
+
+lattice none
+region		        Nukleus block 0  100  0   100  0  100 units box
+create_box	        10 Nukleus
+
+# set initial values e.g. bond forces etc.
+start_state_srsim       coeffs
+start_state_srsim       atoms
+
+pair_style none
+
+
+# neighbor                2 bin
+
+# Molecule groups:
+
+
+# Add some more molecules:
+#runmodif_srsim  addMols   0 5    0 100 0 100 ed(ex~a,c,c,c,type~in1) 5000
+#runmodif_srsim  addMols   0 5    0 100 0 100 ed(ex~a,c,c,c,type~in2) 5
+
+#runmodif_srsim  addMols   95 100 0 100 0 100 ed(ex~a,c,c,c,type~out1) 5
+#runmodif_srsim  addMols   95 100 0 100 0 100 ed(ex~a,c,c,c,type~out2) 5
+
+
+runmodif_srsim addNeuNeuMap 0 100  0 100 0 100  circuit001.neu 1
+
+
+###
+# Stimulation:
+#                              Brownian   Temp Temp damping randomSeed
+# fix  		     2   all   langevin   300  300  16.0   23456
+fix                  2   all   viscous    20
+fix		     1   all   nve                 # not needed if fix rigid is used!
+#
+#  SRSim Reactions:  id  group fixName | nEvery  randomSeed  preFactBindR preFactBreakR preFactExchangeR preFactModifyR_1 preFactModifyR_2
+fix 		     3   all   srsim     1       45678          1.0           1.0            1.0                1.0             1.0
+#
+# wall/reflect can't be used with rigid bodies... so use drag instead!
+fix                  4   all   wall/reflect xlo xhi ylo yhi zlo zhi
+#
+fix                  10  all   neuneu/stimulus static_compare staticstim.in
+
+###
+# inactive fixes:
+#                                          fMag Delta
+# fix                  5   all   drag 0 0 0    5  180
+#
+# fix                 1   all   rigid   molecule    # use rigid molecules:
+#
+
+
+
+# neighbour lists:
+# neigh_modify	exclude molecule ABC
+
+# Dumps:
+timestep	30
+thermo		500
+thermo_modify   lost ignore
+
+# dump            2 all srsim 500 neuneu.srsim.gdat
+
+dump            1 all atom/neuneu/charge 100 neuneu.lammpstrj
+dump_modify     1 scale yes
+
+
+
+# relax geometries a bit:
+run             50000
+
+# do a bit of cheating to reduce computational load: when nothing moves in the simulator:
+unfix  2   # all   langevin   300  300  16.0   23456
+unfix  1   # all   nve                 # not needed if fix rigid is used!
+unfix  4   # all   wall/reflect xlo xhi ylo yhi zlo zhi
+pair_style none
+bond_style none 
+angle_style none
+runmodif_srsim  ignoreBimolecularReactions on
+
+
+# long-term excitation simulation
+run             500000
+
+ 

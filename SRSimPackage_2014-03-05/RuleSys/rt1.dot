@@ -1,0 +1,10 @@
+digraph G {
+"S2_0" -> "L_3" [label="S2(SH2)"] ;
+"S2_0" -> "S1_1" [label="S2(Y)"] ;
+"S1_1" -> "S2_0" [label="S1(x)"] ;
+"S1_1" -> "null_0" [label="S1(PTP)"] ;
+"S1_1" -> "R_2" [label="S1(SH2)"] ;
+"R_2" -> "S1_1" [label="R(Y1)"] ;
+"L_3" -> "S2_0" [label="L(pt)"] ;
+"L_3" -> "null_1" [label="L(lpt2)"] ;
+}

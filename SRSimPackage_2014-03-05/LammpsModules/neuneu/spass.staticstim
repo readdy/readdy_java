@@ -1,0 +1,18 @@
+outpDelay: 100
+stimDelay: 100
+outpThreshold: 0.2
+nevery:    20
+excitable_site_id:       ed(ex)
+excite_modification:     b
+excited_modification:    b
+excited_modification:    c
+excited_modification:    d
+excited_modification:    e
+excited_modification:    f
+
+stim:
+Time         i:ed(type~in1)  i:ed(type~in2)     o:ed(type~out1)  o:ed(type~out2)
+1000            0                0                    0              1
+1001            0                1                    1              0
+1002            1                0                    1              0
+1003            1                1                    0              1
